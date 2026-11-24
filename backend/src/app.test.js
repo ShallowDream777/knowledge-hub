@@ -31,7 +31,23 @@ test('Knowledge Hub HTTP API + Optional Auth + Dual-Storage SQLite integration',
     const engGuest = kbsGuest.find(k => k.id === 'english');
     assert.ok(engGuest);
     assert.equal(engGuest.lastRead, null);
-    assert.equal(engGuest.stats.totalExercises, 31);
+    assert.equal(engGuest.stats.totalExercises, 47); // 31 (线性语法) + 16 (考试强化)
+
+    // Verify dynamic stage parsing from 00·*.md (zero hardcoded stage names in parser)
+    const treeRes = await (await fetch(`${baseUrl}/api/kbs/english/tree`)).json();
+    const ex01Summary = treeRes.exercises.find(e => e.code === '01');
+    const exM201Summary = treeRes.exercises.find(e => e.code === 'm2-01');
+    const exM207Summary = treeRes.exercises.find(e => e.code === 'm2-07');
+    assert.equal(ex01Summary.stage, '第一阶段：先把词与句子认清');
+    assert.equal(exM201Summary.stage, '先把语法用于读句子');
+    assert.equal(exM207Summary.stage, '阅读理解');
+
+    // Verify Module 2 reading passage + MCQ exercise parsing works generically
+    const exM207 = await (await fetch(`${baseUrl}/api/kbs/english/exercise/m2-07`)).json();
+    assert.equal(exM207.questions.length, 16);
+    assert.ok(exM207.questions[0].introHtml.includes('A city library'));
+    assert.ok(exM207.questions[0].prompt.includes('q-options-block'));
+    assert.ok(exM207.questions.every(q => q.answer && !q.answer.includes('暂无解析')));
 
     // Guest wrongbook query via ?keys=01:A01
     const wbGuest = await (await fetch(`${baseUrl}/api/kbs/english/wrongbook?keys=01:A01`)).json();

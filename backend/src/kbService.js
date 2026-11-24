@@ -14,9 +14,44 @@ export class KbService {
   }
 
   /**
+   * 从模块根目录的索引 Markdown（如 `00·*.md`）动态解析“章节号 -> 阶段标题”映射。
+   * 规则：扫描所有 `## ...` 或 `### ...` 标题，将其下方出现的 `[[01·...]]` 章节号归入该标题名下。
+   * 这样任何知识库或模块的阶段划分都由 Markdown 文档自身决定，无需在代码中硬编码阶段名称。
+   */
+  _parseStagesFromIndexMd(modAbs, fallbackStage) {
+    const stageMap = new Map(); // "01" -> "第一阶段：..."
+    if (!fs.existsSync(modAbs)) return stageMap;
+
+    const indexFile = fs
+      .readdirSync(modAbs)
+      .find(f => f.endsWith('.md') && (f.startsWith('00') || f.toLowerCase() === 'index.md'));
+    if (!indexFile) return stageMap;
+
+    const content = fs.readFileSync(path.join(modAbs, indexFile), 'utf-8');
+    let currentHeading = fallbackStage;
+
+    for (const rawLine of content.split(/\r?\n/)) {
+      const line = rawLine.trim();
+      const mH = line.match(/^#{2,3}\s+(.+)$/);
+      if (mH) {
+        currentHeading = mH[1].trim();
+        continue;
+      }
+      if (line.startsWith('-')) {
+        for (const mLink of line.matchAll(/\[\[(\d{2})·[^\]]+\]\]/g)) {
+          const chCode = mLink[1];
+          stageMap.set(chCode, currentHeading);
+        }
+      }
+    }
+    return stageMap;
+  }
+
+  /**
    * 发现所有知识库。
-   * 默认将当前 `1.英语...`、`2.同等学力...`、`3.英语语法...` 聚合为 `english`（英语知识库）。
-   * 若未来在 `knowledge-base/` 下新建其他顶层学科文件夹（如 `math/` 或带 `kb.json` 的目录），自动作为新知识库卡片展示。
+   * 支持两种组织方式：
+   * 1) 顶层目录含 `kb.json` 或独立学科目录；
+   * 2) 按学科前缀/配置自动归组。
    */
   listKnowledgeBases() {
     if (!fs.existsSync(this.kbRoot)) return [];
@@ -55,12 +90,12 @@ export class KbService {
         } catch {}
       }
       result.push({
-        id: dirName.toLowerCase().replace(/[^a-z0-9_-]/g, '-'),
+        id: meta.id || dirName.toLowerCase().replace(/[^a-z0-9_-]/g, '-'),
         title: meta.title || dirName,
         subtitle: meta.subtitle || `${dirName} 知识库`,
         icon: meta.icon || '📗',
         badge: meta.badge || '扩展知识库',
-        modules: [dirName]
+        modules: meta.modules || [dirName]
       });
     }
 
@@ -73,7 +108,7 @@ export class KbService {
   }
 
   /**
-   * 扫描指定知识库下的所有模块、文档树、双链索引与练习集文件
+   * 扫描指定知识库下的所有模块、文档树、双链索引与练习集文件（支持任意模块下的 `强化题目/`）
    */
   scanKb(kbId) {
     const kb = this.getKbConfig(kbId);
@@ -82,31 +117,54 @@ export class KbService {
     const modules = [];
     const stemMap = new Map(); // stem -> relativePath
     const orderedDocs = [];
-    const exerciseFiles = new Map(); // chapterCode ("01") -> absPath
+    const exerciseFiles = new Map(); // exerciseKey -> { absPath, stage, moduleName, moduleIdx }
 
-    for (const modName of kb.modules) {
+    for (let modIdx = 0; modIdx < kb.modules.length; modIdx++) {
+      const modName = kb.modules[modIdx];
       const modAbs = path.join(this.kbRoot, modName);
       if (!fs.existsSync(modAbs)) continue;
 
-      // Scan exercises in `1.英语学习资料·完整线性版/强化题目`
+      const shortModName = modName.replace(/^\d+\./, '');
+      const stageMap = this._parseStagesFromIndexMd(modAbs, shortModName);
+
+      // 通用扫描任何模块下的 `强化题目` 目录
       const exDir = path.join(modAbs, '强化题目');
-      if (fs.existsSync(exDir) && modName.startsWith('1.')) {
+      const modExerciseCodes = new Set();
+      if (fs.existsSync(exDir)) {
         for (const f of fs.readdirSync(exDir).sort()) {
-          const m = f.match(/^(\d{2})·强化练习·(.+)\.md$/);
+          if (!f.endsWith('.md') || f.startsWith('00')) continue;
+          const m = f.match(/^(\d{2})·(.+)\.md$/);
           if (m) {
-            exerciseFiles.set(m[1], path.join(exDir, f));
+            const rawCode = m[1];
+            // 第一个模块保持 `01`~`31` 编码以兼容已有进度，其余模块带模块前缀如 `m2-01`
+            const exKey = modIdx === 0 ? rawCode : `m${modIdx + 1}-${rawCode}`;
+            modExerciseCodes.add(rawCode);
+            exerciseFiles.set(exKey, {
+              absPath: path.join(exDir, f),
+              stage: stageMap.get(rawCode) || shortModName,
+              moduleName: modName,
+              moduleIdx: modIdx,
+              rawCode
+            });
           }
         }
       }
 
-      const modNode = this._scanModuleDir(modAbs, modName, stemMap, orderedDocs);
+      const modNode = this._scanModuleDir(
+        modAbs,
+        modName,
+        modIdx,
+        modExerciseCodes,
+        stemMap,
+        orderedDocs
+      );
       modules.push(modNode);
     }
 
     return { kb, modules, stemMap, orderedDocs, exerciseFiles };
   }
 
-  _scanModuleDir(dirAbs, relPrefix, stemMap, orderedDocs) {
+  _scanModuleDir(dirAbs, relPrefix, modIdx, modExerciseCodes, stemMap, orderedDocs) {
     const entries = fs.readdirSync(dirAbs, { withFileTypes: true }).sort((a, b) =>
       a.name.localeCompare(b.name, 'zh-Hans-CN', { numeric: true })
     );
@@ -124,15 +182,13 @@ export class KbService {
       if (entry.isFile() && entry.name.endsWith('.md')) {
         const stem = entry.name.replace(/\.md$/, '');
         if (!stemMap.has(stem)) stemMap.set(stem, relPath);
-        const docItem = this._buildDocItem(entry.name, relPath);
+        const docItem = this._buildDocItem(entry.name, relPath, modIdx, modExerciseCodes);
         rootDocs.push(docItem);
         if (!relPath.includes('/强化题目/')) {
           orderedDocs.push(docItem);
         }
       } else if (entry.isDirectory()) {
-        // Skip raw exercise markdown folder in main reading tree for Module 1 (since interactive practice has its own tab)
-        if (entry.name === '强化题目' && relPrefix.startsWith('1.')) {
-          // Still register stems so wiki-links to [[01·强化练习·...]] can be resolved
+        if (entry.name === '强化题目') {
           for (const f of fs.readdirSync(fullPath)) {
             if (f.endsWith('.md')) {
               const stem = f.replace(/\.md$/, '');
@@ -141,7 +197,14 @@ export class KbService {
           }
           continue;
         }
-        const subDocs = this._collectMarkdownFiles(fullPath, relPath, stemMap, orderedDocs);
+        const subDocs = this._collectMarkdownFiles(
+          fullPath,
+          relPath,
+          modIdx,
+          modExerciseCodes,
+          stemMap,
+          orderedDocs
+        );
         if (subDocs.length > 0) {
           groups.push({
             name: entry.name,
@@ -155,12 +218,13 @@ export class KbService {
     return {
       name: relPrefix,
       shortName: relPrefix.replace(/^\d+\./, ''),
+      hasExercises: modExerciseCodes.size > 0,
       rootDocs,
       groups
     };
   }
 
-  _collectMarkdownFiles(dirAbs, relPrefix, stemMap, orderedDocs) {
+  _collectMarkdownFiles(dirAbs, relPrefix, modIdx, modExerciseCodes, stemMap, orderedDocs) {
     const entries = fs.readdirSync(dirAbs, { withFileTypes: true }).sort((a, b) =>
       a.name.localeCompare(b.name, 'zh-Hans-CN', { numeric: true })
     );
@@ -174,7 +238,7 @@ export class KbService {
       if (entry.isFile() && entry.name.endsWith('.md')) {
         const stem = entry.name.replace(/\.md$/, '');
         if (!stemMap.has(stem)) stemMap.set(stem, relPath);
-        const item = this._buildDocItem(entry.name, relPath);
+        const item = this._buildDocItem(entry.name, relPath, modIdx, modExerciseCodes);
         docs.push(item);
         if (!relPath.includes('/强化题目/')) {
           orderedDocs.push(item);
@@ -184,19 +248,24 @@ export class KbService {
     return docs;
   }
 
-  _buildDocItem(filename, relPath) {
+  _buildDocItem(filename, relPath, modIdx, modExerciseCodes) {
     const stem = filename.replace(/\.md$/, '');
     const mChap = stem.match(/^(\d{2})·(.+)$/);
-    const code = mChap ? mChap[1] : null;
+    const rawCode = mChap ? mChap[1] : null;
     const displayTitle = mChap ? `${mChap[1]} · ${mChap[2]}` : stem;
-    const exerciseCode =
-      relPath.startsWith('1.') && relPath.includes('/章节/') && code && code !== '00' ? code : null;
+
+    let exerciseCode = null;
+    if (rawCode && rawCode !== '00' && modExerciseCodes?.has(rawCode) && relPath.includes('/章节/')) {
+      exerciseCode = modIdx === 0 ? rawCode : `m${modIdx + 1}-${rawCode}`;
+    }
+
     return {
       name: filename,
       stem,
-      code,
+      code: rawCode,
       title: displayTitle,
       path: relPath,
+      moduleIdx: modIdx,
       exerciseCode
     };
   }
@@ -214,7 +283,6 @@ export class KbService {
     const scan = this.scanKb(kbId);
     if (!scan) return null;
 
-    // Allow resolving by exact relative path OR by wiki-link stem
     let targetRel = relPath;
     if (!targetRel.endsWith('.md') && scan.stemMap.has(targetRel)) {
       targetRel = scan.stemMap.get(targetRel);
@@ -231,7 +299,7 @@ export class KbService {
     const content = fs.readFileSync(abs, 'utf-8');
     const idx = scan.orderedDocs.findIndex(d => d.path === toPosix(targetRel));
     const currentItem =
-      idx >= 0 ? scan.orderedDocs[idx] : this._buildDocItem(path.basename(abs), toPosix(targetRel));
+      idx >= 0 ? scan.orderedDocs[idx] : this._buildDocItem(path.basename(abs), toPosix(targetRel), 0, new Set());
     const prevDoc = idx > 0 ? scan.orderedDocs[idx - 1] : null;
     const nextDoc = idx >= 0 && idx + 1 < scan.orderedDocs.length ? scan.orderedDocs[idx + 1] : null;
 
@@ -243,24 +311,47 @@ export class KbService {
     };
   }
 
+  _normalizeExerciseKey(scan, chapterCode) {
+    const raw = String(chapterCode).trim();
+    if (scan.exerciseFiles.has(raw)) return raw;
+    const padded = raw.padStart(2, '0');
+    if (scan.exerciseFiles.has(padded)) return padded;
+    return null;
+  }
+
   getExerciseChapter(kbId, chapterCode) {
     const scan = this.scanKb(kbId);
     if (!scan) return null;
-    const padded = String(chapterCode).padStart(2, '0');
-    const exPath = scan.exerciseFiles.get(padded);
-    if (!exPath || !fs.existsSync(exPath)) return null;
-    const raw = fs.readFileSync(exPath, 'utf-8');
-    return parseExerciseMarkdown(raw, path.basename(exPath));
+    const key = this._normalizeExerciseKey(scan, chapterCode);
+    if (!key) return null;
+    const info = scan.exerciseFiles.get(key);
+    if (!info || !fs.existsSync(info.absPath)) return null;
+    const raw = fs.readFileSync(info.absPath, 'utf-8');
+    const parsed = parseExerciseMarkdown(raw, path.basename(info.absPath), info.stage);
+    return {
+      ...parsed,
+      code: key,
+      rawCode: info.rawCode,
+      moduleName: info.moduleName,
+      moduleIdx: info.moduleIdx
+    };
   }
 
   getAllExercises(kbId) {
     const scan = this.scanKb(kbId);
     if (!scan) return [];
     const list = [];
-    for (const [code, exPath] of scan.exerciseFiles.entries()) {
-      const raw = fs.readFileSync(exPath, 'utf-8');
-      list.push(parseExerciseMarkdown(raw, path.basename(exPath)));
+    for (const [key, info] of scan.exerciseFiles.entries()) {
+      const raw = fs.readFileSync(info.absPath, 'utf-8');
+      const parsed = parseExerciseMarkdown(raw, path.basename(info.absPath), info.stage);
+      list.push({
+        ...parsed,
+        code: key,
+        rawCode: info.rawCode,
+        moduleName: info.moduleName,
+        moduleIdx: info.moduleIdx
+      });
     }
-    return list.sort((a, b) => a.num - b.num);
+    return list.sort((a, b) => a.moduleIdx - b.moduleIdx || a.num - b.num);
   }
 }

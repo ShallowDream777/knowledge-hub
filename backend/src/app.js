@@ -268,6 +268,9 @@ export function createApp(options = {}) {
       return {
         num: ex.num,
         code: ex.code,
+        rawCode: ex.rawCode,
+        moduleName: ex.moduleName,
+        moduleIdx: ex.moduleIdx,
         title: ex.title,
         stage: ex.stage,
         totalQuestions: ex.questions.length,
@@ -401,7 +404,8 @@ export function createApp(options = {}) {
     if (!chapterCode || !questionId) {
       return res.status(400).json({ error: 'chapterCode and questionId are required' });
     }
-    const code = String(chapterCode).padStart(2, '0');
+    const raw = String(chapterCode).trim();
+    const code = raw.includes('-') ? raw : raw.padStart(2, '0');
     if (!req.user) {
       return res.json({
         savedToDb: false,
@@ -481,7 +485,8 @@ export function createApp(options = {}) {
   // 9. 重置某章全部刷题记录
   app.delete('/api/kbs/:kbId/practice/:chapterCode', (req, res) => {
     const { kbId, chapterCode } = req.params;
-    const code = String(chapterCode).padStart(2, '0');
+    const raw = String(chapterCode).trim();
+    const code = raw.includes('-') ? raw : raw.padStart(2, '0');
     if (!req.user) return res.json({ deletedCount: 0, savedToDb: false });
     const info = db
       .prepare('DELETE FROM user_practice_records WHERE user_id = ? AND kb_id = ? AND chapter_code = ?')

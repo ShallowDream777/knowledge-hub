@@ -261,11 +261,16 @@
               </button>
             </div>
 
-            <!-- 模块切换（仅在章节阅读模式且有多个模块时显示） -->
-            <div v-if="workMode === 'read' && treeData?.modules?.length > 1" class="mod-select-row">
-              <select v-model="selectedModuleIdx" class="mod-select">
-                <option v-for="(mod, idx) in treeData.modules" :key="mod.name" :value="idx">
-                  {{ mod.name }}
+            <!-- 模块切换（在章节阅读或交互刷题模式下，有多个模块时显示） -->
+            <div v-if="(workMode === 'read' || workMode === 'exercise') && treeData?.modules?.length > 1" class="mod-select-row">
+              <select v-model="selectedModuleIdx" class="mod-select" @change="handleModuleChange">
+                <option
+                  v-for="(mod, idx) in treeData.modules"
+                  :key="mod.name"
+                  :value="idx"
+                  :disabled="workMode === 'exercise' && !mod.hasExercises"
+                >
+                  {{ mod.name }}{{ workMode === 'exercise' && !mod.hasExercises ? '（无题库）' : '' }}
                 </option>
               </select>
             </div>
@@ -340,7 +345,7 @@
                 @click="openExercise(ex.code)"
               >
                 <div class="ch-item-top">
-                  <span class="ch-code">{{ ex.code }}</span>
+                  <span class="ch-code">{{ ex.rawCode || ex.code }}</span>
                   <span class="ch-name" :title="ex.title">{{ ex.title }}</span>
                   <span class="ch-stat">{{ ex.okRequiredCount }}/{{ ex.requiredCount }}</span>
                 </div>
@@ -429,11 +434,12 @@
               <section class="header-card">
                 <div class="header-top">
                   <div>
-                    <h1 class="ch-title">第 {{ currentEx.code }} 章　{{ currentEx.title }}</h1>
+                    <div class="doc-path-crumb">{{ currentEx.moduleName }} · {{ currentEx.stage }}</div>
+                    <h1 class="ch-title">第 {{ currentEx.rawCode || currentEx.code }} 章　{{ currentEx.title }}</h1>
                     <p class="ch-scope">{{ currentEx.scope || '按首轮必做题完成练习与独立验收即可进入下一章。' }}</p>
                   </div>
                   <button class="ghost-btn" @click="jumpToChapterDoc(currentEx.code)">
-                    📖 返回阅读第 {{ currentEx.code }} 章正文
+                    📖 返回阅读第 {{ currentEx.rawCode || currentEx.code }} 章正文
                   </button>
                 </div>
 
@@ -442,6 +448,7 @@
                     首轮必做：{{ exStats.okReq }} / {{ exStats.totalReq }} 会了（已自评 {{ exStats.doneReq }}）
                   </span>
                   <span
+                    v-if="currentEx.cPass > 0"
                     class="stat-pill"
                     :class="exStats.cPassed ? 'pass' : (exStats.cGraded > 0 ? 'warn' : '')"
                   >
@@ -540,12 +547,15 @@
               </div>
 
               <div v-else class="q-list">
-                <article
-                  v-for="q in filteredQuestions"
-                  :key="q.id"
-                  class="q-card"
-                  :class="q.grade ? 'st-' + q.grade : ''"
-                >
+                <template v-for="q in filteredQuestions" :key="q.id">
+                  <div v-if="q.introHtml" class="section-passage-box">
+                    <div class="passage-title">📄 {{ q.groupLabel }} · 阅读材料 / 说明</div>
+                    <div class="passage-body" v-html="q.introHtml"></div>
+                  </div>
+                  <article
+                    class="q-card"
+                    :class="q.grade ? 'st-' + q.grade : ''"
+                  >
                   <div class="q-meta">
                     <span class="q-id">{{ q.id }}</span>
                     <span
@@ -609,23 +619,24 @@
                     <div class="ans-body" v-html="q.answer"></div>
                   </div>
                 </article>
+                </template>
               </div>
 
               <div class="bottom-nav">
                 <button
                   class="nav-btn"
-                  :disabled="currentEx.num <= 1"
-                  @click="openExercise(String(currentEx.num - 1).padStart(2, '0'))"
+                  :disabled="!prevExerciseCode"
+                  @click="prevExerciseCode && openExercise(prevExerciseCode)"
                 >
                   ← 上一章刷题
                 </button>
                 <button class="ghost-btn" @click="jumpToChapterDoc(currentEx.code)">
-                  📖 阅读第 {{ currentEx.code }} 章正文
+                  📖 阅读第 {{ currentEx.rawCode || currentEx.code }} 章正文
                 </button>
                 <button
                   class="nav-btn"
-                  :disabled="currentEx.num >= 31"
-                  @click="openExercise(String(currentEx.num + 1).padStart(2, '0'))"
+                  :disabled="!nextExerciseCode"
+                  @click="nextExerciseCode && openExercise(nextExerciseCode)"
                 >
                   下一章刷题 →
                 </button>
@@ -1124,6 +1135,17 @@ async function switchWorkMode(mode) {
   }
 }
 
+async function handleModuleChange() {
+  if (workMode.value === 'exercise') {
+    const modExercises = (treeData.value?.exercises || []).filter(
+      ex => ex.moduleIdx === selectedModuleIdx.value
+    );
+    if (modExercises.length > 0) {
+      await openExercise(modExercises[0].code);
+    }
+  }
+}
+
 const currentModule = computed(() => {
   return treeData.value?.modules?.[selectedModuleIdx.value] || null;
 });
@@ -1146,19 +1168,33 @@ const filteredDocGroups = computed(() => {
     .filter(g => g.docs.length > 0);
 });
 
-// 侧边栏 31 章练习进度（已登录用 DB 统计，未登录实时用 localPractice 计算）
+const currentModuleExercises = computed(() => {
+  const all = treeData.value?.exercises || [];
+  const byMod = all.filter(ex => ex.moduleIdx === selectedModuleIdx.value);
+  return byMod.length > 0 ? byMod : all;
+});
+
+const prevExerciseCode = computed(() => {
+  const list = currentModuleExercises.value;
+  const idx = list.findIndex(ex => ex.code === currentExCode.value);
+  return idx > 0 ? list[idx - 1].code : null;
+});
+
+const nextExerciseCode = computed(() => {
+  const list = currentModuleExercises.value;
+  const idx = list.findIndex(ex => ex.code === currentExCode.value);
+  return idx >= 0 && idx + 1 < list.length ? list[idx + 1].code : null;
+});
+
+// 侧边栏练习进度（按当前所选模块展示，已登录用 DB 统计，未登录实时用 localPractice 计算）
 const groupedExercises = computed(() => {
-  const rawList = treeData.value?.exercises || [];
+  const rawList = currentModuleExercises.value;
   const list = rawList.map(ex => {
     if (currentUser.value) return ex;
-    // 未登录：用 localPractice 统计必做完成数
     let okCount = 0;
     for (const [k, g] of Object.entries(localPractice.grades)) {
       if (k.startsWith(ex.code + ':') && g === 'ok') {
-        const qid = k.split(':')[1] || '';
-        const qNum = Number(qid.slice(1));
-        const isOptionalA = qid.startsWith('A') && qNum >= 9 && qNum <= 16;
-        if (!isOptionalA) okCount++;
+        okCount++;
       }
     }
     return {
@@ -1169,7 +1205,7 @@ const groupedExercises = computed(() => {
 
   const kw = searchKw.value.trim().toLowerCase();
   const filtered = kw
-    ? list.filter(ex => ex.code.includes(kw) || ex.title.toLowerCase().includes(kw))
+    ? list.filter(ex => (ex.rawCode || ex.code).includes(kw) || ex.title.toLowerCase().includes(kw))
     : list;
   const groups = [];
   let lastStage = '';
@@ -1265,7 +1301,13 @@ async function handleMarkdownClick(e) {
   const exEl = e.target.closest('[data-exercise-ch]');
   if (exEl) {
     e.preventDefault();
-    await openExercise(exEl.dataset.exerciseCh);
+    const rawCh = exEl.dataset.exerciseCh;
+    // 若当前文档有关联的带模块前缀的 exerciseCode（如 m2-01），优先使用对应模块前缀
+    const targetExCode =
+      currentDoc.value?.exerciseCode && currentDoc.value.exerciseCode.endsWith(rawCh)
+        ? currentDoc.value.exerciseCode
+        : (selectedModuleIdx.value > 0 ? `m${selectedModuleIdx.value + 1}-${rawCh}` : rawCh);
+    await openExercise(targetExCode);
     return;
   }
 
@@ -1301,7 +1343,8 @@ async function toggleDocCompleted() {
 }
 
 async function openExercise(chapterCode) {
-  const code = String(chapterCode).padStart(2, '0');
+  const raw = String(chapterCode).trim();
+  const code = raw.includes('-') ? raw : raw.padStart(2, '0');
   currentExCode.value = code;
   workMode.value = 'exercise';
   groupTab.value = 'ALL';
@@ -1314,6 +1357,9 @@ async function openExercise(chapterCode) {
     });
     if (res.ok) {
       const data = await res.json();
+      if (typeof data.moduleIdx === 'number') {
+        selectedModuleIdx.value = data.moduleIdx;
+      }
       // 合并策略：已登录时优先用 DB 返回值（若 DB 为空则用本地缓存兜底），同时双写回 localPractice
       for (const q of data.questions) {
         const k = qKey(code, q.id);
@@ -1339,10 +1385,12 @@ async function openExercise(chapterCode) {
 }
 
 async function jumpToChapterDoc(chapterCode) {
-  const code = String(chapterCode).padStart(2, '0');
-  const firstMod = treeData.value?.modules?.[0];
-  const chapGroup = firstMod?.groups?.find(g => g.name === '章节');
-  const doc = chapGroup?.docs?.find(d => d.code === code);
+  const ex = currentEx.value;
+  const modIdx = typeof ex?.moduleIdx === 'number' ? ex.moduleIdx : selectedModuleIdx.value;
+  const rawCode = ex?.rawCode || String(chapterCode).replace(/^m\d+-/, '').padStart(2, '0');
+  const mod = treeData.value?.modules?.[modIdx];
+  const chapGroup = mod?.groups?.find(g => g.name === '章节');
+  const doc = chapGroup?.docs?.find(d => d.code === rawCode);
   if (doc) {
     await openDocument(doc.path);
   }
@@ -2386,6 +2434,37 @@ details.drawer summary {
 }
 
 .q-list { display: flex; flex-direction: column; gap: 12px; }
+.section-passage-box {
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-top: 6px;
+}
+.passage-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.passage-body p {
+  margin: 0 0 10px;
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+.passage-body p:last-child { margin-bottom: 0; }
+.q-options-block {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 8px;
+}
+.q-option-line {
+  font-size: 14.5px;
+  color: var(--text);
+}
 .q-card {
   background: var(--surface);
   border: 1px solid var(--border);

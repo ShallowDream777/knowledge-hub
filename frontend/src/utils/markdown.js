@@ -39,8 +39,8 @@ export function renderInline(raw) {
       return `<a href="#" class="md-wiki-anchor" data-anchor="${anchor}">${label}</a>`;
     }
 
-    // Check if target is an exercise file like 01·强化练习·...
-    const exMatch = doc.match(/^(\d{2})·强化练习/);
+    // Check if target is an exercise file like 01·强化练习·... or 01·考强练习·...
+    const exMatch = doc.match(/^(\d{2})·[^·]*练习/);
     if (exMatch) {
       return `<a href="#" class="md-exercise-link" data-exercise-ch="${exMatch[1]}">✍️ ${label}</a>`;
     }
