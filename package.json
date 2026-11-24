@@ -1,0 +1,25 @@
+{
+  "name": "knowledge-hub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "AI Agent 驱动的多知识库在线学习与交互刷题平台",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n web,api \"npm:dev:frontend\" \"npm:dev:backend\"",
+    "dev:frontend": "npm run dev --workspace frontend",
+    "dev:backend": "npm run dev --workspace backend",
+    "build": "npm run build --workspace frontend",
+    "start": "npm run start --workspace backend",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

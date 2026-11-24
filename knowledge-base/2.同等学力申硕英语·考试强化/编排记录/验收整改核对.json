@@ -1,0 +1,260 @@
+{
+  "选择题修订": {
+    "阅读练习.py": 16,
+    "全卷模拟.py": 24,
+    "篇章与输出练习.py": 9
+  },
+  "选择题修订总数": 49,
+  "正确项是否全部保留": true,
+  "题干歧义修订": "第03章Q12",
+  "章节验收标准": 16,
+  "练习总题量": 426,
+  "题目": [
+    {
+      "文件": "阅读练习.py",
+      "题目": "Why did the association first request inspections?",
+      "正确项": "To examine whether repair could avoid complete replacement."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "What caused most cupboard problems?",
+      "正确项": "Small parts such as hinges and handles."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "What did residents need to do during a visit?",
+      "正确项": "Ensure someone was at home to admit the workers."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "Which statement is supported by the report?",
+      "正确项": "Some cupboards still required replacement."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "Why was a six-month follow-up planned?",
+      "正确项": "To detect faults that might return."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "What can be inferred about the tool?",
+      "正确项": "Its warnings identify features rather than settle every writing decision."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "Why does the teacher compare two paragraphs?",
+      "正确项": "To show that short sentences alone do not ensure clarity."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "Which best describes the teacher’s position?",
+      "正确项": "Support for a limited use of the tool."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "The phrase an invitation to think suggests that students should do what?",
+      "正确项": "Examine whether a warning is relevant to their intended meaning."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "Which conclusion is consistent with the last paragraph?",
+      "正确项": "A useful measure can mislead when taken as a complete assessment."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "What is the main point of the passage?",
+      "正确项": "Time between tasks can support effective work."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "Buffer in Paragraph 2 most nearly means what?",
+      "正确项": "A short protected interval."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "This initially worried managers refers to what?",
+      "正确项": "Reducing the number of meetings that fitted into a day."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "The contrast between a full calendar and a useful day supports which idea?",
+      "正确项": "Visible activity and effective results are not identical."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "Which title is most appropriate?",
+      "正确项": "The Value of Leaving Space Between Meetings."
+    },
+    {
+      "文件": "阅读练习.py",
+      "题目": "Which statement about the comments is supported?",
+      "正确项": "They raise different conditions for applying or evaluating the rule."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Part IV·Cloze（第46—55题） / 空3",
+      "正确项": "purpose"
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Part IV·Cloze（第46—55题） / 空5",
+      "正确项": "condition"
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Part IV·Cloze（第46—55题） / 空9",
+      "正确项": "adapt"
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "What problem helped prompt the proposed traffic restriction?",
+      "正确项": "Difficulty crossing the road safely."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Why was a temporary loading point provided?",
+      "正确项": "To preserve a way of handling deliveries and heavy purchases."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "What can be concluded from the higher pedestrian count?",
+      "正确项": "Other conditions may have contributed to the increase."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "The wheelchair users’ comments illustrate what?",
+      "正确项": "A beneficial aim may still require changes to practical details."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Which best describes the council’s final position?",
+      "正确项": "Support for further testing with attention to access."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Why did the centre initially expect the shortage to disappear?",
+      "正确项": "The donated machines appeared usable when switched on."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Which issue was discovered by early borrowers?",
+      "正确项": "Some devices could not run the required software."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Dependable in Paragraph 3 most nearly means what?",
+      "正确项": "Reliable."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Why were learners asked to report faults without automatic blame?",
+      "正确项": "To help identify when and how problems arose."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "What is the main lesson of the passage?",
+      "正确项": "Useful access depends on a functioning service, not merely a device count."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "What were students originally trying to compare?",
+      "正确项": "Water temperatures in shaded and exposed sections."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "What did placing all devices in one container help reveal?",
+      "正确项": "One instrument produced unusually high readings."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Calibration is explained as a process of what?",
+      "正确项": "Checking comparability between instruments."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "What can be inferred about the teacher’s view of a successful project?",
+      "正确项": "Careful reasoning can matter more than a dramatic claim."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Why did students describe the initial instrument problem in their summary?",
+      "正确项": "To make the limitations and revised method transparent."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Why did the curator reject a display based only on attractive objects and names?",
+      "正确项": "It could appear complete while lacking important meaning."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "The wooden box is mentioned mainly to illustrate what?",
+      "正确项": "An ordinary object can reveal social arrangements."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "How were conflicting memories handled?",
+      "正确项": "They were compared with other available evidence."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "What does interprets in the last paragraph most nearly mean?",
+      "正确项": "Explains the meaning and context of."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "Which title best captures the passage?",
+      "正确项": "Restoring the Connections Behind Museum Objects."
+    },
+    {
+      "文件": "全卷模拟.py",
+      "题目": "What does the blogger recommend?",
+      "正确项": "A trial evaluated through more than booking totals."
+    },
+    {
+      "文件": "篇章与输出练习.py",
+      "题目": "完形三：数字展览的取舍 / 空1",
+      "正确项": "expanded"
+    },
+    {
+      "文件": "篇章与输出练习.py",
+      "题目": "完形三：数字展览的取舍 / 空2",
+      "正确项": "context"
+    },
+    {
+      "文件": "篇章与输出练习.py",
+      "题目": "完形三：数字展览的取舍 / 空3",
+      "正确项": "losing"
+    },
+    {
+      "文件": "篇章与输出练习.py",
+      "题目": "完形三：数字展览的取舍 / 空5",
+      "正确项": "reason"
+    },
+    {
+      "文件": "篇章与输出练习.py",
+      "题目": "完形三：数字展览的取舍 / 空6",
+      "正确项": "changed"
+    },
+    {
+      "文件": "篇章与输出练习.py",
+      "题目": "完形三：数字展览的取舍 / 空7",
+      "正确项": "unattended"
+    },
+    {
+      "文件": "篇章与输出练习.py",
+      "题目": "完形三：数字展览的取舍 / 空8",
+      "正确项": "delayed"
+    },
+    {
+      "文件": "篇章与输出练习.py",
+      "题目": "完形三：数字展览的取舍 / 空9",
+      "正确项": "balance"
+    },
+    {
+      "文件": "篇章与输出练习.py",
+      "题目": "完形三：数字展览的取舍 / 空10",
+      "正确项": "complementary"
+    }
+  ],
+  "核对范围": "源题库修订差异、正确项保留、四项互异、实际验收题号和按题型评分；题意另作人工审读。"
+}

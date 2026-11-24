@@ -1,0 +1,25 @@
+{
+  "appName": "knowledge-hub",
+  "server": {
+    "user": "",
+    "host": "",
+    "targetDir": "/opt/knowledge-hub",
+    "port": "1906",
+    "containerName": "knowledge-hub"
+  },
+  "excludes": [
+    "node_modules",
+    ".npm-cache",
+    ".git",
+    ".scratch",
+    ".agents",
+    "backend/data",
+    "frontend/dist",
+    "knowledge-base/**/编排记录/*快照*",
+    "*.log",
+    ".env"
+  ],
+  "envExample": null,
+  "envRequired": [],
+  "backup": { "dir": "", "keep": 0 }
+}

@@ -1,0 +1,5758 @@
+[
+  {
+    "章": 1,
+    "标题": "考卷结构与起点诊断",
+    "正文": "章节\\01·考卷结构与起点诊断.md",
+    "练习": "强化题目\\01·考强练习·考卷结构与起点诊断.md",
+    "任务": 14,
+    "独立验收": [],
+    "题目": [
+      {
+        "题目": "The service is free for residents, but visitors must pay. 能否推出“对所有人免费”？",
+        "答案": "不能。",
+        "解析": "residents限定居民；visitors must pay直接反证everyone。检查对象与范围，不凭free一个词。",
+        "类型": "开放",
+        "编号": "Q01",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "不能。"
+      },
+      {
+        "题目": "The study that the team published attracted attention. 写主干。",
+        "答案": "The study attracted attention.（这项研究引起关注）",
+        "解析": "that the team published修饰study；team不是attracted的主语。",
+        "类型": "开放",
+        "编号": "Q02",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "The study attracted attention.（这项研究引起关注）"
+      },
+      {
+        "题目": "The bridge being repaired now will open in July. 哪个是主句谓语？谁被维修？",
+        "答案": "will open；bridge被维修。",
+        "解析": "being repaired now整体修饰bridge，不能把repair读成桥在维修其他东西。",
+        "类型": "开放",
+        "编号": "Q03",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "will open；bridge被维修。"
+      },
+      {
+        "题目": "Not all readers agreed. 是否等于No readers agreed？",
+        "答案": "不是；并非所有人同意，不等于无人同意。",
+        "解析": "前句否定全体一致，仍可能有一部分人同意。",
+        "类型": "开放",
+        "编号": "Q04",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "不是；并非所有人同意，不等于无人同意。"
+      },
+      {
+        "题目": "原文may help reduce waste，选项has eliminated waste，指出差异。",
+        "答案": "可能帮助减少，变成已经彻底消除。",
+        "解析": "情态、时间和程度都被强化，不能当同义改写。",
+        "类型": "开放",
+        "编号": "Q05",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "可能帮助减少，变成已经彻底消除。"
+      },
+      {
+        "题目": "对方说Thank you for the directions，回答“I am sorry for being late”是否合适？",
+        "答案": "通常不合适；可回应You're welcome。",
+        "解析": "前句表示感谢，不是在讨论迟到；回答语法成立也不代表交际功能对应。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "通常不合适；可回应You're welcome。"
+      },
+      {
+        "题目": "periodic checks可近义改成regular checks还是constant checks？",
+        "答案": "regular checks。",
+        "解析": "定期检查不等于不间断检查，程度和时间分布要保留。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "regular checks。"
+      },
+      {
+        "题目": "一段先说计划的好处，后说维护费用很高，常用however还是therefore连接？",
+        "答案": "however。",
+        "解析": "这是好处与代价的对比；省时本身没有被证明是费用高的原因。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "however。"
+      },
+      {
+        "题目": "原文说部分学习者更喜欢晚间课程，能否推出学校将取消白天课程？",
+        "答案": "不能。",
+        "解析": "偏好不等于已作出的取消决定，还额外加入未来政策。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "不能。"
+      },
+      {
+        "题目": "“一页报名表”的例子出现在“小改变能消除障碍”之后，作用是什么？",
+        "答案": "具体说明小改变怎样消除参与障碍。",
+        "解析": "作用题回答例子与论点的关系，不只复述表格长短。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "具体说明小改变怎样消除参与障碍。"
+      },
+      {
+        "题目": "评论说“I support the aim, but the fee is unfair”，是否完全反对目标？",
+        "答案": "不是；支持目标，批评收费方式。",
+        "解析": "要分清目标和措施，以及but两边的不同评价。",
+        "类型": "开放",
+        "编号": "Q11",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "不是；支持目标，批评收费方式。"
+      },
+      {
+        "题目": "词框flexible／access／reduce，补have ... to materials。",
+        "答案": "have access to materials。",
+        "解析": "have access to表示能够使用；flexible是形容词，reduce是动词，不能直接填在这个搭配位置。",
+        "类型": "开放",
+        "编号": "Q12",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "have access to materials。"
+      },
+      {
+        "题目": "翻译：Although it was useful, it was not available to everyone.",
+        "答案": "虽然它很有用，但并非每个人都能使用它。",
+        "解析": "让步、有用、可获得性和not everyone的部分否定都要保留。",
+        "类型": "开放",
+        "编号": "Q13",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "虽然它很有用，但并非每个人都能使用它。"
+      },
+      {
+        "题目": "改正：Online courses useful, they saves time.",
+        "答案": "Online courses are useful because they save time. 也可拆为两个完整句子。",
+        "解析": "补are；复数they配save；两个独立分句不能只用逗号连接，需合适连接词或标点。",
+        "类型": "开放",
+        "编号": "Q14",
+        "章": 1,
+        "独立验收": false,
+        "显示答案": "Online courses are useful because they save time. 也可拆为两个完整句子。"
+      }
+    ]
+  },
+  {
+    "章": 2,
+    "标题": "长句主干、从句与指代",
+    "正文": "章节\\02·长句主干、从句与指代.md",
+    "练习": "强化题目\\02·考强练习·长句主干、从句与指代.md",
+    "任务": 20,
+    "独立验收": [
+      "Q16",
+      "Q17",
+      "Q18",
+      "Q19",
+      "Q20"
+    ],
+    "题目": [
+      {
+        "题目": "The books that the charity collected last winter are stored upstairs. 找主语核心和主句谓语，并翻译。（charity慈善机构；store存放）",
+        "答案": "books；are stored。慈善机构去年冬天收集的书存放在楼上。",
+        "解析": "that ... winter修饰books，collected属于从句；主句是被动存放关系。",
+        "类型": "开放",
+        "编号": "Q01",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "books；are stored。慈善机构去年冬天收集的书存放在楼上。"
+      },
+      {
+        "题目": "Researchers who worked with local schools found that smaller classes were not always more effective. 划出两层从句并译出not always。（effective有效的）",
+        "答案": "who worked with local schools修饰Researchers；that ... effective是found的内容。小班并不总是更有效。",
+        "解析": "两个从句处在不同层次；not always不等于never。",
+        "类型": "开放",
+        "编号": "Q02",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "who worked with local schools修饰Researchers；that ... effective是found的内容。小班并不总是更有效。"
+      },
+      {
+        "题目": "The proposal that the council rejected would have reduced parking fees. 谁拒绝什么？主句讨论什么？（council委员会；reject拒绝）",
+        "答案": "委员会拒绝了提案；主句说该提案本可以降低停车费。",
+        "解析": "council是rejected的主语，proposal是其对象；would have reduced带未实现的过去可能，不能说费用已经降低。",
+        "类型": "开放",
+        "编号": "Q03",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "委员会拒绝了提案；主句说该提案本可以降低停车费。"
+      },
+      {
+        "题目": "The fact that many users returned does not prove that every user was satisfied. 两个that分别做什么？",
+        "答案": "第一个说明fact的内容；第二个引出prove所讨论的内容。",
+        "解析": "都不是简单把that译成“那个”；many也不能扩大到every。",
+        "类型": "开放",
+        "编号": "Q04",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "第一个说明fact的内容；第二个引出prove所讨论的内容。"
+      },
+      {
+        "题目": "The centre offers advice to workers whose jobs may disappear. whose修饰什么，may表示什么？",
+        "答案": "whose jobs指这些工人的工作；may表示可能。",
+        "解析": "不是已经确认所有岗位都消失；整句说中心向这些工人提供建议。",
+        "类型": "开放",
+        "编号": "Q05",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "whose jobs指这些工人的工作；may表示可能。"
+      },
+      {
+        "题目": "What the report leaves unclear is how the money will be used. 写两个主要内容单位并翻译。（leave unclear未说明清楚）",
+        "答案": "What the report leaves unclear是主语；how the money will be used是表语内容。报告没有说清的是这笔钱将如何使用。",
+        "解析": "不能把what当独立疑问句倒装；money是被使用的对象。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "What the report leaves unclear是主语；how the money will be used是表语内容。报告没有说清的是这笔钱将如何使用。"
+      },
+      {
+        "题目": "The scientist said that the method which her team developed could be used at home. method是谁开发，在哪里使用？",
+        "答案": "她的团队开发；可在家使用。",
+        "解析": "which ... developed修饰method；could be used是that内容中的被动，不能把said当使用动作。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "她的团队开发；可在家使用。"
+      },
+      {
+        "题目": "The teachers discussed whether the tests measured skills that mattered outside school. 先后说明whether和that的作用。（measure衡量；matter重要）",
+        "答案": "whether引出讨论的是否内容；that修饰skills。",
+        "解析": "讨论的是测试是否衡量校外重要技能，而不是已经确认它们做到了。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "whether引出讨论的是否内容；that修饰skills。"
+      },
+      {
+        "题目": "The museum, which had been closed for repairs, reopened on Friday. 补充信息是什么？主事件是什么？",
+        "答案": "此前因维修关闭；周五重新开放。",
+        "解析": "which从句补充museum的经历；had been closed与reopened有过去先后关系。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "此前因维修关闭；周五重新开放。"
+      },
+      {
+        "题目": "The equipment in the rooms near the stairs needs regular checks. needs跟哪个词一致？（equipment设备；stairs楼梯）",
+        "答案": "equipment。",
+        "解析": "rooms和stairs位于修饰组内，不能按最近的复数名词决定needs。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "equipment。"
+      },
+      {
+        "题目": "Volunteers offered maps to visitors. The latter were unfamiliar with the city. latter指谁？（latter后者）",
+        "答案": "visitors。",
+        "解析": "前面依次出现志愿者与游客，后者是游客；语义也支持他们不熟悉城市。",
+        "类型": "开放",
+        "编号": "Q11",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "visitors。"
+      },
+      {
+        "题目": "The town reduced bus fares. This helped older residents travel more often. This概括什么？",
+        "答案": "降低公交票价这一做法／事实。",
+        "解析": "不能只指复数fares；它连接前一个事件与后面的效果。",
+        "类型": "开放",
+        "编号": "Q12",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "降低公交票价这一做法／事实。"
+      },
+      {
+        "题目": "Some students read the report, while others listened to a summary. others指哪些人？（summary摘要）",
+        "答案": "其他学生。",
+        "解析": "others承接同一讨论群体，并非其他报告；while在这里对比两种做法。",
+        "类型": "开放",
+        "编号": "Q13",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "其他学生。"
+      },
+      {
+        "题目": "The programme was designed for parents who could not attend daytime classes. 不可忽略哪一项限制？",
+        "答案": "这些父母不能参加日间课程。",
+        "解析": "who从句限定目标人群；只译“面向所有父母”扩大了范围。",
+        "类型": "开放",
+        "编号": "Q14",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "这些父母不能参加日间课程。"
+      },
+      {
+        "题目": "I know the reason why the meeting was postponed. why从句说明哪个名词？（postpone推迟）",
+        "答案": "reason。",
+        "解析": "主句I know the reason；从句说明会议推迟的原因，不是直接提问语序。",
+        "类型": "开放",
+        "编号": "Q15",
+        "章": 2,
+        "独立验收": false,
+        "显示答案": "reason。"
+      },
+      {
+        "题目": "The authors argue that money spent on prevention can reduce later costs. 找spent修饰谁、can reduce的主语是什么。（prevention预防）",
+        "答案": "spent on prevention修饰money；money ...是can reduce的主语。",
+        "解析": "作者提出观点，并非spent是独立的主句过去时；can仍是潜在作用。",
+        "类型": "开放",
+        "编号": "Q16",
+        "章": 2,
+        "独立验收": true,
+        "显示答案": "spent on prevention修饰money；money ...是can reduce的主语。"
+      },
+      {
+        "题目": "把“The library bought computers. The computers are used by older learners.”合成一个定语从句句子。",
+        "答案": "The library bought computers that/which are used by older learners.",
+        "解析": "关系词指向computers，并在从句中作主语；不能重复加they。",
+        "类型": "开放",
+        "编号": "Q17",
+        "章": 2,
+        "独立验收": true,
+        "显示答案": "The library bought computers that/which are used by older learners."
+      },
+      {
+        "题目": "把“我想知道这个计划是否适合住在远处的人”写成英语。提供wonder／plan／suitable for／people／live far away。",
+        "答案": "I wonder whether/if the plan is suitable for people who live far away.",
+        "解析": "whether/if引出是否内容，who修饰people，不能把两个主语并排而不交代关系。",
+        "类型": "开放",
+        "编号": "Q18",
+        "章": 2,
+        "独立验收": true,
+        "显示答案": "I wonder whether/if the plan is suitable for people who live far away."
+      },
+      {
+        "题目": "翻译：The warning that the manager gave us concerned a problem that few people had noticed.（warning警告；concern涉及）",
+        "答案": "经理给我们的警告涉及一个很少有人注意到的问题。",
+        "解析": "第一个that修饰warning，第二个修饰problem；few保留很少而不是无人。",
+        "类型": "开放",
+        "编号": "Q19",
+        "章": 2,
+        "独立验收": true,
+        "显示答案": "经理给我们的警告涉及一个很少有人注意到的问题。"
+      },
+      {
+        "题目": "翻译并给it找所指：The course taught students a method they could use at work, and many later recommended it.",
+        "答案": "课程教给学生一种可在工作中使用的方法，后来许多人推荐这种方法。it最自然承接method，但若更大上下文支持course也可能需进一步核对。",
+        "解析": "这句存在指代解释空间；不能只凭最近词或答案偏好强作唯一。答出合理解释并指出歧义可得分。",
+        "类型": "开放",
+        "编号": "Q20",
+        "章": 2,
+        "独立验收": true,
+        "显示答案": "课程教给学生一种可在工作中使用的方法，后来许多人推荐这种方法。it最自然承接method，但若更大上下文支持course也可能需进一步核对。"
+      }
+    ]
+  },
+  {
+    "章": 3,
+    "标题": "非谓语、被动与时间关系",
+    "正文": "章节\\03·非谓语、被动与时间关系.md",
+    "练习": "强化题目\\03·考强练习·非谓语、被动与时间关系.md",
+    "任务": 20,
+    "独立验收": [
+      "Q16",
+      "Q17",
+      "Q18",
+      "Q19",
+      "Q20"
+    ],
+    "题目": [
+      {
+        "题目": "The students waiting outside were invited into the room. 分别说明waiting、were invited的作用。",
+        "答案": "waiting outside修饰students；were invited是主句被动谓语。",
+        "解析": "学生在等待、学生被邀请；不能把were invited理解成学生邀请别人。",
+        "类型": "开放",
+        "编号": "Q01",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "waiting outside修饰students；were invited是主句被动谓语。"
+      },
+      {
+        "题目": "The material collected last month is being checked again. 哪次动作更早？什么正在发生？",
+        "答案": "收集发生在上个月；材料正在被再次检查。",
+        "解析": "collected修饰material，is being checked是进行被动谓语，两种时间依据不同。",
+        "类型": "开放",
+        "编号": "Q02",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "收集发生在上个月；材料正在被再次检查。"
+      },
+      {
+        "题目": "Having read the instructions, Mei completed the form. 谁读、谁填写、顺序怎样？",
+        "答案": "都是Mei；先读说明，再填表。",
+        "解析": "having read表达相对完成；不能让instructions成为填写者。",
+        "类型": "开放",
+        "编号": "Q03",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "都是Mei；先读说明，再填表。"
+      },
+      {
+        "题目": "Seen from the hill, the factory looks smaller than expected. seen是否说明“过去看完”？",
+        "答案": "不说明；它表示工厂是被看的对象。",
+        "解析": "主句looks给出当前观察，完整意思是从山上看工厂比预想的小。",
+        "类型": "开放",
+        "编号": "Q04",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "不说明；它表示工厂是被看的对象。"
+      },
+      {
+        "题目": "The room to be used for the interview is next to the stairs. 找主句谓语并说明to be used。",
+        "答案": "is；to be used修饰room，表示用于面试的房间。",
+        "解析": "实际使用时间取决于语境，不是主句另一个过去时。",
+        "类型": "开放",
+        "编号": "Q05",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "is；to be used修饰room，表示用于面试的房间。"
+      },
+      {
+        "题目": "The museum seems to have attracted more visitors this year. 哪部分与seems构成相对先后？",
+        "答案": "to have attracted表示吸引游客的情况先于或截至现在的判断。",
+        "解析": "不把to一概说成未来，也不把seems误读为过去式。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "to have attracted表示吸引游客的情况先于或截至现在的判断。"
+      },
+      {
+        "题目": "She enjoys being asked for advice. 是否断言她现在正在给建议？",
+        "答案": "不是；说她喜欢被征求意见。",
+        "解析": "being asked为被动动名词内容；题目又把被询问误换成正在给出建议。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "不是；说她喜欢被征求意见。"
+      },
+      {
+        "题目": "The road being widened will remain closed this week. 谁被拓宽？何者是主句谓语？（widen拓宽；remain保持）",
+        "答案": "road被拓宽；will remain。",
+        "解析": "being widened修饰road，不能理解成道路在拓宽其他东西。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "road被拓宽；will remain。"
+      },
+      {
+        "题目": "The results announced yesterday surprised the researchers. 谁公布、谁吃惊，句子有没有说明公布者？",
+        "答案": "研究者感到吃惊；results是被公布的结果，句子没有交代公布者。",
+        "解析": "不能凭researchers最近就推断他们是公布者。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "研究者感到吃惊；results是被公布的结果，句子没有交代公布者。"
+      },
+      {
+        "题目": "The scheme allows workers to study without leaving their jobs. 说明to study和leaving各接在哪里。",
+        "答案": "to study承接allows workers；leaving位于介词without后。",
+        "解析": "意为不离职即可学习，不能把without leaving译成尚未离职但未来一定离职。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "to study承接allows workers；leaving位于介词without后。"
+      },
+      {
+        "题目": "改正想表达“走回家时，我看见车站”：Walking home, the station was seen by me.",
+        "答案": "Walking home, I saw the station.",
+        "解析": "本题要让walking的执行者I对应主句主语，避免悬垂修饰；不是说被动在所有语境都错误。",
+        "类型": "开放",
+        "编号": "Q11",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "Walking home, I saw the station."
+      },
+      {
+        "题目": "将People saw her enter the building.改为被动句，保留原句以enter原形呈现进入动作的结构，不改成强调进行片段的-ing形式。",
+        "答案": "She was seen to enter the building.",
+        "解析": "原句是see＋宾语＋原形；改为这种被动结构时用was seen to enter。She was seen entering the building.也是合乎语法的句子，但它采用-ing呈现观察中的活动，不符合本题明确要求保留的结构。不能把它当作普遍错误。",
+        "类型": "开放",
+        "编号": "Q12",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "She was seen to enter the building."
+      },
+      {
+        "题目": "He was made to wait.能否按同一公式把They let him go变成He was let to go？",
+        "答案": "不能；表示允许通常说He was allowed to go。",
+        "解析": "make与let的常见被动搭配不同，不是所有原形宾补统一补to。",
+        "类型": "开放",
+        "编号": "Q13",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "不能；表示允许通常说He was allowed to go。"
+      },
+      {
+        "题目": "I regret to say that the event is canceled. 与I regret canceling the event有何区别？",
+        "答案": "前句遗憾地告知取消消息；后句后悔自己取消活动。",
+        "解析": "不能只用to未做、-ing已做来解释两者；交际功能不同。",
+        "类型": "开放",
+        "编号": "Q14",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "前句遗憾地告知取消消息；后句后悔自己取消活动。"
+      },
+      {
+        "题目": "I remembered to send the letter. 是否必定表示信还没寄？",
+        "答案": "不是；通常表示当时记得寄，而且寄了。",
+        "解析": "remembered已在过去语境；不定式不自动指定尚未完成。",
+        "类型": "开放",
+        "编号": "Q15",
+        "章": 3,
+        "独立验收": false,
+        "显示答案": "不是；通常表示当时记得寄，而且寄了。"
+      },
+      {
+        "题目": "a book to read与a bench to sit on，为什么后者有on？",
+        "答案": "read可直接接book；sit与bench的关系需要on。",
+        "解析": "介词由具体动词搭配决定，不是所有不定式定语都必须额外加介词。",
+        "类型": "开放",
+        "编号": "Q16",
+        "章": 3,
+        "独立验收": true,
+        "显示答案": "read可直接接book；sit与bench的关系需要on。"
+      },
+      {
+        "题目": "Reading and taking notes are useful. 为什么这里不是is？",
+        "答案": "两个不同活动并列作主语，通常用复数are。",
+        "解析": "单个动名词短语配单数的规则不能不看并列结构就套用。",
+        "类型": "开放",
+        "编号": "Q17",
+        "章": 3,
+        "独立验收": true,
+        "显示答案": "两个不同活动并列作主语，通常用复数are。"
+      },
+      {
+        "题目": "The speaker offered a convincing explanation. convincing能否因为speaker是人就改成convinced？",
+        "答案": "不能这样改；convincing修饰explanation，意为有说服力的解释。",
+        "解析": "先找真正修饰对象，再判断意思；词尾不能按整句出现人或物选。",
+        "类型": "开放",
+        "编号": "Q18",
+        "章": 3,
+        "独立验收": true,
+        "显示答案": "不能这样改；convincing修饰explanation，意为有说服力的解释。"
+      },
+      {
+        "题目": "翻译：To avoid delaying the project, the team agreed to share its data.（delay耽误；agree同意）",
+        "答案": "为了避免耽误项目，团队同意共享其数据。",
+        "解析": "to avoid为目的，to share承接agreed；delaying位于avoid后，不能把所有to结构都标成目的。",
+        "类型": "开放",
+        "编号": "Q19",
+        "章": 3,
+        "独立验收": true,
+        "显示答案": "为了避免耽误项目，团队同意共享其数据。"
+      },
+      {
+        "题目": "翻译：The report, written for non-specialists, explains how the device works.（non-specialist非专业人士；device设备）",
+        "答案": "这份面向非专业人士撰写的报告解释了设备的工作方式。",
+        "解析": "written ...补充说明report；how内容承接explains，不是问句倒装。",
+        "类型": "开放",
+        "编号": "Q20",
+        "章": 3,
+        "独立验收": true,
+        "显示答案": "这份面向非专业人士撰写的报告解释了设备的工作方式。"
+      }
+    ]
+  },
+  {
+    "章": 4,
+    "标题": "否定、比较、条件与逻辑范围",
+    "正文": "章节\\04·否定、比较、条件与逻辑范围.md",
+    "练习": "强化题目\\04·考强练习·否定、比较、条件与逻辑范围.md",
+    "任务": 20,
+    "独立验收": [
+      "Q16",
+      "Q17",
+      "Q18",
+      "Q19",
+      "Q20"
+    ],
+    "题目": [
+      {
+        "题目": "原文Some participants improved，选项All participants improved，能否据原文支持？",
+        "答案": "不能；some不足以支持all。",
+        "解析": "不代表all永远错误，而是这条证据没有给全体结果。",
+        "类型": "开放",
+        "编号": "Q01",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "不能；some不足以支持all。"
+      },
+      {
+        "题目": "“Not every attempt succeeded”与“No attempt succeeded”是否同义？",
+        "答案": "不同；前者并非每次成功，后者没有一次成功。",
+        "解析": "否定范围不同，不能把部分否定强化为全否定。",
+        "类型": "开放",
+        "编号": "Q02",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "不同；前者并非每次成功，后者没有一次成功。"
+      },
+      {
+        "题目": "The method was less effective than expected. 是否表示完全无效？",
+        "答案": "不是；效果低于预期不等于无效果。",
+        "解析": "比较以预期为参照，没有给零效果结论。",
+        "类型": "开放",
+        "编号": "Q03",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "不是；效果低于预期不等于无效果。"
+      },
+      {
+        "题目": "The number fell from 100 to 80. fell by多少，fell to多少？",
+        "答案": "fell by 20；fell to 80。",
+        "解析": "变化量与最终值不同；若换百分比，则下降20%。",
+        "类型": "开放",
+        "编号": "Q04",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "fell by 20；fell to 80。"
+      },
+      {
+        "题目": "The share rose from 20% to 30%. 是上升10个百分点，还是相对增长10%？",
+        "答案": "上升10个百分点；相对原20%增长50%。",
+        "解析": "百分比水平之差与相对变化率不同，原文没说时不要混写。",
+        "类型": "开放",
+        "编号": "Q05",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "上升10个百分点；相对原20%增长50%。"
+      },
+      {
+        "题目": "A is cheaper than B, and B is faster than C. 能推出A比C快吗？",
+        "答案": "不能。",
+        "解析": "前一比较涉及价格，后一比较涉及速度，而且没有A与C的速度关系。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "不能。"
+      },
+      {
+        "题目": "People using the service reported lower stress. 能断定服务是唯一原因吗？",
+        "答案": "不能。",
+        "解析": "这里只给群体报告的关联，没有排除其他因素。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "不能。"
+      },
+      {
+        "题目": "The policy could reduce traffic.与The policy has reduced traffic同义吗？",
+        "答案": "不同；前者可能减少，后者已减少。",
+        "解析": "情态可能与已发生结果不能互换。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "不同；前者可能减少，后者已减少。"
+      },
+      {
+        "题目": "The shop closed after the road works began. 是否已证明因修路而关门？",
+        "答案": "未证明。",
+        "解析": "after只给时间先后，原因需要其他证据。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "未证明。"
+      },
+      {
+        "题目": "Although the tickets were cheap, few people came. 哪个结果成立？",
+        "答案": "来的人很少，尽管票便宜。",
+        "解析": "不能把although改成because并保持意思；few不等于没有人。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "来的人很少，尽管票便宜。"
+      },
+      {
+        "题目": "Unless you book early, a seat cannot be guaranteed. 改写为if结构。（guarantee保证）",
+        "答案": "If you do not book early, a seat cannot be guaranteed.",
+        "解析": "本例unless表达例外条件；不能无故再加一个not。",
+        "类型": "开放",
+        "编号": "Q11",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "If you do not book early, a seat cannot be guaranteed."
+      },
+      {
+        "题目": "Whether the test is easy or difficult, you should read the instructions. whether表示什么？",
+        "答案": "无论容易还是困难，都应读说明。",
+        "解析": "它没有要求先判断是否容易，主句在两种情况下都成立。",
+        "类型": "开放",
+        "编号": "Q12",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "无论容易还是困难，都应读说明。"
+      },
+      {
+        "题目": "Not only students but also teachers use the service. 能否理解成只有学生使用？",
+        "答案": "不能；学生和老师都使用。",
+        "解析": "not only ... but also关联两个群体，不是只否定学生。",
+        "类型": "开放",
+        "编号": "Q13",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "不能；学生和老师都使用。"
+      },
+      {
+        "题目": "The article lists price, safety and convenience but does not mention speed. NOT mentioned题应选哪类信息？",
+        "答案": "speed，速度。",
+        "解析": "题目找未提到的信息；不能反选确实被列出的安全。",
+        "类型": "开放",
+        "编号": "Q14",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "speed，速度。"
+      },
+      {
+        "题目": "作者说The trial is promising, though more evidence is needed. 能否选“已经充分证实”？",
+        "答案": "不能；有前景但仍需更多证据。",
+        "解析": "promising不等于proven；让步后保留不确定性。",
+        "类型": "开放",
+        "编号": "Q15",
+        "章": 4,
+        "独立验收": false,
+        "显示答案": "不能；有前景但仍需更多证据。"
+      },
+      {
+        "题目": "原文Most courses are online，选项Some courses are online，是否可以支持？",
+        "答案": "可以；most通常包含至少有一部分。",
+        "解析": "范围较弱的陈述可被较强的数量信息支持，不是选项与原词不同就错。",
+        "类型": "开放",
+        "编号": "Q16",
+        "章": 4,
+        "独立验收": true,
+        "显示答案": "可以；most通常包含至少有一部分。"
+      },
+      {
+        "题目": "The service is available only to members. 能否推出所有成员都实际用了它？",
+        "答案": "不能。",
+        "解析": "资格或可用性不等于实际使用行为。",
+        "类型": "开放",
+        "编号": "Q17",
+        "章": 4,
+        "独立验收": true,
+        "显示答案": "不能。"
+      },
+      {
+        "题目": "The plan reduced waiting time but increased costs. 写一个不丢两方面的中文概括。",
+        "答案": "方案缩短了等待时间，但增加了成本。",
+        "解析": "不能只保留好处再推成整体毫无代价。",
+        "类型": "开放",
+        "编号": "Q18",
+        "章": 4,
+        "独立验收": true,
+        "显示答案": "方案缩短了等待时间，但增加了成本。"
+      },
+      {
+        "题目": "改正不被原文支持的概括：原文“can help some adults”，概括“must help every child”。",
+        "答案": "可概括为“可能帮助部分成年人”。",
+        "解析": "须同时修正情态、数量和对象，不是只改一个词。",
+        "类型": "开放",
+        "编号": "Q19",
+        "章": 4,
+        "独立验收": true,
+        "显示答案": "可概括为“可能帮助部分成年人”。"
+      },
+      {
+        "题目": "用英文表达“尽管方法有用，它并不适合所有人”。提供although／useful／suitable for／everyone。",
+        "答案": "Although the method is useful, it is not suitable for everyone.",
+        "解析": "保留让步与部分适用限制；不能译为nobody can use it。",
+        "类型": "开放",
+        "编号": "Q20",
+        "章": 4,
+        "独立验收": true,
+        "显示答案": "Although the method is useful, it is not suitable for everyone."
+      }
+    ]
+  },
+  {
+    "章": 5,
+    "标题": "口语交际：对话意图与前后衔接",
+    "正文": "章节\\05·口语交际：对话意图与前后衔接.md",
+    "练习": "强化题目\\05·考强练习·口语交际：对话意图与前后衔接.md",
+    "任务": 15,
+    "独立验收": [
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15"
+    ],
+    "题目": [
+      {
+        "题目": "A: Would you mind moving your bag? B: ____ I will put it under my seat.",
+        "选项": [
+          "I am afraid you are late.",
+          "It costs ten pounds.",
+          "Not at all.",
+          "Thank you for the bag."
+        ],
+        "正确项": "Not at all.",
+        "解析": "后句承诺移包，表示不介意；感谢、迟到、价格均不承接请求。",
+        "类型": "单选",
+        "编号": "Q01",
+        "章": 5,
+        "独立验收": false,
+        "显示答案": "C. Not at all.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "A: I am sorry I sent the wrong file. B: ____ Please send the correct one now.",
+        "选项": [
+          "The office closes yesterday.",
+          "These things happen.",
+          "Congratulations on your success.",
+          "I prefer tea."
+        ],
+        "正确项": "These things happen.",
+        "解析": "接受道歉后提出补救；祝贺、饮品无关；The office closes yesterday把一般现在时closes与已结束的yesterday相配，时间形式也不合适。",
+        "类型": "单选",
+        "编号": "Q02",
+        "章": 5,
+        "独立验收": false,
+        "显示答案": "B. These things happen.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "A: Could we meet on Tuesday instead? B: ____ I have a meeting all day.",
+        "选项": [
+          "I am afraid Tuesday will not work.",
+          "Tuesday would be perfect.",
+          "Thanks for explaining the route.",
+          "I have already read the book."
+        ],
+        "正确项": "I am afraid Tuesday will not work.",
+        "解析": "all day meeting解释不能赴约；perfect与后文冲突，其余话题无关。",
+        "类型": "单选",
+        "编号": "Q03",
+        "章": 5,
+        "独立验收": false,
+        "显示答案": "A. I am afraid Tuesday will not work.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "A: Thank you for showing me the way. B: ____",
+        "选项": [
+          "I cannot agree to cancel it.",
+          "That is a difficult spelling.",
+          "No, it was expensive.",
+          "You are welcome."
+        ],
+        "正确项": "You are welcome.",
+        "解析": "回应感谢；其他选项分别引入取消、拼写、价格，缺少上下文依据。",
+        "类型": "单选",
+        "编号": "Q04",
+        "章": 5,
+        "独立验收": false,
+        "显示答案": "D. You are welcome.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "A: How long does the application take? B: ____ A: Then I should apply this week.",
+        "选项": [
+          "Because it is popular.",
+          "A blue cover.",
+          "About ten working days.",
+          "At the main office."
+        ],
+        "正确项": "About ten working days.",
+        "解析": "how long问时长，后句据此计划；地点、原因和物品特征都答非所问。",
+        "类型": "单选",
+        "编号": "Q05",
+        "章": 5,
+        "独立验收": false,
+        "显示答案": "C. About ten working days.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "空1选哪一句？",
+        "答案": "A",
+        "解析": "前面问日期，回答星期五上午；B问具体时间，C表示确认，应在后面。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 5,
+        "独立验收": false,
+        "显示答案": "A"
+      },
+      {
+        "题目": "空2选哪一句？",
+        "答案": "B",
+        "解析": "下一句Ten o’clock给时间，需询问具体时间；不是另约日期或结束确认。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 5,
+        "独立验收": false,
+        "显示答案": "B"
+      },
+      {
+        "题目": "空3选哪一句？",
+        "答案": "C",
+        "解析": "日期与时间确认后发送确认，完成预约过程；另两项已完成对应功能。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 5,
+        "独立验收": false,
+        "显示答案": "C"
+      },
+      {
+        "题目": "空1选哪一句？",
+        "答案": "A",
+        "解析": "后句解释具体困难，空白处应追问困难。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 5,
+        "独立验收": false,
+        "显示答案": "A"
+      },
+      {
+        "题目": "空2选哪一句？",
+        "答案": "B",
+        "解析": "them承接rules，建议互相解释；Good idea作接受回应。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 5,
+        "独立验收": false,
+        "显示答案": "B"
+      },
+      {
+        "题目": "空3选哪一句？",
+        "答案": "C",
+        "解析": "承接课后复习安排，带笔记是具体准备；不再重复追问已明确的困难。",
+        "类型": "开放",
+        "编号": "Q11",
+        "章": 5,
+        "独立验收": false,
+        "显示答案": "C"
+      },
+      {
+        "题目": "空1选哪一句？",
+        "答案": "A",
+        "解析": "回答说明最初动机；不是培训经历。",
+        "类型": "开放",
+        "编号": "Q12",
+        "章": 5,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "空2选哪一句？",
+        "答案": "B",
+        "解析": "Yes和taught us对应是否受训。",
+        "类型": "开放",
+        "编号": "Q13",
+        "章": 5,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "空3选哪一句？",
+        "答案": "C",
+        "解析": "回答描述处理分歧的方式，不是未来打算。",
+        "类型": "开放",
+        "编号": "Q14",
+        "章": 5,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "空4选哪一句？",
+        "答案": "D",
+        "解析": "would like和train more volunteers回答未来希望。",
+        "类型": "开放",
+        "编号": "Q15",
+        "章": 5,
+        "独立验收": true,
+        "显示答案": "D"
+      }
+    ]
+  },
+  {
+    "章": 6,
+    "标题": "词汇：本句词义、替换与搭配",
+    "正文": "章节\\06·词汇：本句词义、替换与搭配.md",
+    "练习": "强化题目\\06·考强练习·词汇：本句词义、替换与搭配.md",
+    "任务": 30,
+    "独立验收": [
+      "Q21",
+      "Q22",
+      "Q23",
+      "Q24",
+      "Q25",
+      "Q26",
+      "Q27",
+      "Q28",
+      "Q29",
+      "Q30"
+    ],
+    "题目": [
+      {
+        "题目": "Only eligible applicants may join the programme. 选择eligible在本句的近义词。",
+        "选项": [
+          "wealthy",
+          "qualified",
+          "available",
+          "careless"
+        ],
+        "正确项": "qualified",
+        "解析": "eligible说符合申请资格；available有空或可用，careless粗心，wealthy富有，都不是资格条件。",
+        "类型": "单选",
+        "编号": "Q01",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "B. qualified",
+        "正确字母": "B"
+      },
+      {
+        "题目": "The team will assess the environmental impact. 替换assess。",
+        "选项": [
+          "evaluate",
+          "ignore",
+          "produce",
+          "delay"
+        ],
+        "正确项": "evaluate",
+        "解析": "评估影响，而不是忽略、产生或推迟影响。",
+        "类型": "单选",
+        "编号": "Q02",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "A. evaluate",
+        "正确字母": "A"
+      },
+      {
+        "题目": "Periodic inspections are required. 替换Periodic。",
+        "选项": [
+          "Constant",
+          "Accidental",
+          "Final",
+          "Regular"
+        ],
+        "正确项": "Regular",
+        "解析": "定期与regular对应；constant是不间断，accidental偶然，final最终。",
+        "类型": "单选",
+        "编号": "Q03",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "D. Regular",
+        "正确字母": "D"
+      },
+      {
+        "题目": "The old documents are fragile. 替换fragile。",
+        "选项": [
+          "modern",
+          "lengthy",
+          "delicate",
+          "valuable"
+        ],
+        "正确项": "delicate",
+        "解析": "容易损坏接近delicate；不自动等于有价值、现代或很长。",
+        "类型": "单选",
+        "编号": "Q04",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "C. delicate",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The proposal is feasible with the current budget. 替换feasible。",
+        "选项": [
+          "compulsory",
+          "practical",
+          "permanent",
+          "famous"
+        ],
+        "正确项": "practical",
+        "解析": "现有预算下可行；永久、著名、强制均改变判断方向。",
+        "类型": "单选",
+        "编号": "Q05",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "B. practical",
+        "正确字母": "B"
+      },
+      {
+        "题目": "The report revealed a serious weakness. 替换revealed。",
+        "选项": [
+          "disclosed",
+          "concealed",
+          "created",
+          "repaired"
+        ],
+        "正确项": "disclosed",
+        "解析": "揭示已有弱点；conceal隐藏，create制造，repair修复。",
+        "类型": "单选",
+        "编号": "Q06",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "A. disclosed",
+        "正确字母": "A"
+      },
+      {
+        "题目": "Residents were reluctant to accept the change. 替换reluctant。",
+        "选项": [
+          "unable",
+          "forbidden",
+          "delighted",
+          "unwilling"
+        ],
+        "正确项": "unwilling",
+        "解析": "不情愿是意愿，不等于无能力、被禁止或高兴。",
+        "类型": "单选",
+        "编号": "Q07",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "D. unwilling",
+        "正确字母": "D"
+      },
+      {
+        "题目": "The course helps learners acquire practical skills. 替换acquire。",
+        "选项": [
+          "forget",
+          "donate",
+          "obtain",
+          "require"
+        ],
+        "正确项": "obtain",
+        "解析": "获得技能；require是需要或要求，形近不能替换。",
+        "类型": "单选",
+        "编号": "Q08",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "C. obtain",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The organisation aims to retain experienced staff. 替换retain。",
+        "选项": [
+          "retrain",
+          "keep",
+          "replace",
+          "dismiss"
+        ],
+        "正确项": "keep",
+        "解析": "保留员工；replace替换，dismiss解雇，retrain重新培训。",
+        "类型": "单选",
+        "编号": "Q09",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "B. keep",
+        "正确字母": "B"
+      },
+      {
+        "题目": "The benefit gradually diminished. 替换diminished。",
+        "选项": [
+          "decreased",
+          "vanished immediately",
+          "remained unchanged",
+          "became certain"
+        ],
+        "正确项": "decreased",
+        "解析": "逐渐减少不等于立即消失；其余是保持或确定性，均不对应。",
+        "类型": "单选",
+        "编号": "Q10",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "A. decreased",
+        "正确字母": "A"
+      },
+      {
+        "题目": "The team maintained the service during the repairs. 替换maintained。",
+        "选项": [
+          "suspended",
+          "abandoned",
+          "advertised",
+          "sustained"
+        ],
+        "正确项": "sustained",
+        "解析": "维修时维持服务；suspend暂停，abandon放弃，advertise宣传。",
+        "类型": "单选",
+        "编号": "Q11",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "D. sustained",
+        "正确字母": "D"
+      },
+      {
+        "题目": "The new design is appealing to young users. 替换appealing。",
+        "选项": [
+          "compulsory",
+          "familiar",
+          "attractive",
+          "frightening"
+        ],
+        "正确项": "attractive",
+        "解析": "有吸引力；不能与形近的appalling混同，其他词不表达吸引。",
+        "类型": "单选",
+        "编号": "Q12",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "C. attractive",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The available evidence is adequate for this decision. 替换adequate。",
+        "选项": [
+          "unreliable",
+          "sufficient",
+          "excessive",
+          "irrelevant"
+        ],
+        "正确项": "sufficient",
+        "解析": "对决定足够；过量、无关和不可靠均是不同判断。",
+        "类型": "单选",
+        "编号": "Q13",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "B. sufficient",
+        "正确字母": "B"
+      },
+      {
+        "题目": "Prior experience is not required. 替换Prior。",
+        "选项": [
+          "Previous",
+          "Future",
+          "Shared",
+          "Unusual"
+        ],
+        "正确项": "Previous",
+        "解析": "先前经验；不是未来、共同或特殊经验。",
+        "类型": "单选",
+        "编号": "Q14",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "A. Previous",
+        "正确字母": "A"
+      },
+      {
+        "题目": "The delay was due to a shortage of staff. due to最接近哪项？",
+        "选项": [
+          "followed by",
+          "despite",
+          "in addition to",
+          "caused by"
+        ],
+        "正确项": "caused by",
+        "解析": "表原因；followed by只是先后，despite让步，in addition to递进。",
+        "类型": "单选",
+        "编号": "Q15",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "D. caused by",
+        "正确字母": "D"
+      },
+      {
+        "题目": "The launch had to wait because the final safety checks were not yet ____.",
+        "选项": [
+          "public",
+          "similar",
+          "completed",
+          "optional"
+        ],
+        "正确项": "completed",
+        "解析": "检查尚未完成是继续等待的原因；是否可选、公开或相似不表达完成状态。",
+        "类型": "单选",
+        "编号": "Q16",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "C. completed",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The service accepts every resident, ____ age or income.",
+        "选项": [
+          "apart from",
+          "regardless of",
+          "because of",
+          "instead of"
+        ],
+        "正确项": "regardless of",
+        "解析": "every resident与不分年龄收入一致；因为、代替、排除都会改变范围。",
+        "类型": "单选",
+        "编号": "Q17",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "B. regardless of",
+        "正确字母": "B"
+      },
+      {
+        "题目": "The report shows an association, but it does not ____ that one change caused the other.",
+        "选项": [
+          "prove",
+          "prefer",
+          "borrow",
+          "purchase"
+        ],
+        "正确项": "prove",
+        "解析": "相关不等于证明因果；偏好、借用、购买都不适合that因果内容。",
+        "类型": "单选",
+        "编号": "Q18",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "A. prove",
+        "正确字母": "A"
+      },
+      {
+        "题目": "The centre needs a ____ supply of trained staff, not occasional help.",
+        "选项": [
+          "brief",
+          "rare",
+          "reluctant",
+          "steady"
+        ],
+        "正确项": "steady",
+        "解析": "not occasional形成持续稳定与偶尔的对比；短暂、稀少、不情愿不合供给要求。",
+        "类型": "单选",
+        "编号": "Q19",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "D. steady",
+        "正确字母": "D"
+      },
+      {
+        "题目": "Learners requested an evening session. The centre added one ____ their feedback.",
+        "选项": [
+          "in contrast to",
+          "in spite of",
+          "in response to",
+          "in place of"
+        ],
+        "正确项": "in response to",
+        "解析": "新增晚课回应同一请求；不是取代反馈、与反馈相反或不顾反馈。",
+        "类型": "单选",
+        "编号": "Q20",
+        "章": 6,
+        "独立验收": false,
+        "显示答案": "C. in response to",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The system is intended to reduce waste. intended to接近哪项？",
+        "选项": [
+          "required not to",
+          "designed to",
+          "proven to",
+          "unable to"
+        ],
+        "正确项": "designed to",
+        "解析": "目的或设计意图，不保证已证明有效；不能变成无能力或禁止。",
+        "类型": "单选",
+        "编号": "Q21",
+        "章": 6,
+        "独立验收": true,
+        "显示答案": "B. designed to",
+        "正确字母": "B"
+      },
+      {
+        "题目": "The policy had a substantial effect, though problems remained. 替换substantial。",
+        "选项": [
+          "considerable",
+          "minor",
+          "accidental",
+          "temporary"
+        ],
+        "正确项": "considerable",
+        "解析": "效果可观但不保证完全解决；小、偶然和临时分别改变程度、方式、时间。",
+        "类型": "单选",
+        "编号": "Q22",
+        "章": 6,
+        "独立验收": true,
+        "显示答案": "A. considerable",
+        "正确字母": "A"
+      },
+      {
+        "题目": "The campaign seeks to raise awareness. 本句raise接近哪项？",
+        "选项": [
+          "rise",
+          "borrow",
+          "conceal",
+          "increase"
+        ],
+        "正确项": "increase",
+        "解析": "及物raise提高意识；rise通常不及物，不能直接接awareness，borrow和conceal意义不合。",
+        "类型": "单选",
+        "编号": "Q23",
+        "章": 6,
+        "独立验收": true,
+        "显示答案": "D. increase",
+        "正确字母": "D"
+      },
+      {
+        "题目": "Higher demand resulted in longer waiting times. 改写resulted in。",
+        "选项": [
+          "prevented",
+          "was identical to",
+          "led to",
+          "came from"
+        ],
+        "正确项": "led to",
+        "解析": "需求高导致等待长；came from会反转原因结果，prevented相反，identical不是因果。",
+        "类型": "单选",
+        "编号": "Q24",
+        "章": 6,
+        "独立验收": true,
+        "显示答案": "C. led to",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The editor called for a thorough review. 替换thorough。",
+        "选项": [
+          "superficial",
+          "comprehensive",
+          "rapid",
+          "occasional"
+        ],
+        "正确项": "comprehensive",
+        "解析": "全面彻底；快速或偶尔不是同一维度，superficial表面肤浅是反方向。",
+        "类型": "单选",
+        "编号": "Q25",
+        "章": 6,
+        "独立验收": true,
+        "显示答案": "B. comprehensive",
+        "正确字母": "B"
+      },
+      {
+        "题目": "Visitors may use the equipment only after registration; registration is therefore a ____ for access.",
+        "选项": [
+          "requirement",
+          "consequence",
+          "reward",
+          "prediction"
+        ],
+        "正确项": "requirement",
+        "解析": "only after给进入条件，故是要求；不是进入后的结果、奖励或预测。",
+        "类型": "单选",
+        "编号": "Q26",
+        "章": 6,
+        "独立验收": true,
+        "显示答案": "A. requirement",
+        "正确字母": "A"
+      },
+      {
+        "题目": "The two surveys used different methods, so their figures cannot be ____ directly.",
+        "选项": [
+          "forgotten",
+          "advertised",
+          "owned",
+          "compared"
+        ],
+        "正确项": "compared",
+        "解析": "方法不同限制直接比较；忘记、宣传、拥有不表达数据可比性。",
+        "类型": "单选",
+        "编号": "Q27",
+        "章": 6,
+        "独立验收": true,
+        "显示答案": "D. compared",
+        "正确字母": "D"
+      },
+      {
+        "题目": "A clear label may ____ confusion by showing users where to begin.",
+        "选项": [
+          "conceal",
+          "justify",
+          "reduce",
+          "create"
+        ],
+        "正确项": "reduce",
+        "解析": "明确起点是减少困惑的机制；创造、掩藏、为困惑辩解不合解释。",
+        "类型": "单选",
+        "编号": "Q28",
+        "章": 6,
+        "独立验收": true,
+        "显示答案": "C. reduce",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The timetable is a proposal rather than a final decision; it remains open to ____.",
+        "选项": [
+          "ownership",
+          "revision",
+          "punishment",
+          "payment"
+        ],
+        "正确项": "revision",
+        "解析": "proposal与非最终状态允许修改；惩罚、付款、所有权都不对应对未定方案作修改。",
+        "类型": "单选",
+        "编号": "Q29",
+        "章": 6,
+        "独立验收": true,
+        "显示答案": "B. revision",
+        "正确字母": "B"
+      },
+      {
+        "题目": "The scheme can work ____ there are enough trained volunteers; without them it must stop.",
+        "选项": [
+          "provided that",
+          "although",
+          "as though",
+          "in order that"
+        ],
+        "正确项": "provided that",
+        "解析": "后半without ... stop明确条件；不是虽然、仿佛或为了某目的。",
+        "类型": "单选",
+        "编号": "Q30",
+        "章": 6,
+        "独立验收": true,
+        "显示答案": "A. provided that",
+        "正确字母": "A"
+      }
+    ]
+  },
+  {
+    "章": 7,
+    "标题": "阅读细节：定位、同义改写与排除",
+    "正文": "章节\\07·阅读细节：定位、同义改写与排除.md",
+    "练习": "强化题目\\07·考强练习·阅读细节：定位、同义改写与排除.md",
+    "任务": 16,
+    "独立验收": [
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15",
+      "Q16"
+    ],
+    "题目": [
+      {
+        "题目": "Why were evening appointments introduced?",
+        "选项": [
+          "To help people unavailable during the day.",
+          "To reduce the number of volunteers.",
+          "To make all financial services free.",
+          "To replace normal opening hours."
+        ],
+        "正确项": "To help people unavailable during the day.",
+        "解析": "第1段给白天工作、到馆太晚的困难；减少志愿者、免费金融业务和替代正常开放均未陈述。",
+        "类型": "单选",
+        "编号": "Q01",
+        "章": 7,
+        "独立验收": false,
+        "显示答案": "A. To help people unavailable during the day.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "How could residents book help?",
+        "选项": [
+          "Only through a computer account.",
+          "By asking a bank to arrange it.",
+          "Without making any appointment.",
+          "By telephone or at the front desk."
+        ],
+        "正确项": "By telephone or at the front desk.",
+        "解析": "第2段明确两个渠道，并否定必须拥有电脑或邮箱；银行和无需预约都无依据。",
+        "类型": "单选",
+        "编号": "Q02",
+        "章": 7,
+        "独立验收": false,
+        "显示答案": "D. By telephone or at the front desk.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "What were volunteers instructed not to do?",
+        "选项": [
+          "Help people understand forms.",
+          "Take part in evening sessions.",
+          "Carry out financial transactions for visitors.",
+          "Explain steps on a screen."
+        ],
+        "正确项": "Carry out financial transactions for visitors.",
+        "解析": "did not complete ... on their behalf是限制；解释步骤和表格正是服务，晚间参与也没有被禁止。",
+        "类型": "单选",
+        "编号": "Q03",
+        "章": 7,
+        "独立验收": false,
+        "显示答案": "C. Carry out financial transactions for visitors.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "What does the rise in requests directly show?",
+        "选项": [
+          "The trial measured changes in ability.",
+          "More requests for the service were recorded.",
+          "Every resident improved computer skills.",
+          "No visitor needed repeated help."
+        ],
+        "正确项": "More requests for the service were recorded.",
+        "解析": "第3段区分访问数与能力变化；其余三项分别扩大范围、与重复来访矛盾、颠倒统计对象。",
+        "类型": "单选",
+        "编号": "Q04",
+        "章": 7,
+        "独立验收": false,
+        "显示答案": "B. More requests for the service were recorded.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "What condition affected the continuation of evening sessions?",
+        "选项": [
+          "The availability of trained volunteers.",
+          "A fee paid by all visitors.",
+          "The purchase of personal computers.",
+          "Immediate approval of a third evening."
+        ],
+        "正确项": "The availability of trained volunteers.",
+        "解析": "末段provided that给条件；收费、购买电脑和立即增加第三晚均不成立。",
+        "类型": "单选",
+        "编号": "Q05",
+        "章": 7,
+        "独立验收": false,
+        "显示答案": "A. The availability of trained volunteers.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "原文“Applicants must submit the form before Friday”，选项“on or after Friday”，指出问题。",
+        "答案": "时间要求被反转。",
+        "解析": "before在周五之前，不是周五及以后。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 7,
+        "独立验收": false,
+        "显示答案": "时间要求被反转。"
+      },
+      {
+        "题目": "原文“The grant covers books but not travel”，问哪项不报销。",
+        "答案": "travel，出行费用。",
+        "解析": "but not明确排除，不能因covers在前就把两项都算报销。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 7,
+        "独立验收": false,
+        "显示答案": "travel，出行费用。"
+      },
+      {
+        "题目": "原文“The centre lowered its fees because demand fell”，费率降低的直接原因是什么？",
+        "答案": "需求下降。",
+        "解析": "because引出原因；不能把降低收费当成需求下降的结果以外再反转。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 7,
+        "独立验收": false,
+        "显示答案": "需求下降。"
+      },
+      {
+        "题目": "原文“The experiment included adults aged 40 to 60”，能支持针对所有儿童的结论吗？",
+        "答案": "不能。",
+        "解析": "研究对象范围不同；不能用外部常识越过原文样本限制。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 7,
+        "独立验收": false,
+        "显示答案": "不能。"
+      },
+      {
+        "题目": "原文“New members may attend after registration”，选项说新成员都已经参加，是否成立？",
+        "答案": "不成立。",
+        "解析": "may attend表示允许或可能，注册后有资格不等于实际行为。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 7,
+        "独立验收": false,
+        "显示答案": "不成立。"
+      },
+      {
+        "题目": "原文“Only two of the five sites stayed open”，问开放地点数量。",
+        "答案": "两个。",
+        "解析": "two是开放数，five是总数；不能看见总数就答五个。",
+        "类型": "开放",
+        "编号": "Q11",
+        "章": 7,
+        "独立验收": false,
+        "显示答案": "两个。"
+      },
+      {
+        "题目": "Why did the association first request inspections?",
+        "选项": [
+          "To check whether faults had returned after six months.",
+          "To examine whether repair could avoid complete replacement.",
+          "To find which visiting hours residents preferred.",
+          "To select cupboards for a complete kitchen redesign."
+        ],
+        "正确项": "To examine whether repair could avoid complete replacement.",
+        "解析": "正确依据：第1段说完整替换昂贵且干扰生活，因此先检查是否可以维修。\n\n‘visiting hours’是随后安排上门的时间选择，不是最初检查的目的；‘complete kitchen redesign’是部分住户的愿望，项目并不提供；‘after six months’属于以后复查，错置了时间。",
+        "类型": "单选",
+        "编号": "Q12",
+        "章": 7,
+        "独立验收": true,
+        "显示答案": "B. To examine whether repair could avoid complete replacement.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "What caused most cupboard problems?",
+        "选项": [
+          "Small parts such as hinges and handles.",
+          "Damage to the wooden frames rather than the small fittings.",
+          "Residents choosing unsuitable replacement cupboards.",
+          "Repeated visits made by the repair workers."
+        ],
+        "正确项": "Small parts such as hinges and handles.",
+        "解析": "正确依据：第2段most problems involved hinges and handles，故问题多在小配件。\n\n‘wooden frames’与not the wooden frames反向；‘residents choosing’把机构检查后的方案选择改成住户选错橱柜，文中未说；‘repeated visits’影响的是人工成本，不是原有故障的主要来源。",
+        "类型": "单选",
+        "编号": "Q13",
+        "章": 7,
+        "独立验收": true,
+        "显示答案": "A. Small parts such as hinges and handles.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "What did residents need to do during a visit?",
+        "选项": [
+          "Leave a key so workers could enter an empty flat.",
+          "Pay the labour costs before choosing a visiting time.",
+          "Arrange a frame inspection before booking the visit.",
+          "Ensure someone was at home to admit the workers."
+        ],
+        "正确项": "Ensure someone was at home to admit the workers.",
+        "解析": "正确依据：someone had to be at home to let the workers in明确要求有人在家开门。\n\n‘leave a key’不能替代原文有人在家的要求；文中未规定住户先交人工费；最初检查由机构安排，也未要求住户先约框架检查才可预约维修。不能把常见维修流程当成本文规定。",
+        "类型": "单选",
+        "编号": "Q14",
+        "章": 7,
+        "独立验收": true,
+        "显示答案": "D. Ensure someone was at home to admit the workers.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "Which statement is supported by the report?",
+        "选项": [
+          "Lower costs persuaded residents to give up requests for new kitchens.",
+          "Most wooden frames were replaced before repairs began.",
+          "Some cupboards still required replacement.",
+          "The first month's savings excluded the cost of repeat visits."
+        ],
+        "正确项": "Some cupboards still required replacement.",
+        "解析": "正确依据：第3段说框架严重损坏的橱柜仍需替换。\n\n‘excluded the cost’无依据：报告只说重复上门可能增加人工成本，未交代首月核算是否排除了它；‘persuaded residents’把机构的解释改成住户已经改变愿望；‘most wooden frames’与问题主要在小配件不符，也没有事先大量换框架的记录。",
+        "类型": "单选",
+        "编号": "Q15",
+        "章": 7,
+        "独立验收": true,
+        "显示答案": "C. Some cupboards still required replacement.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "Why was a six-month follow-up planned?",
+        "选项": [
+          "To assess whether repaired cupboards matched a new design.",
+          "To detect faults that might return.",
+          "To compare the cost of morning and afternoon visits.",
+          "To decide which residents should receive a new kitchen."
+        ],
+        "正确项": "To detect faults that might return.",
+        "解析": "正确依据：末句so that faults returning after the first repair could be identified直接交代复查目的。\n\n上午下午只是预约时段，没有比较其费用；新厨房是住户提出但超出本项目的需求；项目关注安全和功能，未实施新设计，也不是验收外观是否匹配。",
+        "类型": "单选",
+        "编号": "Q16",
+        "章": 7,
+        "独立验收": true,
+        "显示答案": "B. To detect faults that might return.",
+        "正确字母": "B"
+      }
+    ]
+  },
+  {
+    "章": 8,
+    "标题": "阅读推断、态度与篇章作用",
+    "正文": "章节\\08·阅读推断、态度与篇章作用.md",
+    "练习": "强化题目\\08·考强练习·阅读推断、态度与篇章作用.md",
+    "任务": 16,
+    "独立验收": [
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15",
+      "Q16"
+    ],
+    "题目": [
+      {
+        "题目": "What can reasonably be inferred from the increase in visits?",
+        "选项": [
+          "Shade was proved to be the only cause.",
+          "The council had solved every access problem.",
+          "Cooler weather made shade completely useless.",
+          "Several changes may have contributed to it."
+        ],
+        "正确项": "Several changes may have contributed to it.",
+        "解析": "第3段列天气和假期项目，不能排除其他解释；only、every及completely均超出证据。",
+        "类型": "单选",
+        "编号": "Q01",
+        "章": 8,
+        "独立验收": false,
+        "显示答案": "D. Several changes may have contributed to it.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "The researcher’s attitude toward the initial conclusion is best described as what?",
+        "选项": [
+          "Completely convinced.",
+          "Uninterested in evidence.",
+          "Cautious.",
+          "Hostile to all public projects."
+        ],
+        "正确项": "Cautious.",
+        "解析": "要求更强证据并明确不等于否定价值；不是敌视、完全确信或漠视证据。",
+        "类型": "单选",
+        "编号": "Q02",
+        "章": 8,
+        "独立验收": false,
+        "显示答案": "C. Cautious.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "Why is the nearby holiday programme mentioned?",
+        "选项": [
+          "To explain the cost of the structures.",
+          "To offer an alternative explanation for visitor numbers.",
+          "To prove that shade frightened children.",
+          "To advertise a new school."
+        ],
+        "正确项": "To offer an alternative explanation for visitor numbers.",
+        "解析": "它与天气共同提示潜在混杂因素；儿童害怕、广告和结构成本都不是段落作用。",
+        "类型": "单选",
+        "编号": "Q03",
+        "章": 8,
+        "独立验收": false,
+        "显示答案": "B. To offer an alternative explanation for visitor numbers.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "What does the parent’s final comment suggest?",
+        "选项": [
+          "Benefits may depend on other practical conditions.",
+          "Safe routes matter less than attractive seats.",
+          "No family was interested in shade.",
+          "Only parents can assess research."
+        ],
+        "正确项": "Benefits may depend on other practical conditions.",
+        "解析": "到达安全性是获得舒适座椅好处的另一条件；其余倒置比较、全否定或排他推断。",
+        "类型": "单选",
+        "编号": "Q04",
+        "章": 8,
+        "独立验收": false,
+        "显示答案": "A. Benefits may depend on other practical conditions.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "What is the author’s main evaluative position?",
+        "选项": [
+          "Councils should never try inexpensive ideas.",
+          "Any increase in use proves a project’s success.",
+          "Residents’ experiences should always be ignored.",
+          "Practical action should be accompanied by careful interpretation."
+        ],
+        "正确项": "Practical action should be accompanied by careful interpretation.",
+        "解析": "结尾同时肯定回应问题和区分观察与原因；其余三项均把平衡立场改成绝对。",
+        "类型": "单选",
+        "编号": "Q05",
+        "章": 8,
+        "独立验收": false,
+        "显示答案": "D. Practical action should be accompanied by careful interpretation.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "原文“The pilot attracted 30 volunteers; a larger test is planned”，能否选“方案已经被证明适用于全国”？",
+        "答案": "不能。",
+        "解析": "小试点和计划中的扩大测试都不能证明全国适用。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 8,
+        "独立验收": false,
+        "显示答案": "不能。"
+      },
+      {
+        "题目": "作者写“promising, but too early for firm conclusions”，态度是全盘反对还是谨慎认可？",
+        "答案": "谨慎认可。",
+        "解析": "promising给正面空间，too early保留证据边界。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 8,
+        "独立验收": false,
+        "显示答案": "谨慎认可。"
+      },
+      {
+        "题目": "段首说“规定会造成意外负担”，后举一位老人不会用手机缴费的例子，例子的作用是什么？",
+        "答案": "具体说明规定怎样给一类人带来意外负担。",
+        "解析": "不能仅答“介绍手机”或把一个老人扩成所有老人。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 8,
+        "独立验收": false,
+        "显示答案": "具体说明规定怎样给一类人带来意外负担。"
+      },
+      {
+        "题目": "A公司称工具革命性；作者说缺独立测试。能把revolutionary直接归为作者态度吗？",
+        "答案": "不能。",
+        "解析": "评价属于公司；作者指出证据不足，需分开立场来源。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 8,
+        "独立验收": false,
+        "显示答案": "不能。"
+      },
+      {
+        "题目": "原文“members who attended more sessions improved more”，能证明多参加必然导致提高吗？",
+        "答案": "仅凭这句不能。",
+        "解析": "动机、原有能力等未被排除；相关程度不能直接变成唯一因果。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 8,
+        "独立验收": false,
+        "显示答案": "仅凭这句不能。"
+      },
+      {
+        "题目": "原文说“The figures should not be dismissed, but their limitations matter”，作者是否认为数据毫无价值？",
+        "答案": "不是。",
+        "解析": "不应忽略与需注意限制并存，不能只抓but后半就抹去前半。",
+        "类型": "开放",
+        "编号": "Q11",
+        "章": 8,
+        "独立验收": false,
+        "显示答案": "不是。"
+      },
+      {
+        "题目": "What can be inferred about the tool?",
+        "选项": [
+          "Its warnings identify features rather than settle every writing decision.",
+          "Its warnings assess the logical links between ideas in a draft.",
+          "It measures clarity by counting how many warnings a revision removes.",
+          "It identifies which long sentences should be split before a tutorial."
+        ],
+        "正确项": "Its warnings identify features rather than settle every writing decision.",
+        "解析": "正确依据：第1段限定工具标记重复词和长句，第3段又显示被标记的长句反而更清楚，故标记特征不等于决定怎样修改。\n\n‘assess the logical links’把教师和读者的判断交给工具，超出其功能；‘counting warnings’把警告数当清晰度指标，正是教师反对的做法；‘should be split’把长句警告当拆句指令，与an invitation to think冲突。",
+        "类型": "单选",
+        "编号": "Q12",
+        "章": 8,
+        "独立验收": true,
+        "显示答案": "A. Its warnings identify features rather than settle every writing decision.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "Why does the teacher compare two paragraphs?",
+        "选项": [
+          "To identify the sentence length the tool should accept as normal.",
+          "To show how immediate feedback can reduce the need for tutorials.",
+          "To demonstrate how stronger arguments result from shorter sentences.",
+          "To show that short sentences alone do not ensure clarity."
+        ],
+        "正确项": "To show that short sentences alone do not ensure clarity.",
+        "解析": "正确依据：短句版准确却缺少连接，较长版解释因果，班级认为后者更易懂。比较说明短并不自动清楚。\n\n例子未设定正常长度阈值；及时反馈省去等待是前段学生谈的好处，不是两段比较的目的；‘stronger arguments’把清晰度换成论据质量，且‘shorter’与该例结果相反。",
+        "类型": "单选",
+        "编号": "Q13",
+        "章": 8,
+        "独立验收": true,
+        "显示答案": "D. To show that short sentences alone do not ensure clarity.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "Which best describes the teacher’s position?",
+        "选项": [
+          "Keeping the tool while treating shorter sentences as the clearer choice.",
+          "Postponing use until the tool can judge arguments and evidence.",
+          "Support for a limited use of the tool.",
+          "Using warning totals as a starting score for writing quality."
+        ],
+        "正确项": "Support for a limited use of the tool.",
+        "解析": "正确依据：第4段同时有keeping the tool as an aid和反对警告数评分，构成有边界的支持。\n\n‘starting score’仍把警告数用作写作质量分数，与opposed相反；‘shorter ... clearer’抹去了教师用长句说明关系的反例；‘postponing use’把当前保留使用改成等待功能升级，文中没有这种计划。",
+        "类型": "单选",
+        "编号": "Q14",
+        "章": 8,
+        "独立验收": true,
+        "显示答案": "C. Support for a limited use of the tool.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The phrase an invitation to think suggests that students should do what?",
+        "选项": [
+          "Ask the tool to supply more convincing evidence for an argument.",
+          "Examine whether a warning is relevant to their intended meaning.",
+          "Shorten a flagged sentence before asking why it was marked.",
+          "Compare warning totals to decide which draft is clearer."
+        ],
+        "正确项": "Examine whether a warning is relevant to their intended meaning.",
+        "解析": "正确依据：教师把warning与order to delete区分，要求结合表达意图判断警告是否需要处理。\n\n先缩短再问原因仍将警告当指令；按总数选择草稿重复了被反对的评分办法；让工具提供论据超出其已说明的标记功能。",
+        "类型": "单选",
+        "编号": "Q15",
+        "章": 8,
+        "独立验收": true,
+        "显示答案": "B. Examine whether a warning is relevant to their intended meaning.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "Which conclusion is consistent with the last paragraph?",
+        "选项": [
+          "A useful measure can mislead when taken as a complete assessment.",
+          "A measure becomes reliable once students learn to apply it consistently.",
+          "Better revision depends on reducing the features a tool can identify.",
+          "Class preference should settle disagreements about automatic warnings."
+        ],
+        "正确项": "A useful measure can mislead when taken as a complete assessment.",
+        "解析": "正确依据：useful information becomes misleading when treated as a complete judgment概括工具信息与完整判断的区别。\n\n使用一致并不补足工具没有评价的内容；减少可标记特征不一定改善意义，长句例子就是反证；班级觉得某段清楚只是一个例证，没有把班级偏好设成最终裁定规则。",
+        "类型": "单选",
+        "编号": "Q16",
+        "章": 8,
+        "独立验收": true,
+        "显示答案": "A. A useful measure can mislead when taken as a complete assessment.",
+        "正确字母": "A"
+      }
+    ]
+  },
+  {
+    "章": 9,
+    "标题": "阅读主旨、词义与指代",
+    "正文": "章节\\09·阅读主旨、词义与指代.md",
+    "练习": "强化题目\\09·考强练习·阅读主旨、词义与指代.md",
+    "任务": 16,
+    "独立验收": [
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15",
+      "Q16"
+    ],
+    "题目": [
+      {
+        "题目": "Which title best covers the passage?",
+        "选项": [
+          "Why Every Garden Must Grow the Same Plant.",
+          "The History of the Public Hall.",
+          "What Makes a Seed Library Useful and Sustainable.",
+          "How to Open a Commercial Seed Shop."
+        ],
+        "正确项": "What Makes a Seed Library Useful and Sustainable.",
+        "解析": "目标、标签、适应性和维护共同说明运作条件；商店被否定，统一作物及大厅历史未展开。",
+        "类型": "单选",
+        "编号": "Q01",
+        "章": 9,
+        "独立验收": false,
+        "显示答案": "C. What Makes a Seed Library Useful and Sustainable.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "What does This in This made the collection easier to use refer to?",
+        "选项": [
+          "Selling all unlabelled packets.",
+          "Introducing a form with information about the seeds.",
+          "Rejecting every donation.",
+          "Moving the public hall."
+        ],
+        "正确项": "Introducing a form with information about the seeds.",
+        "解析": "This概括前句创建信息表这一做法；没有拒绝全部、搬大厅或出售的事件。",
+        "类型": "单选",
+        "编号": "Q02",
+        "章": 9,
+        "独立验收": false,
+        "显示答案": "B. Introducing a form with information about the seeds.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "In context, resilient most nearly means what?",
+        "选项": [
+          "Able to cope with difficult conditions.",
+          "Certain to produce the largest crop.",
+          "Available only in commercial shops.",
+          "Difficult to identify by name."
+        ],
+        "正确项": "Able to cope with difficult conditions.",
+        "解析": "干旱时能存活提供解释；低产但适应性强，不等于最高产、商店专属或叫不出名字。",
+        "类型": "单选",
+        "编号": "Q03",
+        "章": 9,
+        "独立验收": false,
+        "显示答案": "A. Able to cope with difficult conditions.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "The collection of mysteries most likely refers to what?",
+        "选项": [
+          "A set of detective novels.",
+          "A secret business hidden in the hall.",
+          "Plants that cannot exist in dry weather.",
+          "Seeds whose identity or growing requirements are unclear."
+        ],
+        "正确项": "Seeds whose identity or growing requirements are unclear.",
+        "解析": "结尾回扣信息与标签维护；不是真正小说或秘密生意，也不是断言植物不耐旱。",
+        "类型": "单选",
+        "编号": "Q04",
+        "章": 9,
+        "独立验收": false,
+        "显示答案": "D. Seeds whose identity or growing requirements are unclear.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "Which statement reflects the passage as a whole?",
+        "选项": [
+          "Volunteers should accept no donations.",
+          "Once a cupboard is installed, no further effort is needed.",
+          "Sharing objects may require sharing information and maintenance work.",
+          "Popularity is the only basis for choosing seeds."
+        ],
+        "正确项": "Sharing objects may require sharing information and maintenance work.",
+        "解析": "末段明确information as well as seeds及quiet work；其余都与品种选择或维护事实冲突。",
+        "类型": "单选",
+        "编号": "Q05",
+        "章": 9,
+        "独立验收": false,
+        "显示答案": "C. Sharing objects may require sharing information and maintenance work.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "文章讲共享自行车的便利、维护成本和停放规则，标题“自行车的发明史”能覆盖吗？",
+        "答案": "不能。",
+        "解析": "对象虽相关，但文章没有展开历史，标题需覆盖主要方向。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 9,
+        "独立验收": false,
+        "显示答案": "不能。"
+      },
+      {
+        "题目": "The device is portable: it fits in a small bag. 不查词推测portable。",
+        "答案": "便于携带的。",
+        "解析": "冒号后的可装小包提供解释，不是说明昂贵或精确。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 9,
+        "独立验收": false,
+        "显示答案": "便于携带的。"
+      },
+      {
+        "题目": "Unlike the rigid old timetable, the new one can be changed. rigid表示什么方向？",
+        "答案": "不灵活、难改变的。",
+        "解析": "unlike与can be changed构成对比，不能选灵活。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 9,
+        "独立验收": false,
+        "显示答案": "不灵活、难改变的。"
+      },
+      {
+        "题目": "The town postponed the launch. This allowed more testing. This承接什么？",
+        "答案": "推迟启动这一做法／事件。",
+        "解析": "不是单纯某个最近名词，而是整个事件带来更多测试时间。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 9,
+        "独立验收": false,
+        "显示答案": "推迟启动这一做法／事件。"
+      },
+      {
+        "题目": "All three paragraphs discuss access, but only the last mentions price. 标题应只围绕价格吗？",
+        "答案": "不应只围绕价格。",
+        "解析": "标题需覆盖全篇，单段细节不能替代共同主题。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 9,
+        "独立验收": false,
+        "显示答案": "不应只围绕价格。"
+      },
+      {
+        "题目": "She said the answer was just around the corner. 在问题解决的语境中如何理解？",
+        "答案": "答案或解决办法很快就会出现。",
+        "解析": "这是时间接近的比喻，不是要求去街角找答案。",
+        "类型": "开放",
+        "编号": "Q11",
+        "章": 9,
+        "独立验收": false,
+        "显示答案": "答案或解决办法很快就会出现。"
+      },
+      {
+        "题目": "What is the main point of the passage?",
+        "选项": [
+          "Online meetings improve work by removing the need to travel.",
+          "Shortening meetings helps employees record decisions more clearly.",
+          "Uniform break routines help teams use busy calendars efficiently.",
+          "Time between tasks can support effective work."
+        ],
+        "正确项": "Time between tasks can support effective work.",
+        "解析": "正确依据：全篇从无缝排会造成的问题写到预留间隔的作用，末段又解释看似空白也有功能。\n\n取消路程是最初塞满日程的背景，不能概括后续调整；措施是会议之间留空，不是把会议本身缩短；公司让各团队讨论适合自己的停顿，而非统一休息规则。",
+        "类型": "单选",
+        "编号": "Q12",
+        "章": 9,
+        "独立验收": true,
+        "显示答案": "D. Time between tasks can support effective work.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "Buffer in Paragraph 2 most nearly means what?",
+        "选项": [
+          "A gap caused by a delay in starting the next call.",
+          "A period spent travelling between two meeting rooms.",
+          "A short protected interval.",
+          "A slot reserved for finishing an unfinished assignment."
+        ],
+        "正确项": "A short protected interval.",
+        "解析": "正确依据：紧接的The interval及记决策、准备问题、离屏等用途说明buffer是有意保留的短暂间隔。\n\n它not intended for another task，不是赶另一项未完作业；安排是主动留空，不是下场迟开造成的延误；会议已线上化，往返房间是之前被省去的路程。",
+        "类型": "单选",
+        "编号": "Q13",
+        "章": 9,
+        "独立验收": true,
+        "显示答案": "C. A short protected interval.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "This initially worried managers refers to what?",
+        "选项": [
+          "Asking teams to choose pauses that suited their particular work.",
+          "Reducing the number of meetings that fitted into a day.",
+          "Moving the company's meetings online.",
+          "Workers beginning a call while still thinking about the previous one."
+        ],
+        "正确项": "Reducing the number of meetings that fitted into a day.",
+        "解析": "正确依据：This承接紧邻的The change reduced the number of meetings ...，管理者又把会面数量当作活动证据，因此担心。\n\n线上迁移是首段背景；注意力仍留在上场会议是第二段员工遇到的问题；由团队决定停顿是末段安排。后三项都在文中出现，却不是本处回指的事件。",
+        "类型": "单选",
+        "编号": "Q14",
+        "章": 9,
+        "独立验收": true,
+        "显示答案": "B. Reducing the number of meetings that fitted into a day.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "The contrast between a full calendar and a useful day supports which idea?",
+        "选项": [
+          "Visible activity and effective results are not identical.",
+          "Meeting notes provide a reliable count of productive hours.",
+          "Successful teams fit preparation into meetings already scheduled.",
+          "Meeting frequency increased after teams began recording decisions."
+        ],
+        "正确项": "Visible activity and effective results are not identical.",
+        "解析": "正确依据：较少会议仍能因笔记更清楚、重复讨论更少而按时完成项目，说明可见忙碌与有效成果不同。\n\n笔记帮助工作，但文中没有用它计算生产时数；准备发生在预留间隔，不是塞回既有会议；会议可容纳数量降低，并未因记笔记而增加频次。",
+        "类型": "单选",
+        "编号": "Q15",
+        "章": 9,
+        "独立验收": true,
+        "显示答案": "A. Visible activity and effective results are not identical.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "Which title is most appropriate?",
+        "选项": [
+          "Keeping Online Meetings on Schedule.",
+          "Using Meeting Counts to Measure Team Progress.",
+          "Writing Clearer Notes to Avoid Long Discussions.",
+          "The Value of Leaving Space Between Meetings."
+        ],
+        "正确项": "The Value of Leaving Space Between Meetings.",
+        "解析": "正确依据：标题需覆盖起初无缝排会的问题、留空措施和保护注意力的价值。\n\n‘on schedule’把主题缩成准时开会；‘meeting counts’把被修正的评价方式当主旨；‘clearer notes’是留空的一项收益，但遗漏准备、休息和因团队而异的安排，范围偏窄。",
+        "类型": "单选",
+        "编号": "Q16",
+        "章": 9,
+        "独立验收": true,
+        "显示答案": "D. The Value of Leaving Space Between Meetings.",
+        "正确字母": "D"
+      }
+    ]
+  },
+  {
+    "章": 10,
+    "标题": "博客与评论：观点归属和匹配",
+    "正文": "章节\\10·博客与评论：观点归属和匹配.md",
+    "练习": "强化题目\\10·考强练习·博客与评论：观点归属和匹配.md",
+    "任务": 10,
+    "独立验收": [
+      "Q06",
+      "Q07",
+      "Q08",
+      "Q09",
+      "Q10"
+    ],
+    "题目": [
+      {
+        "题目": "Which comment focuses on access for people who work late?",
+        "选项": [
+          "Comment 4.",
+          "Comment 1.",
+          "Comment 2.",
+          "Comment 3."
+        ],
+        "正确项": "Comment 1.",
+        "解析": "1说work late与evening booking；2讲维护，3讲负担能力，4讲先测试需求。",
+        "类型": "单选",
+        "编号": "Q01",
+        "章": 10,
+        "独立验收": false,
+        "显示答案": "B. Comment 1.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "Which comment provides experience from another place?",
+        "选项": [
+          "Comment 2.",
+          "Comment 1.",
+          "Comment 3.",
+          "Comment 4."
+        ],
+        "正确项": "Comment 2.",
+        "解析": "previous town与ran a similar kitchen是已往经历；其他是当前要求或建议。",
+        "类型": "单选",
+        "编号": "Q02",
+        "章": 10,
+        "独立验收": false,
+        "显示答案": "A. Comment 2.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "Which comment most directly supports the blogger’s proposal for free sessions?",
+        "选项": [
+          "Comment 1.",
+          "Comment 2.",
+          "Comment 4.",
+          "Comment 3."
+        ],
+        "正确项": "Comment 3.",
+        "解析": "3用keeping some sessions free说明低收入人群；1不是免费而是时段，2是安全维护，4是投资节奏。",
+        "类型": "单选",
+        "编号": "Q03",
+        "章": 10,
+        "独立验收": false,
+        "显示答案": "D. Comment 3.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "Which comment agrees with testing the idea before a major investment?",
+        "选项": [
+          "Comment 2.",
+          "Comment 3.",
+          "Comment 4.",
+          "Comment 1."
+        ],
+        "正确项": "Comment 4.",
+        "解析": "4明确Before buying与test demand，呼应正文trial before redesign；其他评论关注别的条件。",
+        "类型": "单选",
+        "编号": "Q04",
+        "章": 10,
+        "独立验收": false,
+        "显示答案": "C. Comment 4.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "What do the blogger and Comment 2 have in common?",
+        "选项": [
+          "Both claim that repairs are unnecessary.",
+          "Both recognise that practical arrangements affect success.",
+          "Both reject any shared kitchen.",
+          "Both want to eliminate all cleaning rules."
+        ],
+        "正确项": "Both recognise that practical arrangements affect success.",
+        "解析": "正文列安全和清洁，2以经历说明维护必要；全拒绝、取消清洁、不需维修均相反。",
+        "类型": "单选",
+        "编号": "Q05",
+        "章": 10,
+        "独立验收": false,
+        "显示答案": "B. Both recognise that practical arrangements affect success.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "Which comment emphasises explaining the purpose of the rule?",
+        "选项": [
+          "Comment 1.",
+          "Comment 2.",
+          "Comment 3.",
+          "Comment 4."
+        ],
+        "正确项": "Comment 1.",
+        "解析": "1对比reason与punishment；其余分别谈健康例外、紧急联系、评价时间。",
+        "类型": "单选",
+        "编号": "Q06",
+        "章": 10,
+        "独立验收": true,
+        "显示答案": "A. Comment 1.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "Which comment supports the aim but requests a health-related exception?",
+        "选项": [
+          "Comment 1.",
+          "Comment 3.",
+          "Comment 4.",
+          "Comment 2."
+        ],
+        "正确项": "Comment 2.",
+        "解析": "2先同意减少干扰，再提出医疗用途例外；不能看but就说反对目标。",
+        "类型": "单选",
+        "编号": "Q07",
+        "章": 10,
+        "独立验收": true,
+        "显示答案": "D. Comment 2.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "Which comment accepts the blogger’s proposed route for urgent contact?",
+        "选项": [
+          "Comment 2.",
+          "Comment 4.",
+          "Comment 3.",
+          "Comment 1."
+        ],
+        "正确项": "Comment 3.",
+        "解析": "3明确office与urgent message，并以此为接受条件；其他不是联系渠道。",
+        "类型": "单选",
+        "编号": "Q08",
+        "章": 10,
+        "独立验收": true,
+        "显示答案": "C. Comment 3.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "Which comment is most cautious about claims of long-term success?",
+        "选项": [
+          "Comment 3.",
+          "Comment 4.",
+          "Comment 1.",
+          "Comment 2."
+        ],
+        "正确项": "Comment 4.",
+        "解析": "4反对一学期就宣布永久解决，要求较长观察；不是反对所有手机管理。",
+        "类型": "单选",
+        "编号": "Q09",
+        "章": 10,
+        "独立验收": true,
+        "显示答案": "B. Comment 4.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "Which statement about the comments is supported?",
+        "选项": [
+          "They raise different conditions for applying or evaluating the rule.",
+          "The blogger and commenters agree that a one-term review can establish lasting benefits.",
+          "Comments 2 and 3 seek phone access without distinguishing between different uses.",
+          "Comments 1 and 4 give priority to enforcement rather than explaining or evaluating the rule."
+        ],
+        "正确项": "They raise different conditions for applying or evaluating the rule.",
+        "解析": "正确依据：四条分别补充解释目的、医疗例外、紧急联系渠道和评价时间，均在讨论实施或评估条件。\n\n一学期可确定长期效果被Comment 4质疑；Comments 2、3恰在区分医疗、紧急联系与上课干扰；Comment 1要求解释，Comment 4要求观察注意力与执行一致性，不能概括成优先处罚执法。",
+        "类型": "单选",
+        "编号": "Q10",
+        "章": 10,
+        "独立验收": true,
+        "显示答案": "A. They raise different conditions for applying or evaluating the rule.",
+        "正确字母": "A"
+      }
+    ]
+  },
+  {
+    "章": 11,
+    "标题": "完形填空：语境、搭配与篇章关系",
+    "正文": "章节\\11·完形填空：语境、搭配与篇章关系.md",
+    "练习": "强化题目\\11·考强练习·完形填空：语境、搭配与篇章关系.md",
+    "任务": 30,
+    "独立验收": [
+      "Q21",
+      "Q22",
+      "Q23",
+      "Q24",
+      "Q25",
+      "Q26",
+      "Q27",
+      "Q28",
+      "Q29",
+      "Q30"
+    ],
+    "题目": [
+      {
+        "题目": "本篇空1选择哪一项？",
+        "选项": [
+          "improve",
+          "restrict",
+          "ignore",
+          "replace"
+        ],
+        "正确项": "improve",
+        "解析": "班车为无车居民改善可达性；restrict限制、ignore忽略、replace替代都不接项目目的。",
+        "类型": "单选",
+        "编号": "Q01",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "A. improve",
+        "正确字母": "A"
+      },
+      {
+        "题目": "本篇空2选择哪一项？",
+        "选项": [
+          "Therefore",
+          "Similarly",
+          "For instance",
+          "However"
+        ],
+        "正确项": "However",
+        "解析": "预期年长者为主，实际不少年轻人使用，构成转折；非结果、相似或具体举例关系。",
+        "类型": "单选",
+        "编号": "Q02",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "D. However",
+        "正确字母": "D"
+      },
+      {
+        "题目": "本篇空3选择哪一项？",
+        "选项": [
+          "refusal",
+          "reward",
+          "record",
+          "promise"
+        ],
+        "正确项": "record",
+        "解析": "记录上车时间支撑后文These records；promise承诺、refusal拒绝、reward奖励不合搭配与指代。",
+        "类型": "单选",
+        "编号": "Q03",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "C. record",
+        "正确字母": "C"
+      },
+      {
+        "题目": "本篇空4选择哪一项？",
+        "选项": [
+          "abandon",
+          "adjust",
+          "conceal",
+          "damage"
+        ],
+        "正确项": "adjust",
+        "解析": "为增加下午班次而调整时刻表；隐藏、损坏、放弃均不对应实际动作。",
+        "类型": "单选",
+        "编号": "Q04",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "B. adjust",
+        "正确字母": "B"
+      },
+      {
+        "题目": "本篇空5选择哪一项？",
+        "选项": [
+          "prove",
+          "deny",
+          "notice",
+          "prefer"
+        ],
+        "正确项": "prove",
+        "解析": "一地免费试点不能证明所有路线成功；deny是否认，notice注意，prefer偏好都不表达证据边界。",
+        "类型": "单选",
+        "编号": "Q05",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "A. prove",
+        "正确字母": "A"
+      },
+      {
+        "题目": "本篇空6选择哪一项？",
+        "选项": [
+          "Nevertheless",
+          "Meanwhile",
+          "Instead of",
+          "Therefore"
+        ],
+        "正确项": "Therefore",
+        "解析": "因证据有限所以继续收集，属因果；nevertheless转折、meanwhile同时不对应，instead of后结构也不合。",
+        "类型": "单选",
+        "编号": "Q06",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "D. Therefore",
+        "正确字母": "D"
+      },
+      {
+        "题目": "本篇空7选择哪一项？",
+        "选项": [
+          "forgiven",
+          "discovered",
+          "charged",
+          "borrowed"
+        ],
+        "正确项": "charged",
+        "解析": "收费可说a fee was charged；借费、原谅费、发现费不合此语境。",
+        "类型": "单选",
+        "编号": "Q07",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "C. charged",
+        "正确字母": "C"
+      },
+      {
+        "题目": "本篇空8选择哪一项？",
+        "选项": [
+          "prevent",
+          "suggest",
+          "conceal",
+          "reject"
+        ],
+        "正确项": "suggest",
+        "解析": "邀请居民提出具体改变；其余隐藏、拒绝、阻止都不是comments的来源动作。",
+        "类型": "单选",
+        "编号": "Q08",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "B. suggest",
+        "正确字母": "B"
+      },
+      {
+        "题目": "本篇空9选择哪一项？",
+        "选项": [
+          "together",
+          "secretly",
+          "accidentally",
+          "separately only"
+        ],
+        "正确项": "together",
+        "解析": "数据与经验共同考虑；秘密、偶然或仅分开考虑不对应末段总结。",
+        "类型": "单选",
+        "编号": "Q09",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "A. together",
+        "正确字母": "A"
+      },
+      {
+        "题目": "本篇空10选择哪一项？",
+        "选项": [
+          "insist",
+          "complain",
+          "look",
+          "rely"
+        ],
+        "正确项": "rely",
+        "解析": "rely on表示依靠可靠安排；insist on坚持、complain on搭配不当、look on看待不合可靠性语境。",
+        "类型": "单选",
+        "编号": "Q10",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "D. rely",
+        "正确字母": "D"
+      },
+      {
+        "题目": "本篇空1选择哪一项？",
+        "选项": [
+          "expensive",
+          "compulsory",
+          "misleading",
+          "permanent"
+        ],
+        "正确项": "misleading",
+        "解析": "熟悉感可能误导对独立能力的判断；永久、昂贵、强制均非这里的评价。",
+        "类型": "单选",
+        "编号": "Q11",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "C. misleading",
+        "正确字母": "C"
+      },
+      {
+        "题目": "本篇空2选择哪一项？",
+        "选项": [
+          "interrupt",
+          "explain",
+          "hide",
+          "purchase"
+        ],
+        "正确项": "explain",
+        "解析": "对伙伴解释方法对应理解检验；隐藏、购买、中断不合动作。",
+        "类型": "单选",
+        "编号": "Q12",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "B. explain",
+        "正确字母": "B"
+      },
+      {
+        "题目": "本篇空3选择哪一项？",
+        "选项": [
+          "fill",
+          "widen",
+          "ignore",
+          "celebrate"
+        ],
+        "正确项": "fill",
+        "解析": "fill a gap弥补缺口；扩大、忽略或庆祝缺口不合目的。",
+        "类型": "单选",
+        "编号": "Q13",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "A. fill",
+        "正确字母": "A"
+      },
+      {
+        "题目": "本篇空4选择哪一项？",
+        "选项": [
+          "permission",
+          "evidence of mastery",
+          "a timetable",
+          "failure"
+        ],
+        "正确项": "failure",
+        "解析": "后文把困难看作诊断信息，不应每次犹豫就当失败；许可、掌握证据、时刻表不合hesitation的评价。",
+        "类型": "单选",
+        "编号": "Q14",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "D. failure",
+        "正确字母": "D"
+      },
+      {
+        "题目": "本篇空5选择哪一项？",
+        "选项": [
+          "For this purpose",
+          "Likewise",
+          "By contrast",
+          "As a result"
+        ],
+        "正确项": "By contrast",
+        "解析": "对比有诊断价值的困难与看着答案重复；不是前者导致后者，也不是同类作用。",
+        "类型": "单选",
+        "编号": "Q15",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "C. By contrast",
+        "正确字母": "C"
+      },
+      {
+        "题目": "本篇空6选择哪一项？",
+        "选项": [
+          "refused",
+          "memorised",
+          "invented",
+          "paid"
+        ],
+        "正确项": "memorised",
+        "解析": "新例题相对于已记熟的原例；发明、付钱、拒绝不对应already与wording。",
+        "类型": "单选",
+        "编号": "Q16",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "B. memorised",
+        "正确字母": "B"
+      },
+      {
+        "题目": "本篇空7选择哪一项？",
+        "选项": [
+          "number",
+          "price",
+          "distance",
+          "speed"
+        ],
+        "正确项": "number",
+        "解析": "a larger number of pages表示更多页数；价格、距离、速度不能与此数量搭配互换。",
+        "类型": "单选",
+        "编号": "Q17",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "A. number",
+        "正确字母": "A"
+      },
+      {
+        "题目": "本篇空8选择哪一项？",
+        "选项": [
+          "colour",
+          "owner",
+          "date only",
+          "reason"
+        ],
+        "正确项": "reason",
+        "解析": "找错因比抄字母有用；颜色、所有者、仅日期不能解释错误来源。",
+        "类型": "单选",
+        "编号": "Q18",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "D. reason",
+        "正确字母": "D"
+      },
+      {
+        "题目": "本篇空9选择哪一项？",
+        "选项": [
+          "borrow",
+          "recover",
+          "distinguish",
+          "choose"
+        ],
+        "正确项": "distinguish",
+        "解析": "distinguish between A and B区分两类问题；选择、借用、恢复不合between两类的分析用途。",
+        "类型": "单选",
+        "编号": "Q19",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "C. distinguish",
+        "正确字母": "C"
+      },
+      {
+        "题目": "本篇空10选择哪一项？",
+        "选项": [
+          "payment",
+          "support",
+          "decoration",
+          "transport"
+        ],
+        "正确项": "support",
+        "解析": "不同弱点需不同支持或训练；装饰、交通、付款在这里与学习诊断无关。",
+        "类型": "单选",
+        "编号": "Q20",
+        "章": 11,
+        "独立验收": false,
+        "显示答案": "B. support",
+        "正确字母": "B"
+      },
+      {
+        "题目": "本篇空1选择哪一项？",
+        "选项": [
+          "expanded",
+          "restricted",
+          "measured",
+          "restored"
+        ],
+        "正确项": "expanded",
+        "解析": "正确依据：让远处的人在线参观，扩大了可达范围。restricted方向相反；measured是测量，项目不是在统计可达性；restored预设此前失去访问条件，文章没有给出这种恢复背景。",
+        "类型": "单选",
+        "编号": "Q21",
+        "章": 11,
+        "独立验收": true,
+        "显示答案": "A. expanded",
+        "正确字母": "A"
+      },
+      {
+        "题目": "本篇空2选择哪一项？",
+        "选项": [
+          "permission",
+          "sequence",
+          "recognition",
+          "context"
+        ],
+        "正确项": "context",
+        "解析": "正确依据：日期和名称帮助物件进入故事，合称背景语境context。permission是许可，缺的不是授权；sequence是顺序，无法覆盖物件身份信息；recognition是辨认或认可，不是this承接的具体背景资料。",
+        "类型": "单选",
+        "编号": "Q22",
+        "章": 11,
+        "独立验收": true,
+        "显示答案": "D. context",
+        "正确字母": "D"
+      },
+      {
+        "题目": "本篇空3选择哪一项？",
+        "选项": [
+          "emphasising",
+          "explaining",
+          "losing",
+          "introducing"
+        ],
+        "正确项": "losing",
+        "解析": "正确依据：simple language与important distinctions要兼顾，without losing说明简明而不丢重要区别。without introducing会变成不引入区别；without emphasising／explaining会说避免强调或解释，均不表达保留必要区分的目标。",
+        "类型": "单选",
+        "编号": "Q23",
+        "章": 11,
+        "独立验收": true,
+        "显示答案": "C. losing",
+        "正确字母": "C"
+      },
+      {
+        "题目": "本篇空4选择哪一项？",
+        "选项": [
+          "organise",
+          "replace",
+          "require",
+          "delay"
+        ],
+        "正确项": "replace",
+        "解析": "数字访问不一定取代每次实地参观；后句有人更想亲临作解释，其他动词不对应online/physical对比。",
+        "类型": "单选",
+        "编号": "Q24",
+        "章": 11,
+        "独立验收": true,
+        "显示答案": "B. replace",
+        "正确字母": "B"
+      },
+      {
+        "题目": "本篇空5选择哪一项？",
+        "选项": [
+          "reason",
+          "purpose",
+          "occasion",
+          "condition"
+        ],
+        "正确项": "reason",
+        "解析": "正确依据：for that very reason回指不能出行这一原因。purpose会把已有困难改成做事目的；occasion是场合，非理由；condition在for that very condition中不构成这里的因果表达。",
+        "类型": "单选",
+        "编号": "Q25",
+        "章": 11,
+        "独立验收": true,
+        "显示答案": "A. reason",
+        "正确字母": "A"
+      },
+      {
+        "题目": "本篇空6选择哪一项？",
+        "选项": [
+          "stabilised",
+          "slowed",
+          "recovered",
+          "changed"
+        ],
+        "正确项": "changed",
+        "解析": "正确依据：new formats considered说明格式要随技术变化重新考虑。stabilised是稳定下来，slowed是放慢，recovered是从低谷恢复，均添加文章未给的特定趋势，不能代替这里一般的变化。",
+        "类型": "单选",
+        "编号": "Q26",
+        "章": 11,
+        "独立验收": true,
+        "显示答案": "D. changed",
+        "正确字母": "D"
+      },
+      {
+        "题目": "本篇空7选择哪一项？",
+        "选项": [
+          "unfinished",
+          "unpublished",
+          "unattended",
+          "unchanged"
+        ],
+        "正确项": "unattended",
+        "解析": "正确依据：tested links、new formats与Maintaining共同强调不能放任不管。unchanged是内容不改，定期检查却不一定每次都须更改；unfinished和unpublished分别说未完成和未发布，与已上线并继续维护的情境不同。",
+        "类型": "单选",
+        "编号": "Q27",
+        "章": 11,
+        "独立验收": true,
+        "显示答案": "C. unattended",
+        "正确字母": "C"
+      },
+      {
+        "题目": "本篇空8选择哪一项？",
+        "选项": [
+          "repeated",
+          "delayed",
+          "accelerated",
+          "announced"
+        ],
+        "正确项": "delayed",
+        "解析": "正确依据：更谨慎地整理较小首批，文中用but将时间代价与信息质量提高对照。accelerated加快与该对照不合；announced只是宣布，不说明发布节奏的代价；repeated需要先前已启动再重复的背景。",
+        "类型": "单选",
+        "编号": "Q28",
+        "章": 11,
+        "独立验收": true,
+        "显示答案": "B. delayed",
+        "正确字母": "B"
+      },
+      {
+        "题目": "本篇空9选择哪一项？",
+        "选项": [
+          "balance",
+          "distinction",
+          "comparison",
+          "conflict"
+        ],
+        "正确项": "balance",
+        "解析": "正确依据：look for a balance between是在触达范围与可靠程度之间协调权衡。distinction是区分，comparison是比较，均不足以表达如何兼顾目标；look for a conflict变成寻求冲突，与末句目标可相互配合的总结不合。",
+        "类型": "单选",
+        "编号": "Q29",
+        "章": 11,
+        "独立验收": true,
+        "显示答案": "A. balance",
+        "正确字母": "A"
+      },
+      {
+        "题目": "本篇空10选择哪一项？",
+        "选项": [
+          "competing",
+          "identical",
+          "independent",
+          "complementary"
+        ],
+        "正确项": "complementary",
+        "解析": "正确依据：文章放弃只看速度，转向同时兼顾触达与可靠，末句将两目标视作可相互支持。competing强调相互竞争而非总结的协调；identical把两个不同目标说成同一个；independent抹去二者需共同考虑的关系。",
+        "类型": "单选",
+        "编号": "Q30",
+        "章": 11,
+        "独立验收": true,
+        "显示答案": "D. complementary",
+        "正确字母": "D"
+      }
+    ]
+  },
+  {
+    "章": 12,
+    "标题": "短文完成：先组装短语，再回填",
+    "正文": "章节\\12·短文完成：先组装短语，再回填.md",
+    "练习": "强化题目\\12·考强练习·短文完成：先组装短语，再回填.md",
+    "任务": 40,
+    "独立验收": [
+      "Q21",
+      "Q22",
+      "Q23",
+      "Q24",
+      "Q25",
+      "Q26",
+      "Q27",
+      "Q28",
+      "Q29",
+      "Q30",
+      "Q31",
+      "Q32",
+      "Q33",
+      "Q34",
+      "Q35",
+      "Q36",
+      "Q37",
+      "Q38",
+      "Q39",
+      "Q40"
+    ],
+    "题目": [
+      {
+        "题目": "第一轮空1：选词框中的哪一项？",
+        "答案": "B. flexible",
+        "解析": "hours前用形容词flexible，灵活的时间。",
+        "类型": "开放",
+        "编号": "Q01",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "B. flexible"
+      },
+      {
+        "题目": "第一轮空2：选词框中的哪一项？",
+        "答案": "A. access",
+        "解析": "have access to是能够使用的固定结构。",
+        "类型": "开放",
+        "编号": "Q02",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "A. access"
+      },
+      {
+        "题目": "第一轮空3：选词框中的哪一项？",
+        "答案": "C. reduce",
+        "解析": "reduce作原形动词，接travel costs形成降低费用。",
+        "类型": "开放",
+        "编号": "Q03",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "C. reduce"
+      },
+      {
+        "题目": "第二轮空4：选完成后的哪条短语？",
+        "答案": "P. offers flexible hours",
+        "解析": "主语programme后接offers；后面choose a suitable period解释时间灵活。",
+        "类型": "开放",
+        "编号": "Q04",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "P. offers flexible hours"
+      },
+      {
+        "题目": "第二轮空5：选完成后的哪条短语？",
+        "答案": "Q. have access to online materials",
+        "解析": "前有can，后接have原形；不出门读取资料对应online materials。",
+        "类型": "开放",
+        "编号": "Q05",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "Q. have access to online materials"
+      },
+      {
+        "题目": "第二轮空6：选完成后的哪条短语？",
+        "答案": "R. reduce travel costs",
+        "解析": "may后需原形，住得远与在家学习共同支持减少出行费用。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "R. reduce travel costs"
+      },
+      {
+        "题目": "第一轮空7：选词框中的哪一项？",
+        "答案": "C. transport",
+        "解析": "public transport公共交通。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "C. transport"
+      },
+      {
+        "题目": "第一轮空8：选词框中的哪一项？",
+        "答案": "A. support",
+        "解析": "financial support经济支持，support作名词。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "A. support"
+      },
+      {
+        "题目": "第一轮空9：选词框中的哪一项？",
+        "答案": "B. checks",
+        "解析": "regular checks定期检查，checks是复数名词。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "B. checks"
+      },
+      {
+        "题目": "第二轮空10：选完成后的哪条短语？",
+        "答案": "P. depend on public transport",
+        "解析": "them指无车居民，后面because ... do not own cars直接解释依靠公共交通。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "P. depend on public transport"
+      },
+      {
+        "题目": "第二轮空11：选完成后的哪条短语？",
+        "答案": "Q. provide financial support",
+        "解析": "基金对符合条件者提供资金帮助，与bus fares对应。",
+        "类型": "开放",
+        "编号": "Q11",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "Q. provide financial support"
+      },
+      {
+        "题目": "第二轮空12：选完成后的哪条短语？",
+        "答案": "R. carry out regular checks",
+        "解析": "would后接carry原形，后文说继续了解安排效果，对应定期检查。",
+        "类型": "开放",
+        "编号": "Q12",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "R. carry out regular checks"
+      },
+      {
+        "题目": "第一轮空13：选词框中的哪一项？",
+        "答案": "A. concerned",
+        "解析": "are concerned about表示担忧，concerned作表语。",
+        "类型": "开放",
+        "编号": "Q13",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "A. concerned"
+      },
+      {
+        "题目": "第一轮空14：选词框中的哪一项？",
+        "答案": "B. evidence",
+        "解析": "collect evidence收集证据；before deciding给决策前的顺序。",
+        "类型": "开放",
+        "编号": "Q14",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "B. evidence"
+      },
+      {
+        "题目": "第一轮空15：选词框中的哪一项？",
+        "答案": "C. failure",
+        "解析": "learn from failure从失败中学习。",
+        "类型": "开放",
+        "编号": "Q15",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "C. failure"
+      },
+      {
+        "题目": "第一轮空16：选词框中的哪一项？",
+        "答案": "D. change",
+        "解析": "lasting change持久改变，形容词lasting修饰名词。",
+        "类型": "开放",
+        "编号": "Q16",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "D. change"
+      },
+      {
+        "题目": "第二轮空17：选完成后的哪条短语？",
+        "答案": "P. are concerned about costs",
+        "解析": "residents复数接are；下一句feared解释成本担忧。",
+        "类型": "开放",
+        "编号": "Q17",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "P. are concerned about costs"
+      },
+      {
+        "题目": "第二轮空18：选完成后的哪条短语？",
+        "答案": "Q. collect evidence before deciding",
+        "解析": "promised to后用collect，compare和record说明收集证据。",
+        "类型": "开放",
+        "编号": "Q18",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "Q. collect evidence before deciding"
+      },
+      {
+        "题目": "第二轮空19：选完成后的哪条短语？",
+        "答案": "R. learn from failure",
+        "解析": "needed to后接learn，未成功设计对应failure。",
+        "类型": "开放",
+        "编号": "Q19",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "R. learn from failure"
+      },
+      {
+        "题目": "第二轮空20：选完成后的哪条短语？",
+        "答案": "S. lead to lasting change",
+        "解析": "might后用lead，长期参与是产生持久改变的条件。",
+        "类型": "开放",
+        "编号": "Q20",
+        "章": 12,
+        "独立验收": false,
+        "显示答案": "S. lead to lasting change"
+      },
+      {
+        "题目": "第一轮空1：选词框中的哪一项？",
+        "答案": "A. available",
+        "解析": "make＋宾语＋形容词，available说明equipment可用。",
+        "类型": "开放",
+        "编号": "Q21",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "A. available"
+      },
+      {
+        "题目": "第一轮空2：选词框中的哪一项？",
+        "答案": "B. loss",
+        "解析": "the loss of表示……的遗失；空白处名词。",
+        "类型": "开放",
+        "编号": "Q22",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "B. loss"
+      },
+      {
+        "题目": "第一轮空3：选词框中的哪一项？",
+        "答案": "C. training",
+        "解析": "provide basic training提供基础培训。",
+        "类型": "开放",
+        "编号": "Q23",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "C. training"
+      },
+      {
+        "题目": "第二轮空4：选完成后的哪条短语？",
+        "答案": "P. make equipment available",
+        "解析": "aim was to后接make；无需每家买设备对应使设备可供借用。",
+        "类型": "开放",
+        "编号": "Q24",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "P. make equipment available"
+      },
+      {
+        "题目": "第二轮空5：选完成后的哪条短语？",
+        "答案": "Q. prevent the loss of small parts",
+        "解析": "numbered boxes用来减少小零件遗失，非培训内容。",
+        "类型": "开放",
+        "编号": "Q25",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "Q. prevent the loss of small parts"
+      },
+      {
+        "题目": "第二轮空6：选完成后的哪条短语？",
+        "答案": "R. provide basic training",
+        "解析": "volunteers解释使用与报修，属于基础培训。",
+        "类型": "开放",
+        "编号": "Q26",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "R. provide basic training"
+      },
+      {
+        "题目": "第一轮空7：选词框中的哪一项？",
+        "答案": "C. purpose",
+        "解析": "the purpose of a task指任务目的。",
+        "类型": "开放",
+        "编号": "Q27",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "C. purpose"
+      },
+      {
+        "题目": "第一轮空8：选词框中的哪一项？",
+        "答案": "A. attention",
+        "解析": "direct attention to把注意力引向。",
+        "类型": "开放",
+        "编号": "Q28",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "A. attention"
+      },
+      {
+        "题目": "第一轮空9：选词框中的哪一项？",
+        "答案": "B. methods",
+        "解析": "different methods不同方法；different后此处复数名词。",
+        "类型": "开放",
+        "编号": "Q29",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "B. methods"
+      },
+      {
+        "题目": "第二轮空10：选完成后的哪条短语？",
+        "答案": "P. explain the purpose of a task",
+        "解析": "学生先知道要达成什么，对应解释任务目的。",
+        "类型": "开放",
+        "编号": "Q30",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "P. explain the purpose of a task"
+      },
+      {
+        "题目": "第二轮空11：选完成后的哪条短语？",
+        "答案": "Q. direct attention to a specific problem",
+        "解析": "comments聚焦specific problem，与不列全部问题形成对照。",
+        "类型": "开放",
+        "编号": "Q31",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "Q. direct attention to a specific problem"
+      },
+      {
+        "题目": "第二轮空12：选完成后的哪条短语？",
+        "答案": "R. try different methods",
+        "解析": "首种解释无效则改用图示或口述，对应尝试不同方法。",
+        "类型": "开放",
+        "编号": "Q32",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "R. try different methods"
+      },
+      {
+        "题目": "第一轮空13：选词框中的哪一项？",
+        "答案": "C. record",
+        "解析": "keep a record of保留记录。",
+        "类型": "开放",
+        "编号": "Q33",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "C. record"
+      },
+      {
+        "题目": "第一轮空14：选词框中的哪一项？",
+        "答案": "A. reliable",
+        "解析": "reliable是形容词，修饰equipment。",
+        "类型": "开放",
+        "编号": "Q34",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "A. reliable"
+      },
+      {
+        "题目": "第一轮空15：选词框中的哪一项？",
+        "答案": "B. compare",
+        "解析": "compare作动词，results是比较对象。",
+        "类型": "开放",
+        "编号": "Q35",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "B. compare"
+      },
+      {
+        "题目": "第一轮空16：选词框中的哪一项？",
+        "答案": "D. sources",
+        "解析": "sources of error误差来源；possible修饰名词。",
+        "类型": "开放",
+        "编号": "Q36",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "D. sources"
+      },
+      {
+        "题目": "第二轮空17：选完成后的哪条短语？",
+        "答案": "Q. use reliable equipment",
+        "解析": "先用可靠设备，后句faulty devices作反证。",
+        "类型": "开放",
+        "编号": "Q37",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "Q. use reliable equipment"
+      },
+      {
+        "题目": "第二轮空18：选完成后的哪条短语？",
+        "答案": "P. keep a clear record of changes",
+        "解析": "团队记录每次时间地点，配合record of changes。",
+        "类型": "开放",
+        "编号": "Q38",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "P. keep a clear record of changes"
+      },
+      {
+        "题目": "第二轮空19：选完成后的哪条短语？",
+        "答案": "R. compare results from different sites",
+        "解析": "后文追问房间温差，需要比较不同地点结果。",
+        "类型": "开放",
+        "编号": "Q39",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "R. compare results from different sites"
+      },
+      {
+        "题目": "第二轮空20：选完成后的哪条短语？",
+        "答案": "S. identify possible sources of error",
+        "解析": "日照和加热器属于可能误差来源，不能只凭差异断言缺陷。",
+        "类型": "开放",
+        "编号": "Q40",
+        "章": 12,
+        "独立验收": true,
+        "显示答案": "S. identify possible sources of error"
+      }
+    ]
+  },
+  {
+    "章": 13,
+    "标题": "英译汉：整句关系与整段表达",
+    "正文": "章节\\13·英译汉：整句关系与整段表达.md",
+    "练习": "强化题目\\13·考强练习·英译汉：整句关系与整段表达.md",
+    "任务": 11,
+    "独立验收": [
+      "Q11"
+    ],
+    "题目": [
+      {
+        "题目": "Although the service was designed for new residents, people who had lived there for years also used it.",
+        "答案": "这项服务虽然原本面向新居民，但已在那里住了多年的居民也使用了它。",
+        "解析": "保留让步、原定对象与实际另一群体；who修饰people，不是service。",
+        "类型": "开放",
+        "编号": "Q01",
+        "章": 13,
+        "独立验收": false,
+        "显示答案": "这项服务虽然原本面向新居民，但已在那里住了多年的居民也使用了它。"
+      },
+      {
+        "题目": "What matters is not how many pages you finish, but whether you can explain the idea without looking at the book.",
+        "答案": "重要的不是你读完多少页，而是你能否不看书就解释这个观点。",
+        "解析": "not ... but ...对比两个评价标准；whether为是否内容，不是无论。",
+        "类型": "开放",
+        "编号": "Q02",
+        "章": 13,
+        "独立验收": false,
+        "显示答案": "重要的不是你读完多少页，而是你能否不看书就解释这个观点。"
+      },
+      {
+        "题目": "The figures collected during the trial suggest a possible link, rather than proving that one change caused the other.",
+        "答案": "试行期间收集的数据提示可能存在联系，而不是证明一种变化导致了另一种变化。",
+        "解析": "collected修饰figures；possible与rather than限制结论，不得译成已证实因果。",
+        "类型": "开放",
+        "编号": "Q03",
+        "章": 13,
+        "独立验收": false,
+        "显示答案": "试行期间收集的数据提示可能存在联系，而不是证明一种变化导致了另一种变化。"
+      },
+      {
+        "题目": "Whether the meeting is held online or in person, participants should receive the necessary information in advance.",
+        "答案": "无论会议在线上还是线下举行，与会者都应提前获得必要信息。",
+        "解析": "保留无论、被动举行、应当和提前；不能把whether译为是否而丢主句关系。",
+        "类型": "开放",
+        "编号": "Q04",
+        "章": 13,
+        "独立验收": false,
+        "显示答案": "无论会议在线上还是线下举行，与会者都应提前获得必要信息。"
+      },
+      {
+        "题目": "The proposal, which had been discussed for months, was rejected because its costs were higher than expected.",
+        "答案": "这项已经讨论了几个月的提案，由于成本高于预期而被否决。",
+        "解析": "讨论时间是补充；because给否决原因，不能把两者混成因讨论太久而否决。",
+        "类型": "开放",
+        "编号": "Q05",
+        "章": 13,
+        "独立验收": false,
+        "显示答案": "这项已经讨论了几个月的提案，由于成本高于预期而被否决。"
+      },
+      {
+        "题目": "Not all the problems identified in the report can be solved by increasing the budget.",
+        "答案": "报告指出的问题并非都能靠增加预算解决。",
+        "解析": "部分否定，identified修饰problems；不是所有问题都不能解决。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 13,
+        "独立验收": false,
+        "显示答案": "报告指出的问题并非都能靠增加预算解决。"
+      },
+      {
+        "题目": "Having compared the two versions, the editor asked the author to make the main argument clearer.",
+        "答案": "比较两个版本后，编辑请作者把主要论点表达得更清楚。",
+        "解析": "先比较后要求；editor提出要求，author负责修改，角色不可倒置。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 13,
+        "独立验收": false,
+        "显示答案": "比较两个版本后，编辑请作者把主要论点表达得更清楚。"
+      },
+      {
+        "题目": "The more information a system collects, the more important it becomes to explain how that information will be used.",
+        "答案": "一个系统收集的信息越多，说明这些信息将如何使用就越重要。",
+        "解析": "the more ... the more相关比较；it为形式主语，how内容说明使用方式。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 13,
+        "独立验收": false,
+        "显示答案": "一个系统收集的信息越多，说明这些信息将如何使用就越重要。"
+      },
+      {
+        "题目": "独立翻译整段，再逐项核对意义单元。",
+        "答案": "城市改变公共服务的运行方式时，清楚地提供信息与改变本身同样重要。理解新规定原因的居民，更有条件做好准备。这并不意味着所有人都会同意。有些人仍可能面临设计者未曾预料的困难。在决定最终确定前征求意见，可以发现这些问题。不过，收集意见只是开始。管理者还需说明采纳了哪些建议、拒绝了哪些，以及原因。如果没有这种回应，参与可能会让人觉得只是走形式，而非真正影响决定的机会。",
+        "解析": "建议10分：以下10个单元每项1分；意思准确可用不同措辞。信息与改变同样重要；理解原因与准备的关系；并非人人同意；可能有未预料困难；决定前征询可发现问题；收集仅是开始；说明采纳与拒绝及原因；没有回应的条件；可能流于形式而非真实机会；中文衔接与自然表达",
+        "类型": "开放",
+        "意义单元": [
+          "信息与改变同样重要",
+          "理解原因与准备的关系",
+          "并非人人同意",
+          "可能有未预料困难",
+          "决定前征询可发现问题",
+          "收集仅是开始",
+          "说明采纳与拒绝及原因",
+          "没有回应的条件",
+          "可能流于形式而非真实机会",
+          "中文衔接与自然表达"
+        ],
+        "编号": "Q09",
+        "章": 13,
+        "独立验收": false,
+        "显示答案": "城市改变公共服务的运行方式时，清楚地提供信息与改变本身同样重要。理解新规定原因的居民，更有条件做好准备。这并不意味着所有人都会同意。有些人仍可能面临设计者未曾预料的困难。在决定最终确定前征求意见，可以发现这些问题。不过，收集意见只是开始。管理者还需说明采纳了哪些建议、拒绝了哪些，以及原因。如果没有这种回应，参与可能会让人觉得只是走形式，而非真正影响决定的机会。"
+      },
+      {
+        "题目": "独立翻译整段，再逐项核对意义单元。",
+        "答案": "人们常把工作中的学习描述为参加正式课程。然而，员工向同事解释问题，或回顾一次未成功的尝试，也可能学到同样多的东西。使这些经历有价值的，并非只是时间流逝，而是发现不足并尝试不同方法的机会。对每个提问都加以惩罚的工作环境，可能妨碍这一过程。相反，管理者若询问能从错误中学到什么，就能使讨论更有成效。这并非免除责任，而是把责任与改进联系起来，而不是与沉默联系起来。",
+        "解析": "建议10分：以下10个单元每项1分；意思准确可用不同措辞。正式课程的传统描述；yet转折；解释与回顾两类经历；可能学到同样多；not ... but ...标准；惩罚问题可能妨碍；管理者提问的对比；更有成效的可能；责任不是被免除；责任连接改进而非沉默",
+        "类型": "开放",
+        "意义单元": [
+          "正式课程的传统描述",
+          "yet转折",
+          "解释与回顾两类经历",
+          "可能学到同样多",
+          "not ... but ...标准",
+          "惩罚问题可能妨碍",
+          "管理者提问的对比",
+          "更有成效的可能",
+          "责任不是被免除",
+          "责任连接改进而非沉默"
+        ],
+        "编号": "Q10",
+        "章": 13,
+        "独立验收": false,
+        "显示答案": "人们常把工作中的学习描述为参加正式课程。然而，员工向同事解释问题，或回顾一次未成功的尝试，也可能学到同样多的东西。使这些经历有价值的，并非只是时间流逝，而是发现不足并尝试不同方法的机会。对每个提问都加以惩罚的工作环境，可能妨碍这一过程。相反，管理者若询问能从错误中学到什么，就能使讨论更有成效。这并非免除责任，而是把责任与改进联系起来，而不是与沉默联系起来。"
+      },
+      {
+        "题目": "独立翻译整段，再逐项核对意义单元。",
+        "答案": "一种工具对其设计者来说可能容易使用，对第一次接触它的人却可能令人困惑。因此，设计者需要观察真实用户，而不能假定书面说明能解决所有问题。反复出现的错误，可能说明标签不清楚，而非用户粗心。修改那个标签，可能比再增加一页解释更有效。不过，即便工具得到改进，有些用户仍可能需要个别帮助。可及性并非一种宣告完成一次就能置之不理的特征。它取决于持续关注人们使用服务时的不同条件。",
+        "解析": "建议10分：以下10个单元每项1分；意思准确可用不同措辞。设计者与新用户对比；可能性保留；因此观察真实用户；不假定说明解决全部；标签不清与粗心区分；改标签可能更有效；改进后仍可能需帮助；不能一次宣告后忘记；持续关注不同使用条件；中文自然与指代连贯",
+        "类型": "开放",
+        "意义单元": [
+          "设计者与新用户对比",
+          "可能性保留",
+          "因此观察真实用户",
+          "不假定说明解决全部",
+          "标签不清与粗心区分",
+          "改标签可能更有效",
+          "改进后仍可能需帮助",
+          "不能一次宣告后忘记",
+          "持续关注不同使用条件",
+          "中文自然与指代连贯"
+        ],
+        "编号": "Q11",
+        "章": 13,
+        "独立验收": true,
+        "显示答案": "一种工具对其设计者来说可能容易使用，对第一次接触它的人却可能令人困惑。因此，设计者需要观察真实用户，而不能假定书面说明能解决所有问题。反复出现的错误，可能说明标签不清楚，而非用户粗心。修改那个标签，可能比再增加一页解释更有效。不过，即便工具得到改进，有些用户仍可能需要个别帮助。可及性并非一种宣告完成一次就能置之不理的特征。它取决于持续关注人们使用服务时的不同条件。"
+      }
+    ]
+  },
+  {
+    "章": 14,
+    "标题": "写作：审题、论证、段落与改写",
+    "正文": "章节\\14·写作：审题、论证、段落与改写.md",
+    "练习": "强化题目\\14·考强练习·写作：审题、论证、段落与改写.md",
+    "任务": 14,
+    "独立验收": [
+      "Q14"
+    ],
+    "题目": [
+      {
+        "题目": "改正：Lifelong learning important for workers.",
+        "答案": "Lifelong learning is important for workers.",
+        "解析": "主语后缺系动词is，不能把名词短语与形容词直接拼成完整陈述句。",
+        "类型": "开放",
+        "编号": "Q01",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "Lifelong learning is important for workers."
+      },
+      {
+        "题目": "改正：Online courses saves time for many students.",
+        "答案": "Online courses save time for many students.",
+        "解析": "courses复数，普通现在时配save；不能因后面time不可数而改主谓关系。",
+        "类型": "开放",
+        "编号": "Q02",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "Online courses save time for many students."
+      },
+      {
+        "题目": "改正：Many people study online, they need flexible hours.",
+        "答案": "Many people study online because they need flexible hours. 也可用合适标点拆句。",
+        "解析": "两个独立分句仅用逗号连接不规范；because表达本题给出的原因。",
+        "类型": "开放",
+        "编号": "Q03",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "Many people study online because they need flexible hours. 也可用合适标点拆句。"
+      },
+      {
+        "题目": "改正：Although the method is useful, but it has limits.",
+        "答案": "Although the method is useful, it has limits.",
+        "解析": "本课标准让步句不重复使用but连接同一主从关系。",
+        "类型": "开放",
+        "编号": "Q04",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "Although the method is useful, it has limits."
+      },
+      {
+        "题目": "改正：People should to check the information before sharing it.",
+        "答案": "People should check the information before sharing it.",
+        "解析": "情态should后用原形，不带to；before sharing表达分享前。",
+        "类型": "开放",
+        "编号": "Q05",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "People should check the information before sharing it."
+      },
+      {
+        "题目": "改正：This experience made me to understand the value of practice.",
+        "答案": "This experience made me understand the value of practice.",
+        "解析": "主动make＋宾语＋原形；不能把被动was made to do的搭配直接套来。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "This experience made me understand the value of practice."
+      },
+      {
+        "题目": "改正想表达“并非每个问题都能由技术解决”：Every problem cannot be solved by technology.",
+        "答案": "Not every problem can be solved by technology. 或Technology cannot solve every problem.",
+        "解析": "把否定范围写清楚，避免原句产生全否定／部分否定的理解歧义。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "Not every problem can be solved by technology. 或Technology cannot solve every problem."
+      },
+      {
+        "题目": "改正：The people which work at night need different arrangements.",
+        "答案": "The people who/that work at night need different arrangements.",
+        "解析": "指人的限制性定语从句主语通常用who或that，不用which；不另重复they。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "The people who/that work at night need different arrangements."
+      },
+      {
+        "题目": "围绕“灵活的课程时间让学习更可行”写4句：主题、解释、例子、回扣。",
+        "答案": "Flexible course times make learning more accessible. Workers can choose sessions that fit their shifts. For example, a shop assistant may attend an evening class after work. This gives adults with fixed duties a realistic way to develop new skills.",
+        "解析": "检查四句功能是否不同；例子须具体，不把假想个例当现实统计。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "Flexible course times make learning more accessible. Workers can choose sessions that fit their shifts. For example, a shop assistant may attend an evening class after work. This gives adults with fixed duties a realistic way to develop new skills."
+      },
+      {
+        "题目": "题目讨论self-employment的利弊。列一个好处、一个风险和一个有条件结论，再写80—100词段落。",
+        "答案": "要点示例：时间自主；收入不稳定；有储备与规划时更可行。可写：Self-employment can give people greater control over their schedules. This may help them combine paid work with family duties. However, freedom does not guarantee a stable income. A person who depends on one client may face serious difficulty when that contract ends. For this reason, preparation matters as much as enthusiasm. People considering this path should assess their likely expenses, develop useful skills and avoid relying on one source of work. With realistic planning and some financial reserves, self-employment can be a worthwhile option, but it is not equally suitable for everyone.",
+        "解析": "示例只是一种论证；不能只列好处而漏风险，也不要把有条件结论写成适用于所有人。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "要点示例：时间自主；收入不稳定；有储备与规划时更可行。可写：Self-employment can give people greater control over their schedules. This may help them combine paid work with family duties. However, freedom does not guarantee a stable income. A person who depends on one client may face serious difficulty when that contract ends. For this reason, preparation matters as much as enthusiasm. People considering this path should assess their likely expenses, develop useful skills and avoid relying on one source of work. With realistic planning and some financial reserves, self-employment can be a worthwhile option, but it is not equally suitable for everyone."
+      },
+      {
+        "题目": "给定图表：某培训班线上学习者占比，2020年20%、2022年35%、2024年50%。写两句准确描述和一句有限解释。",
+        "答案": "The share of learners studying online rose from 20 percent in 2020 to 50 percent in 2024. It increased by 30 percentage points over the period. The change may reflect a growing need for flexible study, though the chart alone does not establish its causes.",
+        "解析": "图表数据是原创练习设定。保留起止年份、占比与百分点；可能解释不能当图表已证实原因。",
+        "类型": "开放",
+        "编号": "Q11",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "The share of learners studying online rose from 20 percent in 2020 to 50 percent in 2024. It increased by 30 percentage points over the period. The change may reflect a growing need for flexible study, though the chart alone does not establish its causes."
+      },
+      {
+        "题目": "先独立列提纲，再写完整文章，完成后展开示范。",
+        "答案": "Lifelong learning matters because neither our working lives nor our personal needs remain unchanged. Education should therefore continue beyond the classroom. It helps people respond to new demands while giving them more choices about the lives they want to lead.\n\nIn professional life, continued learning makes it easier to adapt. A worker who learns to use a new system may perform familiar tasks more effectively and become ready for different responsibilities. For example, an office assistant who develops basic data skills can contribute to projects that were previously beyond reach. Learning does not guarantee promotion, but it can create opportunities.\n\nOn a personal level, learning builds confidence and curiosity. Studying a language, exploring local history or practising a practical skill can make daily life more rewarding. It may also bring people into contact with others who share their interests.\n\nTo make lifelong learning realistic, people need manageable goals and regular practice. A short, consistent habit is often more useful than an ambitious plan that is soon abandoned. With this approach, learning becomes a lasting part of life rather than a temporary obligation.",
+        "解析": "第1段回答重要性；第2段职业发展及具体例子并保留不保证晋升；第3段个人发展；第4段可行做法收束。",
+        "类型": "作文",
+        "编号": "Q12",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "Lifelong learning matters because neither our working lives nor our personal needs remain unchanged. Education should therefore continue beyond the classroom. It helps people respond to new demands while giving them more choices about the lives they want to lead.\n\nIn professional life, continued learning makes it easier to adapt. A worker who learns to use a new system may perform familiar tasks more effectively and become ready for different responsibilities. For example, an office assistant who develops basic data skills can contribute to projects that were previously beyond reach. Learning does not guarantee promotion, but it can create opportunities.\n\nOn a personal level, learning builds confidence and curiosity. Studying a language, exploring local history or practising a practical skill can make daily life more rewarding. It may also bring people into contact with others who share their interests.\n\nTo make lifelong learning realistic, people need manageable goals and regular practice. A short, consistent habit is often more useful than an ambitious plan that is soon abandoned. With this approach, learning becomes a lasting part of life rather than a temporary obligation."
+      },
+      {
+        "题目": "先独立列提纲，再写完整文章，完成后展开示范。",
+        "答案": "Machine translation has become a useful part of communication. It can produce a draft quickly and help readers understand the general meaning of an unfamiliar text. However, speed alone does not show that it can fully replace human translators.\n\nFor simple and repetitive material, automatic translation may save considerable time. A traveller who needs the basic meaning of a notice may prefer an immediate answer to a perfect one. Professional translators can also use an automatic draft as a starting point, provided that they check it carefully.\n\nThe difficulty becomes greater when meaning depends on context. A phrase may express politeness, humour or criticism rather than its most direct dictionary meaning. In such cases, an inaccurate choice can change the writer's intention even if the sentence sounds fluent. A human translator must consider the audience, the purpose and the consequences of misunderstanding.\n\nI therefore see machine translation as a powerful aid rather than a complete substitute. Its appropriate use depends on the task. The more important precision and responsibility become, the more necessary careful human judgment is likely to remain.",
+        "解析": "明确立场；速度用具体场景解释；准确性连接语境；讨论不同任务表现与责任，避免通篇只说科技方便。",
+        "类型": "作文",
+        "编号": "Q13",
+        "章": 14,
+        "独立验收": false,
+        "显示答案": "Machine translation has become a useful part of communication. It can produce a draft quickly and help readers understand the general meaning of an unfamiliar text. However, speed alone does not show that it can fully replace human translators.\n\nFor simple and repetitive material, automatic translation may save considerable time. A traveller who needs the basic meaning of a notice may prefer an immediate answer to a perfect one. Professional translators can also use an automatic draft as a starting point, provided that they check it carefully.\n\nThe difficulty becomes greater when meaning depends on context. A phrase may express politeness, humour or criticism rather than its most direct dictionary meaning. In such cases, an inaccurate choice can change the writer's intention even if the sentence sounds fluent. A human translator must consider the audience, the purpose and the consequences of misunderstanding.\n\nI therefore see machine translation as a powerful aid rather than a complete substitute. Its appropriate use depends on the task. The more important precision and responsibility become, the more necessary careful human judgment is likely to remain."
+      },
+      {
+        "题目": "先独立列提纲，再写完整文章，完成后展开示范。",
+        "答案": "Modern life offers many choices, but managing them can become a burden. Living more simply does not require rejecting technology or giving up every comfort. It means choosing activities and possessions that serve a clear purpose.\n\nOne practical step is to reduce unnecessary commitments. Before accepting a new task, people can ask whether it supports an important goal and whether they have enough time to do it properly. Leaving some space in a schedule can make existing responsibilities easier to handle.\n\nAnother step is to use technology deliberately. Turning off nonessential notifications, for example, can protect a period of study or conversation. The aim is not to avoid all messages, but to decide when they deserve attention. A similar principle applies to buying things: delaying a purchase gives us time to consider whether it will actually be useful.\n\nFinally, simple routines can reduce repeated decisions. Planning a few regular study periods or preparing the next day's essentials may save both time and effort. These small changes will not remove every difficulty, but they can help people focus on what matters most.",
+        "解析": "建议题必须给方法与作用；拒绝把简化生活写成拒绝一切技术；例子落到时间、通知、购买和习惯。",
+        "类型": "作文",
+        "编号": "Q14",
+        "章": 14,
+        "独立验收": true,
+        "显示答案": "Modern life offers many choices, but managing them can become a burden. Living more simply does not require rejecting technology or giving up every comfort. It means choosing activities and possessions that serve a clear purpose.\n\nOne practical step is to reduce unnecessary commitments. Before accepting a new task, people can ask whether it supports an important goal and whether they have enough time to do it properly. Leaving some space in a schedule can make existing responsibilities easier to handle.\n\nAnother step is to use technology deliberately. Turning off nonessential notifications, for example, can protect a period of study or conversation. The aim is not to avoid all messages, but to decide when they deserve attention. A similar principle applies to buying things: delaying a purchase gives us time to consider whether it will actually be useful.\n\nFinally, simple routines can reduce repeated decisions. Planning a few regular study periods or preparing the next day's essentials may save both time and effort. These small changes will not remove every difficulty, but they can help people focus on what matters most."
+      }
+    ]
+  },
+  {
+    "章": 15,
+    "标题": "全卷模拟：分卷限时与独立验收",
+    "正文": "章节\\15·全卷模拟：分卷限时与独立验收.md",
+    "练习": "强化题目\\15·考强练习·全卷模拟：分卷限时与独立验收.md",
+    "任务": 77,
+    "独立验收": [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q04",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08",
+      "Q09",
+      "Q10",
+      "Q11",
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15",
+      "Q16",
+      "Q17",
+      "Q18",
+      "Q19",
+      "Q20",
+      "Q21",
+      "Q22",
+      "Q23",
+      "Q24",
+      "Q25",
+      "Q26",
+      "Q27",
+      "Q28",
+      "Q29",
+      "Q30",
+      "Q31",
+      "Q32",
+      "Q33",
+      "Q34",
+      "Q35",
+      "Q36",
+      "Q37",
+      "Q38",
+      "Q39",
+      "Q40",
+      "Q41",
+      "Q42",
+      "Q43",
+      "Q44",
+      "Q45",
+      "Q46",
+      "Q47",
+      "Q48",
+      "Q49",
+      "Q50",
+      "Q51",
+      "Q52",
+      "Q53",
+      "Q54",
+      "Q55",
+      "Q56",
+      "Q57",
+      "Q58",
+      "Q59",
+      "Q60",
+      "Q61",
+      "Q62",
+      "Q63",
+      "Q64",
+      "Q65",
+      "Q66",
+      "Q67",
+      "Q68",
+      "Q69",
+      "Q70",
+      "Q71",
+      "Q72",
+      "Q73",
+      "Q74",
+      "Q75",
+      "Q76",
+      "Q77"
+    ],
+    "题目": [
+      {
+        "题目": "第1题选哪一句？",
+        "答案": "C",
+        "解析": "下一句给最后入场时间five thirty，故问last entry；A问票的范围，B答存包。",
+        "类型": "开放",
+        "编号": "Q01",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "第2题选哪一句？",
+        "答案": "A",
+        "解析": "下一句Yes与exhibitions included回答是否包含展览；不是时间或存包。",
+        "类型": "开放",
+        "编号": "Q02",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "第3题选哪一句？",
+        "答案": "B",
+        "解析": "it指large bag，room beside entrance回答存放地点。",
+        "类型": "开放",
+        "编号": "Q03",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "第4题选哪一句？",
+        "答案": "B",
+        "解析": "后句Good idea与分配引言任务，承接分工建议。",
+        "类型": "开放",
+        "编号": "Q04",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "第5题选哪一句？",
+        "答案": "A",
+        "解析": "另一人承担核对数字的具体工作，符合分工延续。",
+        "类型": "开放",
+        "编号": "Q05",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "第6题选哪一句？",
+        "答案": "C",
+        "解析": "下一句确认明天下午，故前句需约定明天汇总。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "第7题选哪一句？",
+        "答案": "A",
+        "解析": "回答改变开放时间的动机。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "第8题选哪一句？",
+        "答案": "B",
+        "解析": "回答收集需求的两种方式。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "第9题选哪一句？",
+        "答案": "C",
+        "解析": "Finding enough staff是遇到的主要困难。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "第10题选哪一句？",
+        "答案": "D",
+        "解析": "hope to test表下一步计划。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "The committee endorsed the proposal after a careful review. 替换endorsed。",
+        "选项": [
+          "concealed",
+          "rewrote",
+          "approved",
+          "delayed"
+        ],
+        "正确项": "approved",
+        "解析": "endorsed指认可支持；推迟、隐藏、重写均不是审议后的批准。",
+        "类型": "单选",
+        "编号": "Q11",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. approved",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The new arrangement eased the pressure on staff. 替换eased。",
+        "选项": [
+          "created",
+          "reduced",
+          "measured",
+          "ignored"
+        ],
+        "正确项": "reduced",
+        "解析": "减轻压力；不等于测量、忽视或制造压力。",
+        "类型": "单选",
+        "编号": "Q12",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. reduced",
+        "正确字母": "B"
+      },
+      {
+        "题目": "The information is confidential. 替换confidential。",
+        "选项": [
+          "private",
+          "accurate",
+          "outdated",
+          "complex"
+        ],
+        "正确项": "private",
+        "解析": "保密是可传播范围，不等于准确、过时或复杂。",
+        "类型": "单选",
+        "编号": "Q13",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. private",
+        "正确字母": "A"
+      },
+      {
+        "题目": "A modest increase in demand was recorded. 替换modest。",
+        "选项": [
+          "sudden",
+          "certain",
+          "unlimited",
+          "small"
+        ],
+        "正确项": "small",
+        "解析": "modest在增长量上指有限或不大；其余改变速度、确定性、范围。",
+        "类型": "单选",
+        "编号": "Q14",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. small",
+        "正确字母": "D"
+      },
+      {
+        "题目": "The workers were compensated for the additional hours. compensated最接近哪项？",
+        "选项": [
+          "dismissed from their jobs",
+          "asked to train others",
+          "paid for their extra work",
+          "warned against overtime"
+        ],
+        "正确项": "paid for their extra work",
+        "解析": "额外工作得到补偿；警告、解雇、培训他人均无该含义。",
+        "类型": "单选",
+        "编号": "Q15",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. paid for their extra work",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The results contradict the earlier assumption. 替换contradict。",
+        "选项": [
+          "come before",
+          "conflict with",
+          "depend on",
+          "summarise"
+        ],
+        "正确项": "conflict with",
+        "解析": "结果与原假设矛盾；依赖、概括和时间先后不是矛盾关系。",
+        "类型": "单选",
+        "编号": "Q16",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. conflict with",
+        "正确字母": "B"
+      },
+      {
+        "题目": "The effect was temporary. 替换temporary。",
+        "选项": [
+          "short-lived",
+          "unexpected",
+          "beneficial",
+          "widespread"
+        ],
+        "正确项": "short-lived",
+        "解析": "持续时间短；意外、有益、广泛分别是别的维度。",
+        "类型": "单选",
+        "编号": "Q17",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. short-lived",
+        "正确字母": "A"
+      },
+      {
+        "题目": "The policy was implemented in September. 替换implemented。",
+        "选项": [
+          "carefully questioned",
+          "publicly criticised",
+          "set aside",
+          "put into effect"
+        ],
+        "正确项": "put into effect",
+        "解析": "落实实施；质疑、批评、搁置都没有实施义。",
+        "类型": "单选",
+        "编号": "Q18",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. put into effect",
+        "正确字母": "D"
+      },
+      {
+        "题目": "She was able to detect a slight change. 替换detect。",
+        "选项": [
+          "cause",
+          "explain fully",
+          "notice",
+          "prevent"
+        ],
+        "正确项": "notice",
+        "解析": "察觉变化；不保证能阻止、制造或完整解释变化。",
+        "类型": "单选",
+        "编号": "Q19",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. notice",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The revised instructions are more concise. 替换concise。",
+        "选项": [
+          "open to everyone",
+          "brief and clear",
+          "highly technical",
+          "less reliable"
+        ],
+        "正确项": "brief and clear",
+        "解析": "简洁指表达紧凑清楚；技术性、可靠度、开放对象都非本词意义。",
+        "类型": "单选",
+        "编号": "Q20",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. brief and clear",
+        "正确字母": "B"
+      },
+      {
+        "题目": "What problem helped prompt the proposed traffic restriction?",
+        "选项": [
+          "Difficulty crossing the road safely.",
+          "Customers being unable to carry heavy purchases home.",
+          "The nearby car park becoming unavailable on Saturdays.",
+          "Delivery vehicles blocking the temporary loading point."
+        ],
+        "正确项": "Difficulty crossing the road safely.",
+        "解析": "正确依据：第1段居民提出安全过街困难，是建议限制车流的起因之一。\n\n重物购物是商家随后对方案的担忧，不是已经造成该建议的事实；停车场一直开放；临时装卸点属于试点配套，文中没有送货车阻塞它的记录。",
+        "类型": "单选",
+        "编号": "Q21",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. Difficulty crossing the road safely.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "Why was a temporary loading point provided?",
+        "选项": [
+          "To create a place where volunteers could count pedestrians.",
+          "To accommodate visitors attending the local festival.",
+          "To obtain comparable sales figures from the traders.",
+          "To preserve a way of handling deliveries and heavy purchases."
+        ],
+        "正确项": "To preserve a way of handling deliveries and heavy purchases.",
+        "解析": "正确依据：第2段先写五金店担心重物购买，再给保留停车场与边缘装卸点，回应可达性。\n\n计数在第3段出现，但没有说在装卸点进行；节庆是影响客流的另一因素；商户自愿交信息是末段安排，与设置装卸点的用途不同。",
+        "类型": "单选",
+        "编号": "Q22",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. To preserve a way of handling deliveries and heavy purchases.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "What can be concluded from the higher pedestrian count?",
+        "选项": [
+          "The festival explained the increase recorded on each trial weekend.",
+          "The rise in visitors was matched by higher sales at the hardware shop.",
+          "Other conditions may have contributed to the increase.",
+          "The trial showed that pedestrian growth continued into winter."
+        ],
+        "正确项": "Other conditions may have contributed to the increase.",
+        "解析": "正确依据：第3段节庆与干燥天气妨碍将全部增长归于限制车流，所以其他条件可能有贡献。\n\n冬季尚未测量；节庆只发生在两次周末，不能解释每次，也没有被确认为唯一原因；五金店说销售大致不变，不能把客流上涨等同于销售增加。",
+        "类型": "单选",
+        "编号": "Q23",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. Other conditions may have contributed to the increase.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "The wheelchair users’ comments illustrate what?",
+        "选项": [
+          "Visitor totals provide a more useful measure than individual experiences.",
+          "A beneficial aim may still require changes to practical details.",
+          "A six-week trial can establish whether winter access will be adequate.",
+          "Access concerns can be settled by keeping delivery arrangements unchanged."
+        ],
+        "正确项": "A beneficial aim may still require changes to practical details.",
+        "解析": "正确依据：轮椅使用者欢迎更容易过街，同时指出标牌挡路，机构据此移走标牌，说明收益与细节改进并存。\n\n他们没有提供冬季证据；送货安排无法处理标牌占道这一问题；个体反馈反而发现了总人数不能显示的障碍，不是在贬低这些经历。",
+        "类型": "单选",
+        "编号": "Q24",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. A beneficial aim may still require changes to practical details.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "Which best describes the council’s final position?",
+        "选项": [
+          "Support for further testing with attention to access.",
+          "Approval of a permanent scheme based on the café's increased trade.",
+          "Continuation of the trial chiefly to raise pedestrian totals.",
+          "Suspension of the trial until winter sales figures became available."
+        ],
+        "正确项": "Support for further testing with attention to access.",
+        "解析": "正确依据：末段延长一个季节继续测试，并强调可达细节与客流同样重要。\n\n尚未永久批准，也没有仅凭咖啡馆表现定案；‘chiefly ... totals’遗漏末句对可达性的并重；延长试验不是暂停等待数据。",
+        "类型": "单选",
+        "编号": "Q25",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. Support for further testing with attention to access.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "Why did the centre initially expect the shortage to disappear?",
+        "选项": [
+          "A technician had already checked their batteries and software.",
+          "The donor had supplied passwords and continuing technical support.",
+          "Borrowers had successfully completed their class tasks on the machines.",
+          "The donated machines appeared usable when switched on."
+        ],
+        "正确项": "The donated machines appeared usable when switched on.",
+        "解析": "正确依据：首段clean和switched on successfully是最初乐观判断的依据。\n\n技术员检查是暴露问题之后的措施；捐赠者反而忘记一些密码，持续支持也未提及；借用者最初发现故障，不能把后来的功能目标当已完成测试。",
+        "类型": "单选",
+        "编号": "Q26",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. The donated machines appeared usable when switched on.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "Which issue was discovered by early borrowers?",
+        "选项": [
+          "Removing users' files had caused several passwords to stop working.",
+          "Learners were charged for faults that the technician had already repaired.",
+          "Some devices could not run the required software.",
+          "The centre lacked a clear way to count the donated machines."
+        ],
+        "正确项": "Some devices could not run the required software.",
+        "解析": "正确依据：第2段Several machines could not run the software used in class直接对应。\n\n首段已经以设备总数乐观，并未说无法计数；忘记密码发生在清理前，不能归因于删文件；后来避免自动责怪借用者，也不证明曾对已修故障收费。",
+        "类型": "单选",
+        "编号": "Q27",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. Some devices could not run the required software.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "Dependable in Paragraph 3 most nearly means what?",
+        "选项": [
+          "Accessible.",
+          "Reliable.",
+          "Compatible.",
+          "Affordable."
+        ],
+        "正确项": "Reliable.",
+        "解析": "正确依据：users could rely on直接解释dependable，指能可靠完成用途。\n\ncompatible是兼容，只对应某一软件问题；affordable是价格可承受，维修成本虽被考虑却不是本词意思；accessible是可获得、可接近，不能保证借到后正常工作。",
+        "类型": "单选",
+        "编号": "Q28",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. Reliable.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "Why were learners asked to report faults without automatic blame?",
+        "选项": [
+          "To help identify when and how problems arose.",
+          "To decide which borrowers should receive the remaining laptops.",
+          "To replace technical checks with users' accounts of damage.",
+          "To show that faults usually came from learners' unfamiliarity with software."
+        ],
+        "正确项": "To help identify when and how problems arose.",
+        "解析": "正确依据：第4段distinguish existing damage from problems arising during a loan说明要区分故障原有还是借用期间出现。\n\n没有按报错分配设备的规则；用户反馈补充检查，没有替代技术检查；原文没有把多数故障归因于学习者不会软件。",
+        "类型": "单选",
+        "编号": "Q29",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. To help identify when and how problems arose.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "What is the main lesson of the passage?",
+        "选项": [
+          "Donated equipment works best when software is standardised before acceptance.",
+          "A smaller stock reduces the effort required to manage a lending service.",
+          "Learners' ability to repair devices determines the value of a donation.",
+          "Useful access depends on a functioning service, not merely a device count."
+        ],
+        "正确项": "Useful access depends on a functioning service, not merely a device count.",
+        "解析": "正确依据：从按数量乐观，到检查维护、借用规则和任务完成，全文强调捐赠只是服务的起点。\n\n软件是一个问题，但接收前统一软件不是全篇方案；设备减少不等于管理工作量已经降低；维修由技术员承担，并未要求学习者先有修理能力。",
+        "类型": "单选",
+        "编号": "Q30",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. Useful access depends on a functioning service, not merely a device count.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "What were students originally trying to compare?",
+        "选项": [
+          "The stream's temperature before and after construction of a building.",
+          "The amount of rainfall at several measuring sites.",
+          "Water temperatures in shaded and exposed sections.",
+          "Temperatures recorded with devices of different designs."
+        ],
+        "正确项": "Water temperatures in shaded and exposed sections.",
+        "解析": "正确依据：首段明确比较遮阴段与暴露段水温，并借相同设备、约定每周同一时间。\n\n不同设计设备不是研究目标；建筑增温是首月高读数引出的后续假说，不是原始比较；降雨是后来附记条件，没有以各点降雨量为最初研究对象。",
+        "类型": "单选",
+        "编号": "Q31",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. Water temperatures in shaded and exposed sections.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "What did placing all devices in one container help reveal?",
+        "选项": [
+          "The students had taken their weekly readings at different times.",
+          "One instrument produced unusually high readings.",
+          "The building's effect depended on where a device was placed.",
+          "Temperature differences between sites disappeared after rainfall."
+        ],
+        "正确项": "One instrument produced unusually high readings.",
+        "解析": "正确依据：第2段高读数跟随一个设备，而非某地点，支持仪器异常。\n\n没有证明建筑的空间效应；容器对照与降雨变化不是一回事；约定同一时刻并不等于实际违反约定，文中未指出错时测量。",
+        "类型": "单选",
+        "编号": "Q32",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. One instrument produced unusually high readings.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "Calibration is explained as a process of what?",
+        "选项": [
+          "Checking comparability between instruments.",
+          "Recording differences in sunlight at measuring sites.",
+          "Repeating observations to cover a longer season.",
+          "Comparing student explanations with residents' memories."
+        ],
+        "正确项": "Checking comparability between instruments.",
+        "解析": "正确依据：第3段冒号后checking whether instruments provide comparable results就是本词在文中的解释。\n\n日照属于环境记录；延长季节属于观察范围；居民是阅读总结的人，文中没有拿他们的记忆校验学生解释。不能把项目的其他环节替代词义。",
+        "类型": "单选",
+        "编号": "Q33",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. Checking comparability between instruments.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "What can be inferred about the teacher’s view of a successful project?",
+        "选项": [
+          "Accurate instruments make it unnecessary to record surrounding conditions.",
+          "A stable numerical difference matters more than revising the method.",
+          "Identifying a local cause is the main value of school research.",
+          "Careful reasoning can matter more than a dramatic claim."
+        ],
+        "正确项": "Careful reasoning can matter more than a dramatic claim.",
+        "解析": "正确依据：教师把谨慎结论视作成功，随后以未指控建筑而学会检验其他解释作对照。\n\n校准后仍记录降雨日照，故准确仪器不能替代环境记录；教师认可发现仪器问题、改方法并报告变化，并未把恒定数差置于方法修正之上；‘local cause’把被放下的指控变成主要价值。",
+        "类型": "单选",
+        "编号": "Q34",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. Careful reasoning can matter more than a dramatic claim.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "Why did students describe the initial instrument problem in their summary?",
+        "选项": [
+          "To establish that the corrected figures applied to other seasons.",
+          "To persuade residents that equipment checks could replace repeated observations.",
+          "To make the limitations and revised method transparent.",
+          "To explain why future observations should use a different stream."
+        ],
+        "正确项": "To make the limitations and revised method transparent.",
+        "解析": "正确依据：末段说明初始问题与修改方法一并公开，诚实描述不确定性方便别人接续工作。\n\n没有换河的建议；他们明确不能推广到其他季节；校准之后仍重复测量，不是以设备检查代替观察。",
+        "类型": "单选",
+        "编号": "Q35",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. To make the limitations and revised method transparent.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "Why did the curator reject a display based only on attractive objects and names?",
+        "选项": [
+          "It would delay reopening while damaged objects were being repaired.",
+          "It could appear complete while lacking important meaning.",
+          "It would leave too little room for the objects saved from the storm.",
+          "It would make visitors rely too heavily on conflicting personal memories."
+        ],
+        "正确项": "It could appear complete while lacking important meaning.",
+        "解析": "正确依据：首段looked complete与meaning absent形成对比，担心外观完整而意义缺失。\n\n选择部分漂亮物件不是空间过挤的问题；口述记忆是后续方案中的证据来源，不是仅摆物件加名称的后果；快速方案恰是quick solution，未说会拖延重开。",
+        "类型": "单选",
+        "编号": "Q36",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. It could appear complete while lacking important meaning.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "The wooden box is mentioned mainly to illustrate what?",
+        "选项": [
+          "An ordinary object can reveal social arrangements.",
+          "Repairing an object's material can recover its historical value.",
+          "Factory records are more accurate than residents' memories.",
+          "Objects shared by families were usually kept in a meeting room."
+        ],
+        "正确项": "An ordinary object can reveal social arrangements.",
+        "解析": "正确依据：木箱材质普通，价值在于它承载低收入家庭共享工具、修理用品的安排。\n\n例子强调意义而非修木材；它没有比较工厂档案与记忆的普遍准确度；放在何处恰有冲突，且不能由一个箱子推出共享物件通常放会议室。",
+        "类型": "单选",
+        "编号": "Q37",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. An ordinary object can reveal social arrangements.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "How were conflicting memories handled?",
+        "选项": [
+          "They were resolved by choosing the account with the most detail.",
+          "They were combined into a single account before the labels were written.",
+          "They were left to visitors to judge without the museum checking them.",
+          "They were compared with other available evidence."
+        ],
+        "正确项": "They were compared with other available evidence.",
+        "解析": "正确依据：第3段列出photographs, dates and surviving records，说明以其他证据交叉核对。\n\n细节多不等于已证实，文中也未按详细程度裁决；有些不确定性留在标签，不是先合并成唯一说法；录音呈现多种记忆也不表示馆方省去核查。",
+        "类型": "单选",
+        "编号": "Q38",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. They were compared with other available evidence.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "What does interprets in the last paragraph most nearly mean?",
+        "选项": [
+          "Determines the source and ownership of.",
+          "Selects the most representative examples of.",
+          "Explains the meaning and context of.",
+          "Restores the appearance and condition of."
+        ],
+        "正确项": "Explains the meaning and context of.",
+        "解析": "正确依据：末段谈游客能从藏品学到什么，并连起物件、证据与生活，interprets是阐释意义和语境。\n\n修外观是物理修复，不涵盖故事解释；来源所有权只是可能的资料问题，不等于阐释；选代表物件是筛选，也不是本句的意义说明。",
+        "类型": "单选",
+        "编号": "Q39",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. Explains the meaning and context of.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "Which title best captures the passage?",
+        "选项": [
+          "Reopening a Museum by Repairing Its Collection.",
+          "Restoring the Connections Behind Museum Objects.",
+          "Choosing Attractive Objects for a Smaller Museum.",
+          "Recording the Memories of a Mill Community."
+        ],
+        "正确项": "Restoring the Connections Behind Museum Objects.",
+        "解析": "正确依据：全文从物理受损写到重建故事、核验证据、解释物件与生活的联系，正确标题覆盖整个转向。\n\n选漂亮物件是被拒的捷径；记录工厂社区记忆仅覆盖木箱及部分口述工作；维修藏品重开只覆盖物理层面，漏掉末段强调的意义连接。",
+        "类型": "单选",
+        "编号": "Q40",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. Restoring the Connections Behind Museum Objects.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "What does the blogger recommend?",
+        "选项": [
+          "A trial evaluated through more than booking totals.",
+          "A three-month trial judged by feedback from groups that booked rooms.",
+          "Longer opening hours funded by charging each group for staff costs.",
+          "A permanent Sunday timetable once a caretaker has been appointed."
+        ],
+        "正确项": "A trial evaluated through more than booking totals.",
+        "解析": "正确依据：正文要求同时询问参加与未参加者，避免预订数漏掉受交通或费用排除的人。\n\n只问已预订群体漏掉people who stayed away；费用安排有豁免，并非每组分担；支持的是试行，不是聘好管理员就立即永久确定。",
+        "类型": "单选",
+        "编号": "Q41",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. A trial evaluated through more than booking totals.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "Which comment focuses on a transport obstacle?",
+        "选项": [
+          "Comment 2.",
+          "Comment 3.",
+          "Comment 4.",
+          "Comment 1."
+        ],
+        "正确项": "Comment 1.",
+        "解析": "1给末班车时间；2费用豁免，3值守，4季节评价。",
+        "类型": "单选",
+        "编号": "Q42",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. Comment 1.",
+        "正确字母": "D"
+      },
+      {
+        "题目": "Which comment supports fee exemptions while adding a condition?",
+        "选项": [
+          "Comment 3.",
+          "Comment 4.",
+          "Comment 2.",
+          "Comment 1."
+        ],
+        "正确项": "Comment 2.",
+        "解析": "2支持exemptions并要求申请简便保护个人资料；其他不是费用条件。",
+        "类型": "单选",
+        "编号": "Q43",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. Comment 2.",
+        "正确字母": "C"
+      },
+      {
+        "题目": "Which comment offers experience showing the need for dependable staffing?",
+        "选项": [
+          "Comment 4.",
+          "Comment 3.",
+          "Comment 1.",
+          "Comment 2."
+        ],
+        "正确项": "Comment 3.",
+        "解析": "3描述另一中心人到门锁的经历；其余没有这项实践证据。",
+        "类型": "单选",
+        "编号": "Q44",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. Comment 3.",
+        "正确字母": "B"
+      },
+      {
+        "题目": "Which comment questions whether the initial trial period covers enough conditions?",
+        "选项": [
+          "Comment 4.",
+          "Comment 1.",
+          "Comment 2.",
+          "Comment 3."
+        ],
+        "正确项": "Comment 4.",
+        "解析": "4要求检查冬季，讨论季节代表性；其他是交通、豁免、值守条件。",
+        "类型": "单选",
+        "编号": "Q45",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. Comment 4.",
+        "正确字母": "A"
+      },
+      {
+        "题目": "本篇空46选择哪一项？",
+        "选项": [
+          "conceal",
+          "consume",
+          "doubt",
+          "offer"
+        ],
+        "正确项": "offer",
+        "解析": "offer advice提供建议；隐藏、消耗、怀疑不对应帮助新人。",
+        "类型": "单选",
+        "编号": "Q46",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. offer",
+        "正确字母": "D"
+      },
+      {
+        "题目": "本篇空47选择哪一项？",
+        "选项": [
+          "Similarly",
+          "For example",
+          "However",
+          "Therefore"
+        ],
+        "正确项": "However",
+        "解析": "原先依赖非正式会面但难找时间，转折；不是前句结果或有效会面实例。",
+        "类型": "单选",
+        "编号": "Q47",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. However",
+        "正确字母": "C"
+      },
+      {
+        "题目": "本篇空48选择哪一项？",
+        "选项": [
+          "sequence",
+          "purpose",
+          "location",
+          "duration"
+        ],
+        "正确项": "purpose",
+        "解析": "正确依据：会面需要有清楚的学习目的，后文要求说明解决了什么问题，呼应purpose。location只说地点；duration是时长，前面已安排short period，这里不是用clear来交代长短；sequence是顺序，文中没有一场会面内部的步骤安排。",
+        "类型": "单选",
+        "编号": "Q48",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. purpose",
+        "正确字母": "B"
+      },
+      {
+        "题目": "本篇空49选择哪一项？",
+        "选项": [
+          "against",
+          "beside",
+          "through",
+          "among"
+        ],
+        "正确项": "against",
+        "解析": "count against someone表示对某人不利；其他介词不形成该评价搭配。",
+        "类型": "单选",
+        "编号": "Q49",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. against",
+        "正确字母": "A"
+      },
+      {
+        "题目": "本篇空50选择哪一项？",
+        "选项": [
+          "outcome",
+          "assessment",
+          "incentive",
+          "condition"
+        ],
+        "正确项": "condition",
+        "解析": "正确依据：担心被扣分就保持沉默，因此信任是正常交流得以开展的前提。outcome将前提改成结果；assessment是评估；incentive是激励因素，比不上本句essential所强调的必要条件，文中也未将信任设为参与奖励。",
+        "类型": "单选",
+        "编号": "Q50",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. condition",
+        "正确字母": "D"
+      },
+      {
+        "题目": "本篇空51选择哪一项？",
+        "选项": [
+          "prefer",
+          "hide",
+          "demonstrate",
+          "prevent"
+        ],
+        "正确项": "demonstrate",
+        "解析": "会面数不能单独证明学习；阻止、偏好、隐藏均非证据判断。",
+        "类型": "单选",
+        "编号": "Q51",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. demonstrate",
+        "正确字母": "C"
+      },
+      {
+        "题目": "本篇空52选择哪一项？",
+        "选项": [
+          "means",
+          "result",
+          "matter",
+          "piece"
+        ],
+        "正确项": "result",
+        "解析": "as a result of由于……；其他词不组成这里的因果表达。",
+        "类型": "单选",
+        "编号": "Q52",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. result",
+        "正确字母": "B"
+      },
+      {
+        "题目": "本篇空53选择哪一项？",
+        "选项": [
+          "general",
+          "useful",
+          "specific",
+          "relevant"
+        ],
+        "正确项": "general",
+        "解析": "与practical对比，建议可能太泛；有用、具体、相关不是需要改进的反方向。",
+        "类型": "单选",
+        "编号": "Q53",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. general",
+        "正确字母": "A"
+      },
+      {
+        "题目": "本篇空54选择哪一项？",
+        "选项": [
+          "submit",
+          "attribute",
+          "restrict",
+          "adapt"
+        ],
+        "正确项": "adapt",
+        "解析": "正确依据：adapt sessions to local needs表示按当地需要调整，与后文flexibility呼应。submit是提交，不能自然说提交会面给需求；attribute ... to是把原因归于某事，不是安排调整；restrict ... to是限于某范围，不能表达这里保留结构同时因地制宜的意思。",
+        "类型": "单选",
+        "编号": "Q54",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. adapt",
+        "正确字母": "D"
+      },
+      {
+        "题目": "本篇空55选择哪一项？",
+        "选项": [
+          "secret",
+          "accidental",
+          "effective",
+          "expensive"
+        ],
+        "正确项": "effective",
+        "解析": "结构与灵活性共同使支持有效；昂贵、秘密、偶然不合结尾正面目标。",
+        "类型": "单选",
+        "编号": "Q55",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. effective",
+        "正确字母": "C"
+      },
+      {
+        "题目": "第一轮空56：选词框中的哪一项？",
+        "答案": "A. access",
+        "解析": "access to services是可获得服务。",
+        "类型": "开放",
+        "编号": "Q56",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. access"
+      },
+      {
+        "题目": "第一轮空57：选词框中的哪一项？",
+        "答案": "B. demand",
+        "解析": "local demand当地需求，local修饰名词。",
+        "类型": "开放",
+        "编号": "Q57",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. demand"
+      },
+      {
+        "题目": "第一轮空58：选词框中的哪一项？",
+        "答案": "C. maintain",
+        "解析": "maintain接equipment表示维护。",
+        "类型": "开放",
+        "编号": "Q58",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. maintain"
+      },
+      {
+        "题目": "第二轮空59：选完成后的哪条短语？",
+        "答案": "P. improve access to services",
+        "解析": "远处出行困难对应改善服务可达性。",
+        "类型": "开放",
+        "编号": "Q59",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "P. improve access to services"
+      },
+      {
+        "题目": "第二轮空60：选完成后的哪条短语？",
+        "答案": "Q. respond to local demand",
+        "解析": "先问需求再排时刻，非机械照搬别处。",
+        "类型": "开放",
+        "编号": "Q60",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "Q. respond to local demand"
+      },
+      {
+        "题目": "第二轮空61：选完成后的哪条短语？",
+        "答案": "R. maintain the equipment",
+        "解析": "repair budget与qualified workers共同支持维护设备。",
+        "类型": "开放",
+        "编号": "Q61",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "R. maintain the equipment"
+      },
+      {
+        "题目": "第一轮空62：选词框中的哪一项？",
+        "答案": "A. aware",
+        "解析": "be aware of意识到；aware为形容词。",
+        "类型": "开放",
+        "编号": "Q62",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. aware"
+      },
+      {
+        "题目": "第一轮空63：选词框中的哪一项？",
+        "答案": "B. limits",
+        "解析": "the limits of a sample样本限制，limits为名词。",
+        "类型": "开放",
+        "编号": "Q63",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. limits"
+      },
+      {
+        "题目": "第一轮空64：选词框中的哪一项？",
+        "答案": "C. explain",
+        "解析": "explain how ...解释方式内容，需动词。",
+        "类型": "开放",
+        "编号": "Q64",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. explain"
+      },
+      {
+        "题目": "第二轮空65：选完成后的哪条短语？",
+        "答案": "R. explain how the figures were collected",
+        "解析": "前有to，后面readers assess method要求说明采集方法。",
+        "类型": "开放",
+        "编号": "Q65",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "R. explain how the figures were collected"
+      },
+      {
+        "题目": "第二轮空66：选完成后的哪条短语？",
+        "答案": "Q. recognise the limits of a sample",
+        "解析": "仅两站样本，对应recognise limits。",
+        "类型": "开放",
+        "编号": "Q66",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "Q. recognise the limits of a sample"
+      },
+      {
+        "题目": "第二轮空67：选完成后的哪条短语？",
+        "答案": "P. be aware of uncertainty",
+        "解析": "should后接be原形；不要把单一比例当绝对描述，需意识到不确定性。",
+        "类型": "开放",
+        "编号": "Q67",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "P. be aware of uncertainty"
+      },
+      {
+        "题目": "第一轮空68：选词框中的哪一项？",
+        "答案": "D. responsibility",
+        "解析": "take responsibility for承担责任。",
+        "类型": "开放",
+        "编号": "Q68",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "D. responsibility"
+      },
+      {
+        "题目": "第一轮空69：选词框中的哪一项？",
+        "答案": "B. understand",
+        "解析": "help users understand为help＋宾语＋原形。",
+        "类型": "开放",
+        "编号": "Q69",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "B. understand"
+      },
+      {
+        "题目": "第一轮空70：选词框中的哪一项？",
+        "答案": "C. unnecessary",
+        "解析": "unnecessary修饰complexity，不必要的复杂。",
+        "类型": "开放",
+        "编号": "Q70",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "C. unnecessary"
+      },
+      {
+        "题目": "第一轮空71：选词框中的哪一项？",
+        "答案": "A. evidence",
+        "解析": "supporting evidence支持性证据。",
+        "类型": "开放",
+        "编号": "Q71",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "A. evidence"
+      },
+      {
+        "题目": "第二轮空72：选完成后的哪条短语？",
+        "答案": "P. take responsibility for decisions",
+        "解析": "组织对决定负责，与nobody controls对比。",
+        "类型": "开放",
+        "编号": "Q72",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "P. take responsibility for decisions"
+      },
+      {
+        "题目": "第二轮空73：选完成后的哪条短语？",
+        "答案": "Q. help users understand the choices",
+        "解析": "清楚解释帮助用户理解选项。",
+        "类型": "开放",
+        "编号": "Q73",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "Q. help users understand the choices"
+      },
+      {
+        "题目": "第二轮空74：选完成后的哪条短语？",
+        "答案": "R. avoid unnecessary complexity",
+        "解析": "去重复、释术语旨在避免不必要复杂。",
+        "类型": "开放",
+        "编号": "Q74",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "R. avoid unnecessary complexity"
+      },
+      {
+        "题目": "第二轮空75：选完成后的哪条短语？",
+        "答案": "S. provide supporting evidence",
+        "解析": "让读者审查理由，需要支持证据。",
+        "类型": "开放",
+        "编号": "Q75",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "S. provide supporting evidence"
+      },
+      {
+        "题目": "独立翻译整段。",
+        "答案": "公共信息只有在人们能理解自己需要采取什么行动时才有用。一则通知即使包含了所有必要细节，如果这些细节按读者不熟悉的顺序呈现，仍可能让人困惑。在再增加一段内容前，撰写者应先想一想读者最可能首先提出什么问题。请少数人试读草稿，可以发现作者本人已注意不到的困难。这不能保证所有人都会以完全相同的方式理解信息。不过，它确实提供了一个机会，让通知能在误解影响更多读者之前得到改进。",
+        "解析": "按10个意义单元各1分：有用的条件；预期行动；细节齐全仍可能困惑；顺序原因；先想读者首问；小范围试读；作者不再注意到；不保证完全同解；however转折与强调；扩大影响前改进。",
+        "类型": "开放",
+        "编号": "Q76",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "公共信息只有在人们能理解自己需要采取什么行动时才有用。一则通知即使包含了所有必要细节，如果这些细节按读者不熟悉的顺序呈现，仍可能让人困惑。在再增加一段内容前，撰写者应先想一想读者最可能首先提出什么问题。请少数人试读草稿，可以发现作者本人已注意不到的困难。这不能保证所有人都会以完全相同的方式理解信息。不过，它确实提供了一个机会，让通知能在误解影响更多读者之前得到改进。"
+      },
+      {
+        "题目": "先列简短提纲，再完成全文。",
+        "答案": "Asking questions is an important part of both learning and work. It allows people to discover what they do not yet understand and can prevent a small uncertainty from developing into a larger mistake. A question should therefore be treated as a possible starting point for improvement.\n\nIn learning, questions make vague difficulties more specific. A student who says that a whole chapter is confusing may not know how to begin. If the student asks why one form is used in a particular sentence, a teacher can identify the missing step and provide useful guidance. The student can then apply the explanation to a new example rather than simply memorise an answer.\n\nAt work, asking for clarification can also protect shared goals. Before carrying out an unfamiliar task, an employee may need to confirm the deadline or the required result. However, responsible questioning involves preparation. People should check the information already available, explain what they have tried and listen carefully to the response.\n\nQuestions are most valuable when they lead to thought and action. Used with preparation and respect, they support understanding, cooperation and better decisions.",
+        "解析": "训练量表15分：任务5（价值、学习或工作、例子、负责提问）；组织4；准确4；表达2。示范讨论具体提问如何定位缺口，并给准备与倾听的边界；不是一味鼓励不做任何准备地追问。",
+        "类型": "作文",
+        "编号": "Q77",
+        "章": 15,
+        "独立验收": true,
+        "显示答案": "Asking questions is an important part of both learning and work. It allows people to discover what they do not yet understand and can prevent a small uncertainty from developing into a larger mistake. A question should therefore be treated as a possible starting point for improvement.\n\nIn learning, questions make vague difficulties more specific. A student who says that a whole chapter is confusing may not know how to begin. If the student asks why one form is used in a particular sentence, a teacher can identify the missing step and provide useful guidance. The student can then apply the explanation to a new example rather than simply memorise an answer.\n\nAt work, asking for clarification can also protect shared goals. Before carrying out an unfamiliar task, an employee may need to confirm the deadline or the required result. However, responsible questioning involves preparation. People should check the information already available, explain what they have tried and listen carefully to the response.\n\nQuestions are most valuable when they lead to thought and action. Used with preparation and respect, they support understanding, cooperation and better decisions."
+      }
+    ]
+  },
+  {
+    "章": 16,
+    "标题": "历年真题实战与错题复测",
+    "正文": "章节\\16·历年真题实战与错题复测.md",
+    "练习": "强化题目\\16·考强练习·历年真题实战与错题复测.md",
+    "任务": 77,
+    "独立验收": [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q04",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08",
+      "Q09",
+      "Q10",
+      "Q11",
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15",
+      "Q16",
+      "Q17",
+      "Q18",
+      "Q19",
+      "Q20",
+      "Q21",
+      "Q22",
+      "Q23",
+      "Q24",
+      "Q25",
+      "Q26",
+      "Q27",
+      "Q28",
+      "Q29",
+      "Q30",
+      "Q31",
+      "Q32",
+      "Q33",
+      "Q34",
+      "Q35",
+      "Q36",
+      "Q37",
+      "Q38",
+      "Q39",
+      "Q40",
+      "Q41",
+      "Q42",
+      "Q43",
+      "Q44",
+      "Q45",
+      "Q46",
+      "Q47",
+      "Q48",
+      "Q49",
+      "Q50",
+      "Q51",
+      "Q52",
+      "Q53",
+      "Q54",
+      "Q55",
+      "Q56",
+      "Q57",
+      "Q58",
+      "Q59",
+      "Q60",
+      "Q61",
+      "Q62",
+      "Q63",
+      "Q64",
+      "Q65",
+      "Q66",
+      "Q67",
+      "Q68",
+      "Q69",
+      "Q70",
+      "Q71",
+      "Q72",
+      "Q73",
+      "Q74",
+      "Q75",
+      "Q76",
+      "Q77"
+    ],
+    "题目": [
+      {
+        "题目": "2021年第1题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "后句询问／商定安装日期，A问希望哪天安装；不应填时间已被拒绝或周六已确认。",
+        "类型": "开放",
+        "编号": "Q01",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第2题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "前句问能否早于三点，B说明这是唯一可用时间，承接无法提前。",
+        "类型": "开放",
+        "编号": "Q02",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第3题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "前句问周六是否可用，C说周六任何时候均可，后文再定十一点。",
+        "类型": "开放",
+        "编号": "Q03",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第4题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "B表示查报纸，随后找到下午2:45的电影，话题衔接自然。",
+        "类型": "开放",
+        "编号": "Q04",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第5题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "下一句提议海边散步，C询问看完电影后做什么。",
+        "类型": "开放",
+        "编号": "Q05",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第6题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "A在散步后建议吃晚饭，下一句Does that sound OK继续征求意见。",
+        "类型": "开放",
+        "编号": "Q06",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第7题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "B说明抵达后行李失踪，后句Oh, dear回应坏消息。",
+        "类型": "开放",
+        "编号": "Q07",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第8题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "D问着陆时是否已报告，后句Yes与told them作回答。",
+        "类型": "开放",
+        "编号": "Q08",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第9题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "C问航班和抵达时间，后句同时提供BA512与约六点。",
+        "类型": "开放",
+        "编号": "Q09",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第10题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "A给出行李牌号码的引入语，后句列出两项号码。原参考解析正文误标C，已按原选项核对为A。",
+        "类型": "开放",
+        "编号": "Q10",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第11题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "cling to beliefs指坚持信念，接近stick to；不等于商定、依赖或照料。",
+        "类型": "开放",
+        "编号": "Q11",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第12题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "beneath their feet指脚下，below保持上下位置；不是在前、旁边或后面。",
+        "类型": "开放",
+        "编号": "Q12",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第13题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "consolidate its position指巩固地位，strengthen最接近。",
+        "类型": "开放",
+        "编号": "Q13",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第14题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "perspective on life在本句指看待生活的观点，viewpoint对应。",
+        "类型": "开放",
+        "编号": "Q14",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第15题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "sharp drop表示急剧下降，dramatic对应程度；gradual和slight方向不符。",
+        "类型": "开放",
+        "编号": "Q15",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第16题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "delicate stomach描述胃较弱、容易不适，weak合适；不是精致或精炼之义。",
+        "类型": "开放",
+        "编号": "Q16",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第17题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "out of date在此表示设施过时，unfashionable是所给选项里相应的旧式方向；不等于损坏或濒危。",
+        "类型": "开放",
+        "编号": "Q17",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第18题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "Under no circumstances强调任何情况下都不，In no case保持该范围；不是没有理由或仅没有时刻。",
+        "类型": "开放",
+        "编号": "Q18",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第19题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "consensus指形成共识，agreement比单个opinion、proposal或argument更接近。",
+        "类型": "开放",
+        "编号": "Q19",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第20题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "literally true在此强调确实如此，actually保持肯定事实，不是可能或希望。",
+        "类型": "开放",
+        "编号": "Q20",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第21题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "that承接老鼠善于找食物这一现象；makes sense是在说这种聪明有其合理性，不是说没有证据。",
+        "类型": "开放",
+        "编号": "Q21",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第22题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "三类家鼠各自与人类共居的历史长短不同，例子用来解释这一比较条件，不是仅说明分布广。",
+        "类型": "开放",
+        "编号": "Q22",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第23题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "推盖、抽纸和开窗等设置要求克服障碍获得食物；不是把拼图拼在一起，也未说不同组使用不同处理。",
+        "类型": "开放",
+        "编号": "Q23",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第24题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "结果比较共居历史与解谜能力，支持共居时间更长的一组更善于解决取食问题；不是人类有意训练的结论。",
+        "类型": "开放",
+        "编号": "Q24",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第25题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "结尾把意义放在人类如何影响动物心智与适应上，而非直接给出消灭老鼠的方法。",
+        "类型": "开放",
+        "编号": "Q25",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第26题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "文章比较不同年龄群体的上网习惯，老年人与年轻人明显不同，不能说两者一样。",
+        "类型": "开放",
+        "编号": "Q26",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第27题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "Sheila通过Facebook与久未联系的老同学重新沟通；需选具体有文本支持的行为。",
+        "类型": "开放",
+        "编号": "Q27",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第28题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "年轻人花较多时间看手机，减少了现实面对面交往；不能以少用Facebook推成不用智能手机。",
+        "类型": "开放",
+        "编号": "Q28",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第29题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "本题找不能推出者。父亲为给孩子示范而减少智能机使用，并未据此证明老式手机总体更好。",
+        "类型": "开放",
+        "编号": "Q29",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第30题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "本题问NOT。全文讨论减少过度数字生活的必要性，D称各年龄都无须减少，与这一方向不符。",
+        "类型": "开放",
+        "编号": "Q30",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第31题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "本题按所列培养目标定位：文化能力、身心关怀和减少社会经济差距有对应；没有把学生自身身体改善列为该段目标。不能扩大成医学教育完全不关心身体健康。",
+        "类型": "开放",
+        "编号": "Q31",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第32题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "right away接触患者与hands-on learning支持实践学习模式，不只是一般面对面或传统讲授。",
+        "类型": "开放",
+        "编号": "Q32",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第33题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "more urgent联系疫情、社会与种族不平等，使所述培养改革更迫切；不是脱离上下文只理解多招医生。",
+        "类型": "开放",
+        "编号": "Q33",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第34题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "院长强调疫情之外的社会历史问题，支持医生也需理解历史与不平等。",
+        "类型": "开放",
+        "编号": "Q34",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第35题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "末段同时讨论远程教授实践技能与重新思考不平等，B概括了技术实践和观念调整两面。",
+        "类型": "开放",
+        "编号": "Q35",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第36题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "本题找未由原文说明的特点。childlike、标志穿着和肢体表达均有明确描写；表演令人发笑不自动证明角色本人以让别人发笑为乐。",
+        "类型": "开放",
+        "编号": "Q36",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第37题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "rubber face在肢体喜剧语境中比喻面部表情丰富多变，不是字面材质或反应僵硬。",
+        "类型": "开放",
+        "编号": "Q37",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第38题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "随卷参考选B，依据原文在The Lion King中为Zazu配音而非真人出镜。appear in若宽泛理解为参与影片会有措辞空间，本题按原段对出镜与配音的区分核对。",
+        "类型": "开放",
+        "编号": "Q38",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第39题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "原话说五十多岁还表现得像孩子会有些悲哀，年龄与childlike都要保留，不能泛化为一切孩子气都可悲。",
+        "类型": "开放",
+        "编号": "Q39",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第40题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "原文只写2012年表达打算退休，不能把计划直接当成已完成的退出行为，故D不能推出。",
+        "类型": "开放",
+        "编号": "Q40",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第41题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "正文承认电动车相对燃油车的好处，但批评夸大宣传掩盖减少汽车依赖的问题；A最贴近这条主线。",
+        "类型": "开放",
+        "编号": "Q41",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第42题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "作者认为换成电动车并非气候问题的终极解决，不能忽略汽车驱动生活方式的更广泛问题。",
+        "类型": "开放",
+        "编号": "Q42",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第43题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "四项中B最接近段落倡导减少汽车依赖的方向；A称政治推进容易与原文冲突，C与D无对应。B中的only较强，宜记录为选项措辞需谨慎，不从此推广额外的唯一因果结论。",
+        "类型": "开放",
+        "编号": "Q43",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第44题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "评论1以汽油贵到极端才步行的说法表达对减少汽车依赖的消极态度；其他评论内容另有所指。",
+        "类型": "开放",
+        "编号": "Q44",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第45题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "评论3把材料开采、加工和丢弃的污染联系到电池整体，D回答对象最完整；B或C只是过程片段。",
+        "类型": "开放",
+        "编号": "Q45",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第46题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "one of后接最高级与复数名词，本题wealthiest符合……最富有的人之一。",
+        "类型": "开放",
+        "编号": "Q46",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第47题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "in part表示部分地，呼应成功原因有不止一项；in total／in sum不表达部分归因。",
+        "类型": "开放",
+        "编号": "Q47",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第48题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "此处were与reducing构成过去进行结构，并与竞争对手减少投资的语义相符；只看were不足以推断所有句子一律用-ing。",
+        "类型": "开放",
+        "编号": "Q48",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第49题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "前后对个人努力和富人社会责任的不同侧重用but衔接；应结合本段而非见also就一律递进。",
+        "类型": "开放",
+        "编号": "Q49",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第50题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "for the benefit of society表示为社会谋益，符合财富用途；不以中文词汇都能译优势就混选。",
+        "类型": "开放",
+        "编号": "Q50",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第51题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "教育机会使人能自助，themselves与those people的意思主体对应；不是互相、他一个人或其他人。",
+        "类型": "开放",
+        "编号": "Q51",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第52题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "bear his name表示以他的名字命名；词义和动宾搭配都要吻合，不能逐字按熊来译bear。",
+        "类型": "开放",
+        "编号": "Q52",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第53题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "founded表示创办，与技术学校的机构建立对应；需辨认found与find过去式形同而意义不同。",
+        "类型": "开放",
+        "编号": "Q53",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第54题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "并列to promote／to fund／to provide要求原形，同时fund scientific research表示资助科研；语义与结构共同决定。",
+        "类型": "开放",
+        "编号": "Q54",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第55题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "have been left untouched为本句完整被动搭配；不是看到by或been就把所有词都判成同一形式。",
+        "类型": "开放",
+        "编号": "Q55",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第56题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "本题be后检查表语内容，不称作该be的宾语；结合词框与语境选择A。先组装完整短语再回填。",
+        "类型": "开放",
+        "编号": "Q56",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第57题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "介词后本例选择名词内容B；与第56空一起检查搭配，不能只凭排除不读整段。",
+        "类型": "开放",
+        "编号": "Q57",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第58题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "本题动宾之后由C的介词组补充所需信息；看完成短语整体是否合乎语义。",
+        "类型": "开放",
+        "编号": "Q58",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第59题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "空白独立成句，A可提供完整主谓内容；还须与后文实验情境连贯，不能所有句首空都只凭位置判断。",
+        "类型": "开放",
+        "编号": "Q59",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第60题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "前句让孩子报铅笔数量，B用转折接出实验差别；结构与前后信息对应。",
+        "类型": "开放",
+        "编号": "Q60",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第61题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "and连接的相关内容须与前面the idea相接，C的动宾内容可构成一致表达。",
+        "类型": "开放",
+        "编号": "Q61",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第62题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "include可直接列出不同食物；fill在此需符合fill ... with ...，不能不看搭配直接换入。",
+        "类型": "开放",
+        "编号": "Q62",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第63题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "fill ... with water说明大象用鼻子装水，动词和介词需一并保留。",
+        "类型": "开放",
+        "编号": "Q63",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第64题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "a wide variety of sounds是多种声音，variety是名词，不能把a wide of当完整结构。",
+        "类型": "开放",
+        "编号": "Q64",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第65题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "此处名词主语之后缺其饮食行为的谓语内容，A符合；不能仅因为是名词后就断定一定要定语。",
+        "类型": "开放",
+        "编号": "Q65",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第66题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "前后谈用水降温，B所构成的行为与to cool down的目的对应。",
+        "类型": "开放",
+        "编号": "Q66",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第67题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "本段转向大象交流，C包含sounds的信息同时符合该处谓语结构。",
+        "类型": "开放",
+        "编号": "Q67",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第68题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "or连接playing与watching等活动表达，本题watching television与语义相合。",
+        "类型": "开放",
+        "编号": "Q68",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第69题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "本题replaced by组成被取代的结构；不是说所有by前都必须是过去分词。",
+        "类型": "开放",
+        "编号": "Q69",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第70题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "to sit down and (to) write something中write与sit并列；省去第二个重复to不改变不定式关系。",
+        "类型": "开放",
+        "编号": "Q70",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第71题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "receive a letter in the post指收到邮寄信件；in the post不是要求译成在邮局。",
+        "类型": "开放",
+        "编号": "Q71",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "2021年第72题：在原页完成后记录选项。",
+        "答案": "A",
+        "解析": "be seen doing在本句引出青少年玩游戏或看电视的情景，A匹配；不能把此判断推广成see后只有-ing。",
+        "类型": "开放",
+        "编号": "Q72",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "A"
+      },
+      {
+        "题目": "2021年第73题：在原页完成后记录选项。",
+        "答案": "B",
+        "解析": "has been replaced by表达已被电子邮件等取代；不是has been replacing的主动完成进行。",
+        "类型": "开放",
+        "编号": "Q73",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "B"
+      },
+      {
+        "题目": "2021年第74题：在原页完成后记录选项。",
+        "答案": "D",
+        "解析": "nothing better than在这里强调收到信令人珍惜，不是字面否定收信的价值。",
+        "类型": "开放",
+        "编号": "Q74",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "D"
+      },
+      {
+        "题目": "2021年第75题：在原页完成后记录选项。",
+        "答案": "C",
+        "解析": "has加过去分词构成完成表达，C同时与人们已花时间坐下写信的语义一致。",
+        "类型": "开放",
+        "编号": "Q75",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "C"
+      },
+      {
+        "题目": "将原页整段译成中文。",
+        "答案": "没有语言，我们的生活会受到很大限制。我们的社会交往在很大程度上依赖语言。我们比前人拥有丰富得多的知识，因为知识通过语言一代代传递下来。语言是什么？按照哈雷的解释，它是使我们能够沟通的一套符号和规则。符号是代表其他事物的东西；文字无论是书面的还是口头的，都是符号。规则规定词语怎样排列成句。交流是语言的主要功能。我们还可以用语言思考、记录信息、表达情感等。",
+        "解析": "10分训练自评：无语言的假设；交往依赖；代际比较；知识传递；语言定义；符号代表其他事物；书面口头都包括；词序规则；主要功能；思考记录情感等其他用途。",
+        "类型": "开放",
+        "编号": "Q76",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "没有语言，我们的生活会受到很大限制。我们的社会交往在很大程度上依赖语言。我们比前人拥有丰富得多的知识，因为知识通过语言一代代传递下来。语言是什么？按照哈雷的解释，它是使我们能够沟通的一套符号和规则。符号是代表其他事物的东西；文字无论是书面的还是口头的，都是符号。规则规定词语怎样排列成句。交流是语言的主要功能。我们还可以用语言思考、记录信息、表达情感等。"
+      },
+      {
+        "题目": "按原题讨论机器翻译能否完全取代人类翻译，至少150词。",
+        "答案": "Machine translation has become a useful part of communication. It can produce a draft quickly and help readers understand the general meaning of an unfamiliar text. However, speed alone does not show that it can fully replace human translators.\n\nFor simple and repetitive material, automatic translation may save considerable time. A traveller who needs the basic meaning of a notice may prefer an immediate answer to a perfect one. Professional translators can also use an automatic draft as a starting point, provided that they check it carefully.\n\nThe difficulty becomes greater when meaning depends on context. A phrase may express politeness, humour or criticism rather than its most direct dictionary meaning. In such cases, an inaccurate choice can change the writer's intention even if the sentence sounds fluent. A human translator must consider the audience, the purpose and the consequences of misunderstanding.\n\nI therefore see machine translation as a powerful aid rather than a complete substitute. Its appropriate use depends on the task. The more important precision and responsibility become, the more necessary careful human judgment is likely to remain.",
+        "解析": "用第14章训练量表自评；题目明确涉及speed、accuracy、performance，至少要说明这些角度如何支持你的立场。示范重复出现仅供复盘，不把背写成绩当首次能力。",
+        "类型": "作文",
+        "编号": "Q77",
+        "章": 16,
+        "独立验收": true,
+        "显示答案": "Machine translation has become a useful part of communication. It can produce a draft quickly and help readers understand the general meaning of an unfamiliar text. However, speed alone does not show that it can fully replace human translators.\n\nFor simple and repetitive material, automatic translation may save considerable time. A traveller who needs the basic meaning of a notice may prefer an immediate answer to a perfect one. Professional translators can also use an automatic draft as a starting point, provided that they check it carefully.\n\nThe difficulty becomes greater when meaning depends on context. A phrase may express politeness, humour or criticism rather than its most direct dictionary meaning. In such cases, an inaccurate choice can change the writer's intention even if the sentence sounds fluent. A human translator must consider the audience, the purpose and the consequences of misunderstanding.\n\nI therefore see machine translation as a powerful aid rather than a complete substitute. Its appropriate use depends on the task. The more important precision and responsibility become, the more necessary careful human judgment is likely to remain."
+      }
+    ]
+  }
+]

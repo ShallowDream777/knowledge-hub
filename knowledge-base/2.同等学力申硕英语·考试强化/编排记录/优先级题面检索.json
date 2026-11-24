@@ -1,0 +1,293 @@
+{
+  "范围": "2001—2023题面文字层，排除参考解析；2025题面无文字层，另核读扫描PDF1—6页。",
+  "缺年": [
+    2024
+  ],
+  "纳入题面PDF页数_不含2025": 274,
+  "年份": [
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "限制": "匹配只定位片段，包含选项和设空；误命中、缺词、OCR及缩写变体均需人工核对。候选数不作语法考频。",
+  "2025人工反例": [
+    "PDF3阅读三：I replied, heart racing.",
+    "PDF4博客：With the cost-of-living crisis biting, ..."
+  ],
+  "检索未见不等于未考": true,
+  "模式": {
+    "将来完成进行完整词串": {
+      "候选数": 0,
+      "定位": []
+    },
+    "将来完成进行疑问词串": {
+      "候选数": 0,
+      "定位": []
+    },
+    "would完成进行词串_不自动区分转述和反事实": {
+      "候选数": 0,
+      "定位": []
+    },
+    "完成进行被动词串": {
+      "候选数": 0,
+      "定位": []
+    },
+    "现在完成进行候选": {
+      "候选数": 19,
+      "定位": [
+        {
+          "年": 2020,
+          "来源": "2019-2023年英语真题及答案.pdf",
+          "PDF页": 83,
+          "片段": "he past, has worked on both private space flight and electric cars, recently announced he has been working on the design of this traveling tube, which could forever change the way we travel the world. In an interview, Musk described the new tube ",
+          "命中": "has been working"
+        },
+        {
+          "年": 2019,
+          "来源": "2019-2023年英语真题及答案.pdf",
+          "PDF页": 108,
+          "片段": "w.fxyjs.com 官方微信：139 1820 7566 因为专注 所以专业107 people pointed out the truth: Science fiction has been helping us to prepare for a world of potential climate disasters for years. But an equal number of loud voices disagreed with Harris's warnings abo",
+          "命中": "has been helping"
+        },
+        {
+          "年": 2019,
+          "来源": "2019-2023年英语真题及答案.pdf",
+          "PDF页": 108,
+          "片段": "s in a different way than a recitation of the undeniable facts. Science fictions creators have been looking for ways to restore people's faith in the future. Authors such as Alexander Rowland have started a conversation about creating a new type o",
+          "命中": "have been looking"
+        },
+        {
+          "年": 2013,
+          "来源": "2013同等学力英语真题及答案解析.pdf",
+          "PDF页": 2,
+          "片段": ". B.I also advise resting for a couple of days. C.Boy,when it rains,it pours. Doctor:What has been bothering you? Patient:I have a stuffy nose and a sore throat.Plus,I've been coughing a lot.__1___ Doctor:Any stomach pains? Patient:Actually,yes.My ",
+          "命中": "has been bothering"
+        },
+        {
+          "年": 2014,
+          "来源": "2014年同等学力英语真题与答案.pdf",
+          "PDF页": 5,
+          "片段": "om. Even as the financial-literacy movement has gained steam over the past decade, scores have been falling on tests that measure how well students learn about things such as budgeting, credit cards, insurance and investment. A recent survey of co",
+          "命中": "have been falling"
+        },
+        {
+          "年": 2014,
+          "来源": "2014年同等学力英语真题与答案.pdf",
+          "PDF页": 11,
+          "片段": " they reduce friction on the surface of the penguin's wings 74 . Interestingly, engineers have been studying ways to make ships go faster by using bubbles to reduce friction against their hulls( 船 身 ).However, researchers acknowledge that further i",
+          "命中": "have been studying"
+        },
+        {
+          "年": 2015,
+          "来源": "2015年同等学力英语考试真题.pdf",
+          "PDF页": 11,
+          "片段": "is on the rise now. C.It reached its peak in the 2000s but began to drop since then. D.It has been decreasing since the 1990s. 42.What does the author think of the prospects of diet soda sale? A.It will continue to drop.",
+          "命中": "has been decreasing"
+        },
+        {
+          "年": 2016,
+          "来源": "2016年同等学力英语考试真题.pdf",
+          "PDF页": 8,
+          "片段": "lectronic devices for personal and professional matters. They also note pedestrian deaths have been rising in recent years. In 2005, 11% of all US deaths involved pedestrians, but that number rose to 15% in 2014. The rise in deaths coincides with",
+          "命中": "have been rising"
+        },
+        {
+          "年": 2016,
+          "来源": "2016年同等学力英语考试真题.pdf",
+          "PDF页": 9,
+          "片段": "arget pedestrians . A. have benefited from the bills B. find it hard to carry them out C. have been promoting the legislation D. will have fewer deaths of pedestrians 38. According to the measure proposed by Lampitt, walking while texting would . A.",
+          "命中": "have been promoting"
+        },
+        {
+          "年": 2017,
+          "来源": "2017年同等学力英语真题及参考答案.pdf",
+          "PDF页": 15,
+          "片段": " noses and our brain are very 58 connected D. 59 us remember things For years, scientists have been studying the special powers Of smells. It seems that 60 .When you smell something, the odor goes up your nose to the smelling zones. From here, sens",
+          "命中": "have been studying"
+        },
+        {
+          "年": 2001,
+          "来源": "2001-2006年英语真题及答案.pdf",
+          "PDF页": 6,
+          "片段": "e the endangered species. That's a move similar to what a Texas A&M University researcher has been undertaking for the past five years in a project called“Noah's Ark”. Dr. Duane Kraemer，a professor in Texas A&M's College of Veterinary Medicine and a ",
+          "命中": "has been undertaking"
+        },
+        {
+          "年": 2001,
+          "来源": "2001-2006年英语真题及答案.pdf",
+          "PDF页": 8,
+          "片段": " been discovered 67. John Horgan . Ⅰ. has published a book entitled The End of Science Ⅱ. has been working as an editor of Scientific American Ⅲ. has been working many years as a literary critic Ⅳ. is working as a science writer A. Ⅰ and Ⅱ B. Ⅰ o",
+          "命中": "has been working"
+        },
+        {
+          "年": 2001,
+          "来源": "2001-2006年英语真题及答案.pdf",
+          "PDF页": 8,
+          "片段": "ok entitled The End of Science Ⅱ. has been working as an editor of Scientific American Ⅲ. has been working many years as a literary critic Ⅳ. is working as a science writer A. Ⅰ and Ⅱ B. Ⅰ only C. Ⅰ and Ⅳ D. Ⅰ，Ⅱ and Ⅳ 68. There have not been many",
+          "命中": "has been working"
+        },
+        {
+          "年": 2002,
+          "来源": "2001-2006年英语真题及答案.pdf",
+          "PDF页": 19,
+          "片段": "g the most populous countries. But since China 71 a family planning program in 1971，India has been closing the 72 . Indians have reduced their birth rate but not nearly 73 the Chinese have. If current growth rates continue，India's population will",
+          "命中": "has been closing"
+        },
+        {
+          "年": 2006,
+          "来源": "2001-2006年英语真题及答案.pdf",
+          "PDF页": 52,
+          "片段": "络课程：www.xychina24.com 教学服务电话：62513012 技术支持电话：62513012-620/621 80. Neither of the boys who have been helping us know the importance of this particular project. A B C D Paper Two 试卷二（60 minutes） Part Ⅰ Translation（30 minutes，20 points） Section A Dir",
+          "命中": "have been helping"
+        },
+        {
+          "年": 2006,
+          "来源": "2001-2006年英语真题及答案.pdf",
+          "PDF页": 58,
+          "片段": "with this serious and sometimes fatal parasitic blood disease. For generations，scientists have been trying to eliminate malaria by developing new drugs and using pesticide（杀虫剂）to wipe out local mosquito populations. But these measures aren't work",
+          "命中": "have been trying"
+        },
+        {
+          "年": 2009,
+          "来源": "2007-2012年英语真题及答案.pdf",
+          "PDF页": 24,
+          "片段": "e more attractive by contrast. A. mild B. chilly C. cloudy D. moist 20. Like flowers that have been waiting all winter to blossom, tourists are eager to burst forth with their cameras. A. survive B. breeze C. bloom D. revive 21. A large _____ of t",
+          "命中": "have been waiting"
+        },
+        {
+          "年": 2010,
+          "来源": "2007-2012年英语真题及答案.pdf",
+          "PDF页": 34,
+          "片段": "rkets. A. resorting to B. appealing to C. applying to D. contributing to 29. The Internet has been developing at a speed ________ people's expectations in the past two decades. A. over B. of C. under D. beyond 30. It is obvious that the sports games",
+          "命中": "has been developing"
+        },
+        {
+          "年": 2011,
+          "来源": "2007-2012年英语真题及答案.pdf",
+          "PDF页": 47,
+          "片段": "ool kids walked or biked to school, compared with only 16 percent in 2001. Modern parents have been unwilling to let kids walk to school for fear of traffic, crime or simple bullying, but with organized adult supervision, those concerns have diminis",
+          "命中": "have been unwilling"
+        }
+      ]
+    },
+    "过去完成进行候选": {
+      "候选数": 1,
+      "定位": [
+        {
+          "年": 2010,
+          "来源": "2007-2012年英语真题及答案.pdf",
+          "PDF页": 36,
+          "片段": "ten of them. Six of the ten were published by the CK12 Foundation, a nonprofit group that had been developing digital science and math books for about two years. The foundation paid teachers and other education professionals to write and edit them. ",
+          "命中": "had been developing"
+        }
+      ]
+    },
+    "将来完成候选_未穷举所有不规则词尾": {
+      "候选数": 1,
+      "定位": [
+        {
+          "年": 2010,
+          "来源": "2007-2012年英语真题及答案.pdf",
+          "PDF页": 41,
+          "片段": "__ and you move to another person and start chatting again. By the end of the evening you will have spoken with up to twenty men or women! If, by the end of a conversation, you _67 _ the person or would like to see them again, you write it __68__",
+          "命中": "will have spoken"
+        }
+      ]
+    },
+    "双重所有格候选_限制明确代词": {
+      "候选数": 3,
+      "定位": [
+        {
+          "年": 2020,
+          "来源": "2019-2023年英语真题及答案.pdf",
+          "PDF页": 87,
+          "片段": "ia reported his first case in the journal Neuropsychologia. Ellen Rose had been a patient of mine for years before I realized that she had this life-long learning disability. Like other people with DTD, she can follow a route in pieces, ",
+          "命中": "of mine"
+        },
+        {
+          "年": 2005,
+          "来源": "2001-2006年英语真题及答案.pdf",
+          "PDF页": 41,
+          "片段": "ing. I don't mind some extra hours at all. 4. A：George，I would like to introduce a friend of mine，if I may：Albert Snow. Albert，this is George Smith. B： A. How have you been？ B. Pleased to meet you，George. C. Mind if call you George？ D. T",
+          "命中": "of mine"
+        },
+        {
+          "年": 2006,
+          "来源": "2001-2006年英语真题及答案.pdf",
+          "PDF页": 58,
+          "片段": "mping，I had this notion that a temporary job could turn full-time. It worked for a friend of mine，but that didn't happen for me，” said Atienza，who quickly became bored with his office work. Atienza stayed with the temp agency because he ",
+          "命中": "of mine"
+        }
+      ]
+    },
+    "虚拟倒装候选": {
+      "候选数": 3,
+      "定位": [
+        {
+          "年": 2013,
+          "来源": "2013同等学力英语真题及答案解析.pdf",
+          "PDF页": 7,
+          "片段": " We may feel as if we are admitting a weakness that the world would not have known about, had we not asked for help. Ironically, it's been my experience that people who are able to deliver well-positioned requests for help are seen as very strong",
+          "命中": "had we not asked"
+        },
+        {
+          "年": 2017,
+          "来源": "2017年同等学力英语真题及参考答案.pdf",
+          "PDF页": 9,
+          "片段": "merican innovation originated in federal projects; Silicon Valley would never have boomed were it not for the fact that state funding enabled the development of the World Wide Web, for example. 31. what may be the best title for the passage?",
+          "命中": "were it not"
+        },
+        {
+          "年": 2007,
+          "来源": "2007-2012年英语真题及答案.pdf",
+          "PDF页": 10,
+          "片段": "ing and the number of hours spent in productive labor. D 78. I would have come to see you had it been possible, but I had been so busy then. A B C D 79. All of the plants now raised on farms have been developed from plants once grew wild. A ",
+          "命中": "had it been"
+        }
+      ]
+    },
+    "独立主格固定词串候选_不覆盖全部独立主格": {
+      "候选数": 0,
+      "定位": []
+    },
+    "感叹词候选": {
+      "候选数": 2,
+      "定位": [
+        {
+          "年": 2022,
+          "来源": "2019-2023年英语真题及答案.pdf",
+          "PDF页": 29,
+          "片段": "I received a four-year academic scholarship that pays for all my tuition and books. Dave: Wow, that's great. Maria: Yeah. Section B Directions ： In this section there is one incomplete dialogue which has four blanks and four choices ",
+          "命中": "Wow"
+        },
+        {
+          "年": 2010,
+          "来源": "2007-2012年英语真题及答案.pdf",
+          "PDF页": 39,
+          "片段": "us. When one reaches out with absolute trust to touch the object of his or her affection, ouch, a thorn can cause great harm! “Be careful,” the metaphor warns: Love is a feast to the senses, but it can overwhelm us, and it can also hu",
+          "命中": "ouch"
+        }
+      ]
+    }
+  }
+}

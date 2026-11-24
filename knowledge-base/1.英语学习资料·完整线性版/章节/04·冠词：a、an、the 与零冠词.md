@@ -1,0 +1,203 @@
+# 第 04 章　冠词：a、an、the 与零冠词
+
+[[00·从这里开始|学习目录]]　[[03·代词基础：人称、所属、反身与指示|← 上一章]]　[[05·名词进阶、搭配与完整自测|下一章：名词进阶、搭配与完整自测 →]]
+
+## 本章目录
+
+- [[#a/an 的读音依据：元音与辅音　【必学】|a/an 的读音依据：元音与辅音]]
+- [[#什么是冠词　【必学】|什么是冠词]]
+- [[#不定冠词 a / an　【必学】|不定冠词 a / an]]
+- [[#定冠词 the　【必学】|定冠词 the]]
+- [[#零冠词　【必学】|零冠词]]
+- [[#冠词选择速查　【必学】|冠词选择速查]]
+- [[#本章核心记忆笔记|本章核心记忆笔记]]
+
+---
+
+### a/an 的读音依据：元音与辅音　【必学】
+
+第 1 章讲过，字母是书写符号；**音素**是区别单词读音的基本声音单位。
+
+本章说“元音／辅音音素”，说的是**实际发音**：
+- **元音**：发音时气流较通畅；
+- **辅音**：发音时通常有阻碍或收窄。
+
+==选 `a` 还是 `an`，要看紧接着那个词的**实际开头读音**，不能只看首字母是不是 `a/e/i/o/u`==。
+
+斜杠里的 `/j/` 是标记声音的**音标**，不是字母 `j` 的名称。这里不要求先学完整音标，下表已经给出本章及练习里用到的全部判断线索：
+
+| 词及含义 | 本章已给的开头声音信息 | 本章用法 |
+|---|---|---|
+| book 书、dictionary 字典 | 辅音开头 | a book、a dictionary |
+| apple 苹果、orange 橙子 | 元音开头 | an apple、an orange |
+| **hour 小时、honest 诚实的** | `h` 不发音，第一个实际声音是元音 | **an** hour、**an** honest person |
+| **useful 有用的、university 大学** | 第一个实际声音是辅音 `/j/`，不按字母 `u` 判断 | **a** useful book、**a** university |
+
+> 说明：
+> - 第一次做题可直接对照上表；未给读音、自己也不会读的新词，本章不要求盲猜。
+> - `a useful book`（一本有用的书）看紧挨着 `a` 的 `useful`，不跳过它去看 `book`。
+
+**再顺便认清两个会遇到的术语：**
+- **限定词**：用来限定名词范围、数量或所属的词，如 `a book`（一本书）、`the book`（那本已确定的书）、`my book`（我的书）、`this book`（这本书）。==`a/the`、`my`、`this` 在普通名词短语前不能随便叠放==。
+- **序数词 / 最高级**：`first`（第一）这类表顺序的词叫序数词；`best`（最好的）这类表最高程度的词叫最高级。下文先结合 `the first`、`the best` 观察搭配。
+
+---
+
+### 什么是冠词　【必学】
+
+#### 通俗定义
+
+**冠词（article）是名词前的一类小词，包括 `a`、`an`、`the`；不加冠词的用法叫零冠词。**
+
+一句话记住：**冠词是名词前的“小帽子”，表示“特指、泛指、还是不加”。**
+
+先分清两个高频词：
+- **特指**：让对方能确定说的是哪一个对象，如 `The book is new.`（那本书是新的，接着说刚才那本）。
+- **泛指**：不指定某一个，或泛谈整个类别，如 `I have a book.`（我有一本书，没说哪本）、`Books are useful.`（书有用，泛指书这一类）。
+- 注意：`a/an` 和零冠词都能用于泛指，不要把“泛指”直接等同于“不加冠词”。
+
+**核心规则**：冠词有三个选择——不定冠词 `a/an`、定冠词 `the`、零冠词（不加）。
+
+> [!warning] 易错避坑
+> ==单数可数名词前**必须有**冠词或其他限定词，不能“裸奔”==：不能说 ❌ `I have dog.`，要说 ✅ `I have a dog.`（我有一条狗）。
+
+---
+
+### 不定冠词 a / an　【必学】
+
+#### 通俗定义
+
+**`a/an` 放在单数可数名词前**，可以表示“未确定的一个”、“数量一”或“每一”：
+- `an apple`（一个苹果）
+- `once a day`（每天一次；`once`＝一次，`day`＝天）
+
+**核心规则**：
+1. `a` 用在**辅音音素**开头的单词前；
+2. `an` 用在**元音音素**开头的单词前；
+3. ==**看发音（音素），不看拼写字母**==。
+
+**中英对照案例**：
+1. I have **a** dictionary. 我有一本字典。（`d` 辅音开头）
+2. There is **an** orange on the table. 桌子上有一个橙子。（`o` 元音开头）
+3. He is **an** honest boy. 他是一个诚实的男孩。（`h` 不发音，元音开头）
+
+> [!important] 记笔记
+> - `a/an` 只配**单数可数名词**。
+> - 必背经典反差组：==`an hour` / `an honest boy`（`h` 不发音）== vs ==`a useful book` / `a university`（以辅音 `/j/` 开头）==。
+
+---
+
+### 定冠词 the　【必学】
+
+#### 通俗定义
+
+==**`the` 常用来表示双方都能确定的对象**==——可以是上文刚提过的，也可以是眼前情境里一看就明确的。
+
+例如 `The book on the desk`（桌上的那本书）中，`on the desk`（在桌上）放在 `book` 后面说明是哪一本，这叫**后置定语**。
+
+> 注意：名词后面有修饰语，不等于一定用 `the`，如 `a book about music`（一本关于音乐的书）没有特指哪一本，仍用 `a`。
+
+**核心规则**：
+1. 可修饰单数、复数、可数及不可数名词；
+2. 常用于：**特指**、**独一无二的事物**、**序数词和最高级前**、**乐器前**。
+
+**中英对照案例**：
+1. **The** book on the desk is mine. 桌子上的那本书是我的。（特指）
+2. The sun rises in **the** east. 太阳从东方升起。（独一无二）
+3. This is **the** best book. 这是最好的书。（最高级前；但已有 `his` 等限定词时不再加 `the`，如 `his best friend` 他最好的朋友，不写 ❌ `his the best friend`）
+4. She plays **the** piano. 她弹钢琴。（乐器前）
+
+> [!warning] 易错避坑
+> - ==**乐器前加 `the`，球类前不加 `the`**==：`play the piano`（弹钢琴） vs `play football`（踢足球）。
+> - 首次提到未确定的对象用 `a/an`，再次提到同一个对象用 `the`：`I have a dog. The dog is big.`（我有一条狗。那条狗很大。）若首次提及但双方都知道指谁，也可直接用 `the`。
+
+---
+
+### 零冠词　【必学】
+
+#### 通俗定义
+
+**零冠词 = 名词前面不需要加冠词的情况。**
+
+**核心规则**：
+1. ==泛指**复数可数名词**或**不可数名词**==；
+2. ==**三餐、球类、学科、节日、星期、月份**前一般不加冠词==。
+
+**中英对照案例**：
+1. **Water** is very important to us. 水对我们很重要。（泛指不可数）
+2. We have **lunch** at 12 o'clock. 我们十二点吃午饭。（三餐）
+3. **Books** are my friends. 书是我的朋友。（泛指复数）
+4. I play **football** after school. 放学后我踢足球。（球类；`tennis` 网球，`play tennis` 也不加冠词）
+
+**易错误区**：
+- 日常吃三餐不加冠词：`have breakfast / lunch / dinner`；但特指某一顿饭时常用 `the`：`The lunch is delicious.`（这顿午餐很好吃）。
+- 泛指不加 `the`，特指要加 `the`：
+  - `Books are useful.` 书有用。（复数泛指）
+  - `The books on the desk are mine.` 桌上的那些书是我的。（复数特指）
+
+> [!important] 记笔记
+> - 零冠词两大高频场：① 复数/不可数泛指（`Books are useful.` / `Water is important.`）；② 三餐、球类、学科、星期月份（`have lunch`、`play football`）。
+
+---
+
+### 冠词选择速查　【必学】
+
+#### 核心对照表
+
+| 名词类型 | a/an | the | 零冠词 |
+|---|---|---|---|
+| 普通单数可数名词短语 | ✅ a book | ✅ the book | 通常需 `a/the/my/this` 等限定词；`my book` 无冠词但有限定词 |
+| 复数可数 | ❌ | ✅ the books | ✅ books（泛指） |
+| 不可数 | ❌ | ✅ the water | ✅ water（泛指） |
+
+**中英对照案例**：
+1. I saw **a** dog. 我看到一条狗。（第一次提，泛指）
+2. **The** dog is very cute. 这条狗很可爱。（再次提，特指）
+3. **Books** are useful. 书有用。（复数泛指）
+4. **The** books on the desk are mine. 桌上的那些书是我的。（复数特指）
+
+> [!important] 记笔记
+> 选冠词前先问自己两句话：
+> 1. ==这个名词可数吗？单数还是复数？==
+> 2. ==是泛指，还是双方都确定的特指？==
+
+---
+
+## 本章核心记忆笔记
+
+**核心必背（只记这几条）**
+1. **单数可数名词不“裸奔”**：前面必须有 `a/an`、`the` 或 `my/this` 等限定词（如 `I have a dog.` 我有一条狗）。
+2. **`a` vs `an` 看发音不看字母**：元音音素前用 `an`（==`an apple`、`an hour`、`an honest boy`==），辅音音素前用 `a`（==`a book`、`a useful book`、`a university`==）。
+3. **`the` 表特指**：用于上文提过、眼前明确、独一无二（`the sun`）、序数词/最高级前（`the first`、`the best`）和**乐器前**（`play the piano`）。
+4. **零冠词（不加）**：复数/不可数泛指（`Books are useful.` / `Water is important.`），以及**三餐、球类、学科、星期、月份**前（`have lunch`、`play football`）。
+5. **限定词不叠放**：已有 `my / his / this` 等限定词时，不再叠加 `a / the`（`my book`、`his best friend`）。
+
+**高频易错避坑**
+- ✅ `a university` / `an hour`（一所大学 / 一小时） vs ❌ `an university` / `a hour`
+- ✅ `play the piano` / `play football`（弹钢琴 / 踢足球） vs ❌ `play piano` / `play the football`
+- ✅ `his best friend`（他最好的朋友） vs ❌ `his the best friend`
+- ✅ `I have a dog.`（我有一条狗） vs ❌ `I have dog.`
+
+**合上书自检（3 句话通关）**
+1. `___ hour`、`___ university`、`___ honest boy` 分别填 `a` 还是 `an`？
+2. “弹钢琴”和“踢足球”哪个要加 `the`？
+3. 为什么 `the book I bought`（我买的那本书）前面要用 `the`？
+
+<details>
+<summary>展开核对自检答案</summary>
+<p>1. <strong>an</strong> hour（h 不发音）、<strong>a</strong> university（辅音 /j/ 开头）、<strong>an</strong> honest boy（h 不发音）。<br>
+2. 弹钢琴加 the（<strong>play the piano</strong>），踢足球不加 the（<strong>play football</strong>）。<br>
+3. 后面的 I bought（我买的）限定了是哪一本书，属于双方确定的<strong>特指</strong>，所以用 the。</p>
+</details>
+
+## 本章强化与验收
+
+读完本章后，直接点击进入 **[第 04 章交互刷题网页 →](../强化题目/章节入口/第04章.html)**（浏览器打开，支持每题独立显隐答案、自动计分与错题本）。
+
+如需在 Obsidian 内直接查看纯文本备份：[[04·强化练习·冠词：a、an、the 与零冠词|第04章专用强化题与验收 →]]。
+
+七个月首轮按练习开头的必做题单和首轮标准继续；识读知识先理解例句，不必刷完选做输出题。
+
+---
+
+[[00·从这里开始|学习目录]]　[[03·代词基础：人称、所属、反身与指示|← 上一章]]　[[05·名词进阶、搭配与完整自测|下一章：名词进阶、搭配与完整自测 →]]
