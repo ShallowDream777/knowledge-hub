@@ -1,8 +1,8 @@
 {
   "appName": "knowledge-hub",
   "server": {
-    "user": "",
-    "host": "",
+    "user": "root",
+    "host": "43.136.42.129",
     "targetDir": "/opt/knowledge-hub",
     "port": "1906",
     "containerName": "knowledge-hub"
@@ -20,6 +20,7 @@
     ".env"
   ],
   "envExample": null,
+  "healthCheckPath": "/api/health",
   "envRequired": [],
   "backup": { "dir": "", "keep": 0 }
 }

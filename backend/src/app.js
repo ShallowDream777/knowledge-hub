@@ -23,8 +23,8 @@ function verifyPassword(password, stored) {
 }
 
 export function createApp(options = {}) {
-  const dbPath = options.dbPath || path.resolve(__dirname, '../data/knowledge-hub.db');
-  const kbRoot = options.kbRoot || path.resolve(__dirname, '../../knowledge-base');
+  const dbPath = options.dbPath || process.env.DB_PATH || path.resolve(__dirname, '../data/knowledge-hub.db');
+  const kbRoot = options.kbRoot || process.env.KB_ROOT || path.resolve(__dirname, '../../knowledge-base');
   const distDir = options.distDir || path.resolve(__dirname, '../../frontend/dist');
 
   fs.mkdirSync(path.dirname(dbPath), { recursive: true });

@@ -1,0 +1,23 @@
+# 由 deploy-to-server 技能生成——按项目结构探测，请审阅后使用。
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: knowledge-hub:latest
+    container_name: knowledge-hub
+    restart: unless-stopped
+    # Required: default seccomp blocks SQLite write syscalls (disk I/O error).
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      # host:container — host side is 1906
+      - "1906:3000"
+    environment:
+      - DB_PATH=/data/app.db
+      - PORT=3000
+    volumes:
+      # SQLite lives on the host; survives rebuilds, backup via host cron+tar.
+      - ./data:/data
+      # Markdown knowledge base lives on the host; updating .md files takes effect immediately.
+      - ./knowledge-base:/app/knowledge-base
