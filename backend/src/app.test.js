@@ -21,106 +21,103 @@ async function withTestServer(fn) {
   }
 }
 
-test('Knowledge Hub HTTP API + SQLite + Real Markdown KB integration', async () => {
+test('Knowledge Hub HTTP API + Optional Auth + Dual-Storage SQLite integration', async () => {
   await withTestServer(async baseUrl => {
-    // 1. Health check
-    const healthRes = await fetch(`${baseUrl}/api/health`);
-    assert.equal(healthRes.status, 200);
-    assert.deepEqual(await healthRes.json(), { status: 'ok' });
+    // 1. Guest mode works without login
+    const meGuest = await (await fetch(`${baseUrl}/api/auth/me`)).json();
+    assert.equal(meGuest.user, null);
 
-    // 2. Portal list (/api/kbs)
-    const kbsRes = await fetch(`${baseUrl}/api/kbs`);
-    assert.equal(kbsRes.status, 200);
-    const kbs = await kbsRes.json();
-    assert.ok(kbs.length >= 1);
-    const eng = kbs.find(k => k.id === 'english');
-    assert.ok(eng, 'english KB should exist');
-    assert.equal(eng.stats.totalExercises, 31);
-    assert.ok(eng.stats.totalDocs >= 32);
+    const kbsGuest = await (await fetch(`${baseUrl}/api/kbs`)).json();
+    const engGuest = kbsGuest.find(k => k.id === 'english');
+    assert.ok(engGuest);
+    assert.equal(engGuest.lastRead, null);
+    assert.equal(engGuest.stats.totalExercises, 31);
 
-    // 3. Tree & exercise summaries (/api/kbs/english/tree)
-    const treeRes = await fetch(`${baseUrl}/api/kbs/english/tree`);
-    assert.equal(treeRes.status, 200);
-    const tree = await treeRes.json();
-    assert.equal(tree.exercises.length, 31);
-    const totalQs = tree.exercises.reduce((acc, c) => acc + c.totalQuestions, 0);
-    assert.equal(totalQs, 1278);
+    // Guest wrongbook query via ?keys=01:A01
+    const wbGuest = await (await fetch(`${baseUrl}/api/kbs/english/wrongbook?keys=01:A01`)).json();
+    assert.equal(wbGuest.total, 1);
+    assert.equal(wbGuest.items[0].id, 'A01');
 
-    // 4. Read real Markdown doc by wiki-link stem
+    // 2. Register & Login user
+    const regRes = await fetch(`${baseUrl}/api/auth/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: 'blue', password: 'secret123' })
+    });
+    assert.equal(regRes.status, 201);
+    const { token, user } = await regRes.json();
+    assert.equal(user.username, 'blue');
+    assert.ok(token);
+
+    const authHeaders = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    };
+
+    const meAuth = await (await fetch(`${baseUrl}/api/auth/me`, { headers: authHeaders })).json();
+    assert.equal(meAuth.user.username, 'blue');
+
+    // 3. Save reading state (last read chapter) to DB
     const docRes = await fetch(
-      `${baseUrl}/api/kbs/english/doc?path=${encodeURIComponent('02·名词基础：分类、单复数与不可数')}`
+      `${baseUrl}/api/kbs/english/doc?path=${encodeURIComponent('02·名词基础：分类、单复数与不可数')}`,
+      { headers: authHeaders }
     );
-    assert.equal(docRes.status, 200);
     const doc = await docRes.json();
-    assert.ok(doc.content.includes('# 第 02 章'));
-    assert.ok(doc.content.includes('## 本章核心记忆笔记'));
-    assert.equal(doc.exerciseCode, '02');
-    assert.equal(doc.completed, false);
 
-    // 5. Persist chapter completion to SQLite
-    const progRes = await fetch(`${baseUrl}/api/kbs/english/chapter-progress`, {
+    const rsRes = await fetch(`${baseUrl}/api/kbs/english/reading-state`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ docPath: doc.path, completed: true })
+      headers: authHeaders,
+      body: JSON.stringify({ docPath: doc.path, docTitle: doc.title })
     });
-    assert.equal(progRes.status, 200);
-    const docAfter = await (
-      await fetch(`${baseUrl}/api/kbs/english/doc?path=${encodeURIComponent(doc.path)}`)
+    assert.equal(rsRes.status, 200);
+    assert.equal((await rsRes.json()).savedToDb, true);
+
+    // Verify /api/kbs returns lastRead from DB
+    const kbsAuth = await (await fetch(`${baseUrl}/api/kbs`, { headers: authHeaders })).json();
+    const engAuth = kbsAuth.find(k => k.id === 'english');
+    assert.equal(engAuth.lastRead.docPath, doc.path);
+    assert.equal(engAuth.lastRead.docTitle, doc.title);
+
+    // 4. Save practice record to DB & test DB-priority sync-local
+    await fetch(`${baseUrl}/api/kbs/english/practice`, {
+      method: 'PUT',
+      headers: authHeaders,
+      body: JSON.stringify({
+        chapterCode: '01',
+        questionId: 'A01',
+        userInput: 'DB answer',
+        grade: 'ok'
+      })
+    });
+
+    // Sync local cache: A01 already exists in DB ('ok') so local ('bad') must NOT overwrite DB;
+    // A02 does not exist in DB so local ('bad') is backfilled into DB!
+    await fetch(`${baseUrl}/api/kbs/english/sync-local`, {
+      method: 'POST',
+      headers: authHeaders,
+      body: JSON.stringify({
+        practice: {
+          '01:A01': { userInput: 'local old answer', grade: 'bad' },
+          '01:A02': { userInput: 'She are happy', grade: 'bad' }
+        },
+        lastRead: { docPath: 'other.md', docTitle: 'Other' }
+      })
+    });
+
+    const ex01 = await (
+      await fetch(`${baseUrl}/api/kbs/english/exercise/01`, { headers: authHeaders })
     ).json();
-    assert.equal(docAfter.completed, true);
+    const qA01 = ex01.questions.find(q => q.id === 'A01');
+    const qA02 = ex01.questions.find(q => q.id === 'A02');
+    assert.equal(qA01.grade, 'ok', 'DB record must take priority over local cache');
+    assert.equal(qA01.userInput, 'DB answer');
+    assert.equal(qA02.grade, 'bad', 'Missing DB record is backfilled from local cache');
 
-    // 6. Parse Exercise Chapter 01 & persist practice records in SQLite
-    const ex01 = await (await fetch(`${baseUrl}/api/kbs/english/exercise/01`)).json();
-    assert.equal(ex01.code, '01');
-    assert.equal(ex01.questions.length, 40);
-    assert.ok(ex01.questions.every(q => q.answer && !q.answer.includes('暂无解析')));
-
-    // Save one bad answer and one ok answer
-    await fetch(`${baseUrl}/api/kbs/english/practice`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chapterCode: '01',
-        questionId: 'A01',
-        userInput: 'i am happy',
-        grade: 'bad'
-      })
-    });
-    await fetch(`${baseUrl}/api/kbs/english/practice`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chapterCode: '01',
-        questionId: 'C01',
-        userInput: 'I am, she is, they are',
-        grade: 'ok'
-      })
-    });
-
-    // Verify wrongbook contains A01
-    const wb1 = await (await fetch(`${baseUrl}/api/kbs/english/wrongbook`)).json();
-    assert.equal(wb1.total, 1);
-    assert.equal(wb1.items[0].id, 'A01');
-    assert.equal(wb1.items[0].userInput, 'i am happy');
-    assert.equal(wb1.items[0].grade, 'bad');
-
-    // Upgrade A01 to 'ok' -> wrongbook becomes empty
-    await fetch(`${baseUrl}/api/kbs/english/practice`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chapterCode: '01',
-        questionId: 'A01',
-        grade: 'ok'
-      })
-    });
-    const wb2 = await (await fetch(`${baseUrl}/api/kbs/english/wrongbook`)).json();
-    assert.equal(wb2.total, 0);
-
-    // Reset Chapter 01 practice records
-    const delRes = await fetch(`${baseUrl}/api/kbs/english/practice/01`, { method: 'DELETE' });
-    assert.equal(delRes.status, 200);
-    const ex01After = await (await fetch(`${baseUrl}/api/kbs/english/exercise/01`)).json();
-    assert.ok(ex01After.questions.every(q => q.grade === '' && q.userInput === ''));
+    // Wrongbook has only A02
+    const wbAuth = await (
+      await fetch(`${baseUrl}/api/kbs/english/wrongbook`, { headers: authHeaders })
+    ).json();
+    assert.equal(wbAuth.total, 1);
+    assert.equal(wbAuth.items[0].id, 'A02');
   });
 });

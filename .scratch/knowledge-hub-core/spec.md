@@ -74,8 +74,19 @@
 
 ## Out of Scope
 
-- 多用户注册登录与权限隔离（当前为个人专属远程知识库，单用户全局共享 SQLite 进度）。
 - 在网页端直接提供 Markdown 在线富文本编辑器（知识库内容更新仍通过本地/Agent 编辑 `.md` 文件驱动）。
+
+## Optional Auth & Dual-Storage Addendum (Ticket 05)
+
+- **非强制登录（Optional Login）**：
+  - 支持用户注册/登录（`POST /api/auth/register`、`POST /api/auth/login`、`GET /api/auth/me`、`POST /api/auth/logout`），未登录时以游客模式运行。
+- **双写存储与读取优先级（DB 优先 + 浏览器缓存 `localStorage` 双存）**：
+  - 需要记录的数据：① **刷题记录**（每题输入、自评状态、章节完成勾选）；② **阅读记录**（每个知识库的上次阅读章节 `lastRead: { docPath, docTitle, updatedAt }`）。
+  - 每次阅读切换章节或刷题时，**同时写入 `localStorage` 与（若已登录）后端 SQLite 数据库**。
+  - 读取时：**若已登录，优先采用数据库中的记录**（若某项在数据库中尚不存在但本地 `localStorage` 有记录，则自动用本地缓存补充并同步回数据库）；**若未登录，直接从浏览器 `localStorage` 读取**。
+- **门户卡片与继续阅读交互**：
+  - 门户卡片上的“已学完文档”改为**“上次阅读章节”**（展示上次读到的章节名称，未读过则显示“尚未开始”）。
+  - 门户主按钮：初次进入（无阅读记录）显示**“📖 进入阅读学习”**；已有阅读记录时显示**“📖 继续上次阅读”**，点击直接进入上次阅读的章节。
 
 ## Further Notes
 

@@ -1,5 +1,67 @@
 <template>
   <div class="kh-root">
+    <!-- ==================== 登录 / 注册弹窗（非强制） ==================== -->
+    <div v-if="showAuthModal" class="modal-backdrop" @click.self="showAuthModal = false">
+      <div class="auth-modal">
+        <div class="auth-modal-header">
+          <h3>{{ authMode === 'login' ? '🔑 登录账号' : '✨ 注册新账号' }}</h3>
+          <button class="ghost-btn" @click="showAuthModal = false">✕</button>
+        </div>
+        <p class="auth-modal-desc">
+          登录后，你的<strong>刷题记录</strong>与<strong>上次阅读章节</strong>将持久化到服务器数据库（多端同步，优先读取数据库），同时本地浏览器缓存也会同步保存一份。不登录也可直接使用本地缓存学习。
+        </p>
+
+        <div class="auth-tabs">
+          <button
+            class="auth-tab"
+            :class="{ active: authMode === 'login' }"
+            @click="authMode = 'login'; authError = ''"
+          >
+            已有账号登录
+          </button>
+          <button
+            class="auth-tab"
+            :class="{ active: authMode === 'register' }"
+            @click="authMode = 'register'; authError = ''"
+          >
+            注册新账号
+          </button>
+        </div>
+
+        <form class="auth-form" @submit.prevent="submitAuth">
+          <label class="auth-label">
+            <span>用户名</span>
+            <input
+              v-model="authUsername"
+              class="q-input"
+              type="text"
+              placeholder="请输入用户名（至少 2 个字符）"
+              required
+            />
+          </label>
+          <label class="auth-label">
+            <span>密码</span>
+            <input
+              v-model="authPassword"
+              class="q-input"
+              type="password"
+              placeholder="请输入密码（至少 4 个字符）"
+              required
+            />
+          </label>
+
+          <div v-if="authError" class="auth-error">{{ authError }}</div>
+
+          <div class="auth-actions">
+            <button type="button" class="ghost-btn" @click="showAuthModal = false">暂不登录</button>
+            <button type="submit" class="primary-btn" :disabled="authSubmitting">
+              {{ authSubmitting ? '处理中…' : (authMode === 'login' ? '立即登录' : '注册并登录') }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- ==================== 1. 多知识库主入口门户 ==================== -->
     <div v-if="currentView === 'portal'" class="portal-page">
       <header class="portal-header">
@@ -7,28 +69,46 @@
           <span class="portal-logo">🏛️</span>
           <div>
             <h1>Knowledge Hub · 个人知识库中心</h1>
-            <p>底层 Markdown 实时渲染驱动 · 做题进度 SQLite 跨端同步</p>
+            <p>底层 Markdown 实时渲染驱动 · 数据库与浏览器缓存双持久化</p>
           </div>
         </div>
-        <button class="ghost-btn" @click="toggleTheme" title="切换深浅色护眼模式">
-          {{ theme === 'dark' ? '☀️ 浅色' : '🌙 深色' }}
-        </button>
+
+        <div class="header-right-tools">
+          <template v-if="currentUser">
+            <span class="user-badge logged-in" title="已开启数据库优先 + 本地缓存双存">
+              🟢 {{ currentUser.username }}（云端同步）
+            </span>
+            <button class="ghost-btn" @click="handleLogout">退出登录</button>
+          </template>
+          <template v-else>
+            <span class="user-badge guest" title="当前未登录，进度保存在当前浏览器缓存">
+              ⚪ 未登录（本地缓存）
+            </span>
+            <button class="secondary-btn" @click="openAuthModal('login')">🔑 登录 / 注册</button>
+          </template>
+
+          <button class="ghost-btn" @click="toggleTheme" title="切换深浅色护眼模式">
+            {{ theme === 'dark' ? '☀️ 浅色' : '🌙 深色' }}
+          </button>
+        </div>
       </header>
 
       <main class="portal-main">
         <div class="section-heading">
           <h2>选择一个知识库进入</h2>
-          <span class="section-sub">当前共 {{ kbs.length }} 个知识库在线</span>
+          <span class="section-sub">
+            {{ currentUser ? '已登录：优先读取数据库记录并同步写入浏览器缓存' : '未登录：读取当前浏览器缓存，登录后可跨设备同步' }}
+          </span>
         </div>
 
         <div v-if="loadingPortal" class="empty-state">正在加载知识库列表…</div>
 
         <div v-else class="kb-grid">
           <article
-            v-for="kb in kbs"
+            v-for="kb in decoratedKbs"
             :key="kb.id"
             class="kb-card"
-            @click="enterKb(kb.id, 'read')"
+            @click="enterKbReading(kb)"
           >
             <div class="kb-card-top">
               <span class="kb-icon">{{ kb.icon }}</span>
@@ -42,31 +122,44 @@
             </div>
 
             <div class="kb-stats-grid">
-              <div class="kb-stat-box">
-                <span class="kb-stat-num">{{ kb.stats.completedDocs }} / {{ kb.stats.totalDocs }}</span>
-                <span class="kb-stat-label">已学完文档</span>
+              <div class="kb-stat-box kb-stat-box-wide">
+                <span class="kb-stat-label">上次阅读章节</span>
+                <span
+                  class="kb-stat-chapter"
+                  :class="{ 'not-started': !kb.effectiveLastRead }"
+                  :title="kb.effectiveLastRead?.docTitle || '尚未开始阅读'"
+                >
+                  {{ kb.effectiveLastRead?.docTitle || '尚未开始' }}
+                </span>
               </div>
               <div class="kb-stat-box">
-                <span class="kb-stat-num">{{ kb.stats.masteredQuestions }}</span>
+                <span class="kb-stat-num">{{ kb.effectiveStats.masteredQuestions }}</span>
                 <span class="kb-stat-label">已掌握题目</span>
               </div>
               <div class="kb-stat-box">
-                <span class="kb-stat-num" :class="{ 'text-warn': kb.stats.wrongQuestions > 0 }">
-                  {{ kb.stats.wrongQuestions }}
+                <span
+                  class="kb-stat-num"
+                  :class="{ 'text-warn': kb.effectiveStats.wrongQuestions > 0 }"
+                >
+                  {{ kb.effectiveStats.wrongQuestions }}
                 </span>
                 <span class="kb-stat-label">错题/不稳</span>
               </div>
             </div>
 
             <div class="kb-actions" @click.stop>
-              <button class="primary-btn" @click="enterKb(kb.id, 'read')">📖 进入阅读学习</button>
-              <button class="secondary-btn" @click="enterKb(kb.id, 'exercise')">✍️ 交互刷题中心</button>
+              <button class="primary-btn" @click="enterKbReading(kb)">
+                {{ kb.effectiveLastRead ? '📖 继续上次阅读' : '📖 进入阅读学习' }}
+              </button>
+              <button class="secondary-btn" @click="enterKb(kb.id, 'exercise')">
+                ✍️ 交互刷题中心
+              </button>
               <button
-                v-if="kb.stats.wrongQuestions > 0"
+                v-if="kb.effectiveStats.wrongQuestions > 0"
                 class="warn-btn"
                 @click="enterKb(kb.id, 'wrongbook')"
               >
-                📕 错题本 ({{ kb.stats.wrongQuestions }})
+                📕 错题本 ({{ kb.effectiveStats.wrongQuestions }})
               </button>
             </div>
           </article>
@@ -92,7 +185,15 @@
       <div class="mobile-bar">
         <button class="ghost-btn" @click="sidebarOpen = !sidebarOpen">☰ 目录</button>
         <strong class="mobile-title">{{ treeData?.kb?.title || '知识库' }}</strong>
-        <div style="display:flex;gap:6px;">
+        <div style="display:flex;gap:5px;align-items:center;">
+          <button
+            v-if="!currentUser"
+            class="ghost-btn"
+            @click="openAuthModal('login')"
+          >
+            登录
+          </button>
+          <span v-else class="mobile-user-dot" :title="currentUser.username">🟢</span>
           <button class="ghost-btn" @click="goPortal">门户</button>
           <button class="ghost-btn" @click="toggleTheme">🌓</button>
         </div>
@@ -113,6 +214,28 @@
               <button class="ghost-btn" @click="toggleTheme" title="切换深浅色">🌓</button>
             </div>
 
+            <!-- 登录状态栏（侧边栏顶部） -->
+            <div class="sidebar-auth-bar">
+              <template v-if="currentUser">
+                <span class="sidebar-auth-text">🟢 <strong>{{ currentUser.username }}</strong> · 数据库同步中</span>
+                <button class="tiny-link-btn" @click="handleLogout">退出</button>
+              </template>
+              <template v-else>
+                <span class="sidebar-auth-text">⚪ 本地缓存模式</span>
+                <button class="tiny-link-btn" @click="openAuthModal('login')">登录同步云端</button>
+              </template>
+            </div>
+
+            <!-- 继续上次阅读快捷条（当存在上次阅读记录且当前未处在该章时显示） -->
+            <div
+              v-if="activeLastRead && currentDoc?.path !== activeLastRead.docPath"
+              class="continue-banner"
+              @click="openDocument(activeLastRead.docPath)"
+            >
+              <span class="continue-label">📖 继续上次阅读：</span>
+              <span class="continue-title">{{ activeLastRead.docTitle }} →</span>
+            </div>
+
             <!-- 三大模式切换：章节阅读 / 交互刷题 / 错题本 -->
             <div class="nav-mode-tabs">
               <button
@@ -131,10 +254,10 @@
               </button>
               <button
                 class="mode-tab"
-                :class="{ active: workMode === 'wrongbook', 'has-wrong': (treeData?.wrongTotal || 0) > 0 }"
+                :class="{ active: workMode === 'wrongbook', 'has-wrong': effectiveWrongTotal > 0 }"
                 @click="switchWorkMode('wrongbook')"
               >
-                📕 错题 ({{ treeData?.wrongTotal || 0 }})
+                📕 错题 ({{ effectiveWrongTotal }})
               </button>
             </div>
 
@@ -168,7 +291,14 @@
               >
                 <div class="ch-item-top">
                   <span class="ch-name" :title="doc.title">{{ doc.title }}</span>
-                  <span v-if="doc.completed" class="done-check" title="已学完">✓</span>
+                  <span
+                    v-if="activeLastRead?.docPath === doc.path"
+                    class="last-read-pill"
+                    title="上次阅读位置"
+                  >
+                    上次
+                  </span>
+                  <span v-if="isDocCompleted(doc.path)" class="done-check" title="已学完">✓</span>
                 </div>
               </div>
 
@@ -184,7 +314,14 @@
                   <div class="ch-item-top">
                     <span v-if="doc.code" class="ch-code">{{ doc.code }}</span>
                     <span class="ch-name" :title="doc.title">{{ doc.title.replace(/^\d{2}\s*·\s*/, '') }}</span>
-                    <span v-if="doc.completed" class="done-check" title="已学完">✓</span>
+                    <span
+                      v-if="activeLastRead?.docPath === doc.path"
+                      class="last-read-pill"
+                      title="上次阅读位置"
+                    >
+                      上次
+                    </span>
+                    <span v-if="isDocCompleted(doc.path)" class="done-check" title="已学完">✓</span>
                   </div>
                 </div>
               </template>
@@ -227,16 +364,18 @@
               <section class="header-card doc-toolbar-card">
                 <div class="header-top">
                   <div>
-                    <div class="doc-path-crumb">{{ currentDoc.path }}</div>
+                    <div class="doc-path-crumb">
+                      {{ currentDoc.path }} · 已自动记录为“上次阅读章节”
+                    </div>
                     <h1 class="ch-title">{{ currentDoc.title }}</h1>
                   </div>
                   <div class="doc-toolbar-actions">
                     <button
                       class="check-complete-btn"
-                      :class="{ completed: currentDoc.completed }"
+                      :class="{ completed: isDocCompleted(currentDoc.path) }"
                       @click="toggleDocCompleted"
                     >
-                      {{ currentDoc.completed ? '✅ 已学完本章（点击取消）' : '○ 标记本章已学完' }}
+                      {{ isDocCompleted(currentDoc.path) ? '✅ 已标记学完（点击取消）' : '○ 标记本章已学完' }}
                     </button>
                     <button
                       v-if="currentDoc.exerciseCode"
@@ -283,9 +422,9 @@
             </template>
           </template>
 
-          <!-- ==================== 视图 B：单章交互刷题中心（SQLite 持久化） ==================== -->
+          <!-- ==================== 视图 B：单章交互刷题中心（DB + 本地缓存双持久化） ==================== -->
           <template v-else-if="workMode === 'exercise'">
-            <div v-if="loadingEx" class="empty-state">正在从 Markdown 解析题目并同步数据库进度…</div>
+            <div v-if="loadingEx" class="empty-state">正在从 Markdown 解析题目并同步进度…</div>
             <template v-else-if="currentEx">
               <section class="header-card">
                 <div class="header-top">
@@ -425,7 +564,7 @@
                       v-model="q.userInput"
                       class="q-input"
                       type="text"
-                      placeholder="在此输入你的答案（自动存入数据库；按回车直接查看解析）…"
+                      placeholder="在此输入你的答案（自动存入缓存与数据库；按回车直接查看解析）…"
                       @change="savePracticeRecord(currentEx.code, q)"
                       @keydown.enter="toggleAnswer(currentEx.code, q.id)"
                     />
@@ -494,12 +633,12 @@
             </template>
           </template>
 
-          <!-- ==================== 视图 C：全局错题与不稳题本（SQLite 聚合） ==================== -->
+          <!-- ==================== 视图 C：全局错题与不稳题本 ==================== -->
           <template v-else-if="workMode === 'wrongbook'">
             <section class="header-card">
               <h1 class="ch-title">📕 全局错题与不稳题本</h1>
               <p class="ch-scope">
-                集中复盘你在全书 31 章中标记为“❌ 错了”或“⚠️ 不稳”的题目（跨端保存在 SQLite 数据库）；重新做稳并点“✅ 会了”后会自动移出。
+                集中复盘你在全书 31 章中标记为“❌ 错了”或“⚠️ 不稳”的题目（{{ currentUser ? '已登录：从数据库加载并同步缓存' : '未登录：从当前浏览器缓存加载' }}）；重新做稳并点“✅ 会了”后会自动移出。
               </p>
               <div class="summary-pills">
                 <span class="stat-pill warn">待修复题目：{{ wrongbookItems.length }} 题</span>
@@ -608,10 +747,14 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, nextTick } from 'vue';
+import { ref, reactive, computed, onMounted, nextTick } from 'vue';
 import { renderMarkdown } from './utils/markdown.js';
 
 const THEME_KEY = 'eng_linear_theme_v1';
+const LEGACY_PRACTICE_KEY = 'eng_linear_practice_v1'; // 兼容单文件交互刷题 HTML 的键名
+const LOCAL_READING_KEY = 'kh_reading_state_v1'; // { [kbId]: { docPath, docTitle, updatedAt } }
+const LOCAL_COMPLETED_KEY = 'kh_completed_docs_v1'; // { [kbId]: [docPath, ...] }
+const AUTH_TOKEN_KEY = 'kh_auth_token_v1';
 
 const theme = ref('light');
 const currentView = ref('portal'); // 'portal' | 'workspace'
@@ -619,6 +762,21 @@ const activeKbId = ref('english');
 const workMode = ref('read'); // 'read' | 'exercise' | 'wrongbook'
 const sidebarOpen = ref(false);
 const searchKw = ref('');
+
+// Auth state
+const authToken = ref(localStorage.getItem(AUTH_TOKEN_KEY) || '');
+const currentUser = ref(null);
+const showAuthModal = ref(false);
+const authMode = ref('login'); // 'login' | 'register'
+const authUsername = ref('');
+const authPassword = ref('');
+const authError = ref('');
+const authSubmitting = ref(false);
+
+// Local cache reactive mirror (始终与 localStorage 同步；已登录时由 DB 优先覆盖并写回 localStorage)
+const localPractice = reactive({ grades: {}, inputs: {} });
+const localReading = reactive({}); // kbId -> { docPath, docTitle, updatedAt }
+const localCompleted = reactive({}); // kbId -> Set/Array of docPaths
 
 // Portal state
 const loadingPortal = ref(false);
@@ -636,13 +794,165 @@ const currentDoc = ref(null);
 const loadingEx = ref(false);
 const currentExCode = ref('01');
 const currentEx = ref(null);
-const filterMode = ref('required'); // 'required' | 'all' | 'todo' | 'review'
+const filterMode = ref('required');
 const groupTab = ref('ALL');
 const openAnswers = ref(new Set());
 
 // Wrongbook state
 const wrongbookItems = ref([]);
 
+// ==================== LocalStorage Persistence Helpers ====================
+function loadLocalCache() {
+  try {
+    const rawPrac = localStorage.getItem(LEGACY_PRACTICE_KEY);
+    if (rawPrac) {
+      const parsed = JSON.parse(rawPrac);
+      Object.assign(localPractice.grades, parsed.grades || {});
+      Object.assign(localPractice.inputs, parsed.inputs || {});
+    }
+  } catch {}
+  try {
+    const rawRead = localStorage.getItem(LOCAL_READING_KEY);
+    if (rawRead) Object.assign(localReading, JSON.parse(rawRead));
+  } catch {}
+  try {
+    const rawComp = localStorage.getItem(LOCAL_COMPLETED_KEY);
+    if (rawComp) Object.assign(localCompleted, JSON.parse(rawComp));
+  } catch {}
+}
+
+function saveLocalPractice() {
+  try {
+    localStorage.setItem(
+      LEGACY_PRACTICE_KEY,
+      JSON.stringify({ grades: localPractice.grades, inputs: localPractice.inputs })
+    );
+  } catch {}
+}
+
+function saveLocalReading() {
+  try {
+    localStorage.setItem(LOCAL_READING_KEY, JSON.stringify(localReading));
+  } catch {}
+}
+
+function saveLocalCompleted() {
+  try {
+    localStorage.setItem(LOCAL_COMPLETED_KEY, JSON.stringify(localCompleted));
+  } catch {}
+}
+
+function authHeaders(extra = {}) {
+  const h = { ...extra };
+  if (authToken.value) {
+    h.Authorization = `Bearer ${authToken.value}`;
+  }
+  return h;
+}
+
+// ==================== Auth Flows ====================
+async function checkAuthSession() {
+  if (!authToken.value) {
+    currentUser.value = null;
+    return;
+  }
+  try {
+    const res = await fetch('/api/auth/me', { headers: authHeaders() });
+    if (res.ok) {
+      const data = await res.json();
+      currentUser.value = data.user || null;
+      if (!currentUser.value) {
+        authToken.value = '';
+        localStorage.removeItem(AUTH_TOKEN_KEY);
+      }
+    }
+  } catch {}
+}
+
+function openAuthModal(mode = 'login') {
+  authMode.value = mode;
+  authError.value = '';
+  showAuthModal.value = true;
+}
+
+async function submitAuth() {
+  authError.value = '';
+  authSubmitting.value = true;
+  try {
+    const url = authMode.value === 'login' ? '/api/auth/login' : '/api/auth/register';
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: authUsername.value.trim(),
+        password: authPassword.value
+      })
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      authError.value = data.error || '操作失败，请重试';
+      return;
+    }
+    authToken.value = data.token;
+    localStorage.setItem(AUTH_TOKEN_KEY, data.token);
+    currentUser.value = data.user;
+    showAuthModal.value = false;
+    authPassword.value = '';
+
+    // 登录成功后：先把本地已有但数据库还没有的记录补齐上云（数据库已有的记录绝不被覆盖，保证数据库优先！）
+    await syncLocalToDbIfNeeded(activeKbId.value);
+    await refreshCurrentViewData();
+  } finally {
+    authSubmitting.value = false;
+  }
+}
+
+async function handleLogout() {
+  try {
+    await fetch('/api/auth/logout', { method: 'POST', headers: authHeaders() });
+  } catch {}
+  authToken.value = '';
+  currentUser.value = null;
+  localStorage.removeItem(AUTH_TOKEN_KEY);
+  await refreshCurrentViewData();
+}
+
+async function syncLocalToDbIfNeeded(kbId) {
+  if (!currentUser.value) return;
+  const practicePayload = {};
+  for (const [k, g] of Object.entries(localPractice.grades)) {
+    practicePayload[k] = { grade: g, userInput: localPractice.inputs[k] || '' };
+  }
+  for (const [k, inp] of Object.entries(localPractice.inputs)) {
+    if (!practicePayload[k]) practicePayload[k] = { grade: '', userInput: inp };
+  }
+  try {
+    await fetch(`/api/kbs/${kbId}/sync-local`, {
+      method: 'POST',
+      headers: authHeaders({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify({
+        practice: practicePayload,
+        completedDocs: localCompleted[kbId] || [],
+        lastRead: localReading[kbId] || null
+      })
+    });
+  } catch {}
+}
+
+async function refreshCurrentViewData() {
+  if (currentView.value === 'portal') {
+    await fetchPortal();
+  } else {
+    await fetchTree(activeKbId.value);
+    if (workMode.value === 'exercise' && currentExCode.value) {
+      await openExercise(currentExCode.value);
+    } else if (workMode.value === 'wrongbook') {
+      await fetchWrongbook();
+    }
+  }
+}
+
+// ==================== Theme ====================
 function initTheme() {
   const saved = localStorage.getItem(THEME_KEY);
   if (saved === 'dark') {
@@ -657,20 +967,111 @@ function toggleTheme() {
   localStorage.setItem(THEME_KEY, theme.value);
 }
 
+// ==================== Portal & Dual-Storage Resolution ====================
 async function fetchPortal() {
   loadingPortal.value = true;
   try {
-    const res = await fetch('/api/kbs');
-    kbs.value = await res.json();
+    const res = await fetch('/api/kbs', { headers: authHeaders() });
+    const list = await res.json();
+    // 若已登录且数据库返回了 lastRead，同步写回本地缓存（数据库优先！）
+    for (const kb of list) {
+      if (currentUser.value && kb.lastRead) {
+        localReading[kb.id] = kb.lastRead;
+      }
+    }
+    saveLocalReading();
+    kbs.value = list;
   } finally {
     loadingPortal.value = false;
   }
 }
 
+// 计算门户卡片的最终展示数据（已登录优先用 DB，未登录或 DB 为空则读取 localStorage）
+const decoratedKbs = computed(() => {
+  const localGrades = Object.values(localPractice.grades);
+  const localMastered = localGrades.filter(g => g === 'ok').length;
+  const localWrong = localGrades.filter(g => g === 'bad' || g === 'warn').length;
+
+  return kbs.value.map(kb => {
+    const effectiveLastRead =
+      (currentUser.value && kb.lastRead) ? kb.lastRead : (localReading[kb.id] || null);
+    const effectiveStats = currentUser.value
+      ? {
+          masteredQuestions: kb.stats.masteredQuestions,
+          wrongQuestions: kb.stats.wrongQuestions
+        }
+      : {
+          masteredQuestions: localMastered,
+          wrongQuestions: localWrong
+        };
+    return {
+      ...kb,
+      effectiveLastRead,
+      effectiveStats
+    };
+  });
+});
+
+const activeLastRead = computed(() => {
+  if (currentUser.value && treeData.value?.lastRead) {
+    return treeData.value.lastRead;
+  }
+  return localReading[activeKbId.value] || null;
+});
+
+function isDocCompleted(docPath) {
+  const list = localCompleted[activeKbId.value] || [];
+  return list.includes(docPath);
+}
+
 async function fetchTree(kbId) {
-  const res = await fetch(`/api/kbs/${kbId}/tree`);
-  if (res.ok) {
-    treeData.value = await res.json();
+  const res = await fetch(`/api/kbs/${kbId}/tree`, { headers: authHeaders() });
+  if (!res.ok) return;
+  const data = await res.json();
+
+  // 若已登录：以数据库数据为权威来源（DB 优先），同时将 DB 数据同步刷入本地缓存！
+  if (currentUser.value && data.dbState) {
+    if (data.dbState.lastRead) {
+      localReading[kbId] = data.dbState.lastRead;
+      saveLocalReading();
+    }
+    localCompleted[kbId] = data.dbState.completedDocs || [];
+    saveLocalCompleted();
+
+    for (const [k, val] of Object.entries(data.dbState.practice || {})) {
+      if (val.grade !== undefined) localPractice.grades[k] = val.grade;
+      if (val.userInput !== undefined) localPractice.inputs[k] = val.userInput;
+    }
+    saveLocalPractice();
+  }
+
+  treeData.value = data;
+}
+
+// 点击门户卡片或“进入阅读学习 / 继续上次阅读”按钮
+async function enterKbReading(kb) {
+  activeKbId.value = kb.id;
+  currentView.value = 'workspace';
+  workMode.value = 'read';
+  await fetchTree(kb.id);
+
+  // 优先取数据库的上次阅读章节，其次取本地缓存的上次阅读章节
+  const lastRead =
+    (currentUser.value && treeData.value?.lastRead)
+      ? treeData.value.lastRead
+      : (localReading[kb.id] || null);
+
+  if (lastRead?.docPath) {
+    await openDocument(lastRead.docPath);
+    return;
+  }
+
+  const firstMod = treeData.value?.modules?.[0];
+  const defaultDoc =
+    firstMod?.rootDocs?.[0]?.path ||
+    firstMod?.groups?.[0]?.docs?.[0]?.path;
+  if (defaultDoc) {
+    await openDocument(defaultDoc);
   }
 }
 
@@ -681,14 +1082,16 @@ async function enterKb(kbId, initialMode = 'read') {
   await fetchTree(kbId);
 
   if (initialMode === 'read') {
-    // Open first document if none selected
+    const lr = activeLastRead.value;
+    if (lr?.docPath) {
+      await openDocument(lr.docPath);
+      return;
+    }
     const firstMod = treeData.value?.modules?.[0];
     const defaultDoc =
       firstMod?.rootDocs?.[0]?.path ||
       firstMod?.groups?.[0]?.docs?.[0]?.path;
-    if (defaultDoc) {
-      await openDocument(defaultDoc);
-    }
+    if (defaultDoc) await openDocument(defaultDoc);
   } else if (initialMode === 'exercise') {
     await openExercise(currentExCode.value || '01');
   } else if (initialMode === 'wrongbook') {
@@ -710,6 +1113,11 @@ async function switchWorkMode(mode) {
   } else if (mode === 'wrongbook') {
     await fetchWrongbook();
   } else if (mode === 'read' && !currentDoc.value) {
+    const lr = activeLastRead.value;
+    if (lr?.docPath) {
+      await openDocument(lr.docPath);
+      return;
+    }
     const firstMod = treeData.value?.modules?.[selectedModuleIdx.value];
     const firstPath = firstMod?.rootDocs?.[0]?.path || firstMod?.groups?.[0]?.docs?.[0]?.path;
     if (firstPath) await openDocument(firstPath);
@@ -738,8 +1146,27 @@ const filteredDocGroups = computed(() => {
     .filter(g => g.docs.length > 0);
 });
 
+// 侧边栏 31 章练习进度（已登录用 DB 统计，未登录实时用 localPractice 计算）
 const groupedExercises = computed(() => {
-  const list = treeData.value?.exercises || [];
+  const rawList = treeData.value?.exercises || [];
+  const list = rawList.map(ex => {
+    if (currentUser.value) return ex;
+    // 未登录：用 localPractice 统计必做完成数
+    let okCount = 0;
+    for (const [k, g] of Object.entries(localPractice.grades)) {
+      if (k.startsWith(ex.code + ':') && g === 'ok') {
+        const qid = k.split(':')[1] || '';
+        const qNum = Number(qid.slice(1));
+        const isOptionalA = qid.startsWith('A') && qNum >= 9 && qNum <= 16;
+        if (!isOptionalA) okCount++;
+      }
+    }
+    return {
+      ...ex,
+      okRequiredCount: Math.min(okCount, ex.requiredCount)
+    };
+  });
+
   const kw = searchKw.value.trim().toLowerCase();
   const filtered = kw
     ? list.filter(ex => ex.code.includes(kw) || ex.title.toLowerCase().includes(kw))
@@ -756,6 +1183,13 @@ const groupedExercises = computed(() => {
   return groups;
 });
 
+const effectiveWrongTotal = computed(() => {
+  if (currentUser.value && treeData.value) {
+    return treeData.value.wrongTotal || 0;
+  }
+  return Object.values(localPractice.grades).filter(g => g === 'bad' || g === 'warn').length;
+});
+
 const renderedDocHtml = computed(() => {
   return currentDoc.value ? renderMarkdown(currentDoc.value.content) : '';
 });
@@ -766,16 +1200,35 @@ async function openDocument(pathOrStem, anchor = '') {
   sidebarOpen.value = false;
   try {
     const res = await fetch(
-      `/api/kbs/${activeKbId.value}/doc?path=${encodeURIComponent(pathOrStem)}`
+      `/api/kbs/${activeKbId.value}/doc?path=${encodeURIComponent(pathOrStem)}`,
+      { headers: authHeaders() }
     );
     if (!res.ok) return;
     const doc = await res.json();
     currentDoc.value = doc;
 
-    // Auto switch selectedModuleIdx if doc belongs to another module
     if (treeData.value?.modules) {
       const mIdx = treeData.value.modules.findIndex(m => doc.path.startsWith(m.name + '/'));
       if (mIdx >= 0) selectedModuleIdx.value = mIdx;
+    }
+
+    // 双写保存“上次阅读章节”：① 写入 localStorage ② 若已登录写入后端 SQLite 数据库
+    const record = {
+      docPath: doc.path,
+      docTitle: doc.title,
+      updatedAt: new Date().toISOString()
+    };
+    localReading[activeKbId.value] = record;
+    saveLocalReading();
+    if (treeData.value) {
+      treeData.value.lastRead = record;
+    }
+    if (currentUser.value) {
+      fetch(`/api/kbs/${activeKbId.value}/reading-state`, {
+        method: 'PUT',
+        headers: authHeaders({ 'Content-Type': 'application/json' }),
+        body: JSON.stringify({ docPath: doc.path, docTitle: doc.title })
+      }).catch(() => {});
     }
 
     await nextTick();
@@ -829,17 +1282,20 @@ async function handleMarkdownClick(e) {
 
 async function toggleDocCompleted() {
   if (!currentDoc.value) return;
-  const nextVal = !currentDoc.value.completed;
-  const res = await fetch(`/api/kbs/${activeKbId.value}/chapter-progress`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      docPath: currentDoc.value.path,
-      completed: nextVal
-    })
-  });
-  if (res.ok) {
-    currentDoc.value.completed = nextVal;
+  const docPath = currentDoc.value.path;
+  const curList = new Set(localCompleted[activeKbId.value] || []);
+  const nextVal = !curList.has(docPath);
+  if (nextVal) curList.add(docPath);
+  else curList.delete(docPath);
+  localCompleted[activeKbId.value] = [...curList];
+  saveLocalCompleted();
+
+  if (currentUser.value) {
+    await fetch(`/api/kbs/${activeKbId.value}/chapter-progress`, {
+      method: 'PUT',
+      headers: authHeaders({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify({ docPath, completed: nextVal })
+    });
     await fetchTree(activeKbId.value);
   }
 }
@@ -853,9 +1309,28 @@ async function openExercise(chapterCode) {
   sidebarOpen.value = false;
   loadingEx.value = true;
   try {
-    const res = await fetch(`/api/kbs/${activeKbId.value}/exercise/${code}`);
+    const res = await fetch(`/api/kbs/${activeKbId.value}/exercise/${code}`, {
+      headers: authHeaders()
+    });
     if (res.ok) {
-      currentEx.value = await res.json();
+      const data = await res.json();
+      // 合并策略：已登录时优先用 DB 返回值（若 DB 为空则用本地缓存兜底），同时双写回 localPractice
+      for (const q of data.questions) {
+        const k = qKey(code, q.id);
+        if (currentUser.value) {
+          const finalGrade = q.grade || localPractice.grades[k] || '';
+          const finalInput = q.userInput || localPractice.inputs[k] || '';
+          q.grade = finalGrade;
+          q.userInput = finalInput;
+          if (finalGrade) localPractice.grades[k] = finalGrade;
+          if (finalInput) localPractice.inputs[k] = finalInput;
+        } else {
+          q.grade = localPractice.grades[k] || '';
+          q.userInput = localPractice.inputs[k] || '';
+        }
+      }
+      saveLocalPractice();
+      currentEx.value = data;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   } finally {
@@ -953,18 +1428,29 @@ function expandAllWrongbook() {
   openAnswers.value = next;
 }
 
+// 双写保存刷题记录：① 始终写 localStorage ② 若已登录同步写 SQLite 数据库
 async function savePracticeRecord(chapterCode, q) {
-  await fetch(`/api/kbs/${activeKbId.value}/practice`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chapterCode,
-      questionId: q.id,
-      userInput: q.userInput,
-      grade: q.grade
-    })
-  });
-  await fetchTree(activeKbId.value);
+  const k = qKey(chapterCode, q.id);
+  if (q.grade) localPractice.grades[k] = q.grade;
+  else delete localPractice.grades[k];
+
+  if (q.userInput) localPractice.inputs[k] = q.userInput;
+  else delete localPractice.inputs[k];
+  saveLocalPractice();
+
+  if (currentUser.value) {
+    await fetch(`/api/kbs/${activeKbId.value}/practice`, {
+      method: 'PUT',
+      headers: authHeaders({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify({
+        chapterCode,
+        questionId: q.id,
+        userInput: q.userInput,
+        grade: q.grade
+      })
+    });
+    await fetchTree(activeKbId.value);
+  }
 }
 
 async function setQuestionGrade(chapterCode, q, val) {
@@ -974,19 +1460,60 @@ async function setQuestionGrade(chapterCode, q, val) {
 
 async function resetCurrentChapter() {
   if (!currentEx.value) return;
-  if (!confirm(`确定重置第 ${currentEx.value.code} 章的全部作答输入与自评记录吗？`)) return;
-  await fetch(`/api/kbs/${activeKbId.value}/practice/${currentEx.value.code}`, {
-    method: 'DELETE'
-  });
-  await openExercise(currentEx.value.code);
-  await fetchTree(activeKbId.value);
+  const code = currentEx.value.code;
+  if (!confirm(`确定重置第 ${code} 章的全部作答输入与自评记录吗？`)) return;
+
+  for (const q of currentEx.value.questions) {
+    const k = qKey(code, q.id);
+    delete localPractice.grades[k];
+    delete localPractice.inputs[k];
+  }
+  saveLocalPractice();
+
+  if (currentUser.value) {
+    await fetch(`/api/kbs/${activeKbId.value}/practice/${code}`, {
+      method: 'DELETE',
+      headers: authHeaders()
+    });
+    await fetchTree(activeKbId.value);
+  }
+  await openExercise(code);
 }
 
 async function fetchWrongbook() {
-  const res = await fetch(`/api/kbs/${activeKbId.value}/wrongbook`);
+  if (currentUser.value) {
+    const res = await fetch(`/api/kbs/${activeKbId.value}/wrongbook`, {
+      headers: authHeaders()
+    });
+    if (res.ok) {
+      const data = await res.json();
+      wrongbookItems.value = data.items || [];
+    }
+    return;
+  }
+
+  // 未登录模式：从 localPractice 找出所有 bad / warn 的题号，向后端换取题目详情
+  const keys = Object.entries(localPractice.grades)
+    .filter(([, g]) => g === 'bad' || g === 'warn')
+    .map(([k]) => k)
+    .sort();
+  if (!keys.length) {
+    wrongbookItems.value = [];
+    return;
+  }
+  const res = await fetch(
+    `/api/kbs/${activeKbId.value}/wrongbook?keys=${encodeURIComponent(keys.join(','))}`
+  );
   if (res.ok) {
     const data = await res.json();
-    wrongbookItems.value = data.items || [];
+    wrongbookItems.value = (data.items || []).map(it => {
+      const k = qKey(it.chapterCode, it.id);
+      return {
+        ...it,
+        grade: localPractice.grades[k] || '',
+        userInput: localPractice.inputs[k] || ''
+      };
+    });
   }
 }
 
@@ -998,6 +1525,11 @@ async function setWrongbookGrade(item, val) {
 
 onMounted(async () => {
   initTheme();
+  loadLocalCache();
+  await checkAuthSession();
+  if (currentUser.value) {
+    await syncLocalToDbIfNeeded(activeKbId.value);
+  }
   await fetchPortal();
 });
 </script>
@@ -1059,6 +1591,86 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ==================== Auth Modal ==================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.auth-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  max-width: 420px;
+  width: 100%;
+  padding: 22px 24px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+}
+.auth-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.auth-modal-header h3 { margin: 0; font-size: 18px; }
+.auth-modal-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.auth-tab {
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.auth-tab.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.auth-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.auth-error {
+  font-size: 13px;
+  color: var(--bad);
+  background: var(--bad-soft);
+  padding: 7px 10px;
+  border-radius: 8px;
+}
+.auth-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 6px;
+}
+
 /* ==================== Portal Styles ==================== */
 .portal-page {
   max-width: 1080px;
@@ -1070,6 +1682,7 @@ html, body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  flex-wrap: wrap;
   padding-bottom: 22px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 28px;
@@ -1082,10 +1695,32 @@ html, body {
 .portal-logo { font-size: 34px; }
 .portal-brand h1 { font-size: 22px; margin: 0 0 2px; }
 .portal-brand p { font-size: 13px; color: var(--text-muted); margin: 0; }
+.header-right-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.user-badge {
+  font-size: 12.5px;
+  padding: 5px 10px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+}
+.user-badge.logged-in {
+  border-color: var(--ok);
+  background: var(--ok-soft);
+  color: var(--ok);
+  font-weight: 600;
+}
+
 .section-heading {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-bottom: 16px;
 }
 .section-heading h2 { font-size: 18px; margin: 0; }
@@ -1093,7 +1728,7 @@ html, body {
 
 .kb-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: 20px;
 }
 .kb-card {
@@ -1153,18 +1788,42 @@ html, body {
 }
 .kb-stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1.6fr 1fr 1fr;
   gap: 10px;
   margin-bottom: 18px;
   padding: 12px;
   border-radius: 10px;
   background: var(--surface-soft);
   border: 1px solid var(--border);
+  align-items: center;
 }
 .kb-stat-box {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+.kb-stat-box-wide {
+  align-items: flex-start;
+  text-align: left;
+  padding-right: 8px;
+  border-right: 1px dashed var(--border-strong);
+  overflow: hidden;
+}
+.kb-stat-chapter {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.35;
+}
+.kb-stat-chapter.not-started {
+  color: var(--text-muted);
+  font-weight: 500;
 }
 .kb-stat-num { font-size: 16px; font-weight: 700; }
 .kb-stat-num.text-warn { color: var(--bad); }
@@ -1246,7 +1905,7 @@ html, body {
   border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 8px;
 }
 .brand-row {
   display: flex;
@@ -1265,6 +1924,48 @@ html, body {
 }
 .back-portal-btn:hover { color: var(--accent); border-color: var(--accent); }
 .brand-title { font-size: 15px; font-weight: 700; }
+
+.sidebar-auth-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  font-size: 11.5px;
+}
+.sidebar-auth-text { color: var(--text-muted); }
+.tiny-link-btn {
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+.tiny-link-btn:hover { text-decoration: underline; }
+
+.continue-banner {
+  padding: 6px 9px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.continue-label { font-size: 11px; color: var(--text-muted); }
+.continue-title {
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .nav-mode-tabs {
   display: grid;
@@ -1362,6 +2063,15 @@ html, body {
   text-overflow: ellipsis;
 }
 .ch-stat { font-size: 11px; color: var(--text-muted); flex-shrink: 0; }
+.last-read-pill {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--warn-soft);
+  color: var(--warn);
+  flex-shrink: 0;
+}
 .done-check {
   color: var(--ok);
   font-weight: 800;
@@ -1403,6 +2113,7 @@ html, body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.mobile-user-dot { font-size: 12px; }
 
 .header-card {
   background: var(--surface);
@@ -1484,7 +2195,6 @@ html, body {
 .md-ul li, .md-ol li { margin-bottom: 6px; }
 .md-hr { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
 
-/* ==Highlight== */
 mark.md-highlight {
   background: var(--hl-bg);
   color: var(--hl-text);
@@ -1493,7 +2203,6 @@ mark.md-highlight {
   font-weight: 600;
 }
 
-/* Tier badges 【必学】/【识读即可】/【选做】 */
 .md-tier-badge {
   display: inline-block;
   font-size: 11.5px;
@@ -1507,7 +2216,6 @@ mark.md-highlight {
 .md-tier-badge.tag-read { background: var(--warn-soft); color: var(--warn); }
 .md-tier-badge.tag-opt { background: var(--surface-soft); color: var(--text-muted); border: 1px solid var(--border); }
 
-/* Obsidian Callout Boxes */
 .callout {
   border-radius: 10px;
   padding: 13px 16px;
@@ -1553,7 +2261,6 @@ mark.md-highlight {
 }
 .md-quote p { margin: 0; }
 
-/* Code & Pre */
 .md-article code, .q-prompt code, .ans-body code {
   background: var(--code-bg);
   padding: 2px 6px;
@@ -1571,7 +2278,6 @@ mark.md-highlight {
 }
 .md-pre code { background: transparent; padding: 0; }
 
-/* Tables */
 .table-scroll {
   width: 100%;
   overflow-x: auto;
@@ -1592,7 +2298,6 @@ mark.md-highlight {
   font-weight: 700;
 }
 
-/* Wiki links & Exercise jump buttons */
 .md-wiki-link, .md-wiki-anchor {
   color: var(--accent);
   text-decoration: none;
@@ -1611,7 +2316,6 @@ mark.md-highlight {
   font-size: 14px;
 }
 
-/* Folded details */
 .md-details {
   margin: 12px 0;
   border: 1px solid var(--border);
@@ -1848,5 +2552,7 @@ details.drawer summary {
   .controls { position: static; }
   .portal-page { padding: 18px 14px 48px; }
   .kb-grid { grid-template-columns: 1fr; }
+  .kb-stats-grid { grid-template-columns: 1fr; }
+  .kb-stat-box-wide { border-right: none; border-bottom: 1px dashed var(--border-strong); padding-bottom: 8px; }
 }
 </style>
