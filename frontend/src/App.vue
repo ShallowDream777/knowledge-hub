@@ -117,10 +117,6 @@
             <h3 class="kb-title">{{ kb.title }}</h3>
             <p class="kb-sub">{{ kb.subtitle }}</p>
 
-            <div class="kb-modules-list">
-              <span v-for="m in kb.modules" :key="m" class="kb-mod-chip">{{ m }}</span>
-            </div>
-
             <div class="kb-stats-grid">
               <div class="kb-stat-box kb-stat-box-wide">
                 <span class="kb-stat-label">上次阅读章节</span>
@@ -132,30 +128,42 @@
                   {{ kb.effectiveLastRead?.docTitle || '尚未开始' }}
                 </span>
               </div>
-              <div class="kb-stat-box">
-                <span class="kb-stat-num">{{ kb.effectiveStats.masteredQuestions }}</span>
-                <span class="kb-stat-label">已掌握题目</span>
-              </div>
-              <div class="kb-stat-box">
-                <span
-                  class="kb-stat-num"
-                  :class="{ 'text-warn': kb.effectiveStats.wrongQuestions > 0 }"
-                >
-                  {{ kb.effectiveStats.wrongQuestions }}
-                </span>
-                <span class="kb-stat-label">错题/不稳</span>
-              </div>
+              <template v-if="kb.hasExercises">
+                <div class="kb-stat-box">
+                  <span class="kb-stat-num">{{ kb.effectiveStats.masteredQuestions }}</span>
+                  <span class="kb-stat-label">已掌握题目</span>
+                </div>
+                <div class="kb-stat-box">
+                  <span
+                    class="kb-stat-num"
+                    :class="{ 'text-warn': kb.effectiveStats.wrongQuestions > 0 }"
+                  >
+                    {{ kb.effectiveStats.wrongQuestions }}
+                  </span>
+                  <span class="kb-stat-label">错题/不稳</span>
+                </div>
+              </template>
+              <template v-else>
+                <div class="kb-stat-box" style="grid-column: span 2;">
+                  <span class="kb-stat-num">{{ kb.stats.totalDocs }} 篇</span>
+                  <span class="kb-stat-label">知识文档总数</span>
+                </div>
+              </template>
             </div>
 
             <div class="kb-actions" @click.stop>
               <button class="primary-btn" @click="enterKbReading(kb)">
                 {{ kb.effectiveLastRead ? '📖 继续上次阅读' : '📖 进入阅读学习' }}
               </button>
-              <button class="secondary-btn" @click="enterKb(kb.id, 'exercise')">
+              <button
+                v-if="kb.hasExercises"
+                class="secondary-btn"
+                @click="enterKb(kb.id, 'exercise')"
+              >
                 ✍️ 交互刷题中心
               </button>
               <button
-                v-if="kb.effectiveStats.wrongQuestions > 0"
+                v-if="kb.hasExercises && kb.effectiveStats.wrongQuestions > 0"
                 class="warn-btn"
                 @click="enterKb(kb.id, 'wrongbook')"
               >
@@ -236,8 +244,8 @@
               <span class="continue-title">{{ activeLastRead.docTitle }} →</span>
             </div>
 
-            <!-- 三大模式切换：章节阅读 / 交互刷题 / 错题本 -->
-            <div class="nav-mode-tabs">
+            <!-- 模式切换：有题库时显示 章节阅读 / 交互刷题 / 错题本；无题库时仅显示章节阅读 -->
+            <div v-if="treeData?.kb?.hasExercises" class="nav-mode-tabs">
               <button
                 class="mode-tab"
                 :class="{ active: workMode === 'read' }"
@@ -261,20 +269,6 @@
               </button>
             </div>
 
-            <!-- 模块切换（在章节阅读或交互刷题模式下，有多个模块时显示） -->
-            <div v-if="(workMode === 'read' || workMode === 'exercise') && treeData?.modules?.length > 1" class="mod-select-row">
-              <select v-model="selectedModuleIdx" class="mod-select" @change="handleModuleChange">
-                <option
-                  v-for="(mod, idx) in treeData.modules"
-                  :key="mod.name"
-                  :value="idx"
-                  :disabled="workMode === 'exercise' && !mod.hasExercises"
-                >
-                  {{ mod.name }}{{ workMode === 'exercise' && !mod.hasExercises ? '（无题库）' : '' }}
-                </option>
-              </select>
-            </div>
-
             <input
               v-model="searchKw"
               class="search-input"
@@ -285,7 +279,7 @@
 
           <!-- A. 阅读目录列表 -->
           <div v-if="workMode === 'read'" class="chapter-list">
-            <template v-if="currentModule">
+            <template v-if="treeData">
               <div v-if="filteredRootDocs.length" class="stage-label">导学与总览</div>
               <div
                 v-for="doc in filteredRootDocs"
@@ -762,14 +756,16 @@ import { ref, reactive, computed, onMounted, nextTick } from 'vue';
 import { renderMarkdown } from './utils/markdown.js';
 
 const THEME_KEY = 'eng_linear_theme_v1';
-const LEGACY_PRACTICE_KEY = 'eng_linear_practice_v1'; // 兼容单文件交互刷题 HTML 的键名
+const LEGACY_PRACTICE_KEY = 'eng_linear_practice_v1'; // 兼容 1.英语学习资料·完整线性版 的刷题键名
+const MULTI_PRACTICE_KEY = 'kh_multi_practice_v1'; // { [kbId]: { grades: {}, inputs: {} } }
 const LOCAL_READING_KEY = 'kh_reading_state_v1'; // { [kbId]: { docPath, docTitle, updatedAt } }
 const LOCAL_COMPLETED_KEY = 'kh_completed_docs_v1'; // { [kbId]: [docPath, ...] }
 const AUTH_TOKEN_KEY = 'kh_auth_token_v1';
+const PRIMARY_LINEAR_KB = '1.英语学习资料·完整线性版';
 
 const theme = ref('light');
 const currentView = ref('portal'); // 'portal' | 'workspace'
-const activeKbId = ref('english');
+const activeKbId = ref(PRIMARY_LINEAR_KB);
 const workMode = ref('read'); // 'read' | 'exercise' | 'wrongbook'
 const sidebarOpen = ref(false);
 const searchKw = ref('');
@@ -784,10 +780,10 @@ const authPassword = ref('');
 const authError = ref('');
 const authSubmitting = ref(false);
 
-// Local cache reactive mirror (始终与 localStorage 同步；已登录时由 DB 优先覆盖并写回 localStorage)
-const localPractice = reactive({ grades: {}, inputs: {} });
+// Local cache reactive mirror (按知识库隔离：kbId -> { grades: {}, inputs: {} })
+const localPracticeByKb = reactive({});
 const localReading = reactive({}); // kbId -> { docPath, docTitle, updatedAt }
-const localCompleted = reactive({}); // kbId -> Set/Array of docPaths
+const localCompleted = reactive({}); // kbId -> Array of docPaths
 
 // Portal state
 const loadingPortal = ref(false);
@@ -795,7 +791,6 @@ const kbs = ref([]);
 
 // Workspace tree state
 const treeData = ref(null);
-const selectedModuleIdx = ref(0);
 
 // Document reader state
 const loadingDoc = ref(false);
@@ -812,14 +807,35 @@ const openAnswers = ref(new Set());
 // Wrongbook state
 const wrongbookItems = ref([]);
 
+function ensureKbPractice(kbId) {
+  if (!localPracticeByKb[kbId]) {
+    localPracticeByKb[kbId] = { grades: {}, inputs: {} };
+  }
+  return localPracticeByKb[kbId];
+}
+
 // ==================== LocalStorage Persistence Helpers ====================
 function loadLocalCache() {
   try {
-    const rawPrac = localStorage.getItem(LEGACY_PRACTICE_KEY);
-    if (rawPrac) {
-      const parsed = JSON.parse(rawPrac);
-      Object.assign(localPractice.grades, parsed.grades || {});
-      Object.assign(localPractice.inputs, parsed.inputs || {});
+    const rawMulti = localStorage.getItem(MULTI_PRACTICE_KEY);
+    if (rawMulti) {
+      const parsed = JSON.parse(rawMulti);
+      for (const [k, v] of Object.entries(parsed)) {
+        localPracticeByKb[k] = {
+          grades: v.grades || {},
+          inputs: v.inputs || {}
+        };
+      }
+    }
+  } catch {}
+  try {
+    // 兼容旧版 eng_linear_practice_v1
+    const rawLegacy = localStorage.getItem(LEGACY_PRACTICE_KEY);
+    if (rawLegacy) {
+      const parsed = JSON.parse(rawLegacy);
+      const target = ensureKbPractice(PRIMARY_LINEAR_KB);
+      Object.assign(target.grades, parsed.grades || {});
+      Object.assign(target.inputs, parsed.inputs || {});
     }
   } catch {}
   try {
@@ -834,10 +850,13 @@ function loadLocalCache() {
 
 function saveLocalPractice() {
   try {
-    localStorage.setItem(
-      LEGACY_PRACTICE_KEY,
-      JSON.stringify({ grades: localPractice.grades, inputs: localPractice.inputs })
-    );
+    localStorage.setItem(MULTI_PRACTICE_KEY, JSON.stringify(localPracticeByKb));
+    if (localPracticeByKb[PRIMARY_LINEAR_KB]) {
+      localStorage.setItem(
+        LEGACY_PRACTICE_KEY,
+        JSON.stringify(localPracticeByKb[PRIMARY_LINEAR_KB])
+      );
+    }
   } catch {}
 }
 
@@ -859,6 +878,10 @@ function authHeaders(extra = {}) {
     h.Authorization = `Bearer ${authToken.value}`;
   }
   return h;
+}
+
+function apiKbUrl(kbId, suffix = '') {
+  return `/api/kbs/${encodeURIComponent(kbId)}${suffix}`;
 }
 
 // ==================== Auth Flows ====================
@@ -910,8 +933,10 @@ async function submitAuth() {
     showAuthModal.value = false;
     authPassword.value = '';
 
-    // 登录成功后：先把本地已有但数据库还没有的记录补齐上云（数据库已有的记录绝不被覆盖，保证数据库优先！）
-    await syncLocalToDbIfNeeded(activeKbId.value);
+    // 登录成功后：将所有知识库的本地缓存补齐上云（数据库已有记录优先，绝不被覆盖！）
+    for (const kb of kbs.value) {
+      await syncLocalToDbIfNeeded(kb.id);
+    }
     await refreshCurrentViewData();
   } finally {
     authSubmitting.value = false;
@@ -929,16 +954,17 @@ async function handleLogout() {
 }
 
 async function syncLocalToDbIfNeeded(kbId) {
-  if (!currentUser.value) return;
+  if (!currentUser.value || !kbId) return;
+  const kbPrac = ensureKbPractice(kbId);
   const practicePayload = {};
-  for (const [k, g] of Object.entries(localPractice.grades)) {
-    practicePayload[k] = { grade: g, userInput: localPractice.inputs[k] || '' };
+  for (const [k, g] of Object.entries(kbPrac.grades)) {
+    practicePayload[k] = { grade: g, userInput: kbPrac.inputs[k] || '' };
   }
-  for (const [k, inp] of Object.entries(localPractice.inputs)) {
+  for (const [k, inp] of Object.entries(kbPrac.inputs)) {
     if (!practicePayload[k]) practicePayload[k] = { grade: '', userInput: inp };
   }
   try {
-    await fetch(`/api/kbs/${kbId}/sync-local`, {
+    await fetch(apiKbUrl(kbId, '/sync-local'), {
       method: 'POST',
       headers: authHeaders({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({
@@ -984,7 +1010,6 @@ async function fetchPortal() {
   try {
     const res = await fetch('/api/kbs', { headers: authHeaders() });
     const list = await res.json();
-    // 若已登录且数据库返回了 lastRead，同步写回本地缓存（数据库优先！）
     for (const kb of list) {
       if (currentUser.value && kb.lastRead) {
         localReading[kb.id] = kb.lastRead;
@@ -999,17 +1024,18 @@ async function fetchPortal() {
 
 // 计算门户卡片的最终展示数据（已登录优先用 DB，未登录或 DB 为空则读取 localStorage）
 const decoratedKbs = computed(() => {
-  const localGrades = Object.values(localPractice.grades);
-  const localMastered = localGrades.filter(g => g === 'ok').length;
-  const localWrong = localGrades.filter(g => g === 'bad' || g === 'warn').length;
-
   return kbs.value.map(kb => {
+    const kbPrac = ensureKbPractice(kb.id);
+    const localGrades = Object.values(kbPrac.grades);
+    const localMastered = localGrades.filter(g => g === 'ok').length;
+    const localWrong = localGrades.filter(g => g === 'bad' || g === 'warn').length;
+
     const effectiveLastRead =
       (currentUser.value && kb.lastRead) ? kb.lastRead : (localReading[kb.id] || null);
     const effectiveStats = currentUser.value
       ? {
-          masteredQuestions: kb.stats.masteredQuestions,
-          wrongQuestions: kb.stats.wrongQuestions
+          masteredQuestions: kb.stats.masteredQuestions || localMastered,
+          wrongQuestions: kb.stats.wrongQuestions || localWrong
         }
       : {
           masteredQuestions: localMastered,
@@ -1036,11 +1062,10 @@ function isDocCompleted(docPath) {
 }
 
 async function fetchTree(kbId) {
-  const res = await fetch(`/api/kbs/${kbId}/tree`, { headers: authHeaders() });
+  const res = await fetch(apiKbUrl(kbId, '/tree'), { headers: authHeaders() });
   if (!res.ok) return;
   const data = await res.json();
 
-  // 若已登录：以数据库数据为权威来源（DB 优先），同时将 DB 数据同步刷入本地缓存！
   if (currentUser.value && data.dbState) {
     if (data.dbState.lastRead) {
       localReading[kbId] = data.dbState.lastRead;
@@ -1049,9 +1074,10 @@ async function fetchTree(kbId) {
     localCompleted[kbId] = data.dbState.completedDocs || [];
     saveLocalCompleted();
 
+    const kbPrac = ensureKbPractice(kbId);
     for (const [k, val] of Object.entries(data.dbState.practice || {})) {
-      if (val.grade !== undefined) localPractice.grades[k] = val.grade;
-      if (val.userInput !== undefined) localPractice.inputs[k] = val.userInput;
+      if (val.grade !== undefined) kbPrac.grades[k] = val.grade;
+      if (val.userInput !== undefined) kbPrac.inputs[k] = val.userInput;
     }
     saveLocalPractice();
   }
@@ -1066,7 +1092,6 @@ async function enterKbReading(kb) {
   workMode.value = 'read';
   await fetchTree(kb.id);
 
-  // 优先取数据库的上次阅读章节，其次取本地缓存的上次阅读章节
   const lastRead =
     (currentUser.value && treeData.value?.lastRead)
       ? treeData.value.lastRead
@@ -1077,10 +1102,9 @@ async function enterKbReading(kb) {
     return;
   }
 
-  const firstMod = treeData.value?.modules?.[0];
   const defaultDoc =
-    firstMod?.rootDocs?.[0]?.path ||
-    firstMod?.groups?.[0]?.docs?.[0]?.path;
+    treeData.value?.rootDocs?.[0]?.path ||
+    treeData.value?.groups?.[0]?.docs?.[0]?.path;
   if (defaultDoc) {
     await openDocument(defaultDoc);
   }
@@ -1098,13 +1122,12 @@ async function enterKb(kbId, initialMode = 'read') {
       await openDocument(lr.docPath);
       return;
     }
-    const firstMod = treeData.value?.modules?.[0];
     const defaultDoc =
-      firstMod?.rootDocs?.[0]?.path ||
-      firstMod?.groups?.[0]?.docs?.[0]?.path;
+      treeData.value?.rootDocs?.[0]?.path ||
+      treeData.value?.groups?.[0]?.docs?.[0]?.path;
     if (defaultDoc) await openDocument(defaultDoc);
   } else if (initialMode === 'exercise') {
-    await openExercise(currentExCode.value || '01');
+    await openExercise('01');
   } else if (initialMode === 'wrongbook') {
     await fetchWrongbook();
   }
@@ -1129,38 +1152,24 @@ async function switchWorkMode(mode) {
       await openDocument(lr.docPath);
       return;
     }
-    const firstMod = treeData.value?.modules?.[selectedModuleIdx.value];
-    const firstPath = firstMod?.rootDocs?.[0]?.path || firstMod?.groups?.[0]?.docs?.[0]?.path;
+    const firstPath =
+      treeData.value?.rootDocs?.[0]?.path ||
+      treeData.value?.groups?.[0]?.docs?.[0]?.path;
     if (firstPath) await openDocument(firstPath);
   }
 }
 
-async function handleModuleChange() {
-  if (workMode.value === 'exercise') {
-    const modExercises = (treeData.value?.exercises || []).filter(
-      ex => ex.moduleIdx === selectedModuleIdx.value
-    );
-    if (modExercises.length > 0) {
-      await openExercise(modExercises[0].code);
-    }
-  }
-}
-
-const currentModule = computed(() => {
-  return treeData.value?.modules?.[selectedModuleIdx.value] || null;
-});
-
 const filteredRootDocs = computed(() => {
-  if (!currentModule.value) return [];
+  const roots = treeData.value?.rootDocs || [];
   const kw = searchKw.value.trim().toLowerCase();
-  if (!kw) return currentModule.value.rootDocs;
-  return currentModule.value.rootDocs.filter(d => d.title.toLowerCase().includes(kw));
+  if (!kw) return roots;
+  return roots.filter(d => d.title.toLowerCase().includes(kw));
 });
 
 const filteredDocGroups = computed(() => {
-  if (!currentModule.value) return [];
+  const grps = treeData.value?.groups || [];
   const kw = searchKw.value.trim().toLowerCase();
-  return currentModule.value.groups
+  return grps
     .map(g => ({
       ...g,
       docs: kw ? g.docs.filter(d => d.title.toLowerCase().includes(kw)) : g.docs
@@ -1168,31 +1177,26 @@ const filteredDocGroups = computed(() => {
     .filter(g => g.docs.length > 0);
 });
 
-const currentModuleExercises = computed(() => {
-  const all = treeData.value?.exercises || [];
-  const byMod = all.filter(ex => ex.moduleIdx === selectedModuleIdx.value);
-  return byMod.length > 0 ? byMod : all;
-});
-
 const prevExerciseCode = computed(() => {
-  const list = currentModuleExercises.value;
+  const list = treeData.value?.exercises || [];
   const idx = list.findIndex(ex => ex.code === currentExCode.value);
   return idx > 0 ? list[idx - 1].code : null;
 });
 
 const nextExerciseCode = computed(() => {
-  const list = currentModuleExercises.value;
+  const list = treeData.value?.exercises || [];
   const idx = list.findIndex(ex => ex.code === currentExCode.value);
   return idx >= 0 && idx + 1 < list.length ? list[idx + 1].code : null;
 });
 
-// 侧边栏练习进度（按当前所选模块展示，已登录用 DB 统计，未登录实时用 localPractice 计算）
+// 侧边栏练习进度（已登录用 DB 统计，未登录实时用当前知识库的 localPractice 计算）
 const groupedExercises = computed(() => {
-  const rawList = currentModuleExercises.value;
+  const rawList = treeData.value?.exercises || [];
+  const kbPrac = ensureKbPractice(activeKbId.value);
   const list = rawList.map(ex => {
     if (currentUser.value) return ex;
     let okCount = 0;
-    for (const [k, g] of Object.entries(localPractice.grades)) {
+    for (const [k, g] of Object.entries(kbPrac.grades)) {
       if (k.startsWith(ex.code + ':') && g === 'ok') {
         okCount++;
       }
@@ -1205,7 +1209,7 @@ const groupedExercises = computed(() => {
 
   const kw = searchKw.value.trim().toLowerCase();
   const filtered = kw
-    ? list.filter(ex => (ex.rawCode || ex.code).includes(kw) || ex.title.toLowerCase().includes(kw))
+    ? list.filter(ex => ex.code.includes(kw) || ex.title.toLowerCase().includes(kw))
     : list;
   const groups = [];
   let lastStage = '';
@@ -1223,7 +1227,8 @@ const effectiveWrongTotal = computed(() => {
   if (currentUser.value && treeData.value) {
     return treeData.value.wrongTotal || 0;
   }
-  return Object.values(localPractice.grades).filter(g => g === 'bad' || g === 'warn').length;
+  const kbPrac = ensureKbPractice(activeKbId.value);
+  return Object.values(kbPrac.grades).filter(g => g === 'bad' || g === 'warn').length;
 });
 
 const renderedDocHtml = computed(() => {
@@ -1236,17 +1241,12 @@ async function openDocument(pathOrStem, anchor = '') {
   sidebarOpen.value = false;
   try {
     const res = await fetch(
-      `/api/kbs/${activeKbId.value}/doc?path=${encodeURIComponent(pathOrStem)}`,
+      apiKbUrl(activeKbId.value, `/doc?path=${encodeURIComponent(pathOrStem)}`),
       { headers: authHeaders() }
     );
     if (!res.ok) return;
     const doc = await res.json();
     currentDoc.value = doc;
-
-    if (treeData.value?.modules) {
-      const mIdx = treeData.value.modules.findIndex(m => doc.path.startsWith(m.name + '/'));
-      if (mIdx >= 0) selectedModuleIdx.value = mIdx;
-    }
 
     // 双写保存“上次阅读章节”：① 写入 localStorage ② 若已登录写入后端 SQLite 数据库
     const record = {
@@ -1260,7 +1260,7 @@ async function openDocument(pathOrStem, anchor = '') {
       treeData.value.lastRead = record;
     }
     if (currentUser.value) {
-      fetch(`/api/kbs/${activeKbId.value}/reading-state`, {
+      fetch(apiKbUrl(activeKbId.value, '/reading-state'), {
         method: 'PUT',
         headers: authHeaders({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ docPath: doc.path, docTitle: doc.title })
@@ -1301,13 +1301,7 @@ async function handleMarkdownClick(e) {
   const exEl = e.target.closest('[data-exercise-ch]');
   if (exEl) {
     e.preventDefault();
-    const rawCh = exEl.dataset.exerciseCh;
-    // 若当前文档有关联的带模块前缀的 exerciseCode（如 m2-01），优先使用对应模块前缀
-    const targetExCode =
-      currentDoc.value?.exerciseCode && currentDoc.value.exerciseCode.endsWith(rawCh)
-        ? currentDoc.value.exerciseCode
-        : (selectedModuleIdx.value > 0 ? `m${selectedModuleIdx.value + 1}-${rawCh}` : rawCh);
-    await openExercise(targetExCode);
+    await openExercise(exEl.dataset.exerciseCh);
     return;
   }
 
@@ -1333,7 +1327,7 @@ async function toggleDocCompleted() {
   saveLocalCompleted();
 
   if (currentUser.value) {
-    await fetch(`/api/kbs/${activeKbId.value}/chapter-progress`, {
+    await fetch(apiKbUrl(activeKbId.value, '/chapter-progress'), {
       method: 'PUT',
       headers: authHeaders({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({ docPath, completed: nextVal })
@@ -1343,8 +1337,7 @@ async function toggleDocCompleted() {
 }
 
 async function openExercise(chapterCode) {
-  const raw = String(chapterCode).trim();
-  const code = raw.includes('-') ? raw : raw.padStart(2, '0');
+  const code = String(chapterCode).trim().padStart(2, '0');
   currentExCode.value = code;
   workMode.value = 'exercise';
   groupTab.value = 'ALL';
@@ -1352,27 +1345,24 @@ async function openExercise(chapterCode) {
   sidebarOpen.value = false;
   loadingEx.value = true;
   try {
-    const res = await fetch(`/api/kbs/${activeKbId.value}/exercise/${code}`, {
+    const res = await fetch(apiKbUrl(activeKbId.value, `/exercise/${code}`), {
       headers: authHeaders()
     });
     if (res.ok) {
       const data = await res.json();
-      if (typeof data.moduleIdx === 'number') {
-        selectedModuleIdx.value = data.moduleIdx;
-      }
-      // 合并策略：已登录时优先用 DB 返回值（若 DB 为空则用本地缓存兜底），同时双写回 localPractice
+      const kbPrac = ensureKbPractice(activeKbId.value);
       for (const q of data.questions) {
         const k = qKey(code, q.id);
         if (currentUser.value) {
-          const finalGrade = q.grade || localPractice.grades[k] || '';
-          const finalInput = q.userInput || localPractice.inputs[k] || '';
+          const finalGrade = q.grade || kbPrac.grades[k] || '';
+          const finalInput = q.userInput || kbPrac.inputs[k] || '';
           q.grade = finalGrade;
           q.userInput = finalInput;
-          if (finalGrade) localPractice.grades[k] = finalGrade;
-          if (finalInput) localPractice.inputs[k] = finalInput;
+          if (finalGrade) kbPrac.grades[k] = finalGrade;
+          if (finalInput) kbPrac.inputs[k] = finalInput;
         } else {
-          q.grade = localPractice.grades[k] || '';
-          q.userInput = localPractice.inputs[k] || '';
+          q.grade = kbPrac.grades[k] || '';
+          q.userInput = kbPrac.inputs[k] || '';
         }
       }
       saveLocalPractice();
@@ -1385,14 +1375,13 @@ async function openExercise(chapterCode) {
 }
 
 async function jumpToChapterDoc(chapterCode) {
-  const ex = currentEx.value;
-  const modIdx = typeof ex?.moduleIdx === 'number' ? ex.moduleIdx : selectedModuleIdx.value;
-  const rawCode = ex?.rawCode || String(chapterCode).replace(/^m\d+-/, '').padStart(2, '0');
-  const mod = treeData.value?.modules?.[modIdx];
-  const chapGroup = mod?.groups?.find(g => g.name === '章节');
-  const doc = chapGroup?.docs?.find(d => d.code === rawCode);
-  if (doc) {
-    await openDocument(doc.path);
+  const code = String(chapterCode).trim().padStart(2, '0');
+  for (const grp of treeData.value?.groups || []) {
+    const doc = grp.docs?.find(d => d.code === code);
+    if (doc) {
+      await openDocument(doc.path);
+      return;
+    }
   }
 }
 
@@ -1479,15 +1468,16 @@ function expandAllWrongbook() {
 // 双写保存刷题记录：① 始终写 localStorage ② 若已登录同步写 SQLite 数据库
 async function savePracticeRecord(chapterCode, q) {
   const k = qKey(chapterCode, q.id);
-  if (q.grade) localPractice.grades[k] = q.grade;
-  else delete localPractice.grades[k];
+  const kbPrac = ensureKbPractice(activeKbId.value);
+  if (q.grade) kbPrac.grades[k] = q.grade;
+  else delete kbPrac.grades[k];
 
-  if (q.userInput) localPractice.inputs[k] = q.userInput;
-  else delete localPractice.inputs[k];
+  if (q.userInput) kbPrac.inputs[k] = q.userInput;
+  else delete kbPrac.inputs[k];
   saveLocalPractice();
 
   if (currentUser.value) {
-    await fetch(`/api/kbs/${activeKbId.value}/practice`, {
+    await fetch(apiKbUrl(activeKbId.value, '/practice'), {
       method: 'PUT',
       headers: authHeaders({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({
@@ -1511,15 +1501,16 @@ async function resetCurrentChapter() {
   const code = currentEx.value.code;
   if (!confirm(`确定重置第 ${code} 章的全部作答输入与自评记录吗？`)) return;
 
+  const kbPrac = ensureKbPractice(activeKbId.value);
   for (const q of currentEx.value.questions) {
     const k = qKey(code, q.id);
-    delete localPractice.grades[k];
-    delete localPractice.inputs[k];
+    delete kbPrac.grades[k];
+    delete kbPrac.inputs[k];
   }
   saveLocalPractice();
 
   if (currentUser.value) {
-    await fetch(`/api/kbs/${activeKbId.value}/practice/${code}`, {
+    await fetch(apiKbUrl(activeKbId.value, `/practice/${code}`), {
       method: 'DELETE',
       headers: authHeaders()
     });
@@ -1530,7 +1521,7 @@ async function resetCurrentChapter() {
 
 async function fetchWrongbook() {
   if (currentUser.value) {
-    const res = await fetch(`/api/kbs/${activeKbId.value}/wrongbook`, {
+    const res = await fetch(apiKbUrl(activeKbId.value, '/wrongbook'), {
       headers: authHeaders()
     });
     if (res.ok) {
@@ -1540,8 +1531,9 @@ async function fetchWrongbook() {
     return;
   }
 
-  // 未登录模式：从 localPractice 找出所有 bad / warn 的题号，向后端换取题目详情
-  const keys = Object.entries(localPractice.grades)
+  // 未登录模式：从当前知识库 localPractice 找出所有 bad / warn 的题号，向后端换取题目详情
+  const kbPrac = ensureKbPractice(activeKbId.value);
+  const keys = Object.entries(kbPrac.grades)
     .filter(([, g]) => g === 'bad' || g === 'warn')
     .map(([k]) => k)
     .sort();
@@ -1550,7 +1542,7 @@ async function fetchWrongbook() {
     return;
   }
   const res = await fetch(
-    `/api/kbs/${activeKbId.value}/wrongbook?keys=${encodeURIComponent(keys.join(','))}`
+    apiKbUrl(activeKbId.value, `/wrongbook?keys=${encodeURIComponent(keys.join(','))}`)
   );
   if (res.ok) {
     const data = await res.json();
@@ -1558,8 +1550,8 @@ async function fetchWrongbook() {
       const k = qKey(it.chapterCode, it.id);
       return {
         ...it,
-        grade: localPractice.grades[k] || '',
-        userInput: localPractice.inputs[k] || ''
+        grade: kbPrac.grades[k] || '',
+        userInput: kbPrac.inputs[k] || ''
       };
     });
   }

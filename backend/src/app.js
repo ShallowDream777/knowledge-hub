@@ -188,7 +188,6 @@ export function createApp(options = {}) {
         ...kb,
         lastRead,
         stats: {
-          moduleCount: kb.modules.length,
           totalDocs,
           completedDocs,
           masteredQuestions,
@@ -249,13 +248,10 @@ export function createApp(options = {}) {
       completed: completedSet.has(doc.path)
     });
 
-    const modules = scan.modules.map(m => ({
-      ...m,
-      rootDocs: m.rootDocs.map(decorateDoc),
-      groups: m.groups.map(g => ({
-        ...g,
-        docs: g.docs.map(decorateDoc)
-      }))
+    const rootDocs = scan.rootDocs.map(decorateDoc);
+    const groups = scan.groups.map(g => ({
+      ...g,
+      docs: g.docs.map(decorateDoc)
     }));
 
     const allExercises = kbService.getAllExercises(kbId);
@@ -268,9 +264,6 @@ export function createApp(options = {}) {
       return {
         num: ex.num,
         code: ex.code,
-        rawCode: ex.rawCode,
-        moduleName: ex.moduleName,
-        moduleIdx: ex.moduleIdx,
         title: ex.title,
         stage: ex.stage,
         totalQuestions: ex.questions.length,
@@ -288,7 +281,8 @@ export function createApp(options = {}) {
 
     res.json({
       kb: scan.kb,
-      modules,
+      rootDocs,
+      groups,
       exercises: exerciseSummaries,
       stemIndex,
       wrongTotal,

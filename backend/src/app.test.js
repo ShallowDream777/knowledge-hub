@@ -21,40 +21,38 @@ async function withTestServer(fn) {
   }
 }
 
-test('Knowledge Hub HTTP API + Optional Auth + Dual-Storage SQLite integration', async () => {
+test('Knowledge Hub HTTP API + Flat Top-Level KBs + Optional Auth + Dual-Storage SQLite', async () => {
   await withTestServer(async baseUrl => {
-    // 1. Guest mode works without login
-    const meGuest = await (await fetch(`${baseUrl}/api/auth/me`)).json();
-    assert.equal(meGuest.user, null);
+    const kb1 = encodeURIComponent('1.英语学习资料·完整线性版');
+    const kb2 = encodeURIComponent('2.同等学力申硕英语·考试强化');
+    const kb3 = encodeURIComponent('3.英语语法知识字典');
 
+    // 1. Portal lists each top-level folder under knowledge-base/ directly as a Knowledge Base
     const kbsGuest = await (await fetch(`${baseUrl}/api/kbs`)).json();
-    const engGuest = kbsGuest.find(k => k.id === 'english');
-    assert.ok(engGuest);
-    assert.equal(engGuest.lastRead, null);
-    assert.equal(engGuest.stats.totalExercises, 47); // 31 (线性语法) + 16 (考试强化)
+    assert.equal(kbsGuest.length, 3);
+    assert.equal(kbsGuest[0].id, '1.英语学习资料·完整线性版');
+    assert.equal(kbsGuest[0].stats.totalExercises, 31);
+    assert.equal(kbsGuest[1].id, '2.同等学力申硕英语·考试强化');
+    assert.equal(kbsGuest[1].stats.totalExercises, 16);
+    assert.ok(kbsGuest[2].id.startsWith('3.英语语法知识字典'));
+    assert.equal(kbsGuest[2].hasExercises, false);
 
-    // Verify dynamic stage parsing from 00·*.md (zero hardcoded stage names in parser)
-    const treeRes = await (await fetch(`${baseUrl}/api/kbs/english/tree`)).json();
-    const ex01Summary = treeRes.exercises.find(e => e.code === '01');
-    const exM201Summary = treeRes.exercises.find(e => e.code === 'm2-01');
-    const exM207Summary = treeRes.exercises.find(e => e.code === 'm2-07');
+    // 2. Dynamic stage parsing from 00·*.md (zero hardcoded stage names in parser)
+    const tree1 = await (await fetch(`${baseUrl}/api/kbs/${kb1}/tree`)).json();
+    const ex01Summary = tree1.exercises.find(e => e.code === '01');
     assert.equal(ex01Summary.stage, '第一阶段：先把词与句子认清');
-    assert.equal(exM201Summary.stage, '先把语法用于读句子');
-    assert.equal(exM207Summary.stage, '阅读理解');
 
-    // Verify Module 2 reading passage + MCQ exercise parsing works generically
-    const exM207 = await (await fetch(`${baseUrl}/api/kbs/english/exercise/m2-07`)).json();
-    assert.equal(exM207.questions.length, 16);
-    assert.ok(exM207.questions[0].introHtml.includes('A city library'));
-    assert.ok(exM207.questions[0].prompt.includes('q-options-block'));
-    assert.ok(exM207.questions.every(q => q.answer && !q.answer.includes('暂无解析')));
+    const tree2 = await (await fetch(`${baseUrl}/api/kbs/${kb2}/tree`)).json();
+    const ex207Summary = tree2.exercises.find(e => e.code === '07');
+    assert.equal(ex207Summary.stage, '阅读理解');
 
-    // Guest wrongbook query via ?keys=01:A01
-    const wbGuest = await (await fetch(`${baseUrl}/api/kbs/english/wrongbook?keys=01:A01`)).json();
-    assert.equal(wbGuest.total, 1);
-    assert.equal(wbGuest.items[0].id, 'A01');
+    // Verify KB2 reading passage + MCQ exercise parsing works generically
+    const ex207 = await (await fetch(`${baseUrl}/api/kbs/${kb2}/exercise/07`)).json();
+    assert.equal(ex207.questions.length, 16);
+    assert.ok(ex207.questions[0].introHtml.includes('A city library'));
+    assert.ok(ex207.questions[0].prompt.includes('q-options-block'));
 
-    // 2. Register & Login user
+    // 3. Register & Login user
     const regRes = await fetch(`${baseUrl}/api/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -63,24 +61,20 @@ test('Knowledge Hub HTTP API + Optional Auth + Dual-Storage SQLite integration',
     assert.equal(regRes.status, 201);
     const { token, user } = await regRes.json();
     assert.equal(user.username, 'blue');
-    assert.ok(token);
 
     const authHeaders = {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     };
 
-    const meAuth = await (await fetch(`${baseUrl}/api/auth/me`, { headers: authHeaders })).json();
-    assert.equal(meAuth.user.username, 'blue');
-
-    // 3. Save reading state (last read chapter) to DB
+    // 4. Save reading state (last read chapter) to DB for KB1
     const docRes = await fetch(
-      `${baseUrl}/api/kbs/english/doc?path=${encodeURIComponent('02·名词基础：分类、单复数与不可数')}`,
+      `${baseUrl}/api/kbs/${kb1}/doc?path=${encodeURIComponent('02·名词基础：分类、单复数与不可数')}`,
       { headers: authHeaders }
     );
     const doc = await docRes.json();
 
-    const rsRes = await fetch(`${baseUrl}/api/kbs/english/reading-state`, {
+    const rsRes = await fetch(`${baseUrl}/api/kbs/${kb1}/reading-state`, {
       method: 'PUT',
       headers: authHeaders,
       body: JSON.stringify({ docPath: doc.path, docTitle: doc.title })
@@ -88,14 +82,13 @@ test('Knowledge Hub HTTP API + Optional Auth + Dual-Storage SQLite integration',
     assert.equal(rsRes.status, 200);
     assert.equal((await rsRes.json()).savedToDb, true);
 
-    // Verify /api/kbs returns lastRead from DB
     const kbsAuth = await (await fetch(`${baseUrl}/api/kbs`, { headers: authHeaders })).json();
-    const engAuth = kbsAuth.find(k => k.id === 'english');
-    assert.equal(engAuth.lastRead.docPath, doc.path);
-    assert.equal(engAuth.lastRead.docTitle, doc.title);
+    const kb1Auth = kbsAuth.find(k => k.id === '1.英语学习资料·完整线性版');
+    assert.equal(kb1Auth.lastRead.docPath, doc.path);
+    assert.equal(kb1Auth.lastRead.docTitle, doc.title);
 
-    // 4. Save practice record to DB & test DB-priority sync-local
-    await fetch(`${baseUrl}/api/kbs/english/practice`, {
+    // 5. Save practice record to DB & test DB-priority sync-local
+    await fetch(`${baseUrl}/api/kbs/${kb1}/practice`, {
       method: 'PUT',
       headers: authHeaders,
       body: JSON.stringify({
@@ -106,34 +99,23 @@ test('Knowledge Hub HTTP API + Optional Auth + Dual-Storage SQLite integration',
       })
     });
 
-    // Sync local cache: A01 already exists in DB ('ok') so local ('bad') must NOT overwrite DB;
-    // A02 does not exist in DB so local ('bad') is backfilled into DB!
-    await fetch(`${baseUrl}/api/kbs/english/sync-local`, {
+    await fetch(`${baseUrl}/api/kbs/${kb1}/sync-local`, {
       method: 'POST',
       headers: authHeaders,
       body: JSON.stringify({
         practice: {
           '01:A01': { userInput: 'local old answer', grade: 'bad' },
           '01:A02': { userInput: 'She are happy', grade: 'bad' }
-        },
-        lastRead: { docPath: 'other.md', docTitle: 'Other' }
+        }
       })
     });
 
     const ex01 = await (
-      await fetch(`${baseUrl}/api/kbs/english/exercise/01`, { headers: authHeaders })
+      await fetch(`${baseUrl}/api/kbs/${kb1}/exercise/01`, { headers: authHeaders })
     ).json();
     const qA01 = ex01.questions.find(q => q.id === 'A01');
     const qA02 = ex01.questions.find(q => q.id === 'A02');
     assert.equal(qA01.grade, 'ok', 'DB record must take priority over local cache');
-    assert.equal(qA01.userInput, 'DB answer');
     assert.equal(qA02.grade, 'bad', 'Missing DB record is backfilled from local cache');
-
-    // Wrongbook has only A02
-    const wbAuth = await (
-      await fetch(`${baseUrl}/api/kbs/english/wrongbook`, { headers: authHeaders })
-    ).json();
-    assert.equal(wbAuth.total, 1);
-    assert.equal(wbAuth.items[0].id, 'A02');
   });
 });

@@ -14,20 +14,18 @@ export class KbService {
   }
 
   /**
-   * 从模块根目录的索引 Markdown（如 `00·*.md`）动态解析“章节号 -> 阶段标题”映射。
-   * 规则：扫描所有 `## ...` 或 `### ...` 标题，将其下方出现的 `[[01·...]]` 章节号归入该标题名下。
-   * 这样任何知识库或模块的阶段划分都由 Markdown 文档自身决定，无需在代码中硬编码阶段名称。
+   * 从知识库根目录的索引 Markdown（如 `00·*.md`）动态解析“章节号 -> 阶段标题”映射。
    */
-  _parseStagesFromIndexMd(modAbs, fallbackStage) {
-    const stageMap = new Map(); // "01" -> "第一阶段：..."
-    if (!fs.existsSync(modAbs)) return stageMap;
+  _parseStagesFromIndexMd(kbAbs, fallbackStage) {
+    const stageMap = new Map();
+    if (!fs.existsSync(kbAbs)) return stageMap;
 
     const indexFile = fs
-      .readdirSync(modAbs)
+      .readdirSync(kbAbs)
       .find(f => f.endsWith('.md') && (f.startsWith('00') || f.toLowerCase() === 'index.md'));
     if (!indexFile) return stageMap;
 
-    const content = fs.readFileSync(path.join(modAbs, indexFile), 'utf-8');
+    const content = fs.readFileSync(path.join(kbAbs, indexFile), 'utf-8');
     let currentHeading = fallbackStage;
 
     for (const rawLine of content.split(/\r?\n/)) {
@@ -39,8 +37,7 @@ export class KbService {
       }
       if (line.startsWith('-')) {
         for (const mLink of line.matchAll(/\[\[(\d{2})·[^\]]+\]\]/g)) {
-          const chCode = mLink[1];
-          stageMap.set(chCode, currentHeading);
+          stageMap.set(mLink[1], currentHeading);
         }
       }
     }
@@ -48,58 +45,66 @@ export class KbService {
   }
 
   /**
-   * 发现所有知识库。
-   * 支持两种组织方式：
-   * 1) 顶层目录含 `kb.json` 或独立学科目录；
-   * 2) 按学科前缀/配置自动归组。
+   * 自动从知识库根目录下的 `00·*.md` 提取一句简短描述作为卡片副标题（零硬编码）
+   */
+  _extractSubtitleFromIndexMd(kbAbs, dirName) {
+    if (!fs.existsSync(kbAbs)) return '';
+    const indexFile = fs
+      .readdirSync(kbAbs)
+      .find(f => f.endsWith('.md') && (f.startsWith('00') || f.toLowerCase() === 'index.md'));
+    if (!indexFile) return `底层 Markdown 实时渲染驱动 · ${dirName}`;
+
+    const content = fs.readFileSync(path.join(kbAbs, indexFile), 'utf-8');
+    for (const rawLine of content.split(/\r?\n/)) {
+      const line = rawLine.trim();
+      if (
+        !line ||
+        line.startsWith('#') ||
+        line.startsWith('[[') ||
+        line.startsWith('-') ||
+        line.startsWith('|') ||
+        line.startsWith('>')
+      ) {
+        continue;
+      }
+      return line.replace(/\*\*([^*]+)\*\*/g, '$1').slice(0, 72);
+    }
+    return `底层 Markdown 实时渲染驱动 · ${dirName}`;
+  }
+
+  /**
+   * 直接扫描 `knowledge-base/` 下的一级文件夹作为独立知识库，零子知识库嵌套、零硬编码学科名。
    */
   listKnowledgeBases() {
     if (!fs.existsSync(this.kbRoot)) return [];
-    const entries = fs.readdirSync(this.kbRoot, { withFileTypes: true }).filter(e => e.isDirectory());
+    const entries = fs
+      .readdirSync(this.kbRoot, { withFileTypes: true })
+      .filter(e => e.isDirectory() && !e.name.startsWith('.') && !IGNORED_DIRS.has(e.name))
+      .sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN', { numeric: true }));
 
-    const englishModules = [];
-    const customKbs = [];
+    return entries.map(entry => {
+      const dirName = entry.name;
+      const kbAbs = path.join(this.kbRoot, dirName);
+      const hasExercises = fs.existsSync(path.join(kbAbs, '强化题目'));
 
-    for (const entry of entries) {
-      if (IGNORED_DIRS.has(entry.name) || entry.name.startsWith('.')) continue;
-      if (/^[123]\..*英语/.test(entry.name) || entry.name.includes('英语')) {
-        englishModules.push(entry.name);
-      } else {
-        customKbs.push(entry.name);
-      }
-    }
-
-    const result = [];
-    if (englishModules.length > 0) {
-      result.push({
-        id: 'english',
-        title: '英语知识库',
-        subtitle: '零基础完整线性语法 · 语法知识字典 · 同等学力申硕考试强化',
-        icon: '📘',
-        badge: '核心主线',
-        modules: englishModules.sort()
-      });
-    }
-
-    for (const dirName of customKbs.sort()) {
-      const metaPath = path.join(this.kbRoot, dirName, 'kb.json');
       let meta = {};
+      const metaPath = path.join(kbAbs, 'kb.json');
       if (fs.existsSync(metaPath)) {
         try {
           meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
         } catch {}
       }
-      result.push({
-        id: meta.id || dirName.toLowerCase().replace(/[^a-z0-9_-]/g, '-'),
-        title: meta.title || dirName,
-        subtitle: meta.subtitle || `${dirName} 知识库`,
-        icon: meta.icon || '📗',
-        badge: meta.badge || '扩展知识库',
-        modules: meta.modules || [dirName]
-      });
-    }
 
-    return result;
+      return {
+        id: dirName,
+        dirName,
+        title: meta.title || dirName,
+        subtitle: meta.subtitle || this._extractSubtitleFromIndexMd(kbAbs, dirName),
+        icon: meta.icon || (hasExercises ? '📘' : '📗'),
+        badge: meta.badge || (hasExercises ? '学习 + 刷题' : '知识查阅'),
+        hasExercises
+      };
+    });
   }
 
   getKbConfig(kbId) {
@@ -108,66 +113,44 @@ export class KbService {
   }
 
   /**
-   * 扫描指定知识库下的所有模块、文档树、双链索引与练习集文件（支持任意模块下的 `强化题目/`）
+   * 扫描单个一级知识库文件夹下的全部根文档、分类子目录、双链索引与练习题集
    */
   scanKb(kbId) {
     const kb = this.getKbConfig(kbId);
     if (!kb) return null;
 
-    const modules = [];
-    const stemMap = new Map(); // stem -> relativePath
+    const kbAbs = path.join(this.kbRoot, kb.dirName);
+    if (!fs.existsSync(kbAbs)) return null;
+
+    const shortTitle = kb.title.replace(/^\d+\./, '');
+    const stageMap = this._parseStagesFromIndexMd(kbAbs, shortTitle);
+
+    const stemMap = new Map();
     const orderedDocs = [];
-    const exerciseFiles = new Map(); // exerciseKey -> { absPath, stage, moduleName, moduleIdx }
+    const exerciseFiles = new Map(); // code ("01") -> { absPath, stage, rawCode }
+    const exerciseCodes = new Set();
 
-    for (let modIdx = 0; modIdx < kb.modules.length; modIdx++) {
-      const modName = kb.modules[modIdx];
-      const modAbs = path.join(this.kbRoot, modName);
-      if (!fs.existsSync(modAbs)) continue;
-
-      const shortModName = modName.replace(/^\d+\./, '');
-      const stageMap = this._parseStagesFromIndexMd(modAbs, shortModName);
-
-      // 通用扫描任何模块下的 `强化题目` 目录
-      const exDir = path.join(modAbs, '强化题目');
-      const modExerciseCodes = new Set();
-      if (fs.existsSync(exDir)) {
-        for (const f of fs.readdirSync(exDir).sort()) {
-          if (!f.endsWith('.md') || f.startsWith('00')) continue;
-          const m = f.match(/^(\d{2})·(.+)\.md$/);
-          if (m) {
-            const rawCode = m[1];
-            // 第一个模块保持 `01`~`31` 编码以兼容已有进度，其余模块带模块前缀如 `m2-01`
-            const exKey = modIdx === 0 ? rawCode : `m${modIdx + 1}-${rawCode}`;
-            modExerciseCodes.add(rawCode);
-            exerciseFiles.set(exKey, {
-              absPath: path.join(exDir, f),
-              stage: stageMap.get(rawCode) || shortModName,
-              moduleName: modName,
-              moduleIdx: modIdx,
-              rawCode
-            });
-          }
+    // 扫描 `强化题目/`（若该知识库存在练习题目录）
+    const exDir = path.join(kbAbs, '强化题目');
+    if (fs.existsSync(exDir)) {
+      for (const f of fs.readdirSync(exDir).sort((a, b) => a.localeCompare(b, 'zh-Hans-CN', { numeric: true }))) {
+        if (!f.endsWith('.md') || f.startsWith('00')) continue;
+        const m = f.match(/^(\d{2})·(.+)\.md$/);
+        if (m) {
+          const code = m[1];
+          exerciseCodes.add(code);
+          exerciseFiles.set(code, {
+            absPath: path.join(exDir, f),
+            stage: stageMap.get(code) || shortTitle,
+            rawCode: code
+          });
         }
       }
-
-      const modNode = this._scanModuleDir(
-        modAbs,
-        modName,
-        modIdx,
-        modExerciseCodes,
-        stemMap,
-        orderedDocs
-      );
-      modules.push(modNode);
     }
 
-    return { kb, modules, stemMap, orderedDocs, exerciseFiles };
-  }
-
-  _scanModuleDir(dirAbs, relPrefix, modIdx, modExerciseCodes, stemMap, orderedDocs) {
-    const entries = fs.readdirSync(dirAbs, { withFileTypes: true }).sort((a, b) =>
-      a.name.localeCompare(b.name, 'zh-Hans-CN', { numeric: true })
-    );
+    const entries = fs
+      .readdirSync(kbAbs, { withFileTypes: true })
+      .sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN', { numeric: true }));
 
     const rootDocs = [];
     const groups = [];
@@ -176,17 +159,15 @@ export class KbService {
       if (entry.name.startsWith('.') || IGNORED_DIRS.has(entry.name) || entry.name.includes('快照')) {
         continue;
       }
-      const fullPath = path.join(dirAbs, entry.name);
-      const relPath = toPosix(path.join(relPrefix, entry.name));
+      const fullPath = path.join(kbAbs, entry.name);
+      const relPath = entry.name;
 
       if (entry.isFile() && entry.name.endsWith('.md')) {
         const stem = entry.name.replace(/\.md$/, '');
         if (!stemMap.has(stem)) stemMap.set(stem, relPath);
-        const docItem = this._buildDocItem(entry.name, relPath, modIdx, modExerciseCodes);
+        const docItem = this._buildDocItem(entry.name, relPath, exerciseCodes);
         rootDocs.push(docItem);
-        if (!relPath.includes('/强化题目/')) {
-          orderedDocs.push(docItem);
-        }
+        orderedDocs.push(docItem);
       } else if (entry.isDirectory()) {
         if (entry.name === '强化题目') {
           for (const f of fs.readdirSync(fullPath)) {
@@ -197,14 +178,7 @@ export class KbService {
           }
           continue;
         }
-        const subDocs = this._collectMarkdownFiles(
-          fullPath,
-          relPath,
-          modIdx,
-          modExerciseCodes,
-          stemMap,
-          orderedDocs
-        );
+        const subDocs = this._collectMarkdownFiles(fullPath, relPath, exerciseCodes, stemMap, orderedDocs);
         if (subDocs.length > 0) {
           groups.push({
             name: entry.name,
@@ -216,18 +190,19 @@ export class KbService {
     }
 
     return {
-      name: relPrefix,
-      shortName: relPrefix.replace(/^\d+\./, ''),
-      hasExercises: modExerciseCodes.size > 0,
+      kb,
       rootDocs,
-      groups
+      groups,
+      stemMap,
+      orderedDocs,
+      exerciseFiles
     };
   }
 
-  _collectMarkdownFiles(dirAbs, relPrefix, modIdx, modExerciseCodes, stemMap, orderedDocs) {
-    const entries = fs.readdirSync(dirAbs, { withFileTypes: true }).sort((a, b) =>
-      a.name.localeCompare(b.name, 'zh-Hans-CN', { numeric: true })
-    );
+  _collectMarkdownFiles(dirAbs, relPrefix, exerciseCodes, stemMap, orderedDocs) {
+    const entries = fs
+      .readdirSync(dirAbs, { withFileTypes: true })
+      .sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN', { numeric: true }));
     const docs = [];
     for (const entry of entries) {
       if (entry.name.startsWith('.') || IGNORED_DIRS.has(entry.name) || entry.name.includes('快照')) {
@@ -238,42 +213,38 @@ export class KbService {
       if (entry.isFile() && entry.name.endsWith('.md')) {
         const stem = entry.name.replace(/\.md$/, '');
         if (!stemMap.has(stem)) stemMap.set(stem, relPath);
-        const item = this._buildDocItem(entry.name, relPath, modIdx, modExerciseCodes);
+        const item = this._buildDocItem(entry.name, relPath, exerciseCodes);
         docs.push(item);
-        if (!relPath.includes('/强化题目/')) {
-          orderedDocs.push(item);
-        }
+        orderedDocs.push(item);
+      } else if (entry.isDirectory()) {
+        const nested = this._collectMarkdownFiles(fullPath, relPath, exerciseCodes, stemMap, orderedDocs);
+        docs.push(...nested);
       }
     }
     return docs;
   }
 
-  _buildDocItem(filename, relPath, modIdx, modExerciseCodes) {
+  _buildDocItem(filename, relPath, exerciseCodes) {
     const stem = filename.replace(/\.md$/, '');
     const mChap = stem.match(/^(\d{2})·(.+)$/);
-    const rawCode = mChap ? mChap[1] : null;
+    const code = mChap ? mChap[1] : null;
     const displayTitle = mChap ? `${mChap[1]} · ${mChap[2]}` : stem;
-
-    let exerciseCode = null;
-    if (rawCode && rawCode !== '00' && modExerciseCodes?.has(rawCode) && relPath.includes('/章节/')) {
-      exerciseCode = modIdx === 0 ? rawCode : `m${modIdx + 1}-${rawCode}`;
-    }
+    const exerciseCode = code && code !== '00' && exerciseCodes?.has(code) ? code : null;
 
     return {
       name: filename,
       stem,
-      code: rawCode,
+      code,
       title: displayTitle,
       path: relPath,
-      moduleIdx: modIdx,
       exerciseCode
     };
   }
 
-  resolveSafePath(relPath) {
-    const normalized = path.normalize(relPath);
-    const abs = path.resolve(this.kbRoot, normalized);
-    if (!abs.startsWith(this.kbRoot)) {
+  resolveSafeKbPath(kb, relPath) {
+    const kbAbs = path.resolve(this.kbRoot, kb.dirName);
+    const abs = path.resolve(kbAbs, path.normalize(relPath));
+    if (!abs.startsWith(kbAbs)) {
       throw new Error('Invalid path outside knowledge base');
     }
     return abs;
@@ -286,12 +257,12 @@ export class KbService {
     let targetRel = relPath;
     if (!targetRel.endsWith('.md') && scan.stemMap.has(targetRel)) {
       targetRel = scan.stemMap.get(targetRel);
-    } else if (targetRel.endsWith('.md') && !fs.existsSync(this.resolveSafePath(targetRel))) {
+    } else if (targetRel.endsWith('.md') && !fs.existsSync(this.resolveSafeKbPath(scan.kb, targetRel))) {
       const stem = path.basename(targetRel, '.md');
       if (scan.stemMap.has(stem)) targetRel = scan.stemMap.get(stem);
     }
 
-    const abs = this.resolveSafePath(targetRel);
+    const abs = this.resolveSafeKbPath(scan.kb, targetRel);
     if (!fs.existsSync(abs) || !fs.statSync(abs).isFile()) {
       return null;
     }
@@ -299,7 +270,7 @@ export class KbService {
     const content = fs.readFileSync(abs, 'utf-8');
     const idx = scan.orderedDocs.findIndex(d => d.path === toPosix(targetRel));
     const currentItem =
-      idx >= 0 ? scan.orderedDocs[idx] : this._buildDocItem(path.basename(abs), toPosix(targetRel), 0, new Set());
+      idx >= 0 ? scan.orderedDocs[idx] : this._buildDocItem(path.basename(abs), toPosix(targetRel), new Set());
     const prevDoc = idx > 0 ? scan.orderedDocs[idx - 1] : null;
     const nextDoc = idx >= 0 && idx + 1 < scan.orderedDocs.length ? scan.orderedDocs[idx + 1] : null;
 
@@ -311,47 +282,24 @@ export class KbService {
     };
   }
 
-  _normalizeExerciseKey(scan, chapterCode) {
-    const raw = String(chapterCode).trim();
-    if (scan.exerciseFiles.has(raw)) return raw;
-    const padded = raw.padStart(2, '0');
-    if (scan.exerciseFiles.has(padded)) return padded;
-    return null;
-  }
-
   getExerciseChapter(kbId, chapterCode) {
     const scan = this.scanKb(kbId);
     if (!scan) return null;
-    const key = this._normalizeExerciseKey(scan, chapterCode);
-    if (!key) return null;
-    const info = scan.exerciseFiles.get(key);
+    const code = String(chapterCode).trim().padStart(2, '0');
+    const info = scan.exerciseFiles.get(code);
     if (!info || !fs.existsSync(info.absPath)) return null;
     const raw = fs.readFileSync(info.absPath, 'utf-8');
-    const parsed = parseExerciseMarkdown(raw, path.basename(info.absPath), info.stage);
-    return {
-      ...parsed,
-      code: key,
-      rawCode: info.rawCode,
-      moduleName: info.moduleName,
-      moduleIdx: info.moduleIdx
-    };
+    return parseExerciseMarkdown(raw, path.basename(info.absPath), info.stage);
   }
 
   getAllExercises(kbId) {
     const scan = this.scanKb(kbId);
     if (!scan) return [];
     const list = [];
-    for (const [key, info] of scan.exerciseFiles.entries()) {
+    for (const [, info] of scan.exerciseFiles.entries()) {
       const raw = fs.readFileSync(info.absPath, 'utf-8');
-      const parsed = parseExerciseMarkdown(raw, path.basename(info.absPath), info.stage);
-      list.push({
-        ...parsed,
-        code: key,
-        rawCode: info.rawCode,
-        moduleName: info.moduleName,
-        moduleIdx: info.moduleIdx
-      });
+      list.push(parseExerciseMarkdown(raw, path.basename(info.absPath), info.stage));
     }
-    return list.sort((a, b) => a.moduleIdx - b.moduleIdx || a.num - b.num);
+    return list.sort((a, b) => a.num - b.num);
   }
 }
