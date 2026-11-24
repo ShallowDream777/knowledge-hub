@@ -51,13 +51,6 @@ export function renderInline(raw) {
   // 3. Standard Markdown links [label](url)
   text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, label, url) => {
     const cleanUrl = url.trim();
-    const exEntry = cleanUrl.match(/第(\d{2})章\.html/) || cleanUrl.match(/#ch=(\d{2})/);
-    if (exEntry) {
-      return `<a href="#" class="md-exercise-btn" data-exercise-ch="${exEntry[1]}">✍️ ${label}</a>`;
-    }
-    if (cleanUrl.endsWith('交互刷题.html')) {
-      return `<a href="#" class="md-exercise-btn" data-exercise-ch="01">✍️ ${label}</a>`;
-    }
     return `<a href="${cleanUrl}" target="_blank" rel="noopener" class="md-ext-link">${label}</a>`;
   });
 

@@ -28,12 +28,12 @@ describe('Obsidian Markdown Rendering Engine', () => {
     const md = [
       '- [[#什么是名词　【必学】|什么是名词]]',
       '- [[02·名词基础：分类、单复数与不可数|下一章]]',
-      '- [第 02 章交互刷题网页 →](../强化题目/章节入口/第02章.html)'
+      '- [[02·强化练习·名词基础：分类、单复数与不可数|第02章专用强化题与验收 →]]'
     ].join('\n');
     const html = renderMarkdown(md);
     expect(html).toContain('class="md-wiki-anchor" data-anchor="什么是名词　【必学】"');
     expect(html).toContain('class="md-wiki-link" data-wikilink="02·名词基础：分类、单复数与不可数"');
-    expect(html).toContain('class="md-exercise-btn" data-exercise-ch="02"');
+    expect(html).toContain('class="md-exercise-link" data-exercise-ch="02"');
   });
 
   it('renders headings with exact data-heading and tier badges', () => {
