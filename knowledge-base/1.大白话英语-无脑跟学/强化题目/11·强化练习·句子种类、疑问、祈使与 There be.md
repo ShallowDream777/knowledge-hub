@@ -179,6 +179,110 @@ A是从补全到修正再到表达的强化；C则检查在没有原情境提示
 <p><strong>C12</strong>　示例：Are you tired? No, I'm not.／Do you read? Yes, I do.</p>
 </details>
 
+## E 高频易错自查
+
+本组来自正文综合复盘，选出正确答案后再展开核对。
+
+**E01｜【选做】高频自查**　______ is in the room? (Who / Whom / Where)（句意：谁在房间里？）
+
+**E02｜【选做】高频自查**　______ you like tea? (Are / Do / Does)（句意：你喜欢茶吗？）
+
+**E03｜【选做】高频自查**　There ______ a pen and two books on the desk. (is / are / am)（句意：桌子上有一支笔和两本书。）
+
+**E04｜【选做】高频自查**　He ______ a teacher. (is / do / does)（句意：他是一名老师。）
+
+**E05｜【选做】高频自查**　Please ______ the window. (open / opening / opens)（句意：请打开窗户。）
+
+**E06｜【选做】高频自查**　What a ______ flower! (beautiful / beautifully / beauty)（句意：多么漂亮的一朵花啊！）
+
+**E07｜【选做】高频自查**　______ fast he runs! (How / What / What a)（句意：他跑得真快啊！）
+
+**E08｜【选做】高频自查**　Don't ______ in the hallway. (run / running / runs)（句意：不要在走廊里跑。）
+
+**E09｜【选做】高频自查**　There ______ many trees in the park. (is / are / am)（句意：公园里有很多树。）
+
+**E10｜【选做】高频自查**　The flowers smell ______. (sweet / sweetly / sweets)（句意：这些花闻起来很香。）
+
+**E11｜【选做】高频自查**　He gave ______ a book. (I / me / my)（句意：他给了我一本书。）
+
+**E12｜【选做】高频自查**　We made him ______. (monitor / happy / to monitor)（句意：我们选他当班长，按职务补语的常见用法）
+
+**E13｜【选做】高频自查**　______ you open the window, please? (Can / Do / Are)（句意：请问你能把窗户打开吗？）
+
+**E14｜【选做】高频自查**　There ______ a meeting tomorrow. (will be / will / are)（句意：明天将有一场会议，用 `will` 表将来）
+
+**E15｜【选做】高频自查**　I think ______ you are right. (that / what / where)（句意：我认为你是对的。）
+
+**E16｜【选做】高频自查**　He doesn't like tea, ______? (does he / doesn't he / is he)（句意：他不喜欢茶，对吗？）
+
+**E17｜【选做】高频自查**　Let's go, ______? (shall we / will you / don't we)（句意：我们走吧，好吗？）
+
+**E18｜【选做】高频自查**　______ beautiful a flower it is! (How / What / Such)（句意：这是一朵多么漂亮的花啊！）
+
+**E19｜【选做】高频自查**　She bought ______ a new dress. (herself / himself / myself)（句意：她给自己买了一条新裙子。）
+
+**E20｜【选做】高频自查**　The movie is ______ interesting. (very / very much / much)（句意：这部电影非常有趣。）
+
+<details>
+<summary>完成本组后再展开答案与解析</summary>
+<p><strong>E01</strong>　Who；疑问词作主语，用主格。</p>
+<p><strong>E02</strong>　Do；实义动词 like 需助动词。</p>
+<p><strong>E03</strong>　is；就近原则，最近的是 a pen。</p>
+<p><strong>E04</strong>　is；系动词，后接表语。</p>
+<p><strong>E05</strong>　open；祈使句用原形。</p>
+<p><strong>E06</strong>　beautiful；What + a + 形容词 + 名词。</p>
+<p><strong>E07</strong>　How；How + 副词 fast + 主语 he + 动词 runs；runs 是动词。</p>
+<p><strong>E08</strong>　run；Don't + 原形。</p>
+<p><strong>E09</strong>　are；many trees 复数。</p>
+<p><strong>E10</strong>　sweet；感官系动词 + 形容词。</p>
+<p><strong>E11</strong>　me；间接宾语用宾格。</p>
+<p><strong>E12</strong>　monitor；这里表示选任的职务，不加冠词；不能概括成 make 的所有名词宾补都不带冠词，如 make him a star。</p>
+<p><strong>E13</strong>　Can；委婉请求。</p>
+<p><strong>E14</strong>　will be；There will be 表将来存在；There is a meeting tomorrow 也可表示已安排的会议，本题按要求练 will 结构。</p>
+<p><strong>E15</strong>　that；宾语从句引导词。</p>
+<p><strong>E16</strong>　does he；前否后肯。</p>
+<p><strong>E17</strong>　shall we；Let's 包括说话人。</p>
+<p><strong>E18</strong>　How；How + 形容词 + a/an + 单数名词。</p>
+<p><strong>E19</strong>　herself；反身代词，她自己。</p>
+<p><strong>E20</strong>　very；修饰形容词原级用 very。</p>
+</details>
+
+## F 随堂练习与通关自检
+
+**F01｜【选做】随堂练习**　把 `She likes tea.` 改成否定，把 `You are tired.` 改成疑问。
+
+**F02｜【选做】随堂练习**　把 `She is tired.`（她累了。）改成否定句和一般疑问句，再给出一个肯定简答。
+
+**F03｜【选做】随堂练习**　把 `He likes tea.`（他喜欢茶。）改成否定句和一般疑问句，再给出一个肯定简答。
+
+**F04｜【选做】随堂练习**　把 `They can swim.`（他们会游泳。）改成否定句和一般疑问句，再给出一个肯定简答。
+
+**F05｜【选做】随堂练习**　在图书馆，你想请同伴安静一点。用 `quiet` 写一句祈使句。
+
+**F06｜【选做】随堂练习**　提醒朋友别迟到，有人写成 `Don't are late.`。请改正，并说明动词为什么这样写。
+
+**F07｜【选做】随堂练习**　你想建议和朋友一起休息一下。用 `take a break`（休息一下）表达。
+
+**F08｜【选做】通关自检**　怎么把 `He likes coffee.` 变成否定句和一般疑问句？
+
+**F09｜【选做】通关自检**　`What nice weather!` 和 `What a nice day!` 为什么一个没有 `a`，一个有 `a`？
+
+**F10｜【选做】通关自检**　别人问 `You can't swim, can you?`，如果你确实不会游，该用 `Yes` 还是 `No` 回答？
+
+<details>
+<summary>完成本组后再展开答案与解析</summary>
+<p><strong>F01</strong>　She doesn't like tea.；Are you tired?</p>
+<p><strong>F02</strong>　She isn't tired. / Is she tired? / Yes, she is. 提示：简短回答跟随问句开头的 be、do/does 或情态动词。</p>
+<p><strong>F03</strong>　He doesn't like tea. / Does he like tea? / Yes, he does. 提示：简短回答跟随问句开头的 be、do/does 或情态动词。</p>
+<p><strong>F04</strong>　They can't swim. / Can they swim? / Yes, they can. 提示：简短回答跟随问句开头的 be、do/does 或情态动词。</p>
+<p><strong>F05</strong>　Be quiet, please. / Please be quiet. 你是在提醒对方，使用原形 be；You are quiet. 则是在描述对方的状态。</p>
+<p><strong>F06</strong>　Don't be late. Don't 后接动词原形，are 的原形是 be。</p>
+<p><strong>F07</strong>　Let's take a break. Let's 明确提出一起做；Take a break. 是直接劝对方休息，没有明确提出共同休息。</p>
+<p><strong>F08</strong>　<code>He doesn't like coffee.</code> / <code>Does he like coffee?</code>（借 does，like 还原原形）。</p>
+<p><strong>F09</strong>　<code>weather</code> 是不可数名词，不能加 <code>a</code>；<code>day</code> 是单数可数名词，必须加 <code>a</code>。</p>
+<p><strong>F10</strong>　用 <code>No, I can't.</code>（反意疑问句回答一律按事实，事实是“不会”就用 No）。</p>
+</details>
+
 ## 验收标准与错题修复
 
 **七个月首轮：**C必做题至少20/24；A、B、D中的必做项能够独立完成，错题和不稳项能说明题干要求的理由。标为选做的题不作为继续条件。

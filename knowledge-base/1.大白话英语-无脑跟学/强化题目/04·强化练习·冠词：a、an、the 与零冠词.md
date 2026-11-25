@@ -179,6 +179,21 @@ A是从补全到修正再到表达的强化；C则检查在没有原情境提示
 <p><strong>C12</strong>　示例：I have a book. The book is new. 检查是否为同一对象。</p>
 </details>
 
+## E 随堂练习与通关自检
+
+**E01｜【选做】通关自检**　`___ hour`、`___ university`、`___ honest boy` 分别填 `a` 还是 `an`？
+
+**E02｜【选做】通关自检**　“弹钢琴”和“踢足球”哪个要加 `the`？
+
+**E03｜【选做】通关自检**　为什么 `the book I bought`（我买的那本书）前面要用 `the`？
+
+<details>
+<summary>完成本组后再展开答案与解析</summary>
+<p><strong>E01</strong>　an hour（h 不发音）、a university（辅音 /j/ 开头）、an honest boy（h 不发音）。</p>
+<p><strong>E02</strong>　弹钢琴加 the（play the piano），踢足球不加 the（play football）。</p>
+<p><strong>E03</strong>　后面的 I bought（我买的）限定了是哪一本书，属于双方确定的特指，所以用 the。</p>
+</details>
+
 ## 验收标准与错题修复
 
 **七个月首轮：**C必做题至少20/24；A、B、D中的必做项能够独立完成，错题和不稳项能说明题干要求的理由。标为选做的题不作为继续条件。

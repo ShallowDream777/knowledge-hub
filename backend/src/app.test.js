@@ -23,14 +23,14 @@ async function withTestServer(fn) {
 
 test('Knowledge Hub HTTP API + Flat Top-Level KBs + Optional Auth + Dual-Storage SQLite', async () => {
   await withTestServer(async baseUrl => {
-    const kb1 = encodeURIComponent('1.英语学习资料·完整线性版');
+    const kb1 = encodeURIComponent('1.大白话英语-无脑跟学');
     const kb2 = encodeURIComponent('2.同等学力申硕英语·考试强化');
     const kb3 = encodeURIComponent('3.英语语法知识字典');
 
     // 1. Portal lists each top-level folder under knowledge-base/ directly as a Knowledge Base
     const kbsGuest = await (await fetch(`${baseUrl}/api/kbs`)).json();
     assert.equal(kbsGuest.length, 3);
-    assert.equal(kbsGuest[0].id, '1.英语学习资料·完整线性版');
+    assert.equal(kbsGuest[0].id, '1.大白话英语-无脑跟学');
     assert.equal(kbsGuest[0].stats.totalExercises, 31);
     assert.equal(kbsGuest[1].id, '2.同等学力申硕英语·考试强化');
     assert.equal(kbsGuest[1].stats.totalExercises, 16);
@@ -83,7 +83,7 @@ test('Knowledge Hub HTTP API + Flat Top-Level KBs + Optional Auth + Dual-Storage
     assert.equal((await rsRes.json()).savedToDb, true);
 
     const kbsAuth = await (await fetch(`${baseUrl}/api/kbs`, { headers: authHeaders })).json();
-    const kb1Auth = kbsAuth.find(k => k.id === '1.英语学习资料·完整线性版');
+    const kb1Auth = kbsAuth.find(k => k.id === '1.大白话英语-无脑跟学');
     assert.equal(kb1Auth.lastRead.docPath, doc.path);
     assert.equal(kb1Auth.lastRead.docTitle, doc.title);
 

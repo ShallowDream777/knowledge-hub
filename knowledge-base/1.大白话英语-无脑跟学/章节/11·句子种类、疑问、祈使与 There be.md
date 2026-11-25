@@ -6,12 +6,10 @@
 
 - [[#be、普通动词与情态动词的否定句和疑问句　【必学】|be、普通动词与情态动词的否定句和疑问句]]
 - [[#三类动词的否定句与疑问句对照表　【必学】|三类动词的否定句与疑问句对照表]]
-- [[#练习：be、普通动词与情态动词的否定和提问　【必学】|练习：be、普通动词与情态动词的否定和提问]]
 - [[#句子种类　【必学】|句子种类]]
-- [[#祈使句|祈使句：用途、表达与情境练习]]
+- [[#祈使句|祈使句：用途与表达]]
 - [[#There be 句型　【必学】|There be 句型]]
 - [[#句法基础综合运用（案例短文）　【必学】|句法基础综合运用（案例短文）]]
-- [[#句法基础高频易错自查（20 道选择题）　【选做·综合复盘】|句法基础高频易错自查（20 道选择题）]]
 - [[#附：句法基础速查表　【选做·综合复盘】|附：句法基础速查表]]
 - [[#本章核心记忆笔记|本章核心记忆笔记]]
 
@@ -90,30 +88,6 @@
 
 - `be` 或情态动词：直接加 `not`、直接提前到主语前。
 - 一般现在时的普通动作动词：借 `do / does`；过去时普通动作动词改用 `did / didn't`，后面仍接动词原形。
-
-先小试两题：把 `She likes tea.` 改成否定，把 `You are tired.` 改成疑问。
-
-<details>
-<summary>展开这两题的答案</summary>
-<p>She doesn't like tea.；Are you tired?</p>
-</details>
-
----
-
-### 练习：be、普通动词与情态动词的否定和提问　【必学】
-
-把下列句子各改成否定句和一般疑问句，再给出一个肯定简答：
-1. `She is tired.`（她累了。）
-2. `He likes tea.`（他喜欢茶。）
-3. `They can swim.`（他们会游泳。）
-
-<details>
-<summary>先作答，再展开参考答案</summary>
-<p>1. She isn't tired. / Is she tired? / Yes, she is.<br>
-2. He doesn't like tea. / Does he like tea? / Yes, he does.<br>
-3. They can't swim. / Can they swim? / Yes, they can.<br>
-提示：简短回答跟随问句开头的 be、do/does 或情态动词。</p>
-</details>
 
 ---
 
@@ -224,18 +198,6 @@
 > [!important] 记笔记
 > - 祈使句两大铁律：==省略主语 `you`，动词一律用原形==（`Be quiet!` / `Don't be late!`）。
 > - `Let's do` = 我们一起做（反问用 `shall we`）；`Let + 宾格 + do` = 让某人做（`Let me help you.`）。
-
-**试着使用**：
-1. 在图书馆，你想请同伴安静一点。用 `quiet` 写一句祈使句。
-2. 提醒朋友别迟到，有人写成 `Don't are late.`。请改正，并说明动词为什么这样写。
-3. 你想建议和朋友一起休息一下。用 `take a break`（休息一下）表达。
-
-<details>
-<summary>先独立作答，再展开答案与解析</summary>
-<p><strong>1.</strong> Be quiet, please. / Please be quiet. 你是在提醒对方，使用原形 be；You are quiet. 则是在描述对方的状态。</p>
-<p><strong>2.</strong> Don't be late. Don't 后接动词原形，are 的原形是 be。</p>
-<p><strong>3.</strong> Let's take a break. Let's 明确提出一起做；Take a break. 是直接劝对方休息，没有明确提出共同休息。</p>
-</details>
 
 ---
 
@@ -348,63 +310,6 @@
 
 ---
 
-### 句法基础高频易错自查（20 道选择题）　【选做·综合复盘】
-
-> 本组完整保留；首轮按章末分层题单验收，不需同时刷完所有原有自测。
-
-**选正确答案（答案紧随本组练习，先答再展开）：**
-
-1. ______ is in the room? (Who / Whom / Where)（句意：谁在房间里？）
-2. ______ you like tea? (Are / Do / Does)（句意：你喜欢茶吗？）
-3. There ______ a pen and two books on the desk. (is / are / am)（句意：桌子上有一支笔和两本书。）
-4. He ______ a teacher. (is / do / does)（句意：他是一名老师。）
-5. Please ______ the window. (open / opening / opens)（句意：请打开窗户。）
-6. What a ______ flower! (beautiful / beautifully / beauty)（句意：多么漂亮的一朵花啊！）
-7. ______ fast he runs! (How / What / What a)（句意：他跑得真快啊！）
-8. Don't ______ in the hallway. (run / running / runs)（句意：不要在走廊里跑。）
-9. There ______ many trees in the park. (is / are / am)（句意：公园里有很多树。）
-10. The flowers smell ______. (sweet / sweetly / sweets)（句意：这些花闻起来很香。）
-11. He gave ______ a book. (I / me / my)（句意：他给了我一本书。）
-12. We made him ______. (monitor / happy / to monitor)（句意：我们选他当班长，按职务补语的常见用法）
-13. ______ you open the window, please? (Can / Do / Are)（句意：请问你能把窗户打开吗？）
-14. There ______ a meeting tomorrow. (will be / will / are)（句意：明天将有一场会议，用 `will` 表将来）
-15. I think ______ you are right. (that / what / where)（句意：我认为你是对的。）
-16. He doesn't like tea, ______? (does he / doesn't he / is he)（句意：他不喜欢茶，对吗？）
-17. Let's go, ______? (shall we / will you / don't we)（句意：我们走吧，好吗？）
-18. ______ beautiful a flower it is! (How / What / Such)（句意：这是一朵多么漂亮的花啊！）
-19. She bought ______ a new dress. (herself / himself / myself)（句意：她给自己买了一条新裙子。）
-20. The movie is ______ interesting. (very / very much / much)（句意：这部电影非常有趣。）
-
----
-
-<details>
-<summary>完成本组练习后，展开答案与解析</summary>
-<p><strong>答案与解析：</strong></p>
-<p>1. Who（疑问词作主语，用主格）<br>
-2. Do（实义动词 like 需助动词）<br>
-3. is（就近原则，最近的是 a pen）<br>
-4. is（系动词，后接表语）<br>
-5. open（祈使句用原形）<br>
-6. beautiful（What + a + 形容词 + 名词）<br>
-7. How（How + 副词 fast + 主语 he + 动词 runs；runs 是动词）<br>
-8. run（Don't + 原形）<br>
-9. are（many trees 复数）<br>
-10. sweet（感官系动词 + 形容词）<br>
-11. me（间接宾语用宾格）<br>
-12. monitor（这里表示选任的职务，不加冠词；不能概括成 make 的所有名词宾补都不带冠词，如 make him a star）<br>
-13. Can（委婉请求）<br>
-14. will be（There will be 表将来存在；There is a meeting tomorrow 也可表示已安排的会议，本题按要求练 will 结构）<br>
-15. that（宾语从句引导词）<br>
-16. does he（前否后肯）<br>
-17. shall we（Let's 包括说话人）<br>
-18. How（How + 形容词 + a/an + 单数名词）<br>
-19. herself（反身代词，她自己）<br>
-20. very（修饰形容词原级用 very）</p>
-<hr>
-</details>
-
----
-
 ### 附：句法基础速查表　【选做·综合复盘】
 
 > 本组完整保留；首轮按章末分层题单验收，不需同时刷完所有原有自测。
@@ -452,18 +357,6 @@
 - ✅ `What nice weather!` vs ❌ `What a nice weather!`（`weather` 不可数，不加 `a`）
 - ✅ `Don't be late.` vs ❌ `Don't are late.`（`Don't` 后接动词原形 `be`）
 - ✅ `There is a book on the desk.` vs ❌ `There have a book on the desk.`（存在用 `There be`，拥有用 `have`）
-
-**合上书自检（3 句话通关）**：
-1. 怎么把 `He likes coffee.` 变成否定句和一般疑问句？
-2. `What nice weather!` 和 `What a nice day!` 为什么一个没有 `a`，一个有 `a`？
-3. 别人问 `You can't swim, can you?`，如果你确实不会游，该用 `Yes` 还是 `No` 回答？
-
-<details>
-<summary>展开 30 秒核对答案</summary>
-<p>1. <code>He doesn't like coffee.</code> / <code>Does he like coffee?</code>（借 does，like 还原原形）。<br>
-2. <code>weather</code> 是不可数名词，不能加 <code>a</code>；<code>day</code> 是单数可数名词，必须加 <code>a</code>。<br>
-3. 用 <code>No, I can't.</code>（反意疑问句回答一律按事实，事实是“不会”就用 No）。</p>
-</details>
 
 ## 本章强化与验收
 

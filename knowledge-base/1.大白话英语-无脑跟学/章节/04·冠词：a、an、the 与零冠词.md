@@ -179,18 +179,6 @@
 - ✅ `his best friend`（他最好的朋友） vs ❌ `his the best friend`
 - ✅ `I have a dog.`（我有一条狗） vs ❌ `I have dog.`
 
-**合上书自检（3 句话通关）**
-1. `___ hour`、`___ university`、`___ honest boy` 分别填 `a` 还是 `an`？
-2. “弹钢琴”和“踢足球”哪个要加 `the`？
-3. 为什么 `the book I bought`（我买的那本书）前面要用 `the`？
-
-<details>
-<summary>展开核对自检答案</summary>
-<p>1. <strong>an</strong> hour（h 不发音）、<strong>a</strong> university（辅音 /j/ 开头）、<strong>an</strong> honest boy（h 不发音）。<br>
-2. 弹钢琴加 the（<strong>play the piano</strong>），踢足球不加 the（<strong>play football</strong>）。<br>
-3. 后面的 I bought（我买的）限定了是哪一本书，属于双方确定的<strong>特指</strong>，所以用 the。</p>
-</details>
-
 ## 本章强化与验收
 
 读完本章后，进入 [[04·强化练习·冠词：a、an、the 与零冠词|第04章专用强化题与验收 →]]。题目开头可返回本章，末尾可进入下一章。
