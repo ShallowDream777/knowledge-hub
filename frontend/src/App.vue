@@ -1131,8 +1131,8 @@ function captureCurrentReadingPosition() {
 }
 
 function sendReadingStateToServer(kbId, record, keepalive = false) {
-  if (!currentUser.value || !kbId || !record?.docPath) return;
-  fetch(apiKbUrl(kbId, '/reading-state'), {
+  if (!currentUser.value || !kbId || !record?.docPath) return Promise.resolve();
+  return fetch(apiKbUrl(kbId, '/reading-state'), {
     method: 'PUT',
     headers: authHeaders({ 'Content-Type': 'application/json' }),
     keepalive,
@@ -1162,7 +1162,7 @@ function flushReadingPosition(keepalive = false) {
     isRestoringScroll ||
     loadingDoc.value
   ) {
-    return;
+    return Promise.resolve();
   }
   const pos = captureCurrentReadingPosition();
   const record = {
@@ -1178,7 +1178,7 @@ function flushReadingPosition(keepalive = false) {
   if (treeData.value) {
     treeData.value.lastRead = record;
   }
-  sendReadingStateToServer(activeKbId.value, record, keepalive);
+  return sendReadingStateToServer(activeKbId.value, record, keepalive);
 }
 
 function handleReadingScroll() {
@@ -1297,7 +1297,7 @@ async function enterKb(kbId, initialMode = 'read') {
 }
 
 async function goPortal() {
-  flushReadingPosition(false);
+  await flushReadingPosition(false);
   currentView.value = 'portal';
   await fetchPortal();
 }
@@ -1468,6 +1468,8 @@ async function openDocument(pathOrStem, anchor = '', restorePos = null) {
       sendReadingStateToServer(activeKbId.value, record, false);
     }
 
+    // 必须先关闭 loadingDoc，让 <article class="md-article"> 真正挂载进 DOM，再计算 scrollHeight 并恢复滚动位置
+    loadingDoc.value = false;
     await nextTick();
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
 
