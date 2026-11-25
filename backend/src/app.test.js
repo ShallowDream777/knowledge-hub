@@ -77,7 +77,13 @@ test('Knowledge Hub HTTP API + Flat Top-Level KBs + Optional Auth + Dual-Storage
     const rsRes = await fetch(`${baseUrl}/api/kbs/${kb1}/reading-state`, {
       method: 'PUT',
       headers: authHeaders,
-      body: JSON.stringify({ docPath: doc.path, docTitle: doc.title })
+      body: JSON.stringify({
+        docPath: doc.path,
+        docTitle: doc.title,
+        scrollY: 1280,
+        scrollRatio: 0.42,
+        heading: '二、可数与不可数'
+      })
     });
     assert.equal(rsRes.status, 200);
     assert.equal((await rsRes.json()).savedToDb, true);
@@ -86,6 +92,9 @@ test('Knowledge Hub HTTP API + Flat Top-Level KBs + Optional Auth + Dual-Storage
     const kb1Auth = kbsAuth.find(k => k.id === '1.大白话英语-无脑跟学');
     assert.equal(kb1Auth.lastRead.docPath, doc.path);
     assert.equal(kb1Auth.lastRead.docTitle, doc.title);
+    assert.equal(kb1Auth.lastRead.scrollY, 1280);
+    assert.equal(kb1Auth.lastRead.scrollRatio, 0.42);
+    assert.equal(kb1Auth.lastRead.heading, '二、可数与不可数');
 
     // 5. Save practice record to DB & test DB-priority sync-local
     await fetch(`${baseUrl}/api/kbs/${kb1}/practice`, {

@@ -119,13 +119,13 @@
 
             <div class="kb-stats-grid">
               <div class="kb-stat-box kb-stat-box-wide">
-                <span class="kb-stat-label">上次阅读章节</span>
+                <span class="kb-stat-label">上次阅读位置</span>
                 <span
                   class="kb-stat-chapter"
                   :class="{ 'not-started': !kb.effectiveLastRead }"
-                  :title="kb.effectiveLastRead?.docTitle || '尚未开始阅读'"
+                  :title="formatLastReadTooltip(kb.effectiveLastRead)"
                 >
-                  {{ kb.effectiveLastRead?.docTitle || '尚未开始' }}
+                  {{ formatLastReadSummary(kb.effectiveLastRead) }}
                 </span>
               </div>
               <template v-if="kb.hasExercises">
@@ -238,10 +238,11 @@
             <div
               v-if="activeLastRead && currentDoc?.path !== activeLastRead.docPath"
               class="continue-banner"
-              @click="openDocument(activeLastRead.docPath)"
+              :title="formatLastReadTooltip(activeLastRead)"
+              @click="openDocument(activeLastRead.docPath, '', activeLastRead)"
             >
               <span class="continue-label">📖 继续上次阅读：</span>
-              <span class="continue-title">{{ activeLastRead.docTitle }} →</span>
+              <span class="continue-title">{{ formatLastReadSummary(activeLastRead) }} →</span>
             </div>
 
             <!-- 模式切换：有题库时显示 章节阅读 / 交互刷题 / 错题本；无题库时仅显示章节阅读 -->
@@ -752,13 +753,13 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, nextTick } from 'vue';
+import { ref, reactive, computed, onMounted, onBeforeUnmount, nextTick } from 'vue';
 import { renderMarkdown } from './utils/markdown.js';
 
 const THEME_KEY = 'eng_linear_theme_v1';
 const LEGACY_PRACTICE_KEY = 'eng_linear_practice_v1'; // 兼容 1.英语学习资料·完整线性版 的刷题键名
 const MULTI_PRACTICE_KEY = 'kh_multi_practice_v1'; // { [kbId]: { grades: {}, inputs: {} } }
-const LOCAL_READING_KEY = 'kh_reading_state_v1'; // { [kbId]: { docPath, docTitle, updatedAt } }
+const LOCAL_READING_KEY = 'kh_reading_state_v1'; // { [kbId]: { docPath, docTitle, scrollY, scrollRatio, heading, updatedAt } }
 const LOCAL_COMPLETED_KEY = 'kh_completed_docs_v1'; // { [kbId]: [docPath, ...] }
 const AUTH_TOKEN_KEY = 'kh_auth_token_v1';
 const PRIMARY_LINEAR_KB = '1.英语学习资料·完整线性版';
@@ -1085,6 +1086,168 @@ async function fetchTree(kbId) {
   treeData.value = data;
 }
 
+function formatLastReadSummary(lr) {
+  if (!lr?.docTitle) return '尚未开始';
+  const ratio = Number(lr.scrollRatio) || 0;
+  if (ratio >= 0.02) {
+    const pct = ratio >= 0.98 ? 100 : Math.max(1, Math.round(ratio * 100));
+    return `${lr.docTitle} · ${pct}%`;
+  }
+  return lr.docTitle;
+}
+
+function formatLastReadTooltip(lr) {
+  if (!lr?.docTitle) return '尚未开始阅读';
+  const parts = [lr.docTitle];
+  if (lr.heading) parts.push(lr.heading);
+  const ratio = Number(lr.scrollRatio) || 0;
+  if (ratio >= 0.02) {
+    const pct = ratio >= 0.98 ? 100 : Math.max(1, Math.round(ratio * 100));
+    parts.push(`${pct}%`);
+  }
+  return parts.join(' · ');
+}
+
+let isRestoringScroll = false;
+let localScrollTimer = null;
+let serverScrollTimer = null;
+
+function captureCurrentReadingPosition() {
+  const scrollY = Math.max(0, Math.round(window.scrollY || 0));
+  const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const scrollRatio =
+    maxScroll > 0 ? Math.min(1, Math.max(0, Number((scrollY / maxScroll).toFixed(4)))) : 0;
+  let heading = '';
+  const headings = document.querySelectorAll('.md-article [data-heading]');
+  for (const el of headings) {
+    const rect = el.getBoundingClientRect();
+    if (rect.top <= 120) {
+      heading = (el.getAttribute('data-heading') || '').trim();
+    } else {
+      break;
+    }
+  }
+  return { scrollY, scrollRatio, heading };
+}
+
+function sendReadingStateToServer(kbId, record, keepalive = false) {
+  if (!currentUser.value || !kbId || !record?.docPath) return;
+  fetch(apiKbUrl(kbId, '/reading-state'), {
+    method: 'PUT',
+    headers: authHeaders({ 'Content-Type': 'application/json' }),
+    keepalive,
+    body: JSON.stringify({
+      docPath: record.docPath,
+      docTitle: record.docTitle,
+      scrollY: record.scrollY || 0,
+      scrollRatio: record.scrollRatio || 0,
+      heading: record.heading || ''
+    })
+  }).catch(() => {});
+}
+
+function flushReadingPosition(keepalive = false) {
+  if (localScrollTimer) {
+    clearTimeout(localScrollTimer);
+    localScrollTimer = null;
+  }
+  if (serverScrollTimer) {
+    clearTimeout(serverScrollTimer);
+    serverScrollTimer = null;
+  }
+  if (
+    currentView.value !== 'workspace' ||
+    workMode.value !== 'read' ||
+    !currentDoc.value ||
+    isRestoringScroll ||
+    loadingDoc.value
+  ) {
+    return;
+  }
+  const pos = captureCurrentReadingPosition();
+  const record = {
+    docPath: currentDoc.value.path,
+    docTitle: currentDoc.value.title,
+    scrollY: pos.scrollY,
+    scrollRatio: pos.scrollRatio,
+    heading: pos.heading,
+    updatedAt: new Date().toISOString()
+  };
+  localReading[activeKbId.value] = record;
+  saveLocalReading();
+  if (treeData.value) {
+    treeData.value.lastRead = record;
+  }
+  sendReadingStateToServer(activeKbId.value, record, keepalive);
+}
+
+function handleReadingScroll() {
+  if (
+    currentView.value !== 'workspace' ||
+    workMode.value !== 'read' ||
+    !currentDoc.value ||
+    isRestoringScroll ||
+    loadingDoc.value
+  ) {
+    return;
+  }
+  if (localScrollTimer) clearTimeout(localScrollTimer);
+  localScrollTimer = setTimeout(() => {
+    localScrollTimer = null;
+    if (
+      currentView.value !== 'workspace' ||
+      workMode.value !== 'read' ||
+      !currentDoc.value ||
+      isRestoringScroll
+    ) {
+      return;
+    }
+    const pos = captureCurrentReadingPosition();
+    const record = {
+      docPath: currentDoc.value.path,
+      docTitle: currentDoc.value.title,
+      scrollY: pos.scrollY,
+      scrollRatio: pos.scrollRatio,
+      heading: pos.heading,
+      updatedAt: new Date().toISOString()
+    };
+    localReading[activeKbId.value] = record;
+    saveLocalReading();
+    if (treeData.value) {
+      treeData.value.lastRead = record;
+    }
+  }, 300);
+
+  if (currentUser.value) {
+    if (serverScrollTimer) clearTimeout(serverScrollTimer);
+    serverScrollTimer = setTimeout(() => {
+      serverScrollTimer = null;
+      if (
+        currentView.value !== 'workspace' ||
+        workMode.value !== 'read' ||
+        !currentDoc.value ||
+        isRestoringScroll
+      ) {
+        return;
+      }
+      const latest = localReading[activeKbId.value];
+      if (latest && latest.docPath === currentDoc.value.path) {
+        sendReadingStateToServer(activeKbId.value, latest, false);
+      }
+    }, 1500);
+  }
+}
+
+function handleVisibilityOrPageHide() {
+  if (document.visibilityState === 'hidden') {
+    flushReadingPosition(true);
+  }
+}
+
+function handlePageHide() {
+  flushReadingPosition(true);
+}
+
 // 点击门户卡片或“进入阅读学习 / 继续上次阅读”按钮
 async function enterKbReading(kb) {
   activeKbId.value = kb.id;
@@ -1098,7 +1261,7 @@ async function enterKbReading(kb) {
       : (localReading[kb.id] || null);
 
   if (lastRead?.docPath) {
-    await openDocument(lastRead.docPath);
+    await openDocument(lastRead.docPath, '', lastRead);
     return;
   }
 
@@ -1119,7 +1282,7 @@ async function enterKb(kbId, initialMode = 'read') {
   if (initialMode === 'read') {
     const lr = activeLastRead.value;
     if (lr?.docPath) {
-      await openDocument(lr.docPath);
+      await openDocument(lr.docPath, '', lr);
       return;
     }
     const defaultDoc =
@@ -1134,11 +1297,15 @@ async function enterKb(kbId, initialMode = 'read') {
 }
 
 async function goPortal() {
+  flushReadingPosition(false);
   currentView.value = 'portal';
   await fetchPortal();
 }
 
 async function switchWorkMode(mode) {
+  if (workMode.value === 'read' && mode !== 'read') {
+    flushReadingPosition(false);
+  }
   workMode.value = mode;
   searchKw.value = '';
   if (mode === 'exercise') {
@@ -1146,16 +1313,26 @@ async function switchWorkMode(mode) {
     await openExercise(targetCode);
   } else if (mode === 'wrongbook') {
     await fetchWrongbook();
-  } else if (mode === 'read' && !currentDoc.value) {
+  } else if (mode === 'read') {
     const lr = activeLastRead.value;
-    if (lr?.docPath) {
-      await openDocument(lr.docPath);
-      return;
+    if (!currentDoc.value) {
+      if (lr?.docPath) {
+        await openDocument(lr.docPath, '', lr);
+        return;
+      }
+      const firstPath =
+        treeData.value?.rootDocs?.[0]?.path ||
+        treeData.value?.groups?.[0]?.docs?.[0]?.path;
+      if (firstPath) await openDocument(firstPath);
+    } else if (lr?.docPath === currentDoc.value.path && (Number(lr.scrollY) > 0 || Number(lr.scrollRatio) > 0)) {
+      isRestoringScroll = true;
+      await nextTick();
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      applyRestoredScroll(lr);
+      setTimeout(() => {
+        isRestoringScroll = false;
+      }, 150);
     }
-    const firstPath =
-      treeData.value?.rootDocs?.[0]?.path ||
-      treeData.value?.groups?.[0]?.docs?.[0]?.path;
-    if (firstPath) await openDocument(firstPath);
   }
 }
 
@@ -1235,7 +1412,27 @@ const renderedDocHtml = computed(() => {
   return currentDoc.value ? renderMarkdown(currentDoc.value.content) : '';
 });
 
-async function openDocument(pathOrStem, anchor = '') {
+function applyRestoredScroll(restorePos) {
+  const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const savedY = Math.max(0, Math.round(Number(restorePos.scrollY) || 0));
+  const savedRatio = Math.min(1, Math.max(0, Number(restorePos.scrollRatio) || 0));
+  let targetY = savedY;
+  if (savedRatio > 0 && maxScroll > 0) {
+    const ratioY = Math.round(savedRatio * maxScroll);
+    // 视口宽度相近时优先用精确像素；跨设备（电脑↔手机）时自动按阅读比例换算
+    if (savedY > 0 && Math.abs(savedY - ratioY) <= Math.max(200, maxScroll * 0.15)) {
+      targetY = Math.min(maxScroll, savedY);
+    } else {
+      targetY = ratioY;
+    }
+  } else {
+    targetY = Math.min(maxScroll, savedY);
+  }
+  window.scrollTo({ top: targetY, behavior: 'auto' });
+}
+
+async function openDocument(pathOrStem, anchor = '', restorePos = null) {
+  isRestoringScroll = true;
   loadingDoc.value = true;
   workMode.value = 'read';
   sidebarOpen.value = false;
@@ -1248,10 +1445,18 @@ async function openDocument(pathOrStem, anchor = '') {
     const doc = await res.json();
     currentDoc.value = doc;
 
-    // 双写保存“上次阅读章节”：① 写入 localStorage ② 若已登录写入后端 SQLite 数据库
+    const shouldRestore =
+      !anchor &&
+      restorePos &&
+      (Number(restorePos.scrollY) > 0 || Number(restorePos.scrollRatio) > 0);
+
+    // 双写保存“上次阅读位置”：① 写入 localStorage ② 若已登录写入后端 SQLite 数据库
     const record = {
       docPath: doc.path,
       docTitle: doc.title,
+      scrollY: shouldRestore ? Math.max(0, Math.round(Number(restorePos.scrollY) || 0)) : 0,
+      scrollRatio: shouldRestore ? Math.min(1, Math.max(0, Number(restorePos.scrollRatio) || 0)) : 0,
+      heading: shouldRestore ? String(restorePos.heading || '') : '',
       updatedAt: new Date().toISOString()
     };
     localReading[activeKbId.value] = record;
@@ -1259,22 +1464,25 @@ async function openDocument(pathOrStem, anchor = '') {
     if (treeData.value) {
       treeData.value.lastRead = record;
     }
-    if (currentUser.value) {
-      fetch(apiKbUrl(activeKbId.value, '/reading-state'), {
-        method: 'PUT',
-        headers: authHeaders({ 'Content-Type': 'application/json' }),
-        body: JSON.stringify({ docPath: doc.path, docTitle: doc.title })
-      }).catch(() => {});
+    if (currentUser.value && !shouldRestore) {
+      sendReadingStateToServer(activeKbId.value, record, false);
     }
 
     await nextTick();
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
     if (anchor) {
       scrollToHeadingAnchor(anchor);
+    } else if (shouldRestore) {
+      applyRestoredScroll(restorePos);
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   } finally {
     loadingDoc.value = false;
+    setTimeout(() => {
+      isRestoringScroll = false;
+    }, 150);
   }
 }
 
@@ -1588,11 +1796,21 @@ async function setWrongbookGrade(item, val) {
 onMounted(async () => {
   initTheme();
   loadLocalCache();
+  window.addEventListener('scroll', handleReadingScroll, { passive: true });
+  document.addEventListener('visibilitychange', handleVisibilityOrPageHide);
+  window.addEventListener('pagehide', handlePageHide);
   await checkAuthSession();
   if (currentUser.value) {
     await syncLocalToDbIfNeeded(activeKbId.value);
   }
   await fetchPortal();
+});
+
+onBeforeUnmount(() => {
+  flushReadingPosition(true);
+  window.removeEventListener('scroll', handleReadingScroll);
+  document.removeEventListener('visibilitychange', handleVisibilityOrPageHide);
+  window.removeEventListener('pagehide', handlePageHide);
 });
 </script>
 

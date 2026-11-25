@@ -61,10 +61,25 @@ export function createApp(options = {}) {
       kb_id TEXT NOT NULL,
       last_doc_path TEXT NOT NULL,
       last_doc_title TEXT NOT NULL,
+      scroll_y INTEGER NOT NULL DEFAULT 0,
+      scroll_ratio REAL NOT NULL DEFAULT 0,
+      last_heading TEXT NOT NULL DEFAULT '',
       updated_at TEXT NOT NULL DEFAULT (datetime('now')),
       PRIMARY KEY (user_id, kb_id)
     );
   `);
+
+  // Safe schema migration for existing SQLite databases
+  const readingCols = db.prepare('PRAGMA table_info(user_reading_state)').all().map(c => c.name);
+  if (!readingCols.includes('scroll_y')) {
+    db.exec('ALTER TABLE user_reading_state ADD COLUMN scroll_y INTEGER NOT NULL DEFAULT 0');
+  }
+  if (!readingCols.includes('scroll_ratio')) {
+    db.exec('ALTER TABLE user_reading_state ADD COLUMN scroll_ratio REAL NOT NULL DEFAULT 0');
+  }
+  if (!readingCols.includes('last_heading')) {
+    db.exec("ALTER TABLE user_reading_state ADD COLUMN last_heading TEXT NOT NULL DEFAULT ''");
+  }
 
   const kbService = new KbService(kbRoot);
   const app = express();
@@ -173,12 +188,15 @@ export function createApp(options = {}) {
           .prepare("SELECT COUNT(*) AS cnt FROM user_practice_records WHERE user_id = ? AND kb_id = ? AND grade IN ('bad', 'warn')")
           .get(userId, kb.id).cnt;
         const lr = db
-          .prepare('SELECT last_doc_path, last_doc_title, updated_at FROM user_reading_state WHERE user_id = ? AND kb_id = ?')
+          .prepare('SELECT last_doc_path, last_doc_title, scroll_y, scroll_ratio, last_heading, updated_at FROM user_reading_state WHERE user_id = ? AND kb_id = ?')
           .get(userId, kb.id);
         if (lr) {
           lastRead = {
             docPath: lr.last_doc_path,
             docTitle: lr.last_doc_title,
+            scrollY: lr.scroll_y || 0,
+            scrollRatio: lr.scroll_ratio || 0,
+            heading: lr.last_heading || '',
             updatedAt: lr.updated_at
           };
         }
@@ -232,12 +250,15 @@ export function createApp(options = {}) {
       }
 
       const lr = db
-        .prepare('SELECT last_doc_path, last_doc_title, updated_at FROM user_reading_state WHERE user_id = ? AND kb_id = ?')
+        .prepare('SELECT last_doc_path, last_doc_title, scroll_y, scroll_ratio, last_heading, updated_at FROM user_reading_state WHERE user_id = ? AND kb_id = ?')
         .get(userId, kbId);
       if (lr) {
         lastRead = {
           docPath: lr.last_doc_path,
           docTitle: lr.last_doc_title,
+          scrollY: lr.scroll_y || 0,
+          scrollRatio: lr.scroll_ratio || 0,
+          heading: lr.last_heading || '',
           updatedAt: lr.updated_at
         };
       }
@@ -323,26 +344,46 @@ export function createApp(options = {}) {
     }
   });
 
-  // 4. 保存上次阅读章节记录（已登录时写入 SQLite）
+  // 4. 保存上次阅读章节及精确阅读位置（已登录时写入 SQLite）
   app.put('/api/kbs/:kbId/reading-state', (req, res) => {
     const { kbId } = req.params;
-    const { docPath, docTitle } = req.body ?? {};
+    const { docPath, docTitle, scrollY = 0, scrollRatio = 0, heading = '' } = req.body ?? {};
     if (!docPath || !docTitle) {
       return res.status(400).json({ error: 'docPath and docTitle are required' });
     }
+    const safeScrollY = Math.max(0, Math.round(Number(scrollY) || 0));
+    const safeRatio = Math.min(1, Math.max(0, Number(scrollRatio) || 0));
+    const safeHeading = String(heading || '').slice(0, 120);
     if (!req.user) {
-      return res.json({ savedToDb: false, docPath, docTitle });
+      return res.json({
+        savedToDb: false,
+        docPath,
+        docTitle,
+        scrollY: safeScrollY,
+        scrollRatio: safeRatio,
+        heading: safeHeading
+      });
     }
     db.prepare(`
-      INSERT INTO user_reading_state (user_id, kb_id, last_doc_path, last_doc_title, updated_at)
-      VALUES (?, ?, ?, ?, datetime('now'))
+      INSERT INTO user_reading_state (user_id, kb_id, last_doc_path, last_doc_title, scroll_y, scroll_ratio, last_heading, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))
       ON CONFLICT(user_id, kb_id) DO UPDATE SET
         last_doc_path = excluded.last_doc_path,
         last_doc_title = excluded.last_doc_title,
+        scroll_y = excluded.scroll_y,
+        scroll_ratio = excluded.scroll_ratio,
+        last_heading = excluded.last_heading,
         updated_at = datetime('now')
-    `).run(req.user.id, kbId, docPath, docTitle);
+    `).run(req.user.id, kbId, docPath, docTitle, safeScrollY, safeRatio, safeHeading);
 
-    res.json({ savedToDb: true, docPath, docTitle });
+    res.json({
+      savedToDb: true,
+      docPath,
+      docTitle,
+      scrollY: safeScrollY,
+      scrollRatio: safeRatio,
+      heading: safeHeading
+    });
   });
 
   // 5. 更新章节“已学完”勾选状态（已登录时写入 SQLite）
@@ -446,10 +487,13 @@ export function createApp(options = {}) {
 
     // 1) reading state: only insert if DB has no record yet
     if (lastRead?.docPath && lastRead?.docTitle) {
+      const safeScrollY = Math.max(0, Math.round(Number(lastRead.scrollY) || 0));
+      const safeRatio = Math.min(1, Math.max(0, Number(lastRead.scrollRatio) || 0));
+      const safeHeading = String(lastRead.heading || '').slice(0, 120);
       db.prepare(`
-        INSERT OR IGNORE INTO user_reading_state (user_id, kb_id, last_doc_path, last_doc_title, updated_at)
-        VALUES (?, ?, ?, ?, datetime('now'))
-      `).run(userId, kbId, lastRead.docPath, lastRead.docTitle);
+        INSERT OR IGNORE INTO user_reading_state (user_id, kb_id, last_doc_path, last_doc_title, scroll_y, scroll_ratio, last_heading, updated_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))
+      `).run(userId, kbId, lastRead.docPath, lastRead.docTitle, safeScrollY, safeRatio, safeHeading);
     }
 
     // 2) completed docs: only insert if DB has no record yet
