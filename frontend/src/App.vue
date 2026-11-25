@@ -475,29 +475,29 @@
                   <div class="pill-group">
                     <button
                       class="pill"
-                      :class="{ active: filterMode === 'required' }"
-                      @click="filterMode = 'required'"
-                    >
-                      ⭐ 首轮必做
-                    </button>
-                    <button
-                      class="pill"
                       :class="{ active: filterMode === 'all' }"
-                      @click="filterMode = 'all'"
+                      @click="selectFilterMode('all')"
                     >
                       全部题目
                     </button>
                     <button
                       class="pill"
+                      :class="{ active: filterMode === 'required' }"
+                      @click="selectFilterMode('required')"
+                    >
+                      ⭐ 首轮必做
+                    </button>
+                    <button
+                      class="pill"
                       :class="{ active: filterMode === 'todo' }"
-                      @click="filterMode = 'todo'"
+                      @click="selectFilterMode('todo')"
                     >
                       未自评
                     </button>
                     <button
                       class="pill"
                       :class="{ active: filterMode === 'review' }"
-                      @click="filterMode = 'review'"
+                      @click="selectFilterMode('review')"
                     >
                       错题/不稳 ({{ exStats.reviewCount }})
                     </button>
@@ -518,7 +518,7 @@
                     <button
                       class="pill"
                       :class="{ active: groupTab === 'ALL' }"
-                      @click="groupTab = 'ALL'"
+                      @click="selectGroupTab('ALL')"
                     >
                       全部组 ({{ currentEx.questions.length }})
                     </button>
@@ -527,7 +527,7 @@
                       :key="g.key"
                       class="pill"
                       :class="{ active: groupTab === g.key }"
-                      @click="groupTab = g.key"
+                      @click="selectGroupTab(g.key)"
                     >
                       {{ g.label }} ({{ g.count }})
                     </button>
@@ -800,7 +800,7 @@ const currentDoc = ref(null);
 const loadingEx = ref(false);
 const currentExCode = ref('01');
 const currentEx = ref(null);
-const filterMode = ref('required');
+const filterMode = ref('all');
 const groupTab = ref('ALL');
 const openAnswers = ref(new Set());
 
@@ -1419,6 +1419,28 @@ const exStats = computed(() => {
     cPassed
   };
 });
+
+function selectGroupTab(key) {
+  groupTab.value = key;
+  if (key !== 'ALL' && filterMode.value === 'required' && currentEx.value) {
+    const hasRequired = currentEx.value.questions.some(q => q.group === key && q.required);
+    if (!hasRequired) {
+      filterMode.value = 'all';
+    }
+  }
+}
+
+function selectFilterMode(mode) {
+  filterMode.value = mode;
+  if (mode === 'required' && groupTab.value !== 'ALL' && currentEx.value) {
+    const hasRequired = currentEx.value.questions.some(
+      q => q.group === groupTab.value && q.required
+    );
+    if (!hasRequired) {
+      groupTab.value = 'ALL';
+    }
+  }
+}
 
 const filteredQuestions = computed(() => {
   if (!currentEx.value) return [];
