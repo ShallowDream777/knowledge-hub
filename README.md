@@ -31,7 +31,8 @@ npm test           # 测试
 ## 目录速查
 
 - 知识库源文档（MD 驱动）：`knowledge-base/`
-- 英语知识库设计规范：`knowledge-base/1.英语学习资料·完整线性版/README·设计理念与Agent迭代指南.md`
+- **知识库目录结构与 Markdown 编写格式规范（新建/迭代必读）**：`docs/MARKDOWN-SPEC.md`
+- 英语知识库教学设计理念：`knowledge-base/1.大白话英语-无脑跟学/README·设计理念与Agent迭代指南.md`
 - 领域词汇：`CONTEXT.md`
 - 规格与 ticket：`.scratch/<feature>/`
 - 部署配置：`deploy.config.json`
